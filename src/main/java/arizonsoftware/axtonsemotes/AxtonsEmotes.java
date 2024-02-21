@@ -187,7 +187,7 @@ public class AxtonsEmotes extends JavaPlugin {
                                                                                                                  // executing
                                                                                                                  // players
                             p.playSound(pl, execSound, 0.8F, 1.3F);
-                            p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 2, 0), 1);
+                            p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 1.25, 0), 1);
                         } else {
                             // self-execution is disabled!
                             p.sendMessage("§cYou cannot execute that command on yourself!");
@@ -199,7 +199,7 @@ public class AxtonsEmotes extends JavaPlugin {
                         if ((Boolean) commandItem.getExecutionConfig()[1])
                             p.playSound(pl, execSound, 1F, 1.3F);
                         if ((Boolean) commandItem.getExecutionConfig()[3])
-                            p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 2, 0),
+                            p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 1.25, 0),
                                     5);
 
                         t.sendMessage("§" + cmdTheme + "§l" + p.getName() + "§r §" + cmdTheme
@@ -209,7 +209,7 @@ public class AxtonsEmotes extends JavaPlugin {
                         if ((Boolean) commandItem.getExecutionConfig()[1])
                             t.playSound(tl, execSound, 1F, 1.3F);
                         if ((Boolean) commandItem.getExecutionConfig()[3])
-                            t.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 1, 0),
+                            t.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 1.25, 0),
                                     5);
                     }
                 } else {

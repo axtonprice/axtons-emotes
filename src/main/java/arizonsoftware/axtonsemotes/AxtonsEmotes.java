@@ -31,7 +31,7 @@ public class AxtonsEmotes extends JavaPlugin {
                     new String[] { "kiss", "Kiss another player" }, // command name, description
                     new String[] { "smooch" }, // aliases
                     new Object[] { "kissed", "c", true }, // past tense verb, colour, self-executable?
-                    new Object[] { Particle.VILLAGER_ANGRY, true, Sound.ENTITY_VILLAGER_HURT, true } // particle and sound
+                    new Object[] { Particle.HEART, true, Sound.ENTITY_VILLAGER_CELEBRATE, true } // particle and sound
             ),
             new CommandItem(
                     new String[] { "poke", "Poke another player" }, // command name, description
@@ -188,8 +188,6 @@ public class AxtonsEmotes extends JavaPlugin {
                                                                                                                  // players
                             p.playSound(pl, execSound, 0.8F, 1.3F);
                             p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 1.25, 0), 1);
-                            String discordSRVCommmand = "discordsrv bcast **" + p.getName() + "** " + cmdVerbTense + " **" + t.getName() + "**";
-                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), discordSRVCommmand);
                         } else {
                             // self-execution is disabled!
                             p.sendMessage("§cYou cannot execute that command on yourself!");

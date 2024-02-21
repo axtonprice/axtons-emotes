@@ -23,13 +23,13 @@ public class AxtonsEmotes extends JavaPlugin {
             new CommandItem(
                     new String[] { "hug", "Hug another player" }, // command name, description
                     new String[] { "cuddle" }, // aliases
-                    new Object[] { "hugged", "c", true }, // past tense verb, colour, self-executable?
+                    new Object[] { "hugged", "c", false }, // past tense verb, colour, self-executable?
                     new Object[] { Particle.HEART, Sound.ENTITY_VILLAGER_CELEBRATE } // particle and sound
             ),
             new CommandItem(
                     new String[] { "kiss", "Kiss another player" }, // command name, description
                     new String[] { "smooch" }, // aliases
-                    new Object[] { "kissed", "c", true }, // past tense verb, colour, self-executable?
+                    new Object[] { "kissed", "c", false }, // past tense verb, colour, self-executable?
                     new Object[] { Particle.VILLAGER_ANGRY, Sound.ENTITY_VILLAGER_HURT } // particle and sound
             ),
             new CommandItem(
@@ -41,14 +41,20 @@ public class AxtonsEmotes extends JavaPlugin {
             new CommandItem(
                     new String[] { "highfive", "High-five another player" }, // command name, description
                     new String[] { "hf", "brofist" }, // aliases
-                    new Object[] { "high-fived", "b", true }, // past tense verb, colour, self-executable?
+                    new Object[] { "high-fived", "b", false }, // past tense verb, colour, self-executable?
                     new Object[] { Particle.VILLAGER_HAPPY, Sound.ENTITY_VILLAGER_CELEBRATE } // particle and sound
             ),
             new CommandItem(
                     new String[] { "slap", "Slap another player" }, // command name, description
                     new String[] { "hit" }, // aliases
-                    new Object[] { "slapped", "c", true }, // past tense verb, colour, self-executable?
+                    new Object[] { "slapped", "c", false }, // past tense verb, colour, self-executable?
                     new Object[] { Particle.VILLAGER_ANGRY, Sound.ENTITY_VILLAGER_HURT } // particle and sound
+            ),
+            new CommandItem(
+                    new String[] { "thank", "Thank another player" }, // command name, description
+                    new String[] { "appreciate" }, // aliases
+                    new Object[] { "thanked", "b", true }, // past tense verb, colour, self-executable?
+                    new Object[] { Particle.VILLAGER_HAPPY, Sound.ENTITY_VILLAGER_CELEBRATE } // particle and sound
             ),
             new CommandItem(
                     new String[] { "lick", "Lick another player" }, // command name, description
@@ -60,12 +66,27 @@ public class AxtonsEmotes extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        int registeredCommands = 0;
+
         // Register command executors
         for (CommandItem command : commands) {
-            getCommand(command.getCommandData()[0]).setExecutor(new CustomCommandExecutor(command));
+            String mainCommand = command.getCommandData()[0];
+            getCommand(mainCommand).setExecutor(new CustomCommandExecutor(command));
+            registeredCommands++;
+
+            // Register aliases
+            String[] aliases = command.getAliasData();
+            if (aliases != null && aliases.length > 0) {
+                for (String alias : aliases) {
+                    getCommand(alias).setExecutor(new CustomCommandExecutor(command));
+                    registeredCommands++;
+                }
+            }
         }
-        getLogger().info("Successfully registered commands!");
+
+        getLogger().info("Successfully registered " + registeredCommands + " commands!");
     }
+
 
     private static class CommandItem {
 

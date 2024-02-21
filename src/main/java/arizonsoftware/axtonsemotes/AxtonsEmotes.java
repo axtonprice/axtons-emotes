@@ -65,7 +65,7 @@ public class AxtonsEmotes extends JavaPlugin {
                     new String[] { "lick", "Lick another player" }, // command name, description
                     new String[] {}, // aliases
                     new Object[] { "licked", "e", false }, // past tense verb, colour, self-executable?
-                    new Object[] { Particle.GLOW_SQUID_INK, true, Sound.ENTITY_FROG_TONGUE, true } // particle and sound
+                    new Object[] { Particle.WATER_SPLASH, true, Sound.ENTITY_FROG_TONGUE, true } // particle and sound
             )
     };
 
@@ -180,7 +180,7 @@ public class AxtonsEmotes extends JavaPlugin {
                             p.sendMessage(
                                     "§" + cmdTheme + "You " + cmdVerbTense + " §lyourself§r§" + cmdTheme + "!"); // to
                                                                                                                  // executing
-                            // player
+                                                                                                                 // players
                             p.playSound(pl, execSound, 0.8F, 1.3F);
                             p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0, 1, 0), 1);
                         } else {

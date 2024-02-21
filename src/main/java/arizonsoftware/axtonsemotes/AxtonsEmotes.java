@@ -24,38 +24,38 @@ public class AxtonsEmotes extends JavaPlugin {
             new CommandItem(
                     new String[] { "hug", "Hug another player" }, // command name, description
                     new String[] { "cuddle" }, // aliases
-                    new Object[] { "hugged", "c", false }, // past tense verb, colour, self-executable?
+                    new Object[] { "hugged", "c", true }, // past tense verb, colour, self-executable?
                     new Object[] { Particle.HEART, true, Sound.ENTITY_VILLAGER_CELEBRATE, true } // particle and sound
             ),
             new CommandItem(
                     new String[] { "kiss", "Kiss another player" }, // command name, description
                     new String[] { "smooch" }, // aliases
-                    new Object[] { "kissed", "c", false }, // past tense verb, colour, self-executable?
+                    new Object[] { "kissed", "c", true }, // past tense verb, colour, self-executable?
                     new Object[] { Particle.VILLAGER_ANGRY, true, Sound.ENTITY_VILLAGER_HURT, true } // particle and sound
             ),
             new CommandItem(
                     new String[] { "poke", "Poke another player" }, // command name, description
                     new String[] { "prod" }, // aliases
-                    new Object[] { "poked", "e", false }, // past tense verb, colour, self-executable?
-                    new Object[] { Particle.END_ROD, true, Sound.ENTITY_CHICKEN_EGG, true } // particle and sound
+                    new Object[] { "poked", "e", true }, // past tense verb, colour, self-executable?
+                    new Object[] { Particle.SNOWBALL, true, Sound.ENTITY_CHICKEN_EGG, true } // particle and sound
             ),
             new CommandItem(
                     new String[] { "egg", "Throw an egg at another player" }, // command name, description
                     new String[] { "eggthrow" }, // aliases
                     new Object[] { "egged", "e", false }, // past tense verb, colour, self-executable?
-                    new Object[] { Particle.EGG_CRACK, true, Sound.ENTITY_CHICKEN_EGG, true } // particle and sound
+                    new Object[] { Particle.SNOWBALL, true, Sound.ENTITY_CHICKEN_EGG, true } // particle and sound
             ),
             new CommandItem(
                     new String[] { "highfive", "High-five another player" }, // command name, description
                     new String[] { "hf", "brofist" }, // aliases
-                    new Object[] { "high-fived", "b", false }, // past tense verb, colour, self-executable?
+                    new Object[] { "high-fived", "b", true }, // past tense verb, colour, self-executable?
                     new Object[] { Particle.VILLAGER_HAPPY, true, Sound.ENTITY_VILLAGER_CELEBRATE, true } // particle
                                                                                                           // and sound
             ),
             new CommandItem(
                     new String[] { "slap", "Slap another player" }, // command name, description
                     new String[] { "hit" }, // aliases
-                    new Object[] { "slapped", "c", false }, // past tense verb, colour, self-executable?
+                    new Object[] { "slapped", "c", true }, // past tense verb, colour, self-executable?
                     new Object[] { Particle.VILLAGER_ANGRY, true, Sound.ENTITY_VILLAGER_HURT, true } // particle and
                                                                                                      // sound
             ),
@@ -188,6 +188,8 @@ public class AxtonsEmotes extends JavaPlugin {
                                                                                                                  // players
                             p.playSound(pl, execSound, 0.8F, 1.3F);
                             p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 1.25, 0), 1);
+                            String discordSRVCommmand = "discordsrv bcast **" + p.getName() + "** " + cmdVerbTense + " **" + t.getName() + "**";
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), discordSRVCommmand);
                         } else {
                             // self-execution is disabled!
                             p.sendMessage("§cYou cannot execute that command on yourself!");

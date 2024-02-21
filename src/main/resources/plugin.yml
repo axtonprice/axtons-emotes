@@ -18,3 +18,5 @@ commands:
      aliases: [appreciate]
    lick:
      aliases: []
+   egg:
+       aliases: [eggthrow]

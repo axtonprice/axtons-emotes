@@ -31,14 +31,19 @@ public class AxtonsEmotes extends JavaPlugin {
                     new String[] { "kiss", "Kiss another player" }, // command name, description
                     new String[] { "smooch" }, // aliases
                     new Object[] { "kissed", "c", false }, // past tense verb, colour, self-executable?
-                    new Object[] { Particle.VILLAGER_ANGRY, true, Sound.ENTITY_VILLAGER_HURT, true } // particle and
-                                                                                                     // sound
+                    new Object[] { Particle.VILLAGER_ANGRY, true, Sound.ENTITY_VILLAGER_HURT, true } // particle and sound
             ),
             new CommandItem(
                     new String[] { "poke", "Poke another player" }, // command name, description
                     new String[] { "prod" }, // aliases
                     new Object[] { "poked", "e", false }, // past tense verb, colour, self-executable?
-                    new Object[] { Particle.VILLAGER_ANGRY, true, Sound.ENTITY_CHICKEN_EGG, true } // particle and sound
+                    new Object[] { Particle.END_ROD, true, Sound.ENTITY_CHICKEN_EGG, true } // particle and sound
+            ),
+            new CommandItem(
+                    new String[] { "egg", "Throw an egg at another player" }, // command name, description
+                    new String[] { "eggthrow" }, // aliases
+                    new Object[] { "egged", "e", false }, // past tense verb, colour, self-executable?
+                    new Object[] { Particle.EGG_CRACK, true, Sound.ENTITY_CHICKEN_EGG, true } // particle and sound
             ),
             new CommandItem(
                     new String[] { "highfive", "High-five another player" }, // command name, description
@@ -65,7 +70,7 @@ public class AxtonsEmotes extends JavaPlugin {
                     new String[] { "lick", "Lick another player" }, // command name, description
                     new String[] {}, // aliases
                     new Object[] { "licked", "e", false }, // past tense verb, colour, self-executable?
-                    new Object[] { Particle.WATER_SPLASH, true, Sound.ENTITY_FROG_TONGUE, true } // particle and sound
+                    new Object[] { Particle.FALLING_WATER, true, Sound.ENTITY_AXOLOTL_SPLASH, true } // particle and sound
             )
     };
 
@@ -182,7 +187,7 @@ public class AxtonsEmotes extends JavaPlugin {
                                                                                                                  // executing
                                                                                                                  // players
                             p.playSound(pl, execSound, 0.8F, 1.3F);
-                            p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0, 1, 0), 1);
+                            p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 2, 0), 1);
                         } else {
                             // self-execution is disabled!
                             p.sendMessage("§cYou cannot execute that command on yourself!");
@@ -194,8 +199,8 @@ public class AxtonsEmotes extends JavaPlugin {
                         if ((Boolean) commandItem.getExecutionConfig()[1])
                             p.playSound(pl, execSound, 1F, 1.3F);
                         if ((Boolean) commandItem.getExecutionConfig()[3])
-                            p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0, 1, 0),
-                                    1);
+                            p.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 2, 0),
+                                    5);
 
                         t.sendMessage("§" + cmdTheme + "§l" + p.getName() + "§r §" + cmdTheme
                                 + cmdVerbTense + " you!"); // send to target player
@@ -204,8 +209,8 @@ public class AxtonsEmotes extends JavaPlugin {
                         if ((Boolean) commandItem.getExecutionConfig()[1])
                             t.playSound(tl, execSound, 1F, 1.3F);
                         if ((Boolean) commandItem.getExecutionConfig()[3])
-                            t.getLocation().getWorld().spawnParticle(execParticle, tl.add(0, 1, 0),
-                                    1);
+                            t.getLocation().getWorld().spawnParticle(execParticle, tl.add(0.5, 1, 0),
+                                    5);
                     }
                 } else {
                     p.sendMessage("§cYou don't have permission to use this command.");

@@ -71,6 +71,12 @@ public class AxtonsEmotes extends JavaPlugin {
                     new String[] {}, // aliases
                     new Object[] { "licked", "e", false }, // past tense verb, colour, self-executable?
                     new Object[] { Particle.FALLING_WATER, true, Sound.ENTITY_AXOLOTL_SPLASH, true } // particle and sound
+            ),
+            new CommandItem(
+                    new String[] { "applaud", "Applaud another player" }, // command name, description
+                    new String[] { "clap" }, // aliases
+                    new Object[] { "applauded", "e", false }, // past tense verb, colour, self-executable?
+                    new Object[] { Particle.FIREWORKS_SPARK, true, Sound.ENTITY_FIREWORK_ROCKET_BLAST_FAR, true } // particle and sound
             )
     };
 

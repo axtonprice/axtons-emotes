@@ -10,8 +10,9 @@
 - `/highfive <playername>` - High-five another player
 - `/slap <playername>` - Slap another player
 - `/thank <playername>` - Thank another player
-- `/lick <playername>` - Lick another player
+- `/lick <playername>` - Lick another player (??)
 - `/egg <playername>` - Throw an egg at a player
+- `/applaud <playername>` - Applaud another player
 
 ### Configuration
 There are no configuration values available at the time of this release.

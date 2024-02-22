@@ -20,3 +20,5 @@ commands:
      aliases: []
    egg:
        aliases: [eggthrow]
+   applaud:
+     aliases: [clap]

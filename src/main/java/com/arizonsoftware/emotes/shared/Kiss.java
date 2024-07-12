@@ -1,4 +1,4 @@
-package com.arizonsoftware.commands;
+package com.arizonsoftware.emotes.shared;
 
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static org.bukkit.Bukkit.getServer;
 
-public class Thank implements CommandExecutor {
+public class Kiss implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -26,7 +26,6 @@ public class Thank implements CommandExecutor {
             return true;
         }
 
-
         // Check if sender targeted themselves
         if (args[0].equals(sender.getName())) {
             sender.sendMessage("§cYou can't execute this command on yourself!");
@@ -41,8 +40,8 @@ public class Thank implements CommandExecutor {
         final Player target = getServer().getPlayer(args[0]);
 
         // Set command details
-        String colour = "d";
-        String pastTense = "thanked";
+        String colour = "c";
+        String pastTense = "kissed";
 
         // Notify sender
         assert target != null;
@@ -52,12 +51,12 @@ public class Thank implements CommandExecutor {
         target.sendMessage("§" + colour + "§l" + player.getName() + "§r §" + colour + pastTense + " you!");
 
         // Emit particles on both players
-        player.getWorld().spawnParticle(Particle.EGG_CRACK, player.getLocation(), 3, 0.5, 0.5, 0.5, 0);
-        target.getWorld().spawnParticle(Particle.EGG_CRACK, target.getLocation(), 3, 0.5, 0.5, 0.5, 0);
+        player.getWorld().spawnParticle(Particle.HEART, player.getLocation(), 3, 0.5, 0.5, 0.5, 0);
+        target.getWorld().spawnParticle(Particle.HEART, target.getLocation(), 3, 0.5, 0.5, 0.5, 0);
 
         // Play sound to both players
-        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1, 1);
-        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_VILLAGER_YES, 1, 1);
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_DOLPHIN_PLAY, 1, 1);
+        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_DOLPHIN_PLAY, 1, 1);
 
         // Output command output
         return true;

@@ -20,3 +20,6 @@ commands:
     aliases: [ty]
   slap:
     description: Slap another player.
+
+  cry:
+    description: Express your sadness to the server.

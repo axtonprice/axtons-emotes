@@ -1,5 +1,6 @@
-package com.arizonsoftware.commands;
+package com.arizonsoftware.emotes.shared;
 
+import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -10,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static org.bukkit.Bukkit.getServer;
 
-public class Poke implements CommandExecutor {
+public class Slap implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -40,8 +41,8 @@ public class Poke implements CommandExecutor {
         final Player target = getServer().getPlayer(args[0]);
 
         // Set command details
-        String colour = "e";
-        String pastTense = "poked";
+        String colour = "c";
+        String pastTense = "slapped";
 
         // Notify sender
         assert target != null;
@@ -50,13 +51,13 @@ public class Poke implements CommandExecutor {
         // Notify argument player
         target.sendMessage("§" + colour + "§l" + player.getName() + "§r §" + colour + pastTense + " you!");
 
-        // Emit particles on both players
-        player.getWorld().spawnParticle(Particle.CRIT, player.getLocation(), 3, 0.5, 0.5, 0.5, 0);
-        target.getWorld().spawnParticle(Particle.CRIT, target.getLocation(), 3, 0.5, 0.5, 0.5, 0);
+        // Emit particles on both players with force
+        player.getWorld().spawnParticle(Particle.ANGRY_VILLAGER, player.getLocation(), 3, 0.5, 0.5, 0.5, 0);
+        target.getWorld().spawnParticle(Particle.ANGRY_VILLAGER, target.getLocation(), 3, 0.5, 0.5, 0.5, 0);
 
         // Play sound to both players
-        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
-        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_SALMON_HURT, 1, 1);
+        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_SALMON_HURT, 1, 1);
 
         // Output command output
         return true;

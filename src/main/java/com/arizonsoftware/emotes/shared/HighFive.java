@@ -1,4 +1,4 @@
-package com.arizonsoftware.commands;
+package com.arizonsoftware.emotes.shared;
 
 import org.bukkit.Particle;
 import org.bukkit.Sound;

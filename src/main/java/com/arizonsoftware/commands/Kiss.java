@@ -55,8 +55,8 @@ public class Kiss implements CommandExecutor {
         target.getWorld().spawnParticle(Particle.HEART, target.getLocation(), 3, 0.5, 0.5, 0.5, 0);
 
         // Play sound to both players
-        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_CAT_BEG_FOR_FOOD, 1, 1);
-        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_CAT_BEG_FOR_FOOD, 1, 1);
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_DOLPHIN_PLAY, 1, 1);
+        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_DOLPHIN_PLAY, 1, 1);
 
         // Output command output
         return true;

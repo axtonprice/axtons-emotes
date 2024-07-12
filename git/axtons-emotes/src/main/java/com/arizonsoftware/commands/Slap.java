@@ -1,5 +1,6 @@
 package com.arizonsoftware.commands;
 
+import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -10,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static org.bukkit.Bukkit.getServer;
 
-public class Hug implements CommandExecutor {
+public class Slap implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -25,12 +26,6 @@ public class Hug implements CommandExecutor {
             sender.sendMessage("§cPlayer not found!");
             return true;
         }
-
-//         Check if player has permission node for command
-//        if (!sender.hasPermission("arizonsoftware.kiss")) {
-//            sender.sendMessage("§cYou don't have permission to execute this command!");
-//            return true;
-//        }
 
         // Check if sender targeted themselves
         if (args[0].equals(sender.getName())) {
@@ -47,7 +42,7 @@ public class Hug implements CommandExecutor {
 
         // Set command details
         String colour = "c";
-        String pastTense = "hugged";
+        String pastTense = "slapped";
 
         // Notify sender
         assert target != null;
@@ -56,13 +51,13 @@ public class Hug implements CommandExecutor {
         // Notify argument player
         target.sendMessage("§" + colour + "§l" + player.getName() + "§r §" + colour + pastTense + " you!");
 
-        // Emit particles on both players
-        player.getWorld().spawnParticle(Particle.HEART, player.getLocation(), 3, 0.5, 0.5, 0.5, 0);
-        target.getWorld().spawnParticle(Particle.HEART, target.getLocation(), 3, 0.5, 0.5, 0.5, 0);
+        // Emit particles on both players with force
+        player.getWorld().spawnParticle(Particle.ANGRY_VILLAGER, player.getLocation(), 3, 0.5, 0.5, 0.5, 0);
+        target.getWorld().spawnParticle(Particle.ANGRY_VILLAGER, target.getLocation(), 3, 0.5, 0.5, 0.5, 0);
 
         // Play sound to both players
-        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_CAT_PURREOW, 1, 1);
-        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_CAT_PURREOW, 1, 1);
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_SALMON_HURT, 1, 1);
+        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_SALMON_HURT, 1, 1);
 
         // Output command output
         return true;

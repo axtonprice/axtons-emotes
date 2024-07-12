@@ -26,12 +26,6 @@ public class Hug implements CommandExecutor {
             return true;
         }
 
-//         Check if player has permission node for command
-//        if (!sender.hasPermission("arizonsoftware.kiss")) {
-//            sender.sendMessage("§cYou don't have permission to execute this command!");
-//            return true;
-//        }
-
         // Check if sender targeted themselves
         if (args[0].equals(sender.getName())) {
             sender.sendMessage("§cYou can't execute this command on yourself!");

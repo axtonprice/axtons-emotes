@@ -7,16 +7,22 @@ commands:
   hug:
     description: Hug another player.
     aliases: [cuddle]
+    permission: axtonsemotes.hug
   kiss:
     description: Kiss another player.
     aliases: [smooch]
+    permission: axtonsemotes.kiss
   poke:
     description: Poke another player.
+    permission: axtonsemotes.poke
   highfive:
     description: High-five another player.
     aliases: [hf]
+    permission: axtonsemotes.highfive
   thank:
     description: Thank another player.
     aliases: [ty]
+    permission: axtonsemotes.thank
   slap:
     description: Slap another player.
+    permission: axtonsemotes.slap

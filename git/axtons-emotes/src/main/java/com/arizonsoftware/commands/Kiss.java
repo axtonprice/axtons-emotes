@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static org.bukkit.Bukkit.getServer;
 
-public class Hug implements CommandExecutor {
+public class Kiss implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -25,12 +25,6 @@ public class Hug implements CommandExecutor {
             sender.sendMessage("§cPlayer not found!");
             return true;
         }
-
-//         Check if player has permission node for command
-//        if (!sender.hasPermission("arizonsoftware.kiss")) {
-//            sender.sendMessage("§cYou don't have permission to execute this command!");
-//            return true;
-//        }
 
         // Check if sender targeted themselves
         if (args[0].equals(sender.getName())) {
@@ -47,7 +41,7 @@ public class Hug implements CommandExecutor {
 
         // Set command details
         String colour = "c";
-        String pastTense = "hugged";
+        String pastTense = "kissed";
 
         // Notify sender
         assert target != null;
@@ -61,8 +55,8 @@ public class Hug implements CommandExecutor {
         target.getWorld().spawnParticle(Particle.HEART, target.getLocation(), 3, 0.5, 0.5, 0.5, 0);
 
         // Play sound to both players
-        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_CAT_PURREOW, 1, 1);
-        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_CAT_PURREOW, 1, 1);
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_CAT_BEG_FOR_FOOD, 1, 1);
+        target.getWorld().playSound(target.getLocation(), Sound.ENTITY_CAT_BEG_FOR_FOOD, 1, 1);
 
         // Output command output
         return true;

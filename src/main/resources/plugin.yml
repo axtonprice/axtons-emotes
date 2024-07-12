@@ -1,24 +1,28 @@
 name: AxtonsEmotes
-version: '${project.version}'
-main: arizonsoftware.axtonsemotes.AxtonsEmotes
-api-version: '1.20'
+version: '${version}'
+main: com.arizonsoftware.AxtonsEmotes
+api-version: '1.21'
 
 commands:
-   hug:
-     aliases: [cuddle]
-   kiss:
-     aliases: [smooch]
-   poke:
-     aliases: [prod]
-   highfive:
-     aliases: [brofist, hf]
-   slap:
-     aliases: [hit]
-   thank:
-     aliases: [appreciate]
-   lick:
-     aliases: []
-   egg:
-       aliases: [eggthrow]
-   applaud:
-     aliases: [clap]
+  hug:
+    description: Hug another player.
+    aliases: [cuddle]
+    permission: axtonsemotes.hug
+  kiss:
+    description: Kiss another player.
+    aliases: [smooch]
+    permission: axtonsemotes.kiss
+  poke:
+    description: Poke another player.
+    permission: axtonsemotes.poke
+  highfive:
+    description: High-five another player.
+    aliases: [hf]
+    permission: axtonsemotes.highfive
+  thank:
+    description: Thank another player.
+    aliases: [ty]
+    permission: axtonsemotes.thank
+  slap:
+    description: Slap another player.
+    permission: axtonsemotes.slap

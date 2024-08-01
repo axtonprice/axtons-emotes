@@ -1,6 +1,5 @@
 package com.arizonsoftware.commands.shared;
 
-import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;

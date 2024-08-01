@@ -1,1 +1,2 @@
+# Enables or disables the ability for players to execute emote commands on themselves.
 allowSelfExecutions: true

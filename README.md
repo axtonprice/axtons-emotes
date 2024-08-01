@@ -16,7 +16,10 @@
 - `/thank <player>` - Thank another player
 
 ### Configuration
-There are no configuration values available at the time of this release.
+```yml
+# Enables or disables the ability for players to execute emote commands on themselves.
+allowSelfExecutions: true 
+```
 
 ### Disclaimer
 This project was created for educational purposes.

@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'ArizonSoftware'
-version = '1.0'
+version = '1.2 '
 
 repositories {
     mavenCentral()
@@ -55,4 +55,8 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
+}
+
+jar {
+    destinationDirectory.set(file("..//_1.21 server/plugins"))
 }

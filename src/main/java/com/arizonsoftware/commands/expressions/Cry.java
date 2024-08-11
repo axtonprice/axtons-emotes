@@ -2,7 +2,6 @@ package com.arizonsoftware.commands.expressions;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Particle;
-import org.bukkit.Server;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

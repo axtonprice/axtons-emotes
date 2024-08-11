@@ -21,13 +21,13 @@ public class ListExpressions implements CommandExecutor {
             return true;
 
         // Execute command
-        exe(sender, args);
+        execute(sender, args);
 
         // Output command output
         return true;
     }
 
-    public void exe(CommandSender sender, @NotNull String[] args) {
+    public void execute(CommandSender sender, @NotNull String[] args) {
         sender.sendMessage(Strings.ParseColors("&7Coming soon!"));
     }
 

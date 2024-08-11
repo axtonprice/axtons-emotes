@@ -20,12 +20,12 @@ public class AxtonsEmotes implements TabExecutor {
         if (args.length > 0) {
             if (args[0].equalsIgnoreCase("emotes")) {
                 ListEmotes ListEmotes = new ListEmotes();
-                ListEmotes.exe(sender, args);
+                ListEmotes.execute(sender, args);
                 return true;
             }
             if (args[0].equalsIgnoreCase("expressions")) {
                 ListExpressions ListExpressions = new ListExpressions();
-                ListExpressions.exe(sender, args);
+                ListExpressions.execute(sender, args);
                 return true;
             }
             if (args[0].equalsIgnoreCase("reload")) {

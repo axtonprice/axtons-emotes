@@ -1,6 +1,8 @@
 name: AxtonsEmotes
 version: '${version}'
 main: com.arizonsoftware.Main
+author: axtonprice
+description: A simple social emotes & expression chat plugin for Minecraft servers.
 api-version: '1.21'
 
 commands:

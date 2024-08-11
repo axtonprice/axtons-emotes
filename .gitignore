@@ -14,7 +14,8 @@ gradle-app.setting
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
 
-
+# vscode
+.vscode
 
 # From https://github.com/github/gitignore/blob/master/Java.gitignore
 *.class
@@ -104,3 +105,4 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+

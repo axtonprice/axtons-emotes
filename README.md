@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="600" src=".git_media/title.png">
+    <img width="600" src=".github/media/title.png">
 </p>
 <p align="center">
     <a href="https://discord.gg/dP3MuBATGc"><img src="https://img.shields.io/discord/308323056592486420?logo=discord&logoColor=white%22%20alt=%22Chat%20on%20Discord%22"></a>
@@ -12,12 +12,12 @@
 > A lightweight social emotes plugin for Bukkit/Spigot/Paper 1.21
 
 <p align="center">
-<img width="300" src=".git_media/image1.png">
-<img width="300" src=".git_media/image2.png">
+<img width="300" src=".github/media/image1.png">
+<img width="300" src=".github/media/image2.png">
 </p>
 
 <br>
-<img width="350" src=".git_media/installation.png">
+<img width="350" src=".github/media/installation.png">
 <hr>
 
 1. **Download**: Grab the latest `.jar` file from the [releases tab](https://github.com/axtonprice/axtons-emotes/releases).
@@ -27,7 +27,7 @@
 > A minimum of Java 21 is required on the server to run this plugin.
 
 <br>
-<img width="230" src=".git_media/features.png">
+<img width="230" src=".github/media/features.png">
 <hr>
 
 ### Emotes
@@ -70,7 +70,7 @@ Miscellaneous commands & extra features:
 
 
 <br>
-<img width="350" src=".git_media/configuration.png">
+<img width="350" src=".github/media/configuration.png">
 <hr>
 
 To customize the plugin, edit the `config.yml` file:
@@ -125,7 +125,7 @@ commands:
 After updating the configuration, reload it with `/ae reload`.
 
 <br>
-<img width="200" src=".git_media/credits.png">
+<img width="200" src=".github/media/credits.png">
 <hr>
 
 ### Main Author
@@ -134,7 +134,7 @@ axtonprice ✨ <br>
 [Github](https://github.com/axtonprice/axtons-emotes) | [Discord](https://discord.gg/dP3MuBATGc) | Donate *(Coming Soon)*
 
 <br>
-<img width="200" src=".git_media/license.png">
+<img width="200" src=".github/media/license.png">
 <hr>
 
 This project is MIT licensed. View the license [here](https://github.com/axtonprice/axtons-emotes/LICENSE).

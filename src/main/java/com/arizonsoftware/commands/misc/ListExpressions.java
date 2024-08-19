@@ -15,9 +15,11 @@ public class ListExpressions implements CommandExecutor {
             @NotNull String[] args) {
 
         // Execution validation
+        if (!Validation.checkIsEnabled(command, sender))
+            return true;
         if (!Validation.checkIsPlayer(sender))
             return true;
-        if (!Validation.checkHasPermission(sender, getClass()))
+        if (!Validation.checkHasPermission(sender, command))
             return true;
 
         // Execute command
@@ -28,7 +30,7 @@ public class ListExpressions implements CommandExecutor {
     }
 
     public void execute(CommandSender sender, @NotNull String[] args) {
-        sender.sendMessage(Strings.ParseColors("&7Coming soon!"));
+        sender.sendMessage(Strings.parse("&7Coming soon!"));
     }
 
 }

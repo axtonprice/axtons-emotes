@@ -2,6 +2,7 @@ name: AxtonsEmotes
 version: '${version}'
 main: com.arizonsoftware.Main
 author: axtonprice
+website: https://github.com/axtonprice/axtons-emotes
 description: A simple social emotes & expression chat plugin for Minecraft servers.
 api-version: '1.21'
 
@@ -10,12 +11,15 @@ commands:
   # Misc commands
   axtonsemotes:
     description: Main plugin command
-    aliases: []
+    aliases: [ae]
   emotes:
     description: Displays available emote commands
     aliases: []
   expressions:
     description: Displays available expression commands
+    aliases: []
+  bog:
+    description: Jumpscares the player with bogged entities
     aliases: []
 
   # Emotes
@@ -35,29 +39,29 @@ commands:
     aliases: [ty]
   slap:
     description: Slap another player.
-  dap:
+  dapup:
       description: Dap-up another player.
-      aliases: [dapup]
+      aliases: [dap]
   stomp:
-    description: Stomp another player's foot.
-    aliases: [shinkick]
+    description: Stomp on another player's foot.
+    aliases: []
   stab:
     description: Stab another player
     aliases: [ shank ]
   stare:
     description: Stare at another player
-    aliases: [  ]
 
   # Expressions
+  wave:
+    description: Say hello to everyone! (Public)
   cry:
-    description: Cry in sadness.
-  sulk:
-    description: Sulk in your sadness.
+    aliases: [ sulk ]
+    description: Express your sadness. (Public)
   applaud:
-    description: Publicly applaud another player.
-    aliases: [ clap, cheer ]
+    description: Applaud another player. (Public)
+    aliases: [ clap ]
 
-
+# Command permissions
 permissions:
   axtonsemotes.reload:
     default: op

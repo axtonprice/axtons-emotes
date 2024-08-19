@@ -5,13 +5,9 @@ import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import com.arizonsoftware.utils.Strings;
-import com.arizonsoftware.utils.Validation;
-
-import static org.bukkit.Bukkit.getServer;
+import com.arizonsoftware.commands.handlers.SharedEmotes;
 
 public class DapUp implements CommandExecutor {
 
@@ -19,55 +15,34 @@ public class DapUp implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label,
             @NotNull String[] args) {
 
-        // Execution validation
-        if (!Validation.checkIsPlayer(sender))
-            return true;
-        if (!Validation.checkHasPermission(sender, getClass()))
-            return true;
-        if (!Validation.checkArguments(sender, args))
-            return true;
-        if (!Validation.checkSelfExecution(sender, args))
-            return true;
-        if (!Validation.checkIsOnline(sender, args))
-            return true;
+        // Create new shared command
+        SharedEmotes emote = SharedEmotes.create(command);
 
-        // Get player and target
-        final Player target = getServer().getPlayer(args[0]);
-        final Player player = (Player) sender;
-        assert target != null;
-
-        // Get random whole number from 0 to 9
+        // Generate random outcome
         int random = (int) (Math.random() * 4);
 
-        // Determine if the dap up was a good clap
+        // Define result based on random outcome
         String result;
         Sound sound;
         if (random == 1) {
             result = "&a&lGood clap!";
-            sound = Sound.ITEM_MACE_SMASH_GROUND_HEAVY;
+            sound = Sound.ITEM_SHIELD_BLOCK;
         } else if (random == 2) {
             result = "&e&lNear miss!";
-            sound = Sound.ITEM_MACE_SMASH_AIR;
+            sound = Sound.ITEM_TRIDENT_HIT;
         } else {
             result = "&c&lMiss!";
             sound = Sound.ENTITY_EVOKER_AMBIENT;
         }
 
-        // Notify sender
-        player.sendMessage(Strings.ParseColors("&bYou try to dap up &l" + target.getName() + "&r&b! " + result));
+        // Set command details with dynamic messages
+        emote.setResponses("&bYou try to dap up &l%target%&r&b! " + result,
+                "&b&l%player%&r &bdapped you up! " + result);
+        emote.setFX(Particle.CRIT, sound);
 
-        // Notify argument player
-        target.sendMessage(Strings.ParseColors("&b&l" + player.getName() + "&r &bdapped you up! " + result));
+        // Execute command
+        emote.execute(args, command, sender);
 
-        // Emit particles on both players
-        player.getWorld().spawnParticle(Particle.CRIT, player.getLocation(), 3, 0.5, 0.5, 0.5, 0);
-        target.getWorld().spawnParticle(Particle.CRIT, target.getLocation(), 3, 0.5, 0.5, 0.5, 0);
-
-        // Play sound to both players
-        player.getWorld().playSound(player.getLocation(), sound, 1, 1);
-        target.getWorld().playSound(target.getLocation(), sound, 1, 1);
-
-        // Output command output
         return true;
     }
 

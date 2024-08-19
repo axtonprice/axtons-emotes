@@ -1,2 +1,49 @@
+#
+# Axtons Emotes | Configuration
+# Please see https://github.com/axtonprice/axtons-emotes
+#
+
 # Enables or disables the ability for players to execute emote commands on themselves.
 allowSelfExecutions: true
+
+# Enable/disable specific commands
+commands:
+  # Expressions
+  applaud:
+    enabled: true
+  cry:
+    enabled: true
+  sulk:
+    enabled: true
+  wave:
+    enabled: true
+
+  # Shared emotes
+  dapup:
+    enabled: true
+  highfive:
+    enabled: true
+  hug:
+    enabled: true
+  kiss:
+    enabled: true
+  poke:
+    enabled: true
+  slap:
+    enabled: true
+  stab:
+    enabled: true
+  stare:
+    enabled: true
+  stomp:
+    enabled: true
+  thank:
+    enabled: true
+
+  # Misc Commands
+  emotes:
+    enabled: true
+  expressions:
+    enabled: true
+  bog:
+    enabled: true

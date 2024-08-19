@@ -22,19 +22,20 @@ public class AxtonsEmotes implements TabExecutor {
                 ListEmotes ListEmotes = new ListEmotes();
                 ListEmotes.execute(sender, args);
                 return true;
-            }
-            if (args[0].equalsIgnoreCase("expressions")) {
+            } else if (args[0].equalsIgnoreCase("expressions")) {
                 ListExpressions ListExpressions = new ListExpressions();
                 ListExpressions.execute(sender, args);
                 return true;
-            }
-            if (args[0].equalsIgnoreCase("reload")) {
+            } else if (args[0].equalsIgnoreCase("reload")) {
                 new ReloadPlugin(sender);
                 return true;
+            } else {
+                sender.sendMessage(Strings.parse(
+                        "§4Error: §cInvalid sub-command!"));
             }
         } else {
-            sender.sendMessage(Strings.ParseColors(
-                    "§4Error: §cSpecify a valid emote or expression! Use /emotes or /expressions to list available commands."));
+            sender.sendMessage(Strings.parse(
+                    "§4Error: §cSpecify a valid sub-command"));
         }
         return false;
     }

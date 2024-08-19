@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="550" src=".git_media/title.png">
+    <img width="600" src=".git_media/title.png">
 </p>
 <p align="center">
     <a href="https://discord.gg/dP3MuBATGc"><img src="https://img.shields.io/discord/308323056592486420?logo=discord&logoColor=white%22%20alt=%22Chat%20on%20Discord%22"></a>
@@ -8,11 +8,13 @@
     <a href="https://modrinth.com/plugin/axtonsemotes"><img src="https://img.shields.io/badge/Available_On_Modrinth-green"></a>
 </p>
 
-# Axton's Emotes v1.3.0
+# Axton's Emotes
 > A lightweight social emotes plugin for Bukkit/Spigot/Paper 1.21
 
+<p align="center">
 <img width="300" src=".git_media/image1.png">
 <img width="300" src=".git_media/image2.png">
+</p>
 
 <br>
 <img width="350" src=".git_media/installation.png">
@@ -61,7 +63,7 @@ Miscellaneous commands & extra features:
 
 | Command           | Description                      | Permission Node            |
 |-------------------|----------------------------------|----------------------------|
-| `/bog`<br>`         | Jumpscare yourself!       | `axtonsemotes.bog`        |
+| `/bog`         | Jumpscare yourself!       | `axtonsemotes.bog`        |
 | `/emotes`<br>`/ae emotes`         | List all available emotes.       | `axtonsemotes.emotes`        |
 | `/expressions`<br>`/ae expressions`    | List all available expressions.  | `axtonsemotes.expressions`        |
 | `/ae reload`      | Reload the plugin configuration. | `axtonsemotes.reload`<br>Default: op        |

@@ -2,18 +2,29 @@
     <img width="600" src=".github/media/title.png">
 </p>
 <p align="center">
-    <a href="https://discord.gg/dP3MuBATGc"><img src="https://img.shields.io/discord/308323056592486420?logo=discord&logoColor=white%22%20alt=%22Chat%20on%20Discord%22"></a>
-    <a href="https://github.com/axtonprice/axtons-emotes/releases"><img src="https://img.shields.io/github/release/axtonprice/axtons-emotes?include_prereleases=&sort=semver&color=blue"></a>
-    <a href="https://github.com/axtonprice/axtons-emotes/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue"></a>
-    <a href="https://modrinth.com/plugin/axtonsemotes"><img src="https://img.shields.io/badge/Available_On_Modrinth-green"></a>
+    <a href="https://discord.gg/dP3MuBATGc">
+      <img src="https://img.shields.io/discord/308323056592486420?logo=discord&logoColor=white%22%20alt=%22Chat%20on%20Discord%22">
+    </a>
+    <a href="https://github.com/axtonprice/axtons-emotes/releases">
+      <img src="https://img.shields.io/github/release/axtonprice/axtons-emotes?include_prereleases=&sort=semver&color=blue">
+    </a>
+    <a href="https://github.com/axtonprice/axtons-emotes/LICENSE">
+      <img src="https://img.shields.io/badge/License-MIT-blue">
+    </a>
+    <a href="https://modrinth.com/plugin/axtonsemotes">
+      <img src="https://img.shields.io/badge/Available_On_Modrinth-green">
+    </a>
+    <a href="https://app.codacy.com/gh/axtonprice/axtons-emotes/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade">
+      <img src="https://app.codacy.com/project/badge/Grade/09d0abf7deae4a0ea1c5b871eab45464">
+    </a>
 </p>
 
 # Axton's Emotes
 > A lightweight social emotes plugin for Bukkit/Spigot/Paper 1.21
 
 <p align="center">
-<img width="300" src=".github/media/image1.png">
-<img width="300" src=".github/media/image2.png">
+  <img width="300" src=".github/media/image1.png">
+  <img width="300" src=".github/media/image2.png">
 </p>
 
 <br>

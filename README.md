@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="600" src=".github/media/title.png">
+    <img width="600" src="https://github.com/axtonprice/axtons-emotes/raw/main/.github/media/title.png">
 </p>
 <p align="center">
     <a href="https://discord.gg/dP3MuBATGc">
@@ -8,7 +8,7 @@
     <a href="https://github.com/axtonprice/axtons-emotes/releases">
       <img src="https://img.shields.io/github/release/axtonprice/axtons-emotes?include_prereleases=&sort=semver&color=blue">
     </a>
-    <a href="https://github.com/axtonprice/axtons-emotes/LICENSE">
+    <a href="https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/License-MIT-blue">
     </a>
     <a href="https://modrinth.com/plugin/axtonsemotes">
@@ -23,12 +23,12 @@
 > A lightweight social emotes plugin for Bukkit/Spigot/Paper 1.21
 
 <p align="center">
-  <img width="300" src=".github/media/image1.png">
-  <img width="300" src=".github/media/image2.png">
+  <img width="300" src="https://github.com/axtonprice/axtons-emotes/raw/main/.github/media/image1.png">
+  <img width="300" src="https://github.com/axtonprice/axtons-emotes/raw/main/.github/media/image2.png">
 </p>
 
 <br>
-<img width="350" src=".github/media/installation.png">
+<img width="350" src="https://github.com/axtonprice/axtons-emotes/raw/main/.github/media/installation.png">
 <hr>
 
 1. **Download**: Grab the latest `.jar` file from the [releases tab](https://github.com/axtonprice/axtons-emotes/releases).
@@ -38,7 +38,7 @@
 > A minimum of Java 21 is required on the server to run this plugin.
 
 <br>
-<img width="230" src=".github/media/features.png">
+<img width="230" src="https://github.com/axtonprice/axtons-emotes/raw/main/.github/media/features.png">
 <hr>
 
 ### Emotes
@@ -81,7 +81,7 @@ Miscellaneous commands & extra features:
 
 
 <br>
-<img width="350" src=".github/media/configuration.png">
+<img width="350" src="https://github.com/axtonprice/axtons-emotes/raw/main/.github/media/configuration.png">
 <hr>
 
 To customize the plugin, edit the `config.yml` file:
@@ -136,18 +136,18 @@ commands:
 After updating the configuration, reload it with `/ae reload`.
 
 <br>
-<img width="200" src=".github/media/credits.png">
+<img width="200" src="https://github.com/axtonprice/axtons-emotes/raw/main/.github/media/credits.png">
 <hr>
 
 ### Main Author
 
 axtonprice ✨ <br>
-[Github](https://github.com/axtonprice/axtons-emotes) | [Discord](https://discord.gg/dP3MuBATGc) | Donate *(Coming Soon)*
+[Github](https://github.com/axtonprice/axtons-emotes) | [Discord](https://discord.gg/dP3MuBATGc) | ❤ [Sponsor Me](https://github.com/sponsors/axtonprice)
 
 <br>
-<img width="200" src=".github/media/license.png">
+<img width="200" src="https://github.com/axtonprice/axtons-emotes/raw/main/.github/media/license.png">
 <hr>
 
-This project is MIT licensed. View the license [here](https://github.com/axtonprice/axtons-emotes/LICENSE).
+This project is MIT licensed. View the license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE).
 
 MIT © axtonprice

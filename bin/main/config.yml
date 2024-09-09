@@ -1,49 +1,34 @@
-#
-# Axtons Emotes | Configuration
-# Please see https://github.com/axtonprice/axtons-emotes
-#
+# >>
+# > Axtons Emotes | Configuration
+# > Please see https://github.com/axtonprice/axtons-emotes/wiki/Configuration
+# >>
 
-# Enables or disables the ability for players to execute emote commands on themselves.
+# >>> Global Configurations
+# > Modify global configuration values and features.
+
+# Toggles the ability for players to execute commands on themselves.
 allowSelfExecutions: true
 
-# Enable/disable specific commands
-commands:
-  # Expressions
-  applaud:
-    enabled: true
-  cry:
-    enabled: true
-  sulk:
-    enabled: true
-  wave:
-    enabled: true
 
-  # Shared emotes
-  dapup:
-    enabled: true
-  highfive:
-    enabled: true
-  hug:
-    enabled: true
-  kiss:
-    enabled: true
-  poke:
-    enabled: true
-  slap:
-    enabled: true
-  stab:
-    enabled: true
-  stare:
-    enabled: true
-  stomp:
-    enabled: true
-  thank:
-    enabled: true
+# >>> Plugin Commands
+# > Optional plugin command features.
 
-  # Misc Commands
+# Toggle optional commands modules.
+optionalcmds:
   emotes:
     enabled: true
   expressions:
     enabled: true
-  bog:
-    enabled: true
+
+
+# >>> Plugin Versioning
+# > Configure version checking/notifications.
+
+# Should the plugin check for new updates?
+checkForLatest: true
+
+# Should players with the axtonsemotes.updatenotify permission be notified of new updates?
+notifyOnUpdate: true
+
+# The current version of the plugin
+version: 1.2.0 # --Do not modify!--

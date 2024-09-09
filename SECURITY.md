@@ -6,8 +6,8 @@ We address security patches only for the supported versions listed below. Reques
 
 | Version     | Supported          |
 | ----------- | ------------------ |
-| Latest       | :white_check_mark: |
-| Older versions | :x:            |
+| >= v1.4.0       | :white_check_mark: |
+| < v1.4.0 | :x:            |
 
 ## Reporting Vulnerabilities
 

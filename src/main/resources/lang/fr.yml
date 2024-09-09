@@ -1,0 +1,9 @@
+message_error_player_permission: "&4Erreur : &cVous n'avez pas la permission d'exécuter cette commande!"
+message_error_player_only: "&4Erreur : &cSeuls les joueurs peuvent exécuter cette commande!"
+message_error_player_self: "&4Erreur : &cVous ne pouvez pas exécuter cette commande sur vous-même!"
+message_error_command_syntax_2: "&4Erreur : &cVous devez spécifier un joueur valide!"
+message_error_player_offline: "&4Erreur : &cJoueur introuvable ou hors ligne!"
+message_error_command_disabled: "&4Erreur : &cCette commande est désactivée!"
+
+message_context_command_reload: "&aConfigurations rechargées! (%exec_time%ms)"
+message_context_command_version: "&aVous utilisez la version %current_version%, la dernière version est %latest_version%. Mettez à jour sur %repository_url%"

@@ -1,67 +1,74 @@
 name: AxtonsEmotes
+prefix: "Axton's Emotes"
 version: '${version}'
 main: com.arizonsoftware.Main
 author: axtonprice
 website: https://github.com/axtonprice/axtons-emotes
-description: A simple social emotes & expression chat plugin for Minecraft servers.
+description: A lightweight social emotes plugin for Bukkit/Spigot/Paper 1.21
 api-version: '1.21'
 
+# >> Plugin Commands
 commands:
 
-  # Misc commands
+  # > Misc commands
   axtonsemotes:
-    description: Main plugin command
+    description: Main command for managing Axton's Emotes plugin.
     aliases: [ae]
   emotes:
-    description: Displays available emote commands
-    aliases: []
+    description: List all available shared emote commands.
   expressions:
-    description: Displays available expression commands
-    aliases: []
-  bog:
-    description: Jumpscares the player with bogged entities
-    aliases: []
-
-  # Emotes
+    description: List all available expression commands.
+  jumpscares:
+    description: List all available jumpscare commands.
+  # > Jumpscares
+  bogscare:
+    description: Perform a jumpscare on yourself with a bog effect.
+    aliases: [bog]
+  guardianscare:
+    description: Perform a jumpscare on yourself with a guardian effect.
+    aliases: [guardian]
+  # > Shared Emotes
   hug:
-    description: Hug another player.
+    description: Hug another player warmly.
     aliases: [cuddle]
+  applaud:
+    description: Applaud another player enthusiastically.
+    aliases: [clap]
   kiss:
-    description: Kiss another player.
+    description: Kiss another player affectionately.
     aliases: [smooch]
   poke:
-    description: Poke another player.
+    description: Poke another player playfully.
   highfive:
-    description: High-five another player.
+    description: High-five another player energetically.
     aliases: [hf]
   thank:
-    description: Thank another player.
+    description: Thank another player sincerely.
     aliases: [ty]
   slap:
-    description: Slap another player.
+    description: Slap another player sharply.
   dapup:
-      description: Dap-up another player.
-      aliases: [dap]
+    description: Dap-up another player in a friendly manner.
+    aliases: [dap]
   stomp:
-    description: Stomp on another player's foot.
-    aliases: []
+    description: Stomp on another player's foot forcefully.
   stab:
-    description: Stab another player
-    aliases: [ shank ]
+    description: Stab another player aggressively.
+    aliases: [shank]
   stare:
-    description: Stare at another player
-
-  # Expressions
+    description: Stare at another player intently.
+  # > Expressions
   wave:
-    description: Say hello to everyone! (Public)
+    description: Wave hello to everyone cheerfully.
   cry:
-    aliases: [ sulk ]
-    description: Express your sadness. (Public)
-  applaud:
-    description: Applaud another player. (Public)
-    aliases: [ clap ]
+    description: Express your sadness to everyone openly.
+    aliases: [sulk]
 
-# Command permissions
+# >> Permissions
 permissions:
+  axtonsemotes.version:
+    default: op
   axtonsemotes.reload:
+    default: op
+  axtonsemotes.updatenotify:
     default: op

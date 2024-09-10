@@ -1,0 +1,31 @@
+message_error_player_permission: "&4Error: &cYou don't have permission to execute this command!"
+message_error_player_only: "&4Error: &cOnly players can execute this command!"
+message_error_player_self: "&4Error: &cYou can't execute that command on yourself!"
+message_error_player_offline: "&4Error: &cPlayer not found or is offline!"
+message_error_command_disabled: "&4Error: &cThat command is disabled!"
+message_error_command_failed: "&4Error: &cFailed to execute command!"
+message_error_command_syntax:
+  sub-command: "&4Error: &cInvalid syntax! Please specify a valid sub-command!"
+  player: "&4Error: &cInvalid syntax! You must specify a valid player!"
+
+message_context_plugin_startup_configs_count: "%progress_suffix% %configs_count% configuration(s)!"
+message_context_plugin_startup_commands_count: "%progress_suffix% %commands_count% commands(s)!"
+message_context_plugin_startup_listeners_count: "%progress_suffix% %listeners_count% listeners(s)!"
+message_context_plugin_startup_footer: "%progress_suffix% all features in"
+message_context_plugin_startup_progress_suffix:
+  starting: "Starting"
+  reloaded: "Reloaded"
+  loaded: "Loaded"
+
+message_context_command_reload: "&aConfigurations reloaded! (%exec_time%ms)"
+message_context_command_version:
+  command: "&aYou are rasdunning version %current_version%, the latest version is %latest_version%. Update at %repository_url%"
+  up-to-date-notify: "AxtonsEmotes v%current_version% is up to date!"
+  outdated-notify: "AxtonsEmotes v%current_version% is outdated! Download v%latest_version% from %source_url%"
+
+message_context_command_no_description: "No description available"
+message_context_command_emotes_title: "Shared Emotes"
+message_context_command_expressions_title: "Expressions"
+message_context_command_jumpscares_title: "Jumpscares"
+message_context_command_list_page_button_next: "Next"
+message_context_command_list_page_button_previous: "Previous"

@@ -6,15 +6,14 @@
 # > /_/  |_/_/|_|\__/\____/_/ /_/ /____/  /_____/_/ /_/ /_/\____/\__/\___/____/  
 # >                                                                              
 # > Axton's Emotes | Configuration
-# > Please see https://github.com/axtonprice/axtons-emotes/wiki/Configuration
+# > Please see https://github.com/axtonprice/axtons-emotes/wiki/
 # >
+
 #
-# 
-# >> IMPORTANT | README <<
-# > You cannot add custom commands to this configuration. 
+# >> IMPORTANT -- README
+# > You CANNOT add custom commands to this configuration. 
 # > This configuration is to modify the pre-made commands only.
 # > Ability to add custom commands is still being considered for development.
-#
 #
 # >> Command Layout Example
 # > Example of the default command configuration layout

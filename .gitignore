@@ -1,5 +1,7 @@
 # Custom
+.vscode
 .github/media/.old
+.github/documentation/*.md
 
 # From https://github.com/github/gitignore/blob/master/Gradle.gitignore
 .gradle
@@ -105,5 +107,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-/.vscode

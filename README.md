@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="650" src=".github/media/title_text.png" alt="Axton's Emotes">
+    <img width="650" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/banner.png" alt="Axton's Emotes">
 </p>
 
 <p align="center">
@@ -26,17 +26,17 @@
 # Axton's Emotes
 > A lightweight social emotes plugin for Bukkit/Spigot/Paper 1.21.
 
-Available in English, Spanish, French, Italian, Chinese, and Russian.
+Available in English, Spanish, French, Italian, and Russian.
 
 <p align="center">
-    <img width="300" src=".github/media/promo1.png" alt="Promo Image 1">
-    <img width="300" src=".github/media/promo2.png" alt="Promo Image 2">
+    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/promo1.png" alt="Promo Image 1">
+    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/promo2.png" alt="Promo Image 2">
 </p>
 
----
-
-<img width="350" src=".github/media/installation_text.png" alt="Installation">
-<hr>
+<br>
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/installation_text.png" alt="Installation">
+<br>
+<br>
 
 1. **Download**: Get the latest `.jar` from the [Releases](https://github.com/axtonprice/axtons-emotes/releases) tab.
 2. **Deploy**: Place the `.jar` in your server's `/plugins` folder.
@@ -45,10 +45,9 @@ Available in English, Spanish, French, Italian, Chinese, and Russian.
 
 > **Note:** Java 21 or higher is required to run this plugin.
 
----
-
-<img width="230" src=".github/media/features_text.png" alt="Features">
-<hr>
+<br>
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/features_text.png" alt="Features">
+<br>
 
 ### Emotes
 
@@ -99,10 +98,9 @@ Additional commands and features:
 | `/ae version`                       | Check the plugin's current version and the latest release. | `axtonsemotes.version`<br>Default: op |
 |                                     | Notify administrator of plugin updates on join.            | `axtonsemotes.updatenotify`<br>Default: op            |
 
----
-
-<img width="350" src=".github/media/configuration_text.png" alt="Configuration">
-<hr>
+<br>
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/configuration_text.png" alt="Configuration">
+<br><br>
 
 To customize the plugin, edit the `config.yml` file:
 
@@ -114,7 +112,7 @@ To customize the plugin, edit the `config.yml` file:
 
 # Choose the language for the plugin. To create a custom language, copy and modify the 'en.yml'
 # file. Supported languages include: 'en' (English), 'fr' (Français/French), 'es' (Español/Spanish), 
-# 'it' (Italiano/Italian), 'cn' (中文/Chinese), 'ru' (Русский/Russian).
+# 'it' (Italiano/Italian), 'ru' (Русский/Russian).
 language: en
 
 # Allows players to use shared emote commands on themselves.
@@ -128,7 +126,7 @@ allow-list-commands: true
 # for troubleshooting but will result in many console messages.
 debug-mode:
   # Enable or disable debug mode.
-  enabled: true
+  enabled: false
   # Specify whether to log debug messages to a file. Ignored if 'enabled' is false.
   log-to-file: true
   # Specify the file name for the debug log. Ignored if 'enabled' is false.
@@ -150,19 +148,25 @@ After updating the configuration, reload it with `/ae reload`.
 Default configurations for the emote commands are available on the GitHub. For more information, read the [Wiki](https://github.com/axtonprice/axtons-emotes/wiki).
 
 <br>
-<img width="200" src=".github/media/credits_text.png">
-<hr>
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/credits_text.png">
 
 ## Main Author
 
 ### axtonprice ✨
 
-[![GitHub](https://img.shields.io/badge/Github-%23121011.svg?logo=github&logoColor=white)](https://github.com/axtonprice) |  [![GitHub Sponsors](https://img.shields.io/discord/308323056592486420?logo=discord&%22%20alt=%22Chat%20on%20Discord%22)](https://discord.gg/dP3MuBATGc)
-| [![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/axtonprice)
+
+[![GitHub](https://img.shields.io/badge/Github-%23121011.svg?logo=github&logoColor=white)](https://github.com/axtonprice) |  [![Discord](https://img.shields.io/discord/308323056592486420?logo=discord&%22%20alt=%22Chat%20on%20Discord%22)](https://discord.gg/dP3MuBATGc)
+| [![Github Sponsors](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/axtonprice) | [![Buy Me a Coffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee)](https://buymeacoffee.com/axtonprice
+)
+
+Donate:
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://buymeacoffee.com/axtonprice)
 
 <br>
-<img width="200" src=".github/media/license_text.png">
-<hr>
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/license_text.png">
+<br>
+<br>
 
 This project is MIT licensed. View the license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE).
 

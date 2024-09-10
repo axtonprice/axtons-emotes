@@ -85,6 +85,9 @@ public class Versioning {
         String version = current;
         try {
             version = fetchLatest();
+            if (version == null) {
+                version = current;
+            }
         } catch (Exception e) {
             Debugging.log(Versioning.class.getSimpleName(), "Error fetching latest version: " + e.getMessage());
             e.printStackTrace();

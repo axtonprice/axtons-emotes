@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="650" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/banner.png" alt="Axton's Emotes">
+    <img width="750" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/banner.png" alt="Axton's Emotes">
 </p>
 
 <p align="center">

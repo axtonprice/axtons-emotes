@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="650" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/banner.png" alt="Axton's Emotes">
+    <img width="750" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/banner.png" alt="Axton's Emotes">
 </p>
 
 <p align="center">
@@ -12,7 +12,7 @@
     <a href="https://modrinth.com/plugin/axtonsemotes">
         <img src="https://img.shields.io/modrinth/dt/axtonsemotes?logo=Modrinth&label=Modrinth" alt="Modrinth Downloads">
     </a>
-    <a href="https://modrinth.com/plugin/axtonsemotes">
+    <a href="https://www.curseforge.com/minecraft/bukkit-plugins/axtons-emotes">
         <img src="https://img.shields.io/curseforge/dt/1086817?logo=CurseForge&label=CurseForge" alt="CurseForge Downloads">
     </a>
     <a href="https://www.spigotmc.org/resources/axtons-emotes.119499/">
@@ -35,8 +35,6 @@ Available in English, Spanish, French, Italian, and Russian.
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/installation_text.png" alt="Installation">
-<br>
-<br>
 
 1. **Download**: Get the latest `.jar` from the [Releases](https://github.com/axtonprice/axtons-emotes/releases) tab.
 2. **Deploy**: Place the `.jar` in your server's `/plugins` folder.
@@ -47,7 +45,6 @@ Available in English, Spanish, French, Italian, and Russian.
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/features_text.png" alt="Features">
-<br>
 
 ### Emotes
 
@@ -100,7 +97,6 @@ Additional commands and features:
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/configuration_text.png" alt="Configuration">
-<br><br>
 
 To customize the plugin, edit the `config.yml` file:
 
@@ -164,8 +160,6 @@ Donate:
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/license_text.png">
-<br>
-<br>
 
 This project is MIT licensed. View the license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE).
 

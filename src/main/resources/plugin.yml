@@ -1,5 +1,5 @@
 name: AxtonsEmotes
-prefix: "Axton's Emotes"
+prefix: "AxtonsEmotes"
 version: '${version}'
 main: com.arizonsoftware.Main
 author: axtonprice

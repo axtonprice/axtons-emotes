@@ -12,7 +12,7 @@
     <a href="https://modrinth.com/plugin/axtonsemotes">
         <img src="https://img.shields.io/modrinth/dt/axtonsemotes?logo=Modrinth&label=Modrinth" alt="Modrinth Downloads">
     </a>
-    <a href="https://modrinth.com/plugin/axtonsemotes">
+    <a href="https://www.curseforge.com/minecraft/bukkit-plugins/axtons-emotes">
         <img src="https://img.shields.io/curseforge/dt/1086817?logo=CurseForge&label=CurseForge" alt="CurseForge Downloads">
     </a>
     <a href="https://www.spigotmc.org/resources/axtons-emotes.119499/">

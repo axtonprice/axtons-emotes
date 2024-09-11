@@ -49,7 +49,6 @@ public class Configuration {
         saveDefaultConfigFile("lang/fr.yml");
         saveDefaultConfigFile("lang/es.yml");
         saveDefaultConfigFile("lang/it.yml");
-        saveDefaultConfigFile("lang/cn.yml");
         saveDefaultConfigFile("lang/ru.yml");
     }
 

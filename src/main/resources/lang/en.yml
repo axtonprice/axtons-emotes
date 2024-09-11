@@ -19,7 +19,7 @@ message_context_plugin_startup_progress_suffix:
 
 message_context_command_reload: "&aConfigurations reloaded! (%exec_time%ms)"
 message_context_command_version:
-  command: "&aYou are rasdunning version %current_version%, the latest version is %latest_version%. Update at %repository_url%"
+  command: "&aYou are running version %current_version%, the latest version is %latest_version%. Update at %repository_url%"
   up-to-date-notify: "AxtonsEmotes v%current_version% is up to date!"
   outdated-notify: "AxtonsEmotes v%current_version% is outdated! Download v%latest_version% from %source_url%"
 

@@ -79,10 +79,12 @@ public class Versioning {
     }
 
     /**
-     * Checks if the current version is the latest version.
+     * Checks if the current version is up-to-date.
+     * Returns true if the current version equals or exceeds the latest published version.
+     * This handles both release versions (current == latest) and development versions (current > latest).
      * 
-     * @return true if the current version is the latest
-     *         version, false otherwise.
+     * @return true if the current version is up-to-date (no update needed),
+     *         false if an update is available (current < latest).
      */
     public static boolean isLatest() {
         String currentVer = getCurrent();
@@ -90,9 +92,7 @@ public class Versioning {
         if (currentVer == null || latestVer == null) {
             return false;
         }
-        if (currentVer.equals(latestVer)) {
-            return true;
-        }
+        // Return true if current version is >= latest (including dev/pre-release versions)
         return compareVersions(currentVer, latestVer) >= 0;
     }
 

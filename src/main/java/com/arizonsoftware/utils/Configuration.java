@@ -129,8 +129,28 @@ public class Configuration {
             String installedVersion = Versioning.getCurrent();
             String configuredVersion = Versioning.getConfigured();
             
-            // Check if configuration is missing required fields
-            if (!config.contains("language") || !config.contains("allow-self-executions") || !config.contains("allow-list-commands") || !config.contains("debug-mode.enabled") || !config.contains("debug-mode.log-to-file") || !config.contains("debug-mode.log-file") || !config.contains("check-for-latest") || !config.contains("notify-on-update")) {
+            // Required configuration keys that must be present
+            String[] requiredKeys = {
+                "language",
+                "allow-self-executions",
+                "allow-list-commands",
+                "debug-mode.enabled",
+                "debug-mode.log-to-file",
+                "debug-mode.log-file",
+                "check-for-latest",
+                "notify-on-update"
+            };
+            
+            // Check if configuration is missing any required fields
+            boolean missingFields = false;
+            for (String key : requiredKeys) {
+                if (!config.contains(key)) {
+                    missingFields = true;
+                    break;
+                }
+            }
+            
+            if (missingFields) {
                 Debugging.log(Configuration.class.getSimpleName() + "/migrateConfig", "Configuration is missing required fields, replacing with default");
                 instance.saveResource("config.yml", true);
                 return;

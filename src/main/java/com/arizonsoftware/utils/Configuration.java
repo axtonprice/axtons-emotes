@@ -30,7 +30,7 @@ public class Configuration {
             }
 
             saveDefaults();
-            // migrateConfig();
+            migrateConfig();
         } catch (Exception e) {
             Debugging.log(Configuration.class.getSimpleName(), "Error setting up configuration: " + e.getMessage());
             e.printStackTrace();
@@ -122,12 +122,24 @@ public class Configuration {
      * migration process and errors.
      */
     public static void migrateConfig() {
-        String installedVersion = Versioning.current;
-        String configuredVersion = Versioning.configured;
-
         try {
+            // Reload config to get latest values
+            config = getConfig("config.yml");
+            
+            String installedVersion = Versioning.getCurrent();
+            String configuredVersion = Versioning.getConfigured();
+            
+            // Check if configuration is missing required fields
             if (!config.contains("language") || !config.contains("allow-self-executions") || !config.contains("allow-list-commands") || !config.contains("debug-mode.enabled") || !config.contains("debug-mode.log-to-file") || !config.contains("debug-mode.log-file") || !config.contains("check-for-latest") || !config.contains("notify-on-update")) {
+                Debugging.log(Configuration.class.getSimpleName() + "/migrateConfig", "Configuration is missing required fields, replacing with default");
                 instance.saveResource("config.yml", true);
+                return;
+            }
+
+            // Check if version migration is needed
+            if (installedVersion == null || configuredVersion == null) {
+                Debugging.log(Configuration.class.getSimpleName() + "/migrateConfig", "Unable to determine version information");
+                return;
             }
 
             if (!installedVersion.equals(configuredVersion)) {

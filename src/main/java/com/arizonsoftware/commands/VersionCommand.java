@@ -25,7 +25,7 @@ public class VersionCommand {
         // Output message to sender
         String message = MessageHandler.get("message_context_command_version.command");
         String[] subjects = { "current_version", "latest_version", "repository_url" };
-        String[] replacements = { Versioning.current, Versioning.getLatest(), Main.getInstance().getPluginMeta().getWebsite() };
+        String[] replacements = { Versioning.getCurrent(), Versioning.getLatestVersion(), Main.getInstance().getPluginMeta().getWebsite() };
         sender.sendMessage(MessageHandler.format(message, subjects, replacements, true));
 
     }

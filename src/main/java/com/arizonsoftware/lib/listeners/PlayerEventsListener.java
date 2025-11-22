@@ -26,7 +26,7 @@ public class PlayerEventsListener implements Listener {
 
         if (Main.getInstance().getConfig().getBoolean("check-for-latest") && Versioning.isLatest() == false) {
             if (Main.getInstance().getConfig().getBoolean("notify-on-update") && player.hasPermission("axtonsemotes.updatenotify")) {
-                player.sendMessage(MessageHandler.parseColor("&6AxtonsEmotes &lv" + Versioning.current + "&r&6 is outdated! Download &lv" + Versioning.latest + "&r&6 from &ohttps://github.com/axtonprice/axtons-emotes/releases/"));
+                player.sendMessage(MessageHandler.parseColor("&6AxtonsEmotes &lv" + Versioning.getCurrent() + "&r&6 is outdated! Download &lv" + Versioning.getLatestVersion() + "&r&6 from &ohttps://github.com/axtonprice/axtons-emotes/releases/"));
             }
 
         }

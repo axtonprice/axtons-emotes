@@ -13,9 +13,49 @@ import com.arizonsoftware.Main;
 
 public class Versioning {
 
-    public static String configured = Configuration.getString("config.yml", "config-version");
-    public static String current = Main.getInstance().getPluginMeta().getVersion();
-    public static String latest = getLatest();
+    // These fields should not be initialized statically as config may not exist yet
+    private static String configured = null;
+    private static String current = null;
+    private static String latest = null;
+
+    /**
+     * Gets the configured version from the config file.
+     * Initializes it on first access.
+     * 
+     * @return The configured version string
+     */
+    public static String getConfigured() {
+        if (configured == null) {
+            configured = Configuration.getString("config.yml", "config-version");
+        }
+        return configured;
+    }
+
+    /**
+     * Gets the current plugin version.
+     * Initializes it on first access.
+     * 
+     * @return The current version string
+     */
+    public static String getCurrent() {
+        if (current == null) {
+            current = Main.getInstance().getPluginMeta().getVersion();
+        }
+        return current;
+    }
+
+    /**
+     * Gets the latest available version.
+     * Initializes it on first access.
+     * 
+     * @return The latest version string
+     */
+    public static String getLatestVersion() {
+        if (latest == null) {
+            latest = getLatest();
+        }
+        return latest;
+    }
 
     /**
      * Checks the plugin version and logs a warning if outdated
@@ -25,8 +65,10 @@ public class Versioning {
      */
     public static void checkVersion() {
         if (Main.getInstance().getConfig().getBoolean("check-for-latest")) {
+            String currentVer = getCurrent();
+            String latestVer = getLatestVersion();
             String[] subjects = { "current_version", "latest_version", "source_url" };
-            String[] replacements = { current, latest, Main.getInstance().getPluginMeta().getWebsite() };
+            String[] replacements = { currentVer, latestVer, Main.getInstance().getPluginMeta().getWebsite() };
 
             if (!isLatest()) {
                 Bukkit.getLogger().warning(MessageHandler.format(MessageHandler.get("message_context_command_version.outdated-notify"), subjects, replacements, true));
@@ -43,13 +85,15 @@ public class Versioning {
      *         version, false otherwise.
      */
     public static boolean isLatest() {
-        if (current == null || latest == null) {
+        String currentVer = getCurrent();
+        String latestVer = getLatestVersion();
+        if (currentVer == null || latestVer == null) {
             return false;
         }
-        if (current.equals(latest)) {
+        if (currentVer.equals(latestVer)) {
             return true;
         }
-        return compareVersions(current, latest) > 0;
+        return compareVersions(currentVer, latestVer) >= 0;
     }
 
     /**
@@ -82,11 +126,12 @@ public class Versioning {
      * @return The latest version of the software.
      */
     public static String getLatest() {
-        String version = current;
+        String currentVer = getCurrent();
+        String version = currentVer;
         try {
             version = fetchLatest();
             if (version == null) {
-                version = current;
+                version = currentVer;
             }
         } catch (Exception e) {
             Debugging.log(Versioning.class.getSimpleName(), "Error fetching latest version: " + e.getMessage());

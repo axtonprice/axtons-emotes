@@ -35,6 +35,7 @@ Available in English, Spanish, French, Italian, and Russian.
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/installation_text.png" alt="Installation">
+<br>
 
 1. **Download**: Get the latest `.jar` from the [Releases](https://github.com/axtonprice/axtons-emotes/releases) tab, or from [Modrinth](https://modrinth.com/plugin/axtonsemotes).
 2. **Deploy**: Place the `.jar` in your server's `/plugins` folder.
@@ -45,7 +46,7 @@ Available in English, Spanish, French, Italian, and Russian.
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/features_text.png" alt="Features">
-<br><br>
+<br>
 
 **Shared emotes** - Interact with other players using these emotes. 
 
@@ -65,9 +66,9 @@ Examples of some pre-configured emotes:
 
 Permissions for all emotes are granted by default unless the emote is disabled or the user is explicitly denied permission to `axtonsemotes.emotes.use`.
 
-### Permissions
+### Commands & Permissions
 
-Additional commands and features:
+List of commands and associated permission nodes.
 
 | Command                             | Description                                                | Permission Node                       |
 |-------------------------------------|------------------------------------------------------------|---------------------------------------|
@@ -85,6 +86,7 @@ Additional commands and features:
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/configuration_text.png" alt="Configuration">
+<br>
 
 To customize the plugin, edit the `config.yml` file:
 
@@ -158,18 +160,17 @@ After updating the configuration, reload it with `/ae reload`. Requires the `axt
 
 ## Main Author
 
+
 ### axtonprice ✨
 
 [![GitHub](https://img.shields.io/badge/Github-%23121011.svg?logo=github&logoColor=white)](https://github.com/axtonprice) |  [![Discord](https://img.shields.io/discord/308323056592486420?logo=discord&%22%20alt=%22Chat%20on%20Discord%22)](https://discord.gg/dP3MuBATGc)
 | [![Github Sponsors](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/axtonprice) | [![Buy Me a Coffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee)](https://buymeacoffee.com/axtonprice)
-)
-
-Donate:
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://buymeacoffee.com/axtonprice)
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/license_text.png">
+<br>
 
 This project is MIT licensed. View the license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE).
 

@@ -1,34 +1,74 @@
-# >>
-# > Axtons Emotes | Configuration
-# > Please see https://github.com/axtonprice/axtons-emotes/wiki/Configuration
-# >>
+# >     ___         __             _          ______                __
+# >    /   |  _  __/ /_____  ____ ( )_____   / ____/___ ___  ____  / /____  _____
+# >   / /| | | |/_/ __/ __ \/ __ \|// ___/  / __/ / __ `__ \/ __ \/ __/ _ \/ ___/
+# >  / ___ |_>  </ /_/ /_/ / / / / (__  )  / /___/ / / / / / /_/ / /_/  __(__  )
+# > /_/  |_/_/|_|\__/\____/_/ /_/ /____/  /_____/_/ /_/ /_/\____/\__/\___/____/
+# >
+# >> Axton's Emotes | Configuration
+# For more information, visit: https://github.com/axtonprice/axtons-emotes/wiki
 
-# >>> Global Configurations
-# > Modify global configuration values and features.
+# >> Language
+# Sets the language used for in-game messages.
+# Options: en (English), es (Spanish), fr (French), it (Italian), ru (Russian/Русский)
+language: en
 
-# Toggles the ability for players to execute commands on themselves.
-allowSelfExecutions: true
+# >> Self-Executions
+# Allows players to execute emote commands on themselves.
+# Default: true
+allow-self-executions: false
 
+# >> List Commands
+# Enables the /emotes and /expressions commands to view permitted emotes. When enabled, anyone can list commands.
+# When disabled, only server operators or players with the 'axtonsemotes.admin.list-override' permission can list commands.
+# Default: true
+allow-list-commands: true
 
-# >>> Plugin Commands
-# > Optional plugin command features.
+# >> Shared Emotes Toggle
+# Allows players to use /toggleemotes, removing the ability for others to execute shared emotes on them.
+# If both below are enabled, the player must have the 'axtonsemotes.emotes.selftoggle' permission to run the toggle command.
+# Default: true
+allow-self-toggle:
+  enabled: true
+  require-permission: false
 
-# Toggle optional commands modules.
-optionalcmds:
-  emotes:
-    enabled: true
-  expressions:
-    enabled: true
+# >> Default Effects
+# Specifies the default particle and sound effects if the specified ENUM is invalid (NOT if the effect is set to 'none').
+# Defaults: CRIT, ENTITY_ITEM_PICKUP
+default-effects:
+  particle: "CRIT"
+  sound: "ENTITY_ITEM_PICKUP"
 
+# Configure debug mode, which logs detailed information about command executions. This is useful
+# for troubleshooting but will result in many console messages.
+debug-mode:
+  # Toggles additional console information during startup and command executions.
+  # Default: false
+  enabled: false
 
-# >>> Plugin Versioning
-# > Configure version checking/notifications.
+  # Specify whether to log debug messages to a file. Ignored if 'enabled' above is set to false.
+  # Default: true
+  log-to-file: true
 
-# Should the plugin check for new updates?
-checkForLatest: true
+  # Specifies the name of the file which debug logs are saved to. Set to none to disable logging to a file.
+  # Default: debug.log
+  file-name: "debug.log"
 
-# Should players with the axtonsemotes.updatenotify permission be notified of new updates?
-notifyOnUpdate: true
+# >> Plugin Versioning & Updates
+# Configure update checks and notifications:
+updates:
+  # Automatically checks for plugin updates every 12 hours and on server startup.
+  # Default: true
+  check-for-latest: true
 
-# The current version of the plugin
-version: 1.2.0 # --Do not modify!--
+  # Notifies players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
+  # Default: true
+  notify-players-on-update: true
+
+# >> Metrics Tracking
+# Enables BStats anonymous metrics tracking. Learn more at https://bstats.org/
+# Default: true
+enable-metrics: true
+
+# The current version of the plugin.
+# >> MODIFYING THIS MAY RESET YOUR CONFIG! <<
+config-version: 1.5.0

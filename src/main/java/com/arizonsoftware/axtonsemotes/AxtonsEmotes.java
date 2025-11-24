@@ -1,0 +1,81 @@
+package com.arizonsoftware.axtonsemotes;
+
+import com.arizonsoftware.axtonsemotes.utils.BStats;
+import com.arizonsoftware.axtonsemotes.utils.Configuration;
+import com.arizonsoftware.axtonsemotes.utils.Debugging;
+import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
+import com.arizonsoftware.axtonsemotes.utils.Registry;
+import com.arizonsoftware.axtonsemotes.utils.Versioning;
+import java.util.logging.Level;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class AxtonsEmotes extends JavaPlugin {
+   public static long startTime; // Startup timings
+
+   /**
+    * Called when the plugin is loaded.
+    * Initializes and sets up the configuration for the plugin.
+    */
+   public void onLoad() {
+      // Setup configuration
+      Configuration.ensureDefaultConfigs();
+   }
+
+   /**
+    * Called when the plugin is enabled.
+    *
+    * Initializes the plugin by recording the start time, logging startup messages,
+    * checking the plugin version, validating system configuration, registering all
+    * necessary components, and starting metrics collection. Outputs startup progress
+    * and completion messages to the debug log.
+    */
+   public void onEnable() {
+      startTime = System.currentTimeMillis();
+
+      // Startup messages
+      Debugging.raw("message", "---------------------------------");
+      if (Bukkit.getLogger().isLoggable(Level.INFO)) {
+         String pluginName = getInstance().getDescription().getName();
+         String pluginVersion = getInstance().getDescription().getVersion();
+         String message = String.format("[-] %s %s v%s", MessageHandler.get("plugin.startup.progress_suffix.starting"),
+               pluginName, pluginVersion);
+         Debugging.raw("message", message);
+      }
+
+      // Check for updates
+      long updateCheckDelay = 12 * 60 * 60 * 20L; // 12 hours in ticks
+      Bukkit.getScheduler().runTaskTimerAsynchronously(this, () -> {
+         Versioning.checkForUpdates();
+      }, 0, updateCheckDelay);
+
+      // Validate configuration
+      Configuration.validateConfig(true);
+
+      // Register components
+      Registry.registerAll(startTime);
+
+      // Start BStats metrics
+      BStats metrics = new BStats(this, 23323);
+      metrics.addMetricData(metrics);
+
+      // Startup message - footer
+      String footer = MessageHandler.format(MessageHandler.get("plugin.startup.footer"),
+            new String[] { "progress_suffix" }, new String[] { "Loaded" });
+      Debugging.raw("message", "[-] " + footer + " " + (System.currentTimeMillis() - startTime) + "ms!");
+      Debugging.raw("message", "---------------------------------");
+
+   }
+
+   /**
+    * Returns the singleton instance of the {@link AxtonsEmotes} plugin.
+    * 
+    * This method retrieves the plugin instance using Bukkit's {@code getPlugin} method.
+    * It is commonly used to access plugin-wide resources and configuration.
+    *
+    * @return the instance of {@link AxtonsEmotes}
+    */
+   public static AxtonsEmotes getInstance() {
+      return (AxtonsEmotes) getPlugin(AxtonsEmotes.class);
+   }
+}

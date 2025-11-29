@@ -151,6 +151,12 @@ public class MessageHandler {
       return parseCustom("&8[&b&l?&r&8]&r", "&7", key, placeholderNames, replacementValues);
    }
 
+   // no prefix
+   public static String parseReplace(String key, String[] placeholderNames,
+         String[] replacementValues) {
+      return format(get(key, false), placeholderNames, replacementValues);
+   }
+
    /**
     * Returns a cached message or loads it if missing.
     */

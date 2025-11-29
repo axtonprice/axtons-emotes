@@ -124,7 +124,7 @@ After updating the configuration, reload it with `/ae reload` (requires the `axt
 ```yml
 # >> Language
 # Sets the language used for in-game messages.
-# Options: en (English), es (Spanish), fr (French), it (Italian), ru (Russian/Русский)
+# Options: en (English), es (Spanish/Español), fr (French/Français), it (Italian/Italiano), ru (Russian/Русский), de (German/Deutsch), pl (Polish/Polski)
 language: en
 
 # >> Self-Executions

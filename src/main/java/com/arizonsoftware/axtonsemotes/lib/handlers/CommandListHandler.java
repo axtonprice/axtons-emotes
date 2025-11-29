@@ -18,7 +18,7 @@ import org.bukkit.command.PluginCommand;
 public class CommandListHandler {
 
    // Number of commands/emotes displayed per page in the paginated list. 
-   private static final int COMMANDS_PER_PAGE = 8;
+   private static final int COMMANDS_PER_PAGE = 6;
 
    private CommandListHandler() {
       throw new UnsupportedOperationException("Utility class");
@@ -162,8 +162,12 @@ public class CommandListHandler {
       sender.sendMessage("\n");
       sender.sendMessage(MessageHandler.parseColor("&8- &b&lAxtonsEmotes &8-"));
       sender.sendMessage(
-            MessageHandler.parseColor("&7Listing: &6" + title));
-      sender.sendMessage(MessageHandler.parseColor("&7Page " + pageCount + " of " + totalPages));
+            MessageHandler.parseColor("&7" + MessageHandler.get("command.list.navigation.listing") + ": &6" + title));
+      sender.sendMessage(
+            MessageHandler.parseColor("&7" + MessageHandler.parseReplace("command.list.navigation.page",
+                  new String[] { "current_page", "total_pages" },
+                  new String[] { MessageHandler.parseColor("&9" + String.valueOf(pageCount)),
+                        MessageHandler.parseColor("&9" + String.valueOf(totalPages)) })));
       sender.sendMessage("\n");
       sender.sendMessage(MessageHandler.parseColor(description));
 

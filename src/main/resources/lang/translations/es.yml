@@ -21,14 +21,12 @@ plugin:
       start: "Iniciando métricas de BStats..."
       failed: "¡No se pudieron enviar las analíticas a BStats!"
     footer: "%progress_suffix% todas las funciones activas"
-
 # Configuration system messages
 config:
   error:
     saving: "Error al guardar el archivo de configuración"
   success:
     saving: "Archivo de configuración guardado correctamente"
-
 # Global error messages
 error:
   permission: "¡No tienes permiso para ejecutar este comando!"
@@ -48,7 +46,6 @@ error:
   emote:
     not_found: "¡Emote no encontrado o está deshabilitado!"
     misconfigured: "¡El emote está mal configurado y no puede ejecutarse! Por favor contacta al administrador del servidor."
-
 # Command-specific messages
 command:
   emote_toggle:

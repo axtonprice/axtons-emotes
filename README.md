@@ -26,7 +26,7 @@
 # Axton's Emotes
 > A light-weight, configurable chat emotes plugin for 1.20+ Spigot/Paper servers.
 
-Available in English, Spanish, French, Italian, and Russian.
+Available in English, Spanish, French, Italian, German, Polish, Russian.
 
 <p align="center">
     <img width="250" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo1.png" alt="Promo Image 1">
@@ -35,9 +35,6 @@ Available in English, Spanish, French, Italian, and Russian.
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/installation_text.png" alt="Installation">
-<br>
-
----
 
 ### Installing the plugin
 
@@ -52,21 +49,17 @@ Available in English, Spanish, French, Italian, and Russian.
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/screenshots_text.png" alt="Screenshots">
-<br>
-
----
 
 ### In-game Screenshots
 
-<img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example1.gif" alt="Command example">
-<img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example2.gif" alt="Command example">
-<img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example3.gif" alt="Command example">
+<p align="center">
+    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example1.gif" alt="Command example">
+    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example2.gif" alt="Command example">
+    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example3.gif" alt="Command example">
+</p>
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/features_text.png" alt="Features">
-<br>
-
----
 
 ### Emote Types
 
@@ -96,9 +89,6 @@ Permissions for all emotes are granted by default unless an emote is disabled or
 
 <br>
 <img width="540" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/commands_perms_text.png" alt="Commands & Features">
-<br>
-
----
 
 ### Commands & Permissions
 
@@ -122,9 +112,7 @@ List of commands and associated permission nodes.
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/configuration_text.png" alt="Configuration">
-<br>
 
----
 ### Configuration
 
 To configure the plugin, edit the `config.yml` file in the `AxtonsEmotes` plugin folder.
@@ -199,9 +187,6 @@ enable-metrics: true
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/credits_text.png">
-<br>
-
----
 
 ### axtonprice ✨
 
@@ -209,15 +194,9 @@ enable-metrics: true
 [![Patreon](https://img.shields.io/badge/Patreon-ee6352?logo=patreon&logoColor=black)](https://www.patreon.com/axtonprice/) 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/axtonprice)
 
-
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/license_text.png">
-<br>
 
----
+### GPLv3 License
 
-### MIT License
-
-This project is MIT licensed. You can view the license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE).
-
-MIT © 2025 axtonprice
+This project is licensed under the GNU General Public License version 3. You can view this project's license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE), or you can read more about this license at [www.gnu.org](https://www.gnu.org/licenses/gpl-3.0.en.html).

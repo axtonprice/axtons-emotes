@@ -1,0 +1,91 @@
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "Запуск..."
+      reloaded: "Перезагрузка завершена"
+      loaded: "Загрузка завершена"
+    configuration:
+      start: "Проверка конфигурации..."
+      error:
+        validating: "Ошибка проверки конфигурации"
+        creating_default: "Не удалось создать конфигурацию по умолчанию"
+        invalid_lang: "Обнаружена некорректная языковая конфигурация, используется английский"
+        no_emotes: "Эмоты в конфигурации не найдены"
+    registry:
+      start: "Регистрация компонентов плагина..."
+      configs_loaded: "%progress_suffix% загружено %configs_count% конфигураций!"
+      commands_loaded: "%progress_suffix% загружено %commands_count% команд!"
+      listeners_loaded: "%progress_suffix% загружено %listeners_count% слушателей!"
+    bstats:
+      start: "Запуск метрик BStats..."
+      failed: "Не удалось отправить статистику в BStats!"
+    footer: "%progress_suffix% все функции активны"
+
+# Configuration system messages
+config:
+  error:
+    saving: "Ошибка при сохранении файла конфигурации"
+  success:
+    saving: "Файл конфигурации успешно сохранен"
+
+# Global error messages
+error:
+  permission: "У вас нет прав для выполнения этой команды!"
+  invalid_config: "Обнаружена некорректная конфигурация!"
+  player:
+    only: "Эту команду могут выполнять только игроки!"
+    self: "Невозможно выполнить команду на себе! Попробуйте с другим игроком?"
+    offline: "Игрок не найден или оффлайн!"
+  command:
+    disabled: "Эта команда отключена!"
+    execute: "Не удалось выполнить команду!"
+    syntax:
+      sub_command: "Неверный синтаксис! Укажите правильную подкоманду!"
+      no_target: "Неверный синтаксис! Нужно указать действительного игрока!"
+      emote_shared: "Использование: /emote <название_эмота> [игрок]"
+      emote_expression: "Использование: /emote <название_эмота>"
+  emote:
+    not_found: "Эмот не найден или отключен!"
+    misconfigured: "Эмот настроен неправильно и не может быть выполнен! Свяжитесь с администратором сервера."
+
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "Вы отключили совместные эмоты. Включить их можно с помощью &7/toggleemotes"
+    target_toggled: "Этот игрок отключил совместные эмоты."
+    enabled: "&aСовместные эмоты включены. &7Теперь другие игроки могут выполнять совместные эмоты с вами."
+    disabled: "&cСовместные эмоты отключены. &7Другие игроки больше не могут выполнять совместные эмоты с вами."
+  reload:
+    success: "Конфигурации успешно перезагружены! (%exec_time% мс)"
+    emotes_note: "Посмотреть настроенные эмоты: &f/emotes&7 и &f/expressions&7."
+  version:
+    info_latest: "Вы используете AxtonsEmotes v%current_version%. Последняя версия: v%latest_version%."
+    info_outdated: "Ваша версия AxtonsEmotes устарела: v%current_version%! Последняя версия: v%latest_version%."
+    info_releases: "Нажмите, чтобы посмотреть релизы."
+    outdated_notify: "Доступна новая версия AxtonsEmotes: v%latest_version%, у вас: v%current_version%."
+  toggledebug:
+    enabled: "Режим отладки включен."
+    disabled: "Режим отладки выключен."
+  togglemetrics:
+    enabled: "Отслеживание метрик BStats включено."
+    disabled: "Отслеживание метрик BStats выключено."
+  resetlang:
+    success: "Языковые файлы восстановлены по умолчанию."
+    error: "Не удалось сбросить языковые файлы."
+  help: "Нажмите для перехода в вики GitHub с инструкциями по командам и настройке"
+  list:
+    no_description: "Описание отсутствует"
+    titles:
+      emotes: "Совместные эмоты"
+      expressions: "Эмоции/Выражения"
+    subtitles:
+      emotes: "&7Совместные эмоты выполняются вместе с другим игроком."
+      expressions: "&7Эмоции отображаются всем игрокам на сервере."
+    navigation:
+      next: "Следующая"
+      previous: "Предыдущая"
+      footer: "&7Используйте &9/%command_name% %page_number%&r&7, чтобы увидеть следующую страницу."
+    notes:
+      emotes: "&7Используйте &b/expressions&7, чтобы просмотреть список эмоций."
+      expressions: "&7Используйте &b/emotes&7, чтобы просмотреть список совместных эмотов."

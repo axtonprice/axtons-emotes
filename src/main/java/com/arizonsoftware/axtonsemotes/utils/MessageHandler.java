@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class MessageHandler {
 
    private static final String DEFAULT_LANGUAGE = "en";
-   private static final String MISSING_KEY_PLACEHOLDER = "[MISSING_KEY]";
+   private static final String MISSING_KEY_PLACEHOLDER = "<NO_LANG_KEY>";
 
    private static volatile String cachedLanguage = null;
    private static final Map<String, String> messageCache = new ConcurrentHashMap<>();
@@ -96,7 +96,7 @@ public class MessageHandler {
     */
    public static void reload() {
       clearCache();
-      getCurrentLanguage();
+      getConfiguredLanguage();
    }
 
    /**
@@ -162,31 +162,39 @@ public class MessageHandler {
     * Loads a message from the language file, with fallback to English.
     */
    private static String loadMessage(String key) {
-      String language = getCurrentLanguage();
-      String languageFile = "lang/" + language + ".yml";
-      String fallbackFile = "lang/" + DEFAULT_LANGUAGE + ".yml";
+      String configuredLanguage = getConfiguredLanguage();
+      String langFileToUse;
 
-      String message = Configuration.getString(languageFile, key);
+      // Lang.yml if english, else translations/<language>.yml
+      if (configuredLanguage.equals(DEFAULT_LANGUAGE)) {
+         langFileToUse = "lang/en.yml";
+      } else {
+         langFileToUse = "lang/translations/" + configuredLanguage + ".yml";
+      }
+
+      // Try to get message from selected language
+      String message = Configuration.getString(langFileToUse, key);
       if (message != null) {
          return message;
       }
 
-      if (!DEFAULT_LANGUAGE.equals(language)) {
-         message = Configuration.getString(fallbackFile, key);
+      // Fallback to default language if not found
+      if (!DEFAULT_LANGUAGE.equals(configuredLanguage)) {
+         message = Configuration.getString(langFileToUse, key);
          if (message != null) {
-            logMissingKey(key, language, false);
+            logMissingKey(key, configuredLanguage, false);
             return message;
          }
       }
 
-      logMissingKey(key, language, true);
+      logMissingKey(key, configuredLanguage, true);
       return MISSING_KEY_PLACEHOLDER + ":" + key;
    }
 
    /**
     * Returns the current language from config, cached for performance.
     */
-   private static String getCurrentLanguage() {
+   private static String getConfiguredLanguage() {
       if (cachedLanguage == null) {
          synchronized (MessageHandler.class) {
             if (cachedLanguage == null) {

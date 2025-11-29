@@ -2,8 +2,8 @@
 .vscode/
 .idea/
 .github/docs
-
-## Template
+.github/media/Thumbs.db
+TODO.md
 
 # From https://github.com/github/gitignore/blob/master/Gradle.gitignore
 .gradle
@@ -87,4 +87,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-.github/media/Thumbs.db

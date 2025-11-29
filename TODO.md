@@ -5,7 +5,7 @@
 - [] Test error handling for bad configuration
     - [] Missing configurations
     - [] Invalid configurations
-- [] Ensure BStats.java is sending data properly
+- [/] Ensure BStats.java is sending data properly
 
 # Migration
 - [/] Test handling for configuration migration
@@ -19,8 +19,8 @@
 
 # Documentation
 - [] v1.5.0 version release notes
-- [] README.md -> GitHub (main)
-- [] README.md -> Spigot
-- [] README.md -> Modrinth
+- [/] README.md -> GitHub (main)
+- [/] README.md -> Spigot
+- [/] README.md -> Modrinth
 - [] README.md -> Curseforge
 - [] Migrate to repo wiki

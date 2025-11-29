@@ -1,0 +1,91 @@
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "Avvio"
+      reloaded: "Ricaricato"
+      loaded: "Caricato"
+    configuration:
+      start: "Validazione della configurazione..."
+      error:
+        validating: "Errore nella validazione della configurazione"
+        creating_default: "Errore nella creazione della configurazione predefinita"
+        invalid_lang: "Rilevata una configurazione lingua non valida, si utilizzerà l'inglese di default"
+        no_emotes: "Nessuna emote trovata nella configurazione"
+    registry:
+      start: "Registrazione dei componenti del plugin..."
+      configs_loaded: "%progress_suffix% %configs_count% configurazione(i) caricata(e)!"
+      commands_loaded: "%progress_suffix% %commands_count% comando(i) caricato(i)!"
+      listeners_loaded: "%progress_suffix% %listeners_count% listener(i) caricato(i)!"
+    bstats:
+      start: "Avvio metriche BStats..."
+      failed: "Impossibile inviare le analisi a BStats!"
+    footer: "%progress_suffix% tutte le funzionalità attive"
+
+# Configuration system messages
+config:
+  error:
+    saving: "Salvataggio del file di configurazione fallito"
+  success:
+    saving: "File di configurazione salvato con successo"
+
+# Global error messages
+error:
+  permission: "Non hai il permesso di eseguire questo comando!"
+  invalid_config: "Configurazione non valida rilevata!"
+  player:
+    only: "Solo i giocatori possono eseguire questo comando!"
+    self: "Non puoi eseguire questo comando su te stesso! Prova con un amico?"
+    offline: "Giocatore non trovato o offline!"
+  command:
+    disabled: "Questo comando è disabilitato!"
+    execute: "Impossibile eseguire il comando!"
+    syntax:
+      sub_command: "Sintassi non valida! Specifica un sottocomando valido!"
+      no_target: "Sintassi non valida! Devi specificare un giocatore valido!"
+      emote_shared: "Uso: /emote <nome_emote> [giocatore]"
+      emote_expression: "Uso: /emote <nome_emote>"
+  emote:
+    not_found: "Emote non trovata o disabilitata!"
+    misconfigured: "L'emote è mal configurata e non può essere eseguita! Contatta l'amministratore del server."
+
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "Hai disabilitato le emote condivise. Attivale con &7/toggleemotes"
+    target_toggled: "Questo utente ha disabilitato le emote condivise."
+    enabled: "&aLe emote condivise sono state abilitate. &7I giocatori possono ora eseguire emote condivise con te."
+    disabled: "&cLe emote condivise sono state disabilitate. &7I giocatori non possono più eseguire emote condivise con te."
+  reload:
+    success: "Configurazioni ricaricate con successo! (%exec_time%ms)"
+    emotes_note: "Visualizza le emote configurate con &f/emotes&7 e &f/expressions&7."
+  version:
+    info_latest: "Stai usando AxtonsEmotes versione v%current_version%. L'ultima versione è v%latest_version%."
+    info_outdated: "Stai usando una versione obsoleta di AxtonsEmotes: v%current_version%! L'ultima versione è v%latest_version%."
+    info_releases: "Clicca per vedere le release."
+    outdated_notify: "È disponibile una nuova versione di AxtonsEmotes: v%latest_version%, tu sei su: v%current_version%."
+  toggledebug:
+    enabled: "Modalità debug abilitata."
+    disabled: "Modalità debug disabilitata."
+  togglemetrics:
+    enabled: "Tracciamento metriche BStats abilitato."
+    disabled: "Tracciamento metriche BStats disabilitato."
+  resetlang:
+    success: "I file di lingua sono stati ripristinati ai valori predefiniti."
+    error: "Impossibile ripristinare i file di lingua."
+  help: "Clicca per vedere la wiki su GitHub per guide sui comandi e configurazioni"
+  list:
+    no_description: "Nessuna descrizione disponibile"
+    titles:
+      emotes: "Emote Condivise"
+      expressions: "Espressioni"
+    subtitles:
+      emotes: "&7Le emote condivise vengono eseguite con un altro giocatore."
+      expressions: "&7Le emote di espressione vengono mostrate a tutti i giocatori."
+    navigation:
+      next: "Successivo"
+      previous: "Precedente"
+      footer: "&7Usa &9/%command_name% %page_number%&r&7 per vedere la pagina successiva."
+    notes:
+      emotes: "&7Usa &b/expressions&7 per vedere la lista delle emote di espressione."
+      expressions: "&7Usa &b/emotes&7 per vedere la lista delle emote condivise."

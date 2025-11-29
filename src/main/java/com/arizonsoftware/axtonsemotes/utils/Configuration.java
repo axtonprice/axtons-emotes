@@ -17,7 +17,6 @@ public class Configuration {
    private static final AxtonsEmotes instance = AxtonsEmotes.getInstance();
    private static final String className = Configuration.class.getSimpleName();
    private static final String LANG_FOLDER = "lang";
-   private static final String[] LANG_FILES = { "en.yml", "es.yml", "fr.yml", "it.yml", "ru.yml" };
    private static final String CONFIG_FILE = "config.yml";
    private static final String EMOTES_FILE = "emotes.yml";
    private static final ConcurrentHashMap<String, YamlConfiguration> configCache = new ConcurrentHashMap<>();
@@ -33,7 +32,8 @@ public class Configuration {
       try {
          // Create necessary directories
          createDirectory(instance.getDataFolder().toPath());
-         createDirectory(instance.getDataFolder().toPath().resolve(LANG_FOLDER));
+         createDirectory(instance.getDataFolder().toPath().resolve("lang"));
+         createDirectory(instance.getDataFolder().toPath().resolve("lang/translations"));
 
          // Create config.yml if missing
          saveDefaultConfigFile(CONFIG_FILE, false);
@@ -42,7 +42,9 @@ public class Configuration {
          saveDefaultConfigFile(EMOTES_FILE, false);
 
          // Create language files if missing
-         Arrays.stream(LANG_FILES).forEach(langFile -> saveDefaultConfigFile(LANG_FOLDER + "/" + langFile, false));
+         saveDefaultConfigFile("lang/en.yml", false);
+         Arrays.stream(new String[] { "es.yml", "fr.yml", "it.yml", "ru.yml", "de.yml", "pl.yml" })
+               .forEach(langFile -> saveDefaultConfigFile("lang/translations/" + langFile, false));
 
          // Log completion
          Debugging.log(className + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),

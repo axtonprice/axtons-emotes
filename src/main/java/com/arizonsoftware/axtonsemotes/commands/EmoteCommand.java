@@ -32,72 +32,86 @@ public class EmoteCommand implements TabExecutor {
     */
    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label,
          @NotNull String[] args) {
+
       // Validate sender is a player and has permission
-      if (!Validation.checkIsSenderPlayer(sender)) {
+      if (!Validation.checkIsSenderPlayer(sender))
          return true;
-      } else if (!sender.hasPermission("axtonsemotes.emotes.use") && !sender.isOp()) {
+
+      // Check if sender has permission to use emotes
+      if (!sender.hasPermission("axtonsemotes.emotes.use") && !sender.isOp()) {
          Debugging.log(this.getClass().getSimpleName(),
                "Execution failed: Player " + sender.getName()
                      + " does not have permission 'axtonsemotes.emotes.use' to use emotes.");
          sender.sendMessage(MessageHandler.parseError("error.permission"));
          return true;
-      } else if (args.length == 0) {
+      }
+
+      // Validate presence of arguments
+      if (args.length == 0) {
          Debugging.log(this.getClass().getSimpleName(),
                "Execution failed: Player '" + sender.getName() + "' did not specify an emote to execute.");
          sender.sendMessage(MessageHandler.parseError("error.command.syntax.emote_shared"));
          return true;
-      } else {
-
-         // Fetch and validate emote name
-         String emoteName = args[0].toLowerCase();
-
-         // Validate emote existence and configuration
-         if (!this.getAvailableEmotes(sender).contains(emoteName)) {
-            Debugging.log(this.getClass().getSimpleName(),
-                  "Execution failed: Unknown emote '" + emoteName + "' by " + sender.getName());
-            sender.sendMessage(MessageHandler.parseError("error.emote.not_found"));
-            return true;
-         } else if (!Validation.validateEmoteConfig(emoteName)) {
-            Debugging.log(
-                  this.getClass().getSimpleName() + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
-                  "Execution failed: Emote '" + emoteName + "' has invalid or absent configuration keys.");
-            sender.sendMessage(MessageHandler.parseError("error.emote.misconfigured"));
-            return true;
-         } else if (!this.isEmoteEnabled(emoteName)) {
-            Debugging.log(this.getClass().getSimpleName(),
-                  "Execution failed: Invalid emote '" + emoteName + "' by " + sender.getName());
-            sender.sendMessage(MessageHandler.parseError("error.emote.not_found"));
-            return true;
-         } else {
-            // Fetch emote type and perform shared emote checks
-            String emoteType = Configuration.getString("emotes.yml", "commands." + emoteName + ".type");
-
-            // Shared emote requires target checks
-            if (emoteType.equalsIgnoreCase("shared")) {
-               if (args.length < 2) {
-                  // Missing target argument
-                  Debugging.log(this.getClass().getSimpleName(),
-                        "Execution failed: Missing target for shared emote '" + emoteName + "' by " + sender.getName());
-                  sender.sendMessage(MessageHandler.parseError("error.command.syntax.emote_shared"));
-                  return true;
-               }
-
-               // Validate target online
-               if (!Validation.checkIsTargetOnline(sender, new String[] { args[1] }))
-                  return true;
-
-               // Validate self-execution
-               if (!Validation.checkSelfExecution(sender, new String[] { args[1] }))
-                  return true;
-            }
-
-            // Execute emote
-            EmoteCommandWrapper emoteCommand = new EmoteCommandWrapper(emoteName);
-            String[] emoteArgs = new String[args.length - 1];
-            System.arraycopy(args, 1, emoteArgs, 0, emoteArgs.length);
-            return UnifiedEmoteHandler.buildEmote(sender, emoteCommand, emoteName, emoteArgs);
-         }
       }
+
+      // Fetch and validate emote name
+      String emoteName = args[0].toLowerCase();
+
+      // Validate emote existence and configuration
+      if (!this.getAvailableEmotes(sender).contains(emoteName)) {
+         Debugging.log(this.getClass().getSimpleName(),
+               "Execution failed: Unknown emote '" + emoteName + "' by " + sender.getName());
+         sender.sendMessage(MessageHandler.parseError("error.emote.not_found"));
+         return true;
+      }
+
+      // Validate emote configuration
+      if (!Validation.validateEmoteConfig(emoteName)) {
+         Debugging.log(
+               this.getClass().getSimpleName() + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
+               "Execution failed: Emote '" + emoteName + "' has invalid or absent configuration keys.");
+         sender.sendMessage(MessageHandler.parseError("error.emote.misconfigured"));
+         return true;
+      }
+
+      // Check if emote is enabled
+      if (!this.isEmoteEnabled(emoteName)) {
+         Debugging.log(this.getClass().getSimpleName(),
+               "Execution failed: Invalid emote '" + emoteName + "' by " + sender.getName());
+         sender.sendMessage(MessageHandler.parseError("error.emote.not_found"));
+         return true;
+      }
+
+      // Fetch emote type and perform shared emote checks
+      String emoteType = Configuration.getString("emotes.yml", "commands." + emoteName + ".type");
+
+      // Shared emote requires target checks
+      if (emoteType.equalsIgnoreCase("shared")) {
+         if (args.length < 2) {
+            // Missing target argument
+            Debugging.log(this.getClass().getSimpleName(),
+                  "Execution failed: Missing target for shared emote '" + emoteName + "' by " + sender.getName());
+            sender.sendMessage(MessageHandler.parseError("error.command.syntax.emote_shared"));
+            return true;
+         }
+
+         // Validate target online
+         if (!Validation.checkIsTargetOnline(sender, new String[] { args[1] }))
+            return true;
+
+         // Validate self-execution
+         if (!Validation.checkSelfExecution(sender, new String[] { args[1] }))
+            return true;
+
+         // Execute emote
+         EmoteCommandWrapper emoteCommand = new EmoteCommandWrapper(emoteName);
+         String[] emoteArgs = new String[args.length - 1];
+         System.arraycopy(args, 1, emoteArgs, 0, emoteArgs.length);
+         return UnifiedEmoteHandler.buildEmote(sender, emoteCommand, emoteName, emoteArgs);
+      }
+
+      return true;
+
    }
 
    /**

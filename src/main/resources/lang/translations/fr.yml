@@ -80,7 +80,8 @@ command:
       emotes: "&7Les émotes partagés sont effectués avec un autre joueur."
       expressions: "&7Les émotes d'expression sont visibles par tous les joueurs."
     navigation:
-      page: "Page %current_page% of %total_pages%"
+      page: "Page: %current_page% of %total_pages%"
+      listing: "Listing"
       next: "Suivant"
       previous: "Précédent"
       footer: "&7Utilisez &9/%command_name% %page_number%&r&7 pour voir la page suivante."

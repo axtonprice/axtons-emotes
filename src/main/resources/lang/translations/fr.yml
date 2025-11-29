@@ -1,0 +1,89 @@
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "Démarrage"
+      reloaded: "Rechargé"
+      loaded: "Chargé"
+    configuration:
+      start: "Validation de la configuration..."
+      error:
+        validating: "Erreur lors de la validation de la configuration"
+        creating_default: "Erreur lors de la création de la configuration par défaut"
+        invalid_lang: "Configuration de langue invalide détectée, utilisation de l'anglais par défaut"
+        no_emotes: "Aucun émote trouvé dans la configuration"
+    registry:
+      start: "Enregistrement des composants du plugin..."
+      configs_loaded: "%progress_suffix% %configs_count% configuration(s) chargée(s) !"
+      commands_loaded: "%progress_suffix% %commands_count% commande(s) chargée(s) !"
+      listeners_loaded: "%progress_suffix% %listeners_count% écouteur(s) chargé(s) !"
+    bstats:
+      start: "Démarrage des métriques BStats..."
+      failed: "Impossible d'envoyer les analyses à BStats !"
+    footer: "%progress_suffix% toutes les fonctionnalités actives"
+# Configuration system messages
+config:
+  error:
+    saving: "Échec de l'enregistrement du fichier de configuration"
+  success:
+    saving: "Fichier de configuration enregistré avec succès"
+# Global error messages
+error:
+  permission: "Vous n'avez pas la permission d'exécuter cette commande !"
+  invalid_config: "Configuration invalide détectée !"
+  player:
+    only: "Seuls les joueurs peuvent exécuter cette commande !"
+    self: "Vous ne pouvez pas exécuter cette commande sur vous-même ! Essayez avec un ami ?"
+    offline: "Joueur introuvable ou hors ligne !"
+  command:
+    disabled: "Cette commande est désactivée !"
+    execute: "Échec de l'exécution de la commande !"
+    syntax:
+      sub_command: "Syntaxe invalide ! Veuillez spécifier une sous-commande valide !"
+      no_target: "Syntaxe invalide ! Vous devez spécifier un joueur valide !"
+      emote_shared: "Utilisation : /emote <nom_emote> [joueur]"
+      emote_expression: "Utilisation : /emote <nom_emote>"
+  emote:
+    not_found: "Émote introuvable ou désactivé !"
+    misconfigured: "L'émote est mal configurée et ne peut pas être exécutée ! Veuillez contacter l'administrateur du serveur."
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "Vous avez désactivé les émotes partagés. Activez-les avec &7/toggleemotes"
+    target_toggled: "Cet utilisateur a désactivé les émotes partagés."
+    enabled: "&aLes émotes partagés ont été activés. &7Les joueurs peuvent maintenant effectuer des émotes partagés avec vous."
+    disabled: "&cLes émotes partagés ont été désactivés. &7Les joueurs ne peuvent plus effectuer des émotes partagés avec vous."
+  reload:
+    success: "Configurations rechargées avec succès ! (%exec_time%ms)"
+    emotes_note: "Voir les émotes configurés avec &f/emotes&7 et &f/expressions&7."
+  version:
+    info_latest: "Vous utilisez AxtonsEmotes version v%current_version%. La dernière version est v%latest_version%."
+    info_outdated: "Vous utilisez une version obsolète de AxtonsEmotes : v%current_version% ! La dernière version est v%latest_version%."
+    info_releases: "Cliquez pour voir les versions."
+    outdated_notify: "Une nouvelle version de AxtonsEmotes est disponible : v%latest_version%, vous êtes sur : v%current_version%."
+  toggledebug:
+    enabled: "Mode debug activé."
+    disabled: "Mode debug désactivé."
+  togglemetrics:
+    enabled: "Suivi des métriques BStats activé."
+    disabled: "Suivi des métriques BStats désactivé."
+  resetlang:
+    success: "Les fichiers de langue ont été réinitialisés par défaut."
+    error: "Échec de la réinitialisation des fichiers de langue."
+  help: "Cliquez pour voir le wiki GitHub pour l'utilisation des commandes et les guides de configuration"
+  list:
+    no_description: "Aucune description disponible"
+    titles:
+      emotes: "Émotes Partagés"
+      expressions: "Expressions"
+    subtitles:
+      emotes: "&7Les émotes partagés sont effectués avec un autre joueur."
+      expressions: "&7Les émotes d'expression sont visibles par tous les joueurs."
+    navigation:
+      page: "Page %current_page% of %total_pages%"
+      next: "Suivant"
+      previous: "Précédent"
+      footer: "&7Utilisez &9/%command_name% %page_number%&r&7 pour voir la page suivante."
+    notes:
+      emotes: "&7Utilisez &b/expressions&7 pour voir la liste des émotes d'expression."
+      expressions: "&7Utilisez &b/emotes&7 pour voir la liste des émotes partagés."

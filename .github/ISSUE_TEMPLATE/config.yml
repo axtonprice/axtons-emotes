@@ -1,0 +1,21 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support / Questions
+    url: https://github.com/axtonprice/axtons-emotes/discussions
+    about: Please use discussions for general questions or help.
+
+issue_templates:
+  - name: Bug Report
+    description: Create a report to help us improve
+    labels: ["bug"]
+    template: bug_report.md
+
+  - name: Feature Request
+    description: Suggest a new feature
+    labels: ["suggestion"]
+    template: feature_request.md
+
+  - name: Enhancement Request
+    description: Suggest an improvement to existing functionality
+    labels: ["enhancement"]
+    template: enhancement.md

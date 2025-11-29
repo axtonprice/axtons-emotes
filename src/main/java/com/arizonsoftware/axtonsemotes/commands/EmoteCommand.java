@@ -1,6 +1,6 @@
 package com.arizonsoftware.axtonsemotes.commands;
 
-import com.arizonsoftware.axtonsemotes.lib.handlers.UnifiedEmoteBuilder;
+import com.arizonsoftware.axtonsemotes.lib.handlers.UnifiedEmoteHandler;
 import com.arizonsoftware.axtonsemotes.utils.Configuration;
 import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
@@ -15,8 +15,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class EmoteCommand implements TabExecutor {
-
-   private final UnifiedEmoteBuilder emoteExecutor = new UnifiedEmoteBuilder();
 
    /**
     * Executes the emote command.
@@ -97,7 +95,7 @@ public class EmoteCommand implements TabExecutor {
             EmoteCommandWrapper emoteCommand = new EmoteCommandWrapper(emoteName);
             String[] emoteArgs = new String[args.length - 1];
             System.arraycopy(args, 1, emoteArgs, 0, emoteArgs.length);
-            return this.emoteExecutor.buildEmote(sender, emoteCommand, emoteName, emoteArgs);
+            return UnifiedEmoteHandler.buildEmote(sender, emoteCommand, emoteName, emoteArgs);
          }
       }
    }

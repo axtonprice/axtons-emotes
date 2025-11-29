@@ -64,76 +64,79 @@ public class ListEmotes implements CommandExecutor {
 
       // Check if sender is a player
       if (!(sender instanceof Player)) {
-
          logContext = this.getClass().getSimpleName();
          Debugging.log(logContext + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
                "List command attempt failed: Sender is not a player (Console)");
          sender.sendMessage(MessageHandler.parseError("error.player.only"));
+         return;
+      }
 
-      } else if (!sender.hasPermission("axtonsemotes.emotes.list")) {
-
+      // Check permission to list emotes
+      if (!sender.hasPermission("axtonsemotes.emotes.list")) {
          logContext = this.getClass().getSimpleName();
          Debugging.log(logContext + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
                "List command attempt failed: No permission to list emotes by " + sender.getName());
          sender.sendMessage(MessageHandler.parseError("error.permission"));
+         return;
+      }
 
-      } else {
-         // Check configuration for allow-list-commands
-         Boolean allowListCommands = Configuration.getBoolean("config.yml", "allow-list-commands");
+      // Check configuration for allow-list-commands
+      Boolean allowListCommands = Configuration.getBoolean("config.yml", "allow-list-commands");
 
-         if (Boolean.FALSE.equals(allowListCommands) && !sender.hasPermission("axtonsemotes.admin.list-override")
-               && !sender.isOp()) {
+      // Check if listing is allowed
+      if (Boolean.FALSE.equals(allowListCommands) && !sender.hasPermission("axtonsemotes.admin.list-override")
+            && !sender.isOp()) {
 
-            logContext = this.getClass().getSimpleName();
-            Debugging.log(logContext + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
-                  "List command attempt denied: " + sender.getName() + " - allow-list-commands is disabled");
-            sender.sendMessage(MessageHandler.parseError("error.command.disabled"));
+         logContext = this.getClass().getSimpleName();
+         Debugging.log(logContext + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
+               "List command attempt denied: " + sender.getName() + " - allow-list-commands is disabled");
+         sender.sendMessage(MessageHandler.parseError("error.command.disabled"));
+         return;
+      }
 
-         } else {
-            // Determine page number
-            int pageCount = 1;
-            if (args.length > 0) {
-               try {
-                  pageCount = Integer.parseInt(args[0]);
-               } catch (NumberFormatException ignored) {
-                  pageCount = 1;
-               }
-            }
-
-            // Retrieve emotes list
-            List<String[]> emotesList = CommandListHandler.getEmotesList(this.emoteType, sender);
-
-            // Debug logging
-            logContext = this.getClass().getSimpleName() + "/"
-                  + Thread.currentThread().getStackTrace()[1].getMethodName();
-            Debugging.log(logContext, "Determined page number " + pageCount);
-            Debugging.log(logContext, "Counted " + emotesList.size() + " " + this.emoteType + " emotes");
-
-            // Prepare titles and notes
-            String title;
-            String subTitle;
-            String note;
-
-            // Determine titles and notes based on emote type
-            if ("expression".equalsIgnoreCase(this.emoteType)) {
-               title = MessageHandler.get("command.list.titles.expressions");
-               subTitle = MessageHandler.get("command.list.subtitles.expressions");
-               note = MessageHandler.get("command.list.notes.expressions");
-            } else {
-               title = MessageHandler.get("command.list.titles.emotes");
-               subTitle = MessageHandler.get("command.list.subtitles.emotes");
-               note = MessageHandler.get("command.list.notes.emotes");
-            }
-
-            // Send paginated message
-            if (sender instanceof Player player) {
-               CommandListHandler.sendPaginatedMessage(pageCount, player.getName(), sender, emotesList, title, subTitle,
-                     this.thisLabel, note);
-            } else {
-               CommandListHandler.sendPaginatedMessage(pageCount, "Console", sender, emotesList, title, subTitle,
-                     this.thisLabel, note);
-            }
+      // Determine page number
+      int pageCount = 1;
+      if (args.length > 0) {
+         try {
+            pageCount = Integer.parseInt(args[0]);
+         } catch (NumberFormatException ignored) {
+            pageCount = 1;
          }
       }
+
+      // Retrieve emotes list
+      List<String[]> emotesList = CommandListHandler.getEmotesList(this.emoteType, sender);
+
+      // Debug logging
+      logContext = this.getClass().getSimpleName() + "/"
+            + Thread.currentThread().getStackTrace()[1].getMethodName();
+      Debugging.log(logContext, "Determined page number " + pageCount);
+      Debugging.log(logContext, "Counted " + emotesList.size() + " " + this.emoteType + " emotes");
+
+      // Prepare titles and notes
+      String title;
+      String subTitle;
+      String note;
+
+      // Determine titles and notes based on emote type
+      if ("expression".equalsIgnoreCase(this.emoteType)) {
+         title = MessageHandler.get("command.list.titles.expressions");
+         subTitle = MessageHandler.get("command.list.subtitles.expressions");
+         note = MessageHandler.get("command.list.notes.expressions");
+      } else {
+         title = MessageHandler.get("command.list.titles.emotes");
+         subTitle = MessageHandler.get("command.list.subtitles.emotes");
+         note = MessageHandler.get("command.list.notes.emotes");
+      }
+
+      // Send paginated message
+      if (sender instanceof Player player) {
+         CommandListHandler.sendPaginatedMessage(pageCount, player.getName(), sender, emotesList, title, subTitle,
+               this.thisLabel, note);
+      } else {
+         CommandListHandler.sendPaginatedMessage(pageCount, "Console", sender, emotesList, title, subTitle,
+               this.thisLabel, note);
+      }
+
    }
 }

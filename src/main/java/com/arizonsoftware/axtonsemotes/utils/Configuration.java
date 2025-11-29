@@ -54,15 +54,8 @@ public class Configuration {
 
    /**
    * Validates system config for language and prefix formatting.
-   *
-   * @param logOutput Whether to log validation output.
    */
-   public static void validateConfig(boolean logOutput) {
-
-      // Log start message
-      if (logOutput) {
-         Debugging.log(className, MessageHandler.get("plugin.startup.configuration.start"));
-      }
+   public static void validateConfig() {
 
       // Fetch config file
       YamlConfiguration configYML = getConfig(CONFIG_FILE);

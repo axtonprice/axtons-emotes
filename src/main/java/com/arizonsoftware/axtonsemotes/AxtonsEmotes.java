@@ -1,9 +1,9 @@
 package com.arizonsoftware.axtonsemotes;
 
-import com.arizonsoftware.axtonsemotes.utils.BStats;
 import com.arizonsoftware.axtonsemotes.utils.Configuration;
 import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
+import com.arizonsoftware.axtonsemotes.utils.Metrics;
 import com.arizonsoftware.axtonsemotes.utils.Registry;
 import com.arizonsoftware.axtonsemotes.utils.Versioning;
 import java.util.logging.Level;
@@ -50,14 +50,16 @@ public final class AxtonsEmotes extends JavaPlugin {
       }, 0, updateCheckDelay);
 
       // Validate configuration
-      Configuration.validateConfig(true);
+      Debugging.log(AxtonsEmotes.class.getSimpleName(), MessageHandler.get("plugin.startup.configuration.start"));
+      Configuration.validateConfig();
 
       // Register components
       Registry.registerAll(startTime);
 
       // Start BStats metrics
-      BStats metrics = new BStats(this, 23323);
-      metrics.addMetricData(metrics);
+      Debugging.log(AxtonsEmotes.class.getSimpleName(),
+            MessageHandler.get("plugin.startup.bstats.start"));
+      new Metrics(this, 23323);
 
       // Startup message - footer
       String footer = MessageHandler.format(MessageHandler.get("plugin.startup.footer"),

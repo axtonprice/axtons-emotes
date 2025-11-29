@@ -144,12 +144,12 @@ public class CommandListHandler {
     * @param sender The command sender to send messages to.
     * @param commandsList The list of commands/emotes to display.
     * @param title The title of the paginated list.
-    * @param subTitle The subtitle of the paginated list.
+    * @param description The subtitle of the paginated list.
     * @param baseCommand The base command used for navigation.
     * @param note Optional note to display on the first page.
     */
    public static void sendPaginatedMessage(int pageCount, String senderName, CommandSender sender,
-         List<String[]> commandsList, String title, String subTitle, String baseCommand, String note) {
+         List<String[]> commandsList, String title, String description, String baseCommand, String note) {
       int totalPages = (int) Math.ceil((double) commandsList.size() / COMMANDS_PER_PAGE);
       if (pageCount > totalPages)
          pageCount = totalPages;
@@ -160,9 +160,12 @@ public class CommandListHandler {
       int endIndex = Math.min(startIndex + COMMANDS_PER_PAGE, commandsList.size());
 
       sender.sendMessage("\n");
+      sender.sendMessage(MessageHandler.parseColor("&8- &b&lAxtonsEmotes &8-"));
       sender.sendMessage(
-            MessageHandler.parseColor("&6--- " + title + " --- &7(Page " + pageCount + " of " + totalPages + ")"));
-      sender.sendMessage(MessageHandler.parseColor(subTitle));
+            MessageHandler.parseColor("&7Listing: &6" + title));
+      sender.sendMessage(MessageHandler.parseColor("&7Page " + pageCount + " of " + totalPages));
+      sender.sendMessage("\n");
+      sender.sendMessage(MessageHandler.parseColor(description));
 
       if (note != null && !note.trim().isEmpty() && pageCount == 1) {
          sender.sendMessage(MessageHandler.parseColor(note));

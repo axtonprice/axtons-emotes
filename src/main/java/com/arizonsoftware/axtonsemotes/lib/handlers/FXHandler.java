@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public abstract class BaseHandler {
+public abstract class FXHandler {
 
    // The command that initiated this handler. 
    protected static Command thisCommand;
@@ -68,7 +68,7 @@ public abstract class BaseHandler {
    protected void emitParticle(Player player) {
       if (this.particle != null) {
          try {
-            player.getWorld().spawnParticle(this.particle, player.getLocation(), 3, 0.5D, 0.5D, 0.5D, 0.0D);
+            player.getWorld().spawnParticle(this.particle, player.getLocation(), 5, 0.5D, 1D, 0.5D, 0.0D);
          } catch (IllegalArgumentException e) {
             Debugging.log(this.getClass().getSimpleName() + "/" +
                   Thread.currentThread().getStackTrace()[1].getMethodName(),

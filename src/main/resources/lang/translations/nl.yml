@@ -16,7 +16,7 @@ plugin:
       start: "Plugincomponenten registreren..."
       configs_loaded: "%progress_suffix% %configs_count% configuratie(s)!"
       commands_loaded: "%progress_suffix% %commands_count% commando('s)!"
-      listeners_loaded: "%progress_suffix% %listeners_count% listener(s)!"
+      listeners_loaded: "%progress_suffix% %listeners_count% luisteraars!"
     bstats:
       start: "BStats-statistieken starten..."
       failed: "Kon geen analytics naar BStats verzenden!"

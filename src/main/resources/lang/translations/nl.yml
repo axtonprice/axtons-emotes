@@ -1,4 +1,4 @@
-# Plugin opstart- en lifecycle-berichten
+# Plugin startup and lifecycle messages
 plugin:
   startup:
     progress_suffix:
@@ -21,13 +21,13 @@ plugin:
       start: "BStats-statistieken starten..."
       failed: "Kon geen analytics naar BStats verzenden!"
     footer: "%progress_suffix% alle functies in"
-# Configuratiesysteem-berichten
+# Configuration system messages
 config:
   error:
     saving: "Opslaan van configuratiebestand mislukt"
   success:
     saving: "Configuratiebestand succesvol opgeslagen"
-# Algemene foutmeldingen
+# Global error messages
 error:
   permission: "Je hebt geen toestemming om dit commando uit te voeren!"
   invalid_config: "Ongeldige configuratie gedetecteerd!"
@@ -46,7 +46,7 @@ error:
   emote:
     not_found: "Emote niet gevonden of uitgeschakeld!"
     misconfigured: "Deze emote is verkeerd geconfigureerd en kan niet worden uitgevoerd! Neem contact op met de serverbeheerder."
-# Commando-specifieke berichten
+# Command-specific messages
 command:
   emote_toggle:
     sender_toggled: "Je hebt gedeelde emotes uitgeschakeld. Activeer opnieuw met &7/toggleemotes"

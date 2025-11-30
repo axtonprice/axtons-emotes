@@ -1,4 +1,4 @@
-# Повідомлення під час запуску плагіна
+# Plugin startup and lifecycle messages
 plugin:
   startup:
     progress_suffix:
@@ -21,13 +21,13 @@ plugin:
       start: "Запуск метрики BStats..."
       failed: "Не вдалося надіслати дані статистики в BStats!"
     footer: "%progress_suffix% всі функції за"
-# Повідомлення системи конфігурації
+# Configuration system messages
 config:
   error:
     saving: "Не вдалося зберегти конфігураційний файл"
   success:
     saving: "Конфігураційний файл успішно збережено"
-# Загальні повідомлення про помилки
+# Global error messages
 error:
   permission: "У вас немає дозволу на виконання цієї команди!"
   invalid_config: "Виявлено неправильну конфігурацію!"
@@ -46,7 +46,7 @@ error:
   emote:
     not_found: "Емоут не знайдено або він вимкнений!"
     misconfigured: "Емоут налаштовано неправильно і не може бути виконаний! Зверніться до адміністратора сервера."
-# Повідомлення команд
+# Command-specific messages
 command:
   emote_toggle:
     sender_toggled: "Ви вимкнули спільні емоуті. Увімкніть за допомогою &7/toggleemotes"

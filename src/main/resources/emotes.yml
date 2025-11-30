@@ -16,8 +16,8 @@
 #     player: <string/none>        # Message sent to the player running the command. Set to 'none' for no message.
 #     target: <string/none>        # Message sent to the target player (or all players for expression emotes) Set to 'none' for no message.
 #   effects:
-#     particle: <string/none>      # Particle effect ENUM. Set to 'none' for no particle effect.
-#     sound: <string/none>         # Sound effect ENUM. Set to 'none' for no sound effect.
+#     particle: <string/none>      # Particle effect enum constant. Set to 'none' for no particle effect.
+#     sound: <string/none>         # Sound effect enum constant. Set to 'none' for no sound effect.
 #
 commands:
   # > Expressions

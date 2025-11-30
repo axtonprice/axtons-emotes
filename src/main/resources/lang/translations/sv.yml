@@ -1,90 +1,90 @@
-# Plugin startup and lifecycle messages
+# Plugin-start och livscykelmeddelanden
 plugin:
   startup:
     progress_suffix:
-      starting: "Starting"
-      reloaded: "Reloaded"
-      loaded: "Loaded"
+      starting: "Startar"
+      reloaded: "Omladdad"
+      loaded: "Laddad"
     configuration:
-      start: "Validating configuration..."
+      start: "Verifierar konfiguration..."
       error:
-        validating: "Error validating configuration"
-        creating_default: "Error creating default configuration"
-        invalid_lang: "Invalid language configuration detected, defaulting to English"
-        no_emotes: "No emotes found in configuration"
+        validating: "Fel vid verifiering av konfiguration"
+        creating_default: "Fel vid skapande av standardkonfiguration"
+        invalid_lang: "Ogiltig språkfil upptäcktes, återgår till engelska"
+        no_emotes: "Inga emoticons hittades i konfigurationen"
     registry:
-      start: "Registering plugin components..."
-      configs_loaded: "%progress_suffix% %configs_count% configuration(s)!"
-      commands_loaded: "%progress_suffix% %commands_count% command(s)!"
-      listeners_loaded: "%progress_suffix% %listeners_count% listener(s)!"
+      start: "Registrerar plugin-komponenter..."
+      configs_loaded: "%progress_suffix% %configs_count% konfiguration(er)!"
+      commands_loaded: "%progress_suffix% %commands_count% kommando(n)!"
+      listeners_loaded: "%progress_suffix% %listeners_count% lyssnare!"
     bstats:
-      start: "Starting BStats metrics..."
-      failed: "Could not send analytics to BStats!"
-    footer: "%progress_suffix% all features in"
-# Configuration system messages
+      start: "Startar BStats-mätvärden..."
+      failed: "Kunde inte skicka statistik till BStats!"
+    footer: "%progress_suffix% alla funktioner"
+# Konfigurationsmeddelanden
 config:
   error:
-    saving: "Failed to save configuration file"
+    saving: "Misslyckades med att spara konfigurationsfilen"
   success:
-    saving: "Successfully saved configuration file"
-# Global error messages
+    saving: "Konfigurationsfil sparad"
+# Globala felmeddelanden
 error:
-  permission: "You don't have permission to execute this command!"
-  invalid_config: "Invalid configuration detected!"
+  permission: "Du har inte behörighet att använda detta kommando!"
+  invalid_config: "Ogiltig konfiguration upptäcktes!"
   player:
-    only: "Only players can execute this command!"
-    self: "You can't execute that command on yourself! Maybe try with a friend?"
-    offline: "Player not found or is offline!"
+    only: "Endast spelare kan använda detta kommando!"
+    self: "Du kan inte använda det kommandot på dig själv! Testa med en vän?"
+    offline: "Spelare hittades inte eller är offline!"
   command:
-    disabled: "That command is disabled!"
-    execute: "Failed to execute command!"
+    disabled: "Detta kommando är avaktiverat!"
+    execute: "Misslyckades med att köra kommandot!"
     syntax:
-      sub_command: "Invalid syntax! Please specify a valid sub-command!"
-      no_target: "Invalid syntax! You must specify a valid player!"
-      emote_shared: "Usage: /emote <emotename> [player]"
-      emote_expression: "Usage: /emote <emotename>"
+      sub_command: "Ogiltig syntax! Ange ett giltigt underkommando!"
+      no_target: "Ogiltig syntax! Du måste ange en giltig spelare!"
+      emote_shared: "Användning: /emote <emotenamn> [spelare]"
+      emote_expression: "Användning: /emote <emotenamn>"
   emote:
-    not_found: "Emote not found or is disabled!"
-    misconfigured: "Emote is misconfigured and cannot be executed! Please contact the server administrator."
-# Command-specific messages
+    not_found: "Emote hittades inte eller är avaktiverad!"
+    misconfigured: "Emoten är felkonfigurerad och kan inte köras! Kontakta serveradministratören."
+# Kommandospecifika meddelanden
 command:
   emote_toggle:
-    sender_toggled: "You have disabled shared emotes. Enable with &7/toggleemotes"
-    target_toggled: "This user has disabled shared emotes."
-    enabled: "&aShared emotes have been enabled. &7Players can now perform shared emotes with you."
-    disabled: "&cShared emotes have been disabled. &7Players can no longer perform shared emotes with you."
+    sender_toggled: "Du har avaktiverat delade emoticons. Aktivera med &7/toggleemotes"
+    target_toggled: "Denna användare har avaktiverat delade emoticons."
+    enabled: "&aDelade emoticons har aktiverats. &7Spelare kan nu utföra delade emoticons med dig."
+    disabled: "&cDelade emoticons har avaktiverats. &7Spelare kan inte längre utföra dem med dig."
   reload:
-    success: "Configurations reloaded successfully! (%exec_time%ms)"
-    emotes_note: "View configured emotes with &f/emotes&7, and &f/expressions&7."
+    success: "Konfigurationer omladdade! (%exec_time%ms)"
+    emotes_note: "Se konfigurerade emoticons med &f/emotes&7 och &f/expressions&7."
   version:
-    info_latest: "Running AxtonsEmotes version v%current_version%. The latest version is v%latest_version%."
-    info_outdated: "You are running an outdated version of AxtonsEmotes: v%current_version%! The latest version is v%latest_version%."
-    info_releases: "Click to view releases."
-    outdated_notify: "There is a newer version of AxtonsEmotes available: v%latest_version%, you're on: v%current_version%."
+    info_latest: "Kör AxtonsEmotes version v%current_version%. Senaste versionen är v%latest_version%."
+    info_outdated: "Du använder en gammal version av AxtonsEmotes: v%current_version%! Senaste versionen är v%latest_version%."
+    info_releases: "Klicka för att visa releaser."
+    outdated_notify: "En ny version av AxtonsEmotes finns tillgänglig: v%latest_version%, du kör: v%current_version%."
   toggledebug:
-    enabled: "Debug mode enabled."
-    disabled: "Debug mode disabled."
+    enabled: "Debug-läge aktiverat."
+    disabled: "Debug-läge avaktiverat."
   togglemetrics:
-    enabled: "BStats metrics tracking enabled."
-    disabled: "BStats metrics tracking disabled."
+    enabled: "BStats datainsamling aktiverad."
+    disabled: "BStats datainsamling avaktiverad."
   resetlang:
-    success: "Language files have been reset to defaults."
-    error: "Failed to reset language files."
-  help: "Click to view the GitHub wiki for command usage and configuration guides"
+    success: "Språkfiler återställda till standard."
+    error: "Misslyckades med att återställa språkfiler."
+  help: "Klicka för att visa GitHub-wikin för kommandon och konfigurationsguider"
   list:
-    no_description: "No description available"
+    no_description: "Ingen beskrivning tillgänglig"
     titles:
-      emotes: "Shared Emotes"
-      expressions: "Expressions"
+      emotes: "Delade Emotes"
+      expressions: "Uttryck"
     subtitles:
-      emotes: "&7Shared emotes are performed with another player."
-      expressions: "&7Expression emotes are broadcasted to all players."
+      emotes: "&7Delade emoticons utförs med en annan spelare."
+      expressions: "&7Uttryck skickas till alla spelare."
     navigation:
-      page: "Page: %current_page% of %total_pages%"
-      listing: "Listing"
-      next: "Next"
-      previous: "Previous"
-      footer: "&7Use &9/%command_name% %page_number%&r&7 to see the next page."
+      page: "Sida: %current_page% av %total_pages%"
+      listing: "Visar"
+      next: "Nästa"
+      previous: "Föregående"
+      footer: "&7Använd &9/%command_name% %page_number%&r&7 för att visa nästa sida."
     notes:
-      emotes: "&7Use &b/expressions&7 to view a list of expression emotes."
-      expressions: "&7Use &b/emotes&7 to view a list of shared emotes."
+      emotes: "&7Använd &b/expressions&7 för att visa en lista över uttryck."
+      expressions: "&7Använd &b/emotes&7 för att visa en lista över delade emoticons."

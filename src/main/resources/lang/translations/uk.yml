@@ -1,90 +1,90 @@
-# Plugin startup and lifecycle messages
+# Повідомлення під час запуску плагіна
 plugin:
   startup:
     progress_suffix:
-      starting: "Starting"
-      reloaded: "Reloaded"
-      loaded: "Loaded"
+      starting: "Запуск"
+      reloaded: "Перезавантажено"
+      loaded: "Завантажено"
     configuration:
-      start: "Validating configuration..."
+      start: "Перевірка конфігурації..."
       error:
-        validating: "Error validating configuration"
-        creating_default: "Error creating default configuration"
-        invalid_lang: "Invalid language configuration detected, defaulting to English"
-        no_emotes: "No emotes found in configuration"
+        validating: "Помилка під час перевірки конфігурації"
+        creating_default: "Помилка під час створення конфігурації за замовчуванням"
+        invalid_lang: "Виявлено неправильну мовну конфігурацію, встановлено англійську"
+        no_emotes: "У конфігурації не знайдено жодного емоута"
     registry:
-      start: "Registering plugin components..."
-      configs_loaded: "%progress_suffix% %configs_count% configuration(s)!"
-      commands_loaded: "%progress_suffix% %commands_count% command(s)!"
-      listeners_loaded: "%progress_suffix% %listeners_count% listener(s)!"
+      start: "Реєстрація компонентів плагіна..."
+      configs_loaded: "%progress_suffix% %configs_count% конфігурацій!"
+      commands_loaded: "%progress_suffix% %commands_count% команд!"
+      listeners_loaded: "%progress_suffix% %listeners_count% слухачів!"
     bstats:
-      start: "Starting BStats metrics..."
-      failed: "Could not send analytics to BStats!"
-    footer: "%progress_suffix% all features in"
-# Configuration system messages
+      start: "Запуск метрики BStats..."
+      failed: "Не вдалося надіслати дані статистики в BStats!"
+    footer: "%progress_suffix% всі функції за"
+# Повідомлення системи конфігурації
 config:
   error:
-    saving: "Failed to save configuration file"
+    saving: "Не вдалося зберегти конфігураційний файл"
   success:
-    saving: "Successfully saved configuration file"
-# Global error messages
+    saving: "Конфігураційний файл успішно збережено"
+# Загальні повідомлення про помилки
 error:
-  permission: "You don't have permission to execute this command!"
-  invalid_config: "Invalid configuration detected!"
+  permission: "У вас немає дозволу на виконання цієї команди!"
+  invalid_config: "Виявлено неправильну конфігурацію!"
   player:
-    only: "Only players can execute this command!"
-    self: "You can't execute that command on yourself! Maybe try with a friend?"
-    offline: "Player not found or is offline!"
+    only: "Цю команду можуть виконувати лише гравці!"
+    self: "Ви не можете виконати цю команду на собі! Можливо, спробуйте з другом?"
+    offline: "Гравця не знайдено або він офлайн!"
   command:
-    disabled: "That command is disabled!"
-    execute: "Failed to execute command!"
+    disabled: "Ця команда вимкнена!"
+    execute: "Не вдалося виконати команду!"
     syntax:
-      sub_command: "Invalid syntax! Please specify a valid sub-command!"
-      no_target: "Invalid syntax! You must specify a valid player!"
-      emote_shared: "Usage: /emote <emotename> [player]"
-      emote_expression: "Usage: /emote <emotename>"
+      sub_command: "Неправильна синтаксична структура! Вкажіть правильну підкоманду!"
+      no_target: "Неправильна синтаксична структура! Необхідно вказати правильного гравця!"
+      emote_shared: "Використання: /emote <назва> [гравець]"
+      emote_expression: "Використання: /emote <назва>"
   emote:
-    not_found: "Emote not found or is disabled!"
-    misconfigured: "Emote is misconfigured and cannot be executed! Please contact the server administrator."
-# Command-specific messages
+    not_found: "Емоут не знайдено або він вимкнений!"
+    misconfigured: "Емоут налаштовано неправильно і не може бути виконаний! Зверніться до адміністратора сервера."
+# Повідомлення команд
 command:
   emote_toggle:
-    sender_toggled: "You have disabled shared emotes. Enable with &7/toggleemotes"
-    target_toggled: "This user has disabled shared emotes."
-    enabled: "&aShared emotes have been enabled. &7Players can now perform shared emotes with you."
-    disabled: "&cShared emotes have been disabled. &7Players can no longer perform shared emotes with you."
+    sender_toggled: "Ви вимкнули спільні емоуті. Увімкніть за допомогою &7/toggleemotes"
+    target_toggled: "Цей гравець вимкнув спільні емоуті."
+    enabled: "&aСпільні емоуті увімкнено. &7Гравці можуть виконувати їх з вами."
+    disabled: "&cСпільні емоуті вимкнено. &7Гравці більше не можуть виконувати їх з вами."
   reload:
-    success: "Configurations reloaded successfully! (%exec_time%ms)"
-    emotes_note: "View configured emotes with &f/emotes&7, and &f/expressions&7."
+    success: "Конфігурацію успішно перезавантажено! (%exec_time%мс)"
+    emotes_note: "Перегляньте емоуті за допомогою &f/emotes&7 та &f/expressions&7."
   version:
-    info_latest: "Running AxtonsEmotes version v%current_version%. The latest version is v%latest_version%."
-    info_outdated: "You are running an outdated version of AxtonsEmotes: v%current_version%! The latest version is v%latest_version%."
-    info_releases: "Click to view releases."
-    outdated_notify: "There is a newer version of AxtonsEmotes available: v%latest_version%, you're on: v%current_version%."
+    info_latest: "Запущено AxtonsEmotes версії v%current_version%. Остання версія: v%latest_version%."
+    info_outdated: "Ви використовуєте застарілу версію AxtonsEmotes: v%current_version%! Остання версія: v%latest_version%."
+    info_releases: "Натисніть, щоб переглянути релізи."
+    outdated_notify: "Доступна нова версія AxtonsEmotes: v%latest_version%, у вас: v%current_version%."
   toggledebug:
-    enabled: "Debug mode enabled."
-    disabled: "Debug mode disabled."
+    enabled: "Режим налагодження увімкнено."
+    disabled: "Режим налагодження вимкнено."
   togglemetrics:
-    enabled: "BStats metrics tracking enabled."
-    disabled: "BStats metrics tracking disabled."
+    enabled: "Збір статистики BStats увімкнено."
+    disabled: "Збір статистики BStats вимкнено."
   resetlang:
-    success: "Language files have been reset to defaults."
-    error: "Failed to reset language files."
-  help: "Click to view the GitHub wiki for command usage and configuration guides"
+    success: "Мовні файли скинуто до значень за замовчуванням."
+    error: "Не вдалося скинути мовні файли."
+  help: "Натисніть, щоб відкрити GitHub Wiki для довідника команд та конфігурації"
   list:
-    no_description: "No description available"
+    no_description: "Опис відсутній"
     titles:
-      emotes: "Shared Emotes"
-      expressions: "Expressions"
+      emotes: "Спільні емоуті"
+      expressions: "Емоуті-вирази"
     subtitles:
-      emotes: "&7Shared emotes are performed with another player."
-      expressions: "&7Expression emotes are broadcasted to all players."
+      emotes: "&7Спільні емоуті виконуються з іншим гравцем."
+      expressions: "&7Виразні емоуті транслюються всім гравцям."
     navigation:
-      page: "Page: %current_page% of %total_pages%"
-      listing: "Listing"
-      next: "Next"
-      previous: "Previous"
-      footer: "&7Use &9/%command_name% %page_number%&r&7 to see the next page."
+      page: "Сторінка: %current_page% з %total_pages%"
+      listing: "Список"
+      next: "Далі"
+      previous: "Назад"
+      footer: "&7Використовуйте &9/%command_name% %page_number%&r&7 щоб побачити наступну сторінку."
     notes:
-      emotes: "&7Use &b/expressions&7 to view a list of expression emotes."
-      expressions: "&7Use &b/emotes&7 to view a list of shared emotes."
+      emotes: "&7Використовуйте &b/expressions&7 для перегляду списку виразних емоутів."
+      expressions: "&7Використовуйте &b/emotes&7 для перегляду списку спільних емоутів."

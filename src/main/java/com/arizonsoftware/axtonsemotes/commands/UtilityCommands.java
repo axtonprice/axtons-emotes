@@ -178,7 +178,7 @@ public class UtilityCommands {
          return;
 
       String langFolder = "lang";
-      String[] langFiles = { "en.yml", "es.yml", "fr.yml", "it.yml", "ru.yml" };
+      String[] langFiles = Configuration.languages;
 
       try {
          Configuration.createDirectory(instance.getDataFolder().toPath());

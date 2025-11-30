@@ -32,7 +32,7 @@ allow-self-toggle:
   require-permission: false
 
 # >> Default Effects
-# Specifies the default particle and sound effects if the specified ENUM is invalid (NOT if the effect is set to 'none').
+# Specifies the default particle and sound effects if the specified enum constant is invalid (NOT if the effect is set to 'none').
 # Defaults: CRIT, ENTITY_ITEM_PICKUP
 default-effects:
   particle: "CRIT"

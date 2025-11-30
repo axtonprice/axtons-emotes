@@ -38,7 +38,7 @@ public class Registry {
       resetCounter();
    }
 
-   /** Registers all plugin commands. */
+   /** Registers all plugin commands */
    private static void registerCommands() {
       registerCommand(AxtonsEmotes.getInstance().getCommand("axtonsemotes"), new BaseCommands());
       registerCommand(AxtonsEmotes.getInstance().getCommand("emotes"), new ListEmotes("shared"));
@@ -47,7 +47,7 @@ public class Registry {
       registerCommand(AxtonsEmotes.getInstance().getCommand("toggleemotes"), new ToggleSharedEmotes());
    }
 
-   /** Registers all plugin event listeners. */
+   /** Registers all plugin event listeners */
    private static void registerListeners() {
       registerListener(new PlayerEventsListener());
    }

@@ -16,24 +16,15 @@ public class Configuration {
 
    private static final AxtonsEmotes instance = AxtonsEmotes.getInstance();
    private static final String className = Configuration.class.getSimpleName();
-   private static final String LANG_FOLDER = "lang";
    private static final String CONFIG_FILE = "config.yml";
    private static final String EMOTES_FILE = "emotes.yml";
    private static final ConcurrentHashMap<String, YamlConfiguration> configCache = new ConcurrentHashMap<>();
 
+   public static final String[] languages = { "es.yml", "fr.yml", "it.yml", "ru.yml", "de.yml", "pl.yml", "zh.yml",
+         "uk.yml", "pa.yml", "sv.yml", "nl.yml" };
+
    private Configuration() {
       throw new IllegalStateException("Utility class");
-   }
-
-   // fetch all .yml files in the plugin lang/translations folder and return them in a String[]
-   private String[] fetchLanguages() {
-      File langDir = new File(instance.getDataFolder(), LANG_FOLDER + File.separator + "translations");
-      if (!langDir.exists() || !langDir.isDirectory()) {
-         return new String[0];
-      }
-      return Arrays.stream(langDir.listFiles((dir, name) -> name.endsWith(".yml")))
-            .map(file -> file.getName().replace(".yml", ""))
-            .toArray(String[]::new);
    }
 
    /**
@@ -54,7 +45,7 @@ public class Configuration {
 
          // Create language files if missing
          saveDefaultConfigFile("lang/en.yml", false);
-         Arrays.stream(new String[] { "es.yml", "fr.yml", "it.yml", "ru.yml", "de.yml", "pl.yml" })
+         Arrays.stream(languages)
                .forEach(langFile -> saveDefaultConfigFile("lang/translations/" + langFile, false));
 
          // Log completion
@@ -259,16 +250,44 @@ public class Configuration {
     * @param configFile  File to save if needed.
     */
    private static void validateLanguageConfig(YamlConfiguration configYML, File configFile) {
+      // Get language files and config
       String language = configYML.getString("language", "en");
-      File languageFile = new File(instance.getDataFolder(), "lang/" + language + ".yml");
+      File languageFile = getLangFile();
+
+      // If language file missing, reset to English
       if (!languageFile.exists()) {
+
+         // Override to English
          language = "en";
+
+         // Reset language key in config to English
          configYML.set("language", language);
+
+         // Save English language file
          saveDefaultConfigFile("lang" + File.separator + language + ".yml", false);
          saveConfiguration(configYML, configFile, MessageHandler.get("config.error.saving"));
+
+         // Debug logging
          Debugging.raw("warning", MessageHandler.get("plugin.startup.configuration.error.invalid_lang"));
          Debugging.logToFile(className + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
                MessageHandler.get("plugin.startup.configuration.error.invalid_lang"));
+      }
+   }
+
+   /**
+    * Retrieves the language file based on the configured language setting.
+    * If the language is set to "en" (English), returns the default English language file
+    * located at {@code lang/en.yml}. For any other language, returns the corresponding
+    * translation file located at {@code lang/translations/{language}.yml}.
+    *
+    * @return the {@link File} object representing the appropriate language file.
+    */
+   private static File getLangFile() {
+      String language = Configuration.getString("config.yml", "language", "en");
+      if (language.equalsIgnoreCase("en")) {
+         return new File(instance.getDataFolder(), "lang/en.yml");
+      } else {
+         return new File(instance.getDataFolder(), "lang/translations/" + language + ".yml");
       }
    }
 

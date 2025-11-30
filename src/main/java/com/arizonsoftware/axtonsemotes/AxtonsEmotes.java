@@ -28,7 +28,7 @@ public final class AxtonsEmotes extends JavaPlugin {
     */
    public void onLoad() {
       // Setup configuration
-      Configuration.ensureDefaultConfigs();
+      // Configuration.ensureDefaultConfigs();
    }
 
    /**
@@ -66,9 +66,11 @@ public final class AxtonsEmotes extends JavaPlugin {
       Registry.registerAll(startTime);
 
       // Start BStats metrics
-      Debugging.log(AxtonsEmotes.class.getSimpleName(),
-            MessageHandler.get("plugin.startup.bstats.start"));
-      new Metrics(this, 23323);
+      if (Configuration.getBoolean("config.yml", "enable-metrics")) {
+         new Metrics(this, 23323);
+         Debugging.log(AxtonsEmotes.class.getSimpleName(),
+               MessageHandler.get("plugin.startup.bstats.start"));
+      }
 
       // Startup message - footer
       String footer = MessageHandler.format(MessageHandler.get("plugin.startup.footer"),

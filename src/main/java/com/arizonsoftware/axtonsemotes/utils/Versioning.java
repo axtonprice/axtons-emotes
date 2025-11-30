@@ -23,7 +23,6 @@ public class Versioning {
 
    // Version fields
    public static String installedVersion = AxtonsEmotes.getInstance().getDescription().getVersion();
-   public static String configuredVersion = Configuration.getString("config.yml", "config-version", "0.0.0");
    public static String latestSourceVersion = getLatestSourceVersion();
 
    private Versioning() {
@@ -67,6 +66,9 @@ public class Versioning {
          Bukkit.getPluginManager().disablePlugin(AxtonsEmotes.getInstance());
          return;
       }
+
+      // Fetch configured version
+      String configuredVersion = Configuration.getString("config.yml", "config-version", "0.0.0");
 
       // Reset config if version too old
       if (configuredVersion.equals("1.3.0")) {

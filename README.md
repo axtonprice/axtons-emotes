@@ -122,8 +122,8 @@ After updating the configuration, reload it with `/ae reload` (requires the `axt
 
 ```yml
 # >> Language
-# Sets the language used for in-game messages.
-# Options: en (English), es (Spanish/Español), fr (French/Français), it (Italian/Italiano), ru (Russian/Русский), de (German/Deutsch), pl (Polish/Polski)
+# Sets the language used for in-game plugin messages.
+# For a full list of available languages, please refer to https://github.com/axtonprice/axtons-emotes/wiki/Languages
 language: en
 
 # >> Self-Executions
@@ -146,7 +146,7 @@ allow-self-toggle:
   require-permission: false
 
 # >> Default Effects
-# Specifies the default particle and sound effects if the specified ENUM is invalid (NOT if the effect is set to 'none').
+# Specifies the default particle and sound effects if the specified enum constant is invalid (NOT if the effect is set to 'none').
 # Defaults: CRIT, ENTITY_ITEM_PICKUP
 default-effects:
   particle: "CRIT"
@@ -184,6 +184,31 @@ updates:
 enable-metrics: true
 ```
 
+### Emote Configuration
+Below is an example of how to configure an expression and a shared emote command. Please refer to the [wiki](https://github.com/axtonprice/axtons-emotes/wiki/Configuration) for more information on how to configure emotes.
+```yml
+commands:
+  cry:
+    enabled: true
+    type: "expression"
+    messages:
+      player: "&7You cry yourself in sorrow.."
+      target: "&7&l%player%&r&7 cries in a corner.."
+    effects:
+      particle: "none"
+      sound: "ENTITY_CAT_HURT"
+
+  hug:
+    enabled: true
+    type: "shared"
+    messages:
+      player: "&cYou hugged &l%target%&r&c!"
+      target: "&c&l%player%&r&c hugged you!"
+    effects:
+      particle: "HEART"
+      sound: "ENTITY_CAT_PURREOW" 
+```
+
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/credits_text.png">
 
@@ -198,4 +223,4 @@ enable-metrics: true
 
 ### GPLv3 License
 
-This project is licensed under the GNU General Public License version 3. You can view this project's license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE), or you can read more about this license at [www.gnu.org](https://www.gnu.org/licenses/gpl-3.0.en.html).
+This project is licensed under the GNU General Public License version 3. View the project license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE).

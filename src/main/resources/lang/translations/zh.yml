@@ -1,4 +1,4 @@
-# 插件启动与生命周期消息
+# Plugin startup and lifecycle messages
 plugin:
   startup:
     progress_suffix:
@@ -21,13 +21,13 @@ plugin:
       start: "启动 BStats 统计..."
       failed: "无法向 BStats 发送统计数据！"
     footer: "%progress_suffix% 所有功能完成"
-# 配置系统消息
+# Configuration system messages
 config:
   error:
     saving: "保存配置文件失败"
   success:
     saving: "成功保存配置文件"
-# 全局错误消息
+# Global error messages
 error:
   permission: "你没有权限执行此指令！"
   invalid_config: "检测到无效的配置！"
@@ -46,7 +46,7 @@ error:
   emote:
     not_found: "未找到表情动作或该动作已被禁用！"
     misconfigured: "该表情配置错误，无法执行！请联系服务器管理员。"
-# 指令相关消息
+# Command-specific messages
 command:
   emote_toggle:
     sender_toggled: "你已关闭共享表情动作。可使用 &7/toggleemotes&r 重新启用"

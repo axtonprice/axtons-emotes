@@ -21,14 +21,12 @@ plugin:
       start: "Запуск метрик BStats..."
       failed: "Не удалось отправить статистику в BStats!"
     footer: "%progress_suffix% все функции активны"
-
 # Configuration system messages
 config:
   error:
     saving: "Ошибка при сохранении файла конфигурации"
   success:
     saving: "Файл конфигурации успешно сохранен"
-
 # Global error messages
 error:
   permission: "У вас нет прав для выполнения этой команды!"
@@ -48,7 +46,6 @@ error:
   emote:
     not_found: "Эмот не найден или отключен!"
     misconfigured: "Эмот настроен неправильно и не может быть выполнен! Свяжитесь с администратором сервера."
-
 # Command-specific messages
 command:
   emote_toggle:

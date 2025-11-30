@@ -8,8 +8,8 @@
 # For more information, visit: https://github.com/axtonprice/axtons-emotes/wiki
 
 # >> Language
-# Sets the language used for in-game messages.
-# Options: en (English), es (Spanish), fr (French), it (Italian), ru (Russian/Русский)
+# Sets the language used for in-game plugin messages.
+# For a full list of available languages, please refer to https://github.com/axtonprice/axtons-emotes/wiki/Languages
 language: en
 
 # >> Self-Executions

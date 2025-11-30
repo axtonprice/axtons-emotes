@@ -25,6 +25,17 @@ public class Configuration {
       throw new IllegalStateException("Utility class");
    }
 
+   // fetch all .yml files in the plugin lang/translations folder and return them in a String[]
+   private String[] fetchLanguages() {
+      File langDir = new File(instance.getDataFolder(), LANG_FOLDER + File.separator + "translations");
+      if (!langDir.exists() || !langDir.isDirectory()) {
+         return new String[0];
+      }
+      return Arrays.stream(langDir.listFiles((dir, name) -> name.endsWith(".yml")))
+            .map(file -> file.getName().replace(".yml", ""))
+            .toArray(String[]::new);
+   }
+
    /**
     * Sets up default directories and configuration files.
     */
@@ -249,11 +260,11 @@ public class Configuration {
     */
    private static void validateLanguageConfig(YamlConfiguration configYML, File configFile) {
       String language = configYML.getString("language", "en");
-      File languageFile = new File(instance.getDataFolder(), LANG_FOLDER + File.separator + language + ".yml");
+      File languageFile = new File(instance.getDataFolder(), "lang/" + language + ".yml");
       if (!languageFile.exists()) {
          language = "en";
          configYML.set("language", language);
-         saveDefaultConfigFile(LANG_FOLDER + "/" + language + ".yml", false);
+         saveDefaultConfigFile("lang" + File.separator + language + ".yml", false);
          saveConfiguration(configYML, configFile, MessageHandler.get("config.error.saving"));
          Debugging.raw("warning", MessageHandler.get("plugin.startup.configuration.error.invalid_lang"));
          Debugging.logToFile(className + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),

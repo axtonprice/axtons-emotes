@@ -26,8 +26,7 @@
 # Axton's Emotes
 > A light-weight, configurable chat emotes plugin for 1.20+ Spigot/Paper servers.
 
-Available in English, Spanish, French, Italian, German, Polish, Russian.
-
+Available in 10+ languages, including Spanish, French, Italian, German.. See the full list [here](https://github.com/axtonprice/axtons-emotes/wiki/Languages).
 <p align="center">
     <img width="250" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo1.png" alt="Promo Image 1">
     <img width="250" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo2.png" alt="Promo Image 2">
@@ -44,7 +43,7 @@ Available in English, Spanish, French, Italian, German, Polish, Russian.
 4. **Configure**: Modify `config.yml` to your liking, then reload the plugin with `/ae reload`.
 5. **Verify**: Check you are running the latest version by using `/ae version`.
 
-> **Note:** Java 17 or higher is required to run this plugin. Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki) for more details on installation requirements.
+> **Note:** Java 17 or higher is required to run this plugin. Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki/installation) for more details on installation requirements.
 
 
 <br>

@@ -1,4 +1,4 @@
-# Plugin-start och livscykelmeddelanden
+# Plugin startup and lifecycle messages
 plugin:
   startup:
     progress_suffix:
@@ -21,13 +21,13 @@ plugin:
       start: "Startar BStats-mätvärden..."
       failed: "Kunde inte skicka statistik till BStats!"
     footer: "%progress_suffix% alla funktioner"
-# Konfigurationsmeddelanden
+# Configuration system messages
 config:
   error:
     saving: "Misslyckades med att spara konfigurationsfilen"
   success:
     saving: "Konfigurationsfil sparad"
-# Globala felmeddelanden
+# Global error messages
 error:
   permission: "Du har inte behörighet att använda detta kommando!"
   invalid_config: "Ogiltig konfiguration upptäcktes!"
@@ -46,7 +46,7 @@ error:
   emote:
     not_found: "Emote hittades inte eller är avaktiverad!"
     misconfigured: "Emoten är felkonfigurerad och kan inte köras! Kontakta serveradministratören."
-# Kommandospecifika meddelanden
+# Command-specific messages
 command:
   emote_toggle:
     sender_toggled: "Du har avaktiverat delade emoticons. Aktivera med &7/toggleemotes"

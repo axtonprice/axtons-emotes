@@ -1,4 +1,4 @@
-# ਪਲੱਗਇਨ ਸ਼ੁਰੂਆਤ ਅਤੇ ਜੀਵਨ-ਚੱਕਰ ਸੰਦੇਸ਼
+# Plugin startup and lifecycle messages
 plugin:
   startup:
     progress_suffix:
@@ -21,13 +21,13 @@ plugin:
       start: "BStats ਮੈਟ੍ਰਿਕਸ ਸ਼ੁਰੂ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ..."
       failed: "BStats ਨੂੰ ਡਾਟਾ ਭੇਜਣ ਵਿੱਚ ਅਸਫਲ!"
     footer: "%progress_suffix% ਸਾਰੀਆਂ ਫੀਚਰਾਂ"
-# ਕੰਫਿਗਰੇਸ਼ਨ ਸੰਦੇਸ਼
+# Configuration system messages
 config:
   error:
     saving: "ਕੰਫਿਗਰੇਸ਼ਨ ਫਾਈਲ ਸੇਵ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
   success:
     saving: "ਕੰਫਿਗਰੇਸ਼ਨ ਫਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਸੇਵ ਕੀਤੀ ਗਈ"
-# ਗਲੋਬਲ ਗਲਤੀ ਸੰਦੇਸ਼
+# Global error messages
 error:
   permission: "ਤੁਹਾਨੂੰ ਇਹ ਕਮਾਂਡ ਚਲਾਉਣ ਦੀ ਅਨੁਮਤੀ ਨਹੀਂ ਹੈ!"
   invalid_config: "ਗਲਤ ਕੰਫਿਗਰੇਸ਼ਨ ਮਿਲੀ!"
@@ -46,7 +46,7 @@ error:
   emote:
     not_found: "ਇਮੋਟ ਨਹੀਂ ਮਿਲਿਆ ਜਾਂ ਅਣਸਰਗਰਖਤ ਹੈ!"
     misconfigured: "ਇਮੋਟ ਗਲਤ ਤਰੀਕੇ ਨਾਲ ਕਨਫਿਗਰ ਹੈ ਅਤੇ ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ! ਕਿਰਪਾ ਕਰਕੇ ਸਰਵਰ ਐਡਮਿਨ ਨਾਲ ਸੰਪਰਕ ਕਰੋ."
-# ਕਮਾਂਡ ਸਬੰਧੀ ਸੰਦੇਸ਼
+# Command-specific messages
 command:
   emote_toggle:
     sender_toggled: "ਤੁਸੀਂ ਸ਼ੇਅਰਡ ਇਮੋਟ ਅਣਸਰਗਰਖਤ ਕਰ ਦਿੱਤੇ ਹਨ. &7/toggleemotes ਨਾਲ ਮੁੜ ਚਾਲੂ ਕਰੋ"

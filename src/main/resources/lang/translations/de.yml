@@ -17,6 +17,7 @@ plugin:
       configs_loaded: "%progress_suffix% %configs_count% Konfiguration(en)!"
       commands_loaded: "%progress_suffix% %commands_count% Befehl(e)!"
       listeners_loaded: "%progress_suffix% %listeners_count% Listener!"
+    version_check: "Checking for plugin updates..."
     bstats:
       start: "BStats-Metriken werden gestartet..."
       failed: "Analytics konnten nicht an BStats gesendet werden!"

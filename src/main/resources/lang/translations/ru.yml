@@ -80,8 +80,8 @@ command:
       emotes: "&7Совместные эмоты выполняются вместе с другим игроком."
       expressions: "&7Эмоции отображаются всем игрокам на сервере."
     navigation:
-      page: "Page: %current_page% of %total_pages%"
-      listing: "Listing"
+      page: "Страница: %current_page% из %total_pages%"
+      listing: "Листинг"
       next: "Следующая"
       previous: "Предыдущая"
       footer: "&7Используйте &9/%command_name% %page_number%&r&7, чтобы увидеть следующую страницу."

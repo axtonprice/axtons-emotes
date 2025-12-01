@@ -17,6 +17,7 @@ plugin:
       configs_loaded: "%progress_suffix% %configs_count% 个配置文件！"
       commands_loaded: "%progress_suffix% %commands_count% 个指令！"
       listeners_loaded: "%progress_suffix% %listeners_count% 个监听器！"
+    version_check: "Checking for plugin updates..."
     bstats:
       start: "启动 BStats 统计..."
       failed: "无法向 BStats 发送统计数据！"

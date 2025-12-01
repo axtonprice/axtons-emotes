@@ -1,6 +1,6 @@
 package com.arizonsoftware.axtonsemotes.commands;
 
-import com.arizonsoftware.axtonsemotes.lib.handlers.UnifiedEmoteHandler;
+import com.arizonsoftware.axtonsemotes.lib.handlers.EmoteHandler;
 import com.arizonsoftware.axtonsemotes.utils.Configuration;
 import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
@@ -87,8 +87,9 @@ public class EmoteCommand implements TabExecutor {
 
       // Shared emote requires target checks
       if (emoteType.equalsIgnoreCase("shared")) {
+
+         // Validate presence of target argument
          if (args.length < 2) {
-            // Missing target argument
             Debugging.log(this.getClass().getSimpleName(),
                   "Execution failed: Missing target for shared emote '" + emoteName + "' by " + sender.getName());
             sender.sendMessage(MessageHandler.parseError("error.command.syntax.emote_shared"));
@@ -102,15 +103,15 @@ public class EmoteCommand implements TabExecutor {
          // Validate self-execution
          if (!Validation.checkSelfExecution(sender, new String[] { args[1] }))
             return true;
-
-         // Execute emote
-         EmoteCommandWrapper emoteCommand = new EmoteCommandWrapper(emoteName);
-         String[] emoteArgs = new String[args.length - 1];
-         System.arraycopy(args, 1, emoteArgs, 0, emoteArgs.length);
-         return UnifiedEmoteHandler.buildEmote(sender, emoteCommand, emoteName, emoteArgs);
       }
 
-      return true;
+      // Execute emote
+      EmoteCommandWrapper emoteCommand = new EmoteCommandWrapper(emoteName);
+      String[] emoteArgs = new String[args.length - 1];
+      System.arraycopy(args, 1, emoteArgs, 0, emoteArgs.length);
+
+      // Build and execute the emote
+      return EmoteHandler.buildEmote(sender, emoteCommand, emoteName, emoteArgs);
 
    }
 
@@ -164,7 +165,7 @@ public class EmoteCommand implements TabExecutor {
    private List<String> getAvailableEmotes(CommandSender sender) {
       // Compile list of available emotes
       List<String> emotes = new ArrayList<>();
-      Set<String> emoteNames = Configuration.getConfigurationSectionKeys("emotes.yml", "commands");
+      Set<String> emoteNames = Configuration.getConfigSectionKeys("emotes.yml", "commands");
 
       // Iterate through emote names and filter by enabled state and permission
       for (String name : emoteNames) {

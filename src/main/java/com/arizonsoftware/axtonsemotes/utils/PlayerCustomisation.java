@@ -1,7 +1,6 @@
-package com.arizonsoftware.axtonsemotes.lib.handlers;
+package com.arizonsoftware.axtonsemotes.utils;
 
 import com.arizonsoftware.axtonsemotes.AxtonsEmotes;
-import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;

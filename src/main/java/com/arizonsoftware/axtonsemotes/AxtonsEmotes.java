@@ -28,7 +28,7 @@ public final class AxtonsEmotes extends JavaPlugin {
     */
    public void onLoad() {
       // Setup configuration
-      // Configuration.ensureDefaultConfigs();
+      Configuration.saveDefaultConfigs();
    }
 
    /**
@@ -52,24 +52,31 @@ public final class AxtonsEmotes extends JavaPlugin {
          Debugging.raw("message", message);
       }
 
+      // Validate configuration
+      Debugging.log("startup", MessageHandler.get("plugin.startup.configuration.start"));
+      Configuration.validateConfig();
+
+      // Check if debug mode is enabled and alert
+      if (Configuration.getBoolean("config.yml", "debug-mode.enabled")) {
+         Debugging.log("startup",
+               "Debug mode is enabled - you will see additional console messages.");
+      }
+
       // Check for updates
       long updateCheckDelay = 12 * 60 * 60 * 20L; // 12 hours in ticks
       Bukkit.getScheduler().runTaskTimerAsynchronously(this, () -> {
          Versioning.checkForUpdates();
       }, 0, updateCheckDelay);
 
-      // Validate configuration
-      Debugging.log(AxtonsEmotes.class.getSimpleName(), MessageHandler.get("plugin.startup.configuration.start"));
-      Configuration.validateConfig();
-
       // Register components
+      Debugging.log("startup", MessageHandler.get("plugin.startup.registry.start"));
       Registry.registerAll(startTime);
 
       // Start BStats metrics
       if (Configuration.getBoolean("config.yml", "enable-metrics")) {
+         Debugging.log("startup",
+                     MessageHandler.get("plugin.startup.bstats.start"));
          new Metrics(this, 23323);
-         Debugging.log(AxtonsEmotes.class.getSimpleName(),
-               MessageHandler.get("plugin.startup.bstats.start"));
       }
 
       // Startup message - footer
@@ -81,7 +88,7 @@ public final class AxtonsEmotes extends JavaPlugin {
    }
 
    /**
-    * Returns the singleton instance of the {@link AxtonsEmotes} plugin.
+    * Returns the instance of the {@link AxtonsEmotes} plugin.
     * 
     * This method retrieves the plugin instance using Bukkit's {@code getPlugin} method.
     * It is commonly used to access plugin-wide resources and configuration.

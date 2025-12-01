@@ -33,7 +33,7 @@ public class CommandListHandler {
     */
    public static List<String[]> getEmotesList(String emoteType, CommandSender sender) {
       List<String[]> emotesList = new ArrayList<>();
-      Set<String> emoteNames = Configuration.getConfigurationSectionKeys("emotes.yml", "commands");
+      Set<String> emoteNames = Configuration.getConfigSectionKeys("emotes.yml", "commands");
       Iterator<String> iterator = emoteNames.iterator();
 
       while (iterator.hasNext()) {

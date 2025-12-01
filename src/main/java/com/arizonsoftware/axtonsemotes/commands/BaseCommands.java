@@ -46,7 +46,7 @@ public class BaseCommands implements TabExecutor {
             return true;
 
          case "reload":
-            this.AECommands.reloadConfiguration(sender);
+            this.AECommands.reloadConfig(sender);
             return true;
 
          case "version":

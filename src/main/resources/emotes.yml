@@ -82,6 +82,16 @@ commands:
       particle: "none"
       sound: "ENTITY_PLAYER_LEVELUP"
 
+  clap:
+    enabled: true
+    type: "expression"
+    messages:
+      player: "&aYou clap your hands!"
+      target: "&a&l%player%&r&a applauds!"
+    effects:
+      particle: "none"
+      sound: "ENTITY_PLAYER_LEVELUP"
+
   gasp:
     enabled: true
     type: "expression"
@@ -111,7 +121,7 @@ commands:
       player: "&eYou applauded &l%target%&r&e!"
       target: "&e&l%player%&r &eapplauded you!"
     effects:
-      particle: "DUST"
+      particle: "none"
       sound: "ENTITY_VILLAGER_CELEBRATE"
 
   hug:

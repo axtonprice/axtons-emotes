@@ -30,31 +30,41 @@ public final class Validation {
     * @return true if the emote configuration exists and contains all required fields; false otherwise.
     */
    public static boolean validateEmoteConfig(String emoteName) {
+
+      // Load emotes.yml data
       YamlConfiguration config = Configuration.getConfig("emotes.yml");
       String basePath = "commands." + emoteName;
       ConfigurationSection section = config.getConfigurationSection(basePath);
+
+      // Check if section exists
       if (section == null)
          return false;
 
+      // Check basic fields
       if (!section.contains("enabled"))
          return false;
       if (!section.contains("type"))
          return false;
 
+      // Validate emote type
       String emoteType = Configuration.getString("emotes.yml", basePath + ".type");
       if (emoteType == null)
          return false;
       if (!emoteType.equalsIgnoreCase("shared") && !emoteType.equalsIgnoreCase("expression"))
          return false;
 
+      // Check required fields
       if (!section.contains("messages.player"))
          return false;
       if (!section.contains("messages.target"))
          return false;
       if (!section.contains("effects.particle"))
          return false;
+      if (!section.contains("effects.sound"))
+         return false;
 
-      return section.contains("effects.sound");
+      // All checks passed
+      return true;
    }
 
    /**
@@ -68,7 +78,7 @@ public final class Validation {
       boolean isEnabled = Configuration.getBoolean("emotes.yml", "commands." + command.getLabel() + ".enabled");
       if (!isEnabled) {
          Debugging.log(
-               logContext("checkIsEnabled"),
+               Validation.class.getSimpleName(),
                "Command attempt failed: Disabled command '" + command.getLabel() + "' by " + sender.getName());
          sender.sendMessage(MessageHandler.parseError(ERROR_COMMAND_DISABLED));
          return false;
@@ -85,7 +95,7 @@ public final class Validation {
    public static boolean checkIsSenderPlayer(@NotNull CommandSender sender) {
       if (!(sender instanceof Player)) {
          Debugging.log(
-               logContext("checkIsSenderPlayer"),
+               Validation.class.getSimpleName(),
                "Command attempt failed: Non-player '" + sender.getName() + "' tried to execute player-only command");
          sender.sendMessage(MessageHandler.parseError(ERROR_PLAYER_ONLY));
          return false;
@@ -103,8 +113,8 @@ public final class Validation {
    public static boolean checkSelfExecution(@NotNull CommandSender sender, @NotNull String[] args) {
       if (args[0].equals(sender.getName()) && !Configuration.getBoolean("config.yml", "allow-self-executions")) {
          Debugging.log(
-               logContext("checkSelfExecution"),
-               "Command attempt failed: Self-execution not allowed for " + sender.getName());
+               Validation.class.getSimpleName(),
+                     "Command attempt failed: Self-execution not allowed for " + sender.getName());
          sender.sendMessage(MessageHandler.parseError(ERROR_PLAYER_SELF));
          return false;
       }
@@ -121,7 +131,7 @@ public final class Validation {
    public static boolean checkArguments(@NotNull CommandSender sender, String[] args) {
       if (args.length == 0) {
          Debugging.log(
-               logContext("checkArguments"),
+               Validation.class.getSimpleName(),
                "Command attempt failed: No arguments provided by " + sender.getName());
          sender.sendMessage(MessageHandler.parseError(ERROR_SYNTAX_PLAYER));
          return false;
@@ -138,22 +148,11 @@ public final class Validation {
     */
    public static boolean checkIsTargetOnline(@NotNull CommandSender sender, @NotNull String[] args) {
       if (Bukkit.getPlayer(args[0]) == null) {
-         Debugging.log(
-               logContext("checkIsTargetOnline"),
-               "Command attempt failed: Target player '" + args[0] + "' is offline, requested by " + sender.getName());
+         Debugging.log(Validation.class.getSimpleName(),
+                     "Command attempt failed: Target player '" + args[0] + "' is offline, requested by " + sender.getName());
          sender.sendMessage(MessageHandler.parseError(ERROR_PLAYER_OFFLINE));
          return false;
       }
       return true;
-   }
-
-   /**
-    * Constructs a logging context string for internal debug messages.
-    *
-    * @param method The name of the method invoking the log.
-    * @return A string in the format "Validation/methodName".
-    */
-   private static String logContext(String method) {
-      return Validation.class.getSimpleName() + "/" + method;
    }
 }

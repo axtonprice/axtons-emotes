@@ -11,9 +11,11 @@ import net.md_5.bungee.api.ChatColor;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
+import java.nio.file.Files;
 import java.util.Map;
 
 /**
@@ -24,6 +26,7 @@ public class Versioning {
    // Version fields
    public static String installedVersion = AxtonsEmotes.getInstance().getDescription().getVersion();
    public static String latestSourceVersion = getLatestSourceVersion();
+   private static final String CONFIG_FILE_NAME = Configuration.CONFIG_FILE_NAME;
 
    private Versioning() {
       throw new IllegalStateException("Utility class");
@@ -36,48 +39,58 @@ public class Versioning {
    public static void checkForUpdates() {
 
       // Check if config.yml exists
-      File configFile = new File(AxtonsEmotes.getInstance().getDataFolder(), "config.yml");
+      File configFile = new File(AxtonsEmotes.getInstance().getDataFolder(), CONFIG_FILE_NAME);
       if (!configFile.exists()) {
-         Configuration.saveDefaultConfigFile("config.yml", false);
+         Configuration.saveDefaultConfigFile(CONFIG_FILE_NAME, false);
       }
 
-      // Reload configuration
-      AxtonsEmotes.getInstance().reloadConfig();
-      Configuration.reloadConfig("config.yml");
-      MessageHandler.reload();
-      Debugging.reloadConfig();
-
       // Skip update check if disabled in config
-      if (!Configuration.getBoolean("config.yml", "updates.check-for-latest", true)) {
+      if (!Configuration.getBoolean(CONFIG_FILE_NAME, "updates.check-for-latest", true)) {
          return;
-      } else {
-         // Log warning if outdated
-         if (isOlder(installedVersion, latestSourceVersion)) {
-            String[] subjects = { "current_version", "latest_version" };
-            String[] replacements = { installedVersion, latestSourceVersion };
-            Debugging.raw("warning",
-                  MessageHandler.format(MessageHandler.get("command.version.outdated_notify"), subjects, replacements));
-         }
+      }
+
+      // Debug logging
+      Debugging.log(Versioning.class.getSimpleName(), MessageHandler.get("plugin.startup.version_check"));
+
+      // Log warning if outdated
+      if (isOlder(installedVersion, latestSourceVersion)) {
+         String[] subjects = { "current_version", "latest_version" };
+         String[] replacements = { installedVersion, latestSourceVersion };
+         Debugging.raw("warning",
+               MessageHandler.format(MessageHandler.get("command.version.outdated_notify"), subjects, replacements));
       }
 
       // Disable plugin if installedVersion cannot be verified
       if (installedVersion == null) {
-         Debugging.raw("severe", "Unable to verify plugin version, plugin will now be disabled!");
+         Debugging.raw("severe", "Unable to verify plugin version, plugin will shutdown.");
          Bukkit.getPluginManager().disablePlugin(AxtonsEmotes.getInstance());
          return;
       }
 
       // Fetch configured version
-      String configuredVersion = Configuration.getString("config.yml", "config-version", "0.0.0");
+      String configuredVersion = Configuration.getString(CONFIG_FILE_NAME, "config-version", "0.0.0");
 
       // Reset config if version too old
       if (configuredVersion.equals("1.3.0")) {
-         Debugging.raw("severe", "Config version is too old (1.3.0). Resetting to plugin defaults...");
-         Configuration.resetConfig("config.yml");
+         Debugging.raw("warning", "Config version is too old (1.3.0). Resetting to plugin defaults...");
+
+         if (configFile.exists()) {
+            try {
+               Files.delete(configFile.toPath());
+               Debugging.log(
+                     Versioning.class.getSimpleName() + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
+                     "Deleted configuration file: " + configFile);
+            } catch (IOException e) {
+               Debugging.logError("Failed to delete configuration file: " + configFile, e);
+            }
+         }
+         Configuration.saveDefaultConfigFile(CONFIG_FILE_NAME, true);
+         Configuration.reloadConfig(CONFIG_FILE_NAME);
+
          return;
       }
 
-      // Perform migration if versions differ
+      // Perform migration if installed version differs from config version
       if (!installedVersion.equals(configuredVersion)) {
          Debugging.raw("warning", "Config version is outdated (" + configuredVersion + " → "
                + installedVersion + "). Migrating configuration...");
@@ -179,7 +192,7 @@ public class Versioning {
    public static void notifyPlayer(Player player) {
 
       // Check notification settings
-      if (!Configuration.getBoolean("config.yml", "updates.notify-players-on-update", true))
+      if (!Configuration.getBoolean(CONFIG_FILE_NAME, "updates.notify-players-on-update", true))
          return;
 
       // Check if player has permission to receive update notifications

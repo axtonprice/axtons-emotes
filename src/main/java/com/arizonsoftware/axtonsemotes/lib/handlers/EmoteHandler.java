@@ -2,8 +2,8 @@ package com.arizonsoftware.axtonsemotes.lib.handlers;
 
 import com.arizonsoftware.axtonsemotes.utils.Configuration;
 import com.arizonsoftware.axtonsemotes.utils.Debugging;
-import com.arizonsoftware.axtonsemotes.utils.EffectUtils;
 import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
+import com.arizonsoftware.axtonsemotes.utils.PlayerCustomisation;
 import com.arizonsoftware.axtonsemotes.utils.Validation;
 import org.bukkit.Bukkit;
 import org.bukkit.Particle;
@@ -13,7 +13,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class UnifiedEmoteHandler extends FXHandler {
+public class EmoteHandler extends FXHandler {
    private String emoteType = "shared";
    private String playerResponse = null;
    private String targetResponse = null;
@@ -34,12 +34,12 @@ public class UnifiedEmoteHandler extends FXHandler {
          @NotNull String[] args) {
 
       // Construct emote
-      UnifiedEmoteHandler emote = new UnifiedEmoteHandler();
+      EmoteHandler emote = new EmoteHandler();
       emote.create(command, sender);
 
       // Fetch and log emote type
       String emoteType = Configuration.getString("emotes.yml", "commands." + command.getLabel() + ".type");
-      String logContext = UnifiedEmoteHandler.class.getSimpleName() + "/"
+      String logContext = EmoteHandler.class.getSimpleName() + "/"
             + Thread.currentThread().getStackTrace()[1].getMethodName();
 
       // Debug logging
@@ -59,8 +59,8 @@ public class UnifiedEmoteHandler extends FXHandler {
             "commands." + command.getLabel() + ".effects.sound");
 
       // Parse effects with defaults
-      Particle fxParticle = EffectUtils.parseParticleWithDefault(configParticle, command.getLabel());
-      Sound fxSound = EffectUtils.parseSoundWithDefault(configSound, command.getLabel());
+      Particle fxParticle = FXHandler.convertParticle(configParticle, command.getLabel());
+      Sound fxSound = FXHandler.convertSound(configSound, command.getLabel());
 
       // Debug logging
       Debugging.log(logContext, "Fetched FX data :: particle: " + fxParticle + ", sound: " + fxSound);
@@ -84,10 +84,10 @@ public class UnifiedEmoteHandler extends FXHandler {
     * @param sender  The player or console executing the command.
     * @return A new instance of UnifiedEmoteHandler.
     */
-   public UnifiedEmoteHandler create(Command command, CommandSender sender) {
+   public EmoteHandler create(Command command, CommandSender sender) {
       Debugging.log(this.getClass().getSimpleName() + "/create", "Constructing emote: " + command.getLabel());
       initialize(command, sender);
-      return new UnifiedEmoteHandler();
+      return new EmoteHandler();
    }
 
    /**
@@ -122,21 +122,27 @@ public class UnifiedEmoteHandler extends FXHandler {
          return;
       }
 
-      // Send messages to player and target
+      // Send messages to player
       if (!playerResponse.equals("none")) {
          player.sendMessage(MessageHandler.parseColor(playerResponse.replace("%target%", target.getName())));
       }
-      if (!targetResponse.equals("none")) {
-         target.sendMessage(MessageHandler.parseColor(targetResponse.replace("%player%", player.getName())));
+
+      // Send message to target if different from player
+      if (!player.equals(target)) {
+         if (!targetResponse.equals("none")) {
+            target.sendMessage(MessageHandler.parseColor(targetResponse.replace("%player%", player.getName())));
+         }
       }
 
       // Emit sound to player and target
       emitSound(player);
-      emitSound(target);
+      if (!player.equals(target)) // Avoid double emission if same
+         emitSound(target);
 
       // Emit particles to player and target
       emitParticle(player);
-      emitParticle(target);
+      if (!player.equals(target)) // Avoid double emission if same
+         emitParticle(target);
    }
 
    /**
@@ -184,7 +190,7 @@ public class UnifiedEmoteHandler extends FXHandler {
       // Execute based on emote type
       switch (this.emoteType.toLowerCase()) {
          case "shared" -> performSharedEmote(args, player);
-         case "expression", "gesture" -> performExpressionEmote(player);
+         case "expression" -> performExpressionEmote(player);
          default -> performSharedEmote(args, player);
       }
 
@@ -194,7 +200,7 @@ public class UnifiedEmoteHandler extends FXHandler {
    }
 
    /**
-    * Sets the type of emote (shared, expression, gesture).
+    * Sets the type of emote (shared, expression).
     *
     * @param emoteType The emote type to set.
     */

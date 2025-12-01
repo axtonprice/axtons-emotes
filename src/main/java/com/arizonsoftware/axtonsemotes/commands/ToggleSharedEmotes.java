@@ -1,9 +1,9 @@
 package com.arizonsoftware.axtonsemotes.commands;
 
-import com.arizonsoftware.axtonsemotes.lib.handlers.PlayerCustomisation;
 import com.arizonsoftware.axtonsemotes.utils.Configuration;
 import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
+import com.arizonsoftware.axtonsemotes.utils.PlayerCustomisation;
 import com.arizonsoftware.axtonsemotes.utils.Validation;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

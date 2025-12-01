@@ -36,15 +36,22 @@ public class UtilityCommands {
     *
     * @param sender The command sender executing the reload.
     */
-   public void reloadConfiguration(CommandSender sender) {
+   public void reloadConfig(CommandSender sender) {
+      // Check permissions
       if (!validatePermissions("reload", sender))
          return;
 
+      // Timings
       long startTime = System.currentTimeMillis();
 
+      // Save default configs if not exist
+      Configuration.saveDefaultConfigs();
+
+      // Reload main config
       instance.reloadConfig();
       String[] configFiles = { "config.yml", "emotes.yml" };
 
+      // Reload each config file
       for (String configFile : configFiles) {
          Configuration.reloadConfig(configFile);
          Debugging.log(classMethod(), sender.getName() + " reloaded config: '" + configFile + "'");

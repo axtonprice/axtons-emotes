@@ -14,10 +14,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Configuration {
 
+   public static final String CONFIG_FILE_NAME = "config.yml";
+   public static final String EMOTES_FILE_NAME = "emotes.yml";
    private static final AxtonsEmotes instance = AxtonsEmotes.getInstance();
    private static final String className = Configuration.class.getSimpleName();
-   private static final String CONFIG_FILE = "config.yml";
-   private static final String EMOTES_FILE = "emotes.yml";
    private static final ConcurrentHashMap<String, YamlConfiguration> configCache = new ConcurrentHashMap<>();
 
    public static final String[] languages = { "es.yml", "fr.yml", "it.yml", "ru.yml", "de.yml", "pl.yml", "zh.yml",
@@ -30,7 +30,7 @@ public class Configuration {
    /**
     * Sets up default directories and configuration files.
     */
-   public static void ensureDefaultConfigs() {
+   public static void saveDefaultConfigs() {
       try {
          // Create necessary directories
          createDirectory(instance.getDataFolder().toPath());
@@ -38,49 +38,37 @@ public class Configuration {
          createDirectory(instance.getDataFolder().toPath().resolve("lang/translations"));
 
          // Create config.yml if missing
-         saveDefaultConfigFile(CONFIG_FILE, false);
+         saveDefaultConfigFile(CONFIG_FILE_NAME, false);
 
          // Create emotes.yml if missing
-         saveDefaultConfigFile(EMOTES_FILE, false);
+         saveDefaultConfigFile(EMOTES_FILE_NAME, false);
 
          // Create language files if missing
          saveDefaultConfigFile("lang/en.yml", false);
          Arrays.stream(languages)
                .forEach(langFile -> saveDefaultConfigFile("lang/translations/" + langFile, false));
-
-         // Log completion
-         Debugging.log(className + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
-               "Configuration setup completed successfully");
       } catch (Exception e) {
          Debugging.logError("Configuration setup failed", e);
       }
    }
 
+
    /**
-   * Validates system config for language and prefix formatting.
-   */
+    * Validates the main configuration files for the plugin.
+    * This ensures that all necessary configuration files exist and are properly formatted
+    * before the plugin continues execution.
+    */
    public static void validateConfig() {
 
-      // Fetch config file
-      YamlConfiguration configYML = getConfig(CONFIG_FILE);
-      File configFile = new File(instance.getDataFolder(), CONFIG_FILE);
+      // Save default configs if missing
+      Configuration.saveDefaultConfigs();
 
-      // Create config file if missing
-      if (!configFile.exists()) {
-         saveDefaultConfigFile(CONFIG_FILE, false);
-         reloadConfig(CONFIG_FILE);
-         configYML = getConfig(CONFIG_FILE);
-      }
+      // Fetch config file
+      YamlConfiguration configYML = getConfig(CONFIG_FILE_NAME);
+      File configFile = new File(instance.getDataFolder(), CONFIG_FILE_NAME);
 
       // Validate language config
-      validateLanguageConfig(configYML, configFile);
-
-      // Ensure prefix ends with space
-      String prefix = configYML.getString("prefix", "").trim();
-      if (!prefix.isEmpty() && !prefix.endsWith(" ")) {
-         configYML.set("prefix", prefix + " ");
-         saveConfiguration(configYML, configFile, MessageHandler.get("config.error.saving"));
-      }
+      ensureLangConfig(configYML, configFile);
    }
 
    /**
@@ -113,7 +101,9 @@ public class Configuration {
             instance.saveResource(fileName, replace);
             ++Registry.CONFIGS_COUNT;
             Debugging.log(className + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
-                  "Saved default configuration: " + fileName);
+                  "Created default configuration: " + fileName);
+            // reload config after saving
+            reloadConfig(fileName);
          } catch (Exception e) {
             Debugging.logError("Failed to save default configuration: " + fileName, e);
          }
@@ -224,35 +214,21 @@ public class Configuration {
    }
 
    /**
-    * Deletes and resets a configuration file.
-    *
-    * @param configFile File name to reset.
-    */
-   public static void resetConfig(String configFile) {
-      File file = new File(instance.getDataFolder(), configFile);
-      if (file.exists()) {
-         try {
-            Files.delete(file.toPath());
-            Debugging.log(className + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
-                  "Deleted configuration file: " + configFile);
-         } catch (IOException e) {
-            Debugging.logError("Failed to delete configuration file: " + configFile, e);
-         }
-      }
-      saveDefaultConfigFile(configFile, true);
-      reloadConfig(configFile);
-   }
-
-   /**
     * Ensures language config file exists and sets default if missing.
     *
     * @param configYML   Loaded configuration.
     * @param configFile  File to save if needed.
     */
-   private static void validateLanguageConfig(YamlConfiguration configYML, File configFile) {
+   private static void ensureLangConfig(YamlConfiguration configYML, File configFile) {
+
       // Get language files and config
       String language = configYML.getString("language", "en");
-      File languageFile = getLangFile();
+      File languageFile = new File(instance.getDataFolder(), "lang/en.yml");
+
+      // Language file override if not English
+      if (!language.equalsIgnoreCase("en")) {
+         languageFile = new File(instance.getDataFolder(), "lang/translations/" + language + ".yml");
+      }
 
       // If language file missing, reset to English
       if (!languageFile.exists()) {
@@ -264,45 +240,13 @@ public class Configuration {
          configYML.set("language", language);
 
          // Save English language file
-         saveDefaultConfigFile("lang" + File.separator + language + ".yml", false);
-         saveConfiguration(configYML, configFile, MessageHandler.get("config.error.saving"));
+         saveDefaultConfigFile("lang/en.yml", false);
+         // saveConfiguration(configYML, configFile, MessageHandler.get("config.error.saving"));
 
          // Debug logging
          Debugging.raw("warning", MessageHandler.get("plugin.startup.configuration.error.invalid_lang"));
          Debugging.logToFile(className + "/" + Thread.currentThread().getStackTrace()[1].getMethodName(),
                MessageHandler.get("plugin.startup.configuration.error.invalid_lang"));
-      }
-   }
-
-   /**
-    * Retrieves the language file based on the configured language setting.
-    * If the language is set to "en" (English), returns the default English language file
-    * located at {@code lang/en.yml}. For any other language, returns the corresponding
-    * translation file located at {@code lang/translations/{language}.yml}.
-    *
-    * @return the {@link File} object representing the appropriate language file.
-    */
-   private static File getLangFile() {
-      String language = Configuration.getString("config.yml", "language", "en");
-      if (language.equalsIgnoreCase("en")) {
-         return new File(instance.getDataFolder(), "lang/en.yml");
-      } else {
-         return new File(instance.getDataFolder(), "lang/translations/" + language + ".yml");
-      }
-   }
-
-   /**
-    * Saves a YamlConfiguration to disk.
-    *
-    * @param configYML   Configuration to save.
-    * @param configFile  File to write.
-    * @param errorMessage Error message for logging.
-    */
-   private static void saveConfiguration(YamlConfiguration configYML, File configFile, String errorMessage) {
-      try {
-         configYML.save(configFile);
-      } catch (Exception e) {
-         Debugging.logError("Failed to save configuration: " + errorMessage, e);
       }
    }
 
@@ -313,7 +257,7 @@ public class Configuration {
     * @param sectionPath Path of the section.
     * @return Set of keys or empty set if invalid.
     */
-   public static Set<String> getConfigurationSectionKeys(String configFile, String sectionPath) {
+   public static Set<String> getConfigSectionKeys(String configFile, String sectionPath) {
       try {
          YamlConfiguration config = getConfig(configFile);
          if (config != null && config.isConfigurationSection(sectionPath)) {

@@ -1,5 +1,7 @@
 package com.arizonsoftware.axtonsemotes.lib.handlers;
 
+import com.arizonsoftware.axtonsemotes.AxtonsEmotes;
+import com.arizonsoftware.axtonsemotes.utils.Configuration;
 import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import java.util.logging.Logger;
 import org.bukkit.Bukkit;
@@ -9,6 +11,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public abstract class FXHandler {
 
@@ -34,6 +37,128 @@ public abstract class FXHandler {
    public static void initialize(Command command, CommandSender sender) {
       thisCommand = command;
       thisSender = sender;
+   }
+
+   /**
+   * Converts a particle string into a {@link Particle}. Falls back to the default particle
+   * configured in {@code config.yml} if the original is invalid.
+   *
+   * @param particleString The particle string to convert.
+   * @param commandLabel   The emote command label for logging purposes.
+   * @return The converted {@link Particle}, the default if original is invalid, or {@code null} if none valid.
+   */
+   @Nullable
+   public static Particle convertParticle(String particleString, String commandLabel) {
+
+      // Check for "none" or empty input 
+      if (particleString == null || particleString.isEmpty() || particleString.equalsIgnoreCase("none")) {
+         return null;
+      }
+
+      // Attempt to convert user-specified particle
+      try {
+         return Particle.valueOf(particleString);
+      } catch (IllegalArgumentException ignored) {
+         // Proceed to fallback logic
+      }
+
+      // Fetch default particle from config
+      String defaultParticle = Configuration.getString("config.yml", "default-effects.particle");
+
+      // If no default configured or default is "none", we stop here
+      if (defaultParticle == null || defaultParticle.isEmpty() || defaultParticle.equalsIgnoreCase("none")) {
+         AxtonsEmotes.getInstance().getLogger().warning(
+               "Invalid particle '" + particleString + "' for emote '" + commandLabel +
+                     "', and no valid default configured. Disabling particle effect.");
+         Debugging.log("EffectUtils",
+               "No valid default particle configured for emote '" + commandLabel + "'");
+         return null;
+      }
+
+      // Attempt to use default fallback particle
+      try {
+         Particle fallback = Particle.valueOf(defaultParticle);
+
+         AxtonsEmotes.getInstance().getLogger().warning(
+               "Invalid particle '" + particleString + "' for emote '" + commandLabel +
+                     "'. Using default particle: " + defaultParticle);
+         Debugging.log("EffectUtils",
+               "Using default particle '" + defaultParticle + "' for emote '" + commandLabel +
+                     "' (original: '" + particleString + "')");
+
+         return fallback;
+
+      } catch (IllegalArgumentException ex) {
+         AxtonsEmotes.getInstance().getLogger().severe(
+               "Invalid particle '" + particleString + "' for emote '" + commandLabel +
+                     "' — and default '" + defaultParticle +
+                     "' is also invalid. Disabling particle effect.");
+
+         Debugging.log("EffectUtils",
+               "Both original particle '" + particleString + "' and default '" + defaultParticle +
+                     "' invalid for emote '" + commandLabel + "'");
+
+         return null;
+      }
+   }
+
+   /**
+   * Parses a sound string into a {@link Sound}. Falls back to the default sound
+   * configured in {@code config.yml} if the original is invalid.
+   *
+   * @param soundString  The sound string to parse.
+   * @param commandLabel The emote command label for logging purposes.
+   * @return The parsed {@link Sound}, the default if original is invalid, or {@code null} if none valid.
+   */
+   @Nullable
+   public static Sound convertSound(String soundString, String commandLabel) {
+
+      // Check for "none" or empty input 
+      if (soundString == null || soundString.isEmpty() || soundString.equalsIgnoreCase("none")) {
+         return null;
+      }
+
+      // Attempt to parse user-specified sound
+      try {
+         return Sound.valueOf(soundString);
+      } catch (IllegalArgumentException ignored) {
+      }
+
+      // Fetch default sound from config
+      String defaultSound = Configuration.getString("config.yml", "default-effects.sound");
+
+      // If no fallback available or is "none"
+      if (defaultSound == null || defaultSound.isEmpty() || defaultSound.equalsIgnoreCase("none")) {
+         AxtonsEmotes.getInstance().getLogger().warning(
+               "Invalid sound '" + soundString + "' for emote '" + commandLabel +
+                     "' and no valid default configured. Disabling sound effect.");
+         Debugging.log("EffectUtils",
+               "No valid default sound configured for emote '" + commandLabel + "'");
+         return null;
+      }
+
+      // Attempt to parse fallback default sound
+      try {
+         Sound fallbackSound = Sound.valueOf(defaultSound);
+
+         AxtonsEmotes.getInstance().getLogger().warning(
+               "Invalid sound '" + soundString + "' for emote '" + commandLabel +
+                     "'. Using default sound: " + defaultSound);
+         Debugging.log("EffectUtils",
+               "Using default sound '" + defaultSound + "' for emote '" + commandLabel +
+                     "' (original: '" + soundString + "')");
+         return fallbackSound;
+
+      } catch (IllegalArgumentException ex) {
+         AxtonsEmotes.getInstance().getLogger().severe(
+               "Invalid sound '" + soundString + "' for emote '" + commandLabel +
+                     "' and default sound '" + defaultSound +
+                     "' is also invalid. Disabling sound effect.");
+         Debugging.log("EffectUtils",
+               "Both original sound '" + soundString + "' and default sound '" + defaultSound +
+                     "' invalid for emote '" + commandLabel + "'");
+         return null;
+      }
    }
 
    /**

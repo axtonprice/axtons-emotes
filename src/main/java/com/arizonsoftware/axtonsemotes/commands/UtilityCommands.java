@@ -57,11 +57,8 @@ public class UtilityCommands {
          Debugging.log(classMethod(), sender.getName() + " reloaded config: '" + configFile + "'");
       }
 
-      // Get language from Config
-      String language = Configuration.getString("config.yml", "language", "en");
-
-      // Reload language file
-      Configuration.reloadConfig("lang/" + language + ".yml");
+      // Reload active language file
+      Configuration.reloadConfig(MessageHandler.getLanguageFileName());
 
       MessageHandler.reload();
       Debugging.log(classMethod(), sender.getName() + " reloaded language files.");

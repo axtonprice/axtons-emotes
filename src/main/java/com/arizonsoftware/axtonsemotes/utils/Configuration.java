@@ -241,7 +241,6 @@ public class Configuration {
 
          // Save English language file
          saveDefaultConfigFile("lang/en.yml", false);
-         // saveConfiguration(configYML, configFile, MessageHandler.get("config.error.saving"));
 
          // Debug logging
          Debugging.raw("warning", MessageHandler.get("plugin.startup.configuration.error.invalid_lang"));

@@ -2,6 +2,7 @@ package com.arizonsoftware.axtonsemotes.utils;
 
 import com.arizonsoftware.axtonsemotes.AxtonsEmotes;
 
+import java.io.File;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,7 +11,6 @@ import java.util.logging.Logger;
 public class MessageHandler {
 
    private static final String DEFAULT_LANGUAGE = "en";
-   private static final String MISSING_KEY_PLACEHOLDER = "<NO_LANG_KEY>";
 
    private static volatile String cachedLanguage = null;
    private static final Map<String, String> messageCache = new ConcurrentHashMap<>();
@@ -96,7 +96,7 @@ public class MessageHandler {
     */
    public static void reload() {
       clearCache();
-      getConfiguredLanguage();
+      fetchLanguageCache();
    }
 
    /**
@@ -168,39 +168,58 @@ public class MessageHandler {
     * Loads a message from the language file, with fallback to English.
     */
    private static String loadMessage(String key) {
-      String configuredLanguage = getConfiguredLanguage();
-      String langFileToUse;
 
-      // Lang.yml if english, else translations/<language>.yml
-      if (configuredLanguage.equals(DEFAULT_LANGUAGE)) {
-         langFileToUse = "lang/en.yml";
-      } else {
-         langFileToUse = "lang/translations/" + configuredLanguage + ".yml";
+      // Fetch lang file to use based on config
+      String langFileName = getLanguageFileName();
+
+      // If lang file doesn't exist, fallback to English
+      File languageFile = new File(AxtonsEmotes.getInstance().getDataFolder(), langFileName);
+      if (!languageFile.exists()) {
+         return Configuration.getString("lang/en.yml", key);
       }
 
-      // Try to get message from selected language
-      String message = Configuration.getString(langFileToUse, key);
+      // Try load from current language
+      String message = Configuration.getString(langFileName, key);
       if (message != null) {
          return message;
       }
 
-      // Fallback to default language if not found
-      if (!DEFAULT_LANGUAGE.equals(configuredLanguage)) {
-         message = Configuration.getString(langFileToUse, key);
-         if (message != null) {
-            logMissingKey(key, configuredLanguage, false);
-            return message;
-         }
+      // Missing key, reset language file
+      Debugging.log("language",
+            "Missing language key '" + key + "' in " + langFileName + ", resetting file to default.");
+      Configuration.saveDefaultConfigFile(langFileName, true);
+
+      // Try getting the key again from the corrected file
+      message = Configuration.getString(langFileName, key);
+      if (message != null) {
+         return message;
       }
 
-      logMissingKey(key, configuredLanguage, true);
-      return MISSING_KEY_PLACEHOLDER + ":" + key;
+      // If still missing after reset, fallback to English key
+      Debugging.log("language",
+            "Missing language key '" + key + "' in " + langFileName + ", falling back to English key.");
+      return Configuration.getString("lang/en.yml", key);
+   }
+
+   /**
+    * Returns the file path for the language configuration file based on the currently configured language.
+    * 
+    * If the configured language matches the default language, returns the path to the default English language file.
+    * Otherwise, returns the path to the corresponding translation file for the configured language.
+    *
+    * @return the file path of the language configuration file as a {@code String}
+    */
+   public static String getLanguageFileName() {
+      String configuredLanguage = fetchLanguageCache();
+      return configuredLanguage.equals(DEFAULT_LANGUAGE)
+            ? "lang/en.yml"
+            : "lang/translations/" + configuredLanguage + ".yml";
    }
 
    /**
     * Returns the current language from config, cached for performance.
     */
-   private static String getConfiguredLanguage() {
+   private static String fetchLanguageCache() {
       if (cachedLanguage == null) {
          synchronized (MessageHandler.class) {
             if (cachedLanguage == null) {
@@ -236,18 +255,6 @@ public class MessageHandler {
          }
       }
       return result;
-   }
-
-   /**
-    * Logs a missing language key with info or warning level.
-    */
-   private static void logMissingKey(String key, String language, boolean totallyMissing) {
-      if (totallyMissing) {
-         getLogger().warning(
-               String.format("Missing language key '%s' in both %s.yml and %s.yml", key, language, DEFAULT_LANGUAGE));
-      } else {
-         getLogger().info(String.format("Using fallback for key '%s' (missing in %s.yml)", key, language));
-      }
    }
 
    /**

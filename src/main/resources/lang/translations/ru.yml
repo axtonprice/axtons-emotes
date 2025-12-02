@@ -17,7 +17,7 @@ plugin:
       configs_loaded: "%progress_suffix% загружено %configs_count% конфигураций!"
       commands_loaded: "%progress_suffix% загружено %commands_count% команд!"
       listeners_loaded: "%progress_suffix% загружено %listeners_count% слушателей!"
-    version_check: "Checking for plugin updates..."
+    version_check: "Проверка обновлений плагинов..."
     bstats:
       start: "Запуск метрик BStats..."
       failed: "Не удалось отправить статистику в BStats!"

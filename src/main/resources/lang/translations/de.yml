@@ -2,7 +2,7 @@
 plugin:
   startup:
     progress_suffix:
-      starting: "Starte"
+      starting: "Startet"
       reloaded: "Neu geladen"
       loaded: "Geladen"
     configuration:
@@ -17,10 +17,10 @@ plugin:
       configs_loaded: "%progress_suffix% %configs_count% Konfiguration(en)!"
       commands_loaded: "%progress_suffix% %commands_count% Befehl(e)!"
       listeners_loaded: "%progress_suffix% %listeners_count% Listener!"
-    version_check: "Checking for plugin updates..."
+    version_check: "Suche nach Plugin-Updates..."
     bstats:
       start: "BStats-Metriken werden gestartet..."
-      failed: "Analytics konnten nicht an BStats gesendet werden!"
+      failed: "Analytik konnten nicht an BStats gesendet werden!"
     footer: "%progress_suffix% alle Funktionen in"
 # Configuration system messages
 config:
@@ -34,7 +34,7 @@ error:
   invalid_config: "Ungültige Konfiguration erkannt!"
   player:
     only: "Nur Spieler können diesen Befehl ausführen!"
-    self: "Du kannst diesen Befehl nicht auf dich selbst anwenden! Versuch es mit einem Freund?"
+    self: "Du kannst diesen Befehl nicht an dir selbst anwenden! Versuch es mit einem Freund?"
     offline: "Spieler nicht gefunden oder offline!"
   command:
     disabled: "Dieser Befehl ist deaktiviert!"

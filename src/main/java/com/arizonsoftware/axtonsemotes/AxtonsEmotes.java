@@ -81,12 +81,16 @@ public final class AxtonsEmotes extends JavaPlugin {
       if (Configuration.getBoolean("config.yml", "enable-metrics")) {
          Debugging.log("startup",
                MessageHandler.get("plugin.startup.bstats.start"));
-         initMetrics();
+         if (!initMetrics()) {
+            Debugging.log("startup",
+                  MessageHandler.get("plugin.startup.bstats.failed"));
+         }
       }
 
       // Startup message - footer
       String footer = MessageHandler.format(MessageHandler.get("plugin.startup.footer"),
-            new String[] { "progress_suffix" }, new String[] { "Loaded" });
+            new String[] { "progress_suffix" },
+            new String[] { MessageHandler.get("plugin.startup.progress_suffix.loaded") });
       Debugging.raw("message", "[-] " + footer + " " + (System.currentTimeMillis() - startTime) + "ms!");
       Debugging.raw("message", "---------------------------------");
 
@@ -96,24 +100,31 @@ public final class AxtonsEmotes extends JavaPlugin {
     * Initializes plugin metrics for usage statistics reporting.
     * Metrics are reported using the bStats Metrics library.
     */
-   private void initMetrics() {
-      // Initialize metrics
-      Metrics metrics = new Metrics(this, 23323);
+   private boolean initMetrics() {
+      try {
+         // Initialize metrics
+         Metrics metrics = new Metrics(this, 23323);
 
-      // Plugin version chart
-      metrics.addCustomChart(new DrilldownPie("plugin_version", () -> {
-         Map<String, Map<String, Integer>> map = new HashMap<>();
-         String installedVersion = Versioning.installedVersion;
-         Map<String, Integer> entry = new HashMap<>();
-         entry.put(installedVersion, 1);
-         map.put("Axton's Emotes", entry);
-         return map;
-      }));
+         // Plugin version chart
+         metrics.addCustomChart(new DrilldownPie("plugin_version", () -> {
+            Map<String, Map<String, Integer>> map = new HashMap<>();
+            String installedVersion = Versioning.installedVersion;
+            Map<String, Integer> entry = new HashMap<>();
+            entry.put(installedVersion, 1);
+            map.put("Axton's Emotes", entry);
+            return map;
+         }));
 
-      // Language chart
-      metrics.addCustomChart(new SimplePie("language", () -> {
-         return Configuration.getString("config.yml", "language", "en");
-      }));
+         // Language chart
+         metrics.addCustomChart(new SimplePie("language", () -> {
+            return Configuration.getString("config.yml", "language", "en");
+         }));
+
+         return true;
+      } catch (Exception e) {
+         Debugging.logError(MessageHandler.get("plugin.startup.bstats.failed"), e);
+         return false;
+      }
    }
 
    /**

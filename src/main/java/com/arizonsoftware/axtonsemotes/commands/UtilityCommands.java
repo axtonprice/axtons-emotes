@@ -178,18 +178,24 @@ public class UtilityCommands {
     * @param sender The sender executing the reset.
     */
    public void resetLangFiles(CommandSender sender) {
+
+      // Check permissions
       if (!validatePermissions("resetlang", sender))
          return;
 
+      // Fetch language files
       String langFolder = "lang";
       String[] langFiles = Configuration.languages;
 
       try {
+         // Create directories if they don't exist
          Configuration.createDirectory(instance.getDataFolder().toPath());
          Configuration.createDirectory(instance.getDataFolder().toPath().resolve(langFolder));
 
+         // Save default language files and replace
+         Configuration.saveDefaultConfigFile("lang/en.yml", false);
          Arrays.stream(langFiles)
-               .forEach(langFile -> Configuration.saveDefaultConfigFile(langFolder + "/" + langFile, true));
+               .forEach(langFile -> Configuration.saveDefaultConfigFile("lang/translations/" + langFile, true));
 
          // Reload language files after reset
          MessageHandler.reloadLanguageFiles();
@@ -198,6 +204,7 @@ public class UtilityCommands {
          Debugging.logError("Configuration setup failed", e);
       }
 
+      // Notify sender and log
       sender.sendMessage(MessageHandler.parseSuccess("command.resetlang.success"));
       Debugging.log(classMethod(), sender.getName() + " reset language files to default.");
    }

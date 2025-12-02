@@ -17,6 +17,7 @@ plugin:
       configs_loaded: "%progress_suffix% %configs_count% ਕੰਫਿਗਰੇਸ਼ਨ!"
       commands_loaded: "%progress_suffix% %commands_count% ਕਮਾਂਡ!"
       listeners_loaded: "%progress_suffix% %listeners_count% ਲਿਸ਼ਨਰ!"
+    version_check: "Checking for plugin updates..."
     bstats:
       start: "BStats ਮੈਟ੍ਰਿਕਸ ਸ਼ੁਰੂ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ..."
       failed: "BStats ਨੂੰ ਡਾਟਾ ਭੇਜਣ ਵਿੱਚ ਅਸਫਲ!"

@@ -17,7 +17,7 @@ plugin:
       configs_loaded: "%progress_suffix% załadowano %configs_count% konfiguracji!"
       commands_loaded: "%progress_suffix% załadowano %commands_count% komend!"
       listeners_loaded: "%progress_suffix% załadowano %listeners_count% listener'ów!"
-    version_check: "Checking for plugin updates..."
+    version_check: "Sprawdzanie dostępności aktualizacji wtyczek..."
     bstats:
       start: "Uruchamianie metryk BStats..."
       failed: "Nie udało się wysłać danych do BStats!"

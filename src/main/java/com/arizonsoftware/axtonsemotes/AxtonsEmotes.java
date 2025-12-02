@@ -13,8 +13,13 @@ import com.arizonsoftware.axtonsemotes.utils.Configuration;
 import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
 import com.arizonsoftware.axtonsemotes.utils.Metrics;
+import com.arizonsoftware.axtonsemotes.utils.Metrics.DrilldownPie;
+import com.arizonsoftware.axtonsemotes.utils.Metrics.SimplePie;
 import com.arizonsoftware.axtonsemotes.utils.Registry;
 import com.arizonsoftware.axtonsemotes.utils.Versioning;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -75,8 +80,8 @@ public final class AxtonsEmotes extends JavaPlugin {
       // Start BStats metrics
       if (Configuration.getBoolean("config.yml", "enable-metrics")) {
          Debugging.log("startup",
-                     MessageHandler.get("plugin.startup.bstats.start"));
-         new Metrics(this, 23323);
+               MessageHandler.get("plugin.startup.bstats.start"));
+         initMetrics();
       }
 
       // Startup message - footer
@@ -85,6 +90,30 @@ public final class AxtonsEmotes extends JavaPlugin {
       Debugging.raw("message", "[-] " + footer + " " + (System.currentTimeMillis() - startTime) + "ms!");
       Debugging.raw("message", "---------------------------------");
 
+   }
+
+   /**
+    * Initializes plugin metrics for usage statistics reporting.
+    * Metrics are reported using the bStats Metrics library.
+    */
+   private void initMetrics() {
+      // Initialize metrics
+      Metrics metrics = new Metrics(this, 23323);
+
+      // Plugin version chart
+      metrics.addCustomChart(new DrilldownPie("plugin_version", () -> {
+         Map<String, Map<String, Integer>> map = new HashMap<>();
+         String installedVersion = Versioning.installedVersion;
+         Map<String, Integer> entry = new HashMap<>();
+         entry.put(installedVersion, 1);
+         map.put("Axton's Emotes", entry);
+         return map;
+      }));
+
+      // Language chart
+      metrics.addCustomChart(new SimplePie("language", () -> {
+         return Configuration.getString("config.yml", "language", "en");
+      }));
    }
 
    /**

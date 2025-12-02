@@ -49,7 +49,7 @@ Available in 10+ languages, including Spanish, French, Italian, German.. See the
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/screenshots_text.png" alt="Screenshots">
 
-### In-game Screenshots
+### Ingame Examples
 
 <p align="center">
     <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example1.gif" alt="Command example">
@@ -84,7 +84,7 @@ Express yourself to the entire server - these emotes are broadcast to everyone a
 
 ---
 
-Permissions for all emotes are granted by default unless an emote is disabled or the user is explicitly denied permission to `axtonsemotes.emotes.use`.
+Permissions for all emotes are granted by default unless an emote is disabled or the user is explicitly denied permission to all emotes with `axtonsemotes.emotes.use`.
 
 <br>
 <img width="540" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/commands_perms_text.png" alt="Commands & Features">
@@ -93,7 +93,7 @@ Permissions for all emotes are granted by default unless an emote is disabled or
 
 List of commands and associated permission nodes.
 
-> Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki) for more details on commands & permission nodes.
+> Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki/Commands) for more details on commands & permission nodes.
 
 | Command                             | Description                                                | Permission Node                       |
 |-------------------------------------|------------------------------------------------------------|---------------------------------------|
@@ -118,7 +118,7 @@ To configure the plugin, edit the `config.yml` file in the `AxtonsEmotes` plugin
 
 After updating the configuration, reload it with `/ae reload` (requires the `axtonsemotes.admin.reload` permission).
 
-> Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki) for more details on the plugin configuration files.
+> Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki/Configuration) for more details on the plugin configuration files.
 
 ```yml
 # >> Language
@@ -192,21 +192,21 @@ commands:
     enabled: true
     type: "expression"
     messages:
-      player: "&7You cry yourself in sorrow.."
-      target: "&7&l%player%&r&7 cries in a corner.."
+      player: "&7You cry yourself in sorrow.." # Sent to the sender player
+      target: "&7&l%player%&r&7 cries in a corner.." # Sent to all players
     effects:
-      particle: "none"
-      sound: "ENTITY_CAT_HURT"
+      particle: "CRIT" # Only played to the sender player
+      sound: "ENTITY_CAT_HURT" # Only played to the sender player
 
   hug:
     enabled: true
     type: "shared"
     messages:
-      player: "&cYou hugged &l%target%&r&c!"
-      target: "&c&l%player%&r&c hugged you!"
+      player: "&cYou hugged &l%target%&r&c!" # Sent to the sender player
+      target: "&c&l%player%&r&c hugged you!" # Sent to the targeted player
     effects:
-      particle: "HEART"
-      sound: "ENTITY_CAT_PURREOW" 
+      particle: "HEART" # Played to both players
+      sound: "ENTITY_CAT_PURREOW" # Played to both players
 ```
 
 <br>

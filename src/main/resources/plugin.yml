@@ -2,7 +2,7 @@ name: AxtonsEmotes
 prefix: AxtonsEmotes
 author: axtonprice
 website: https://github.com/axtonprice/axtons-emotes
-description: A lightweight social emotes plugin for 1.20+ Spigot/Paper servers.
+description: A light-weight, configurable chat emotes plugin for 1.20+ Spigot/Paper servers.
 api-version: "1.20"
 api: "1.20"
 main: com.arizonsoftware.axtonsemotes.AxtonsEmotes

@@ -105,18 +105,8 @@ public final class AxtonsEmotes extends JavaPlugin {
          // Initialize metrics
          Metrics metrics = new Metrics(this, 23323);
 
-         // Plugin version chart
-         metrics.addCustomChart(new DrilldownPie("plugin_version", () -> {
-            Map<String, Map<String, Integer>> map = new HashMap<>();
-            String installedVersion = Versioning.installedVersion;
-            Map<String, Integer> entry = new HashMap<>();
-            entry.put(installedVersion, 1);
-            map.put("Axton's Emotes", entry);
-            return map;
-         }));
-
          // Language chart
-         metrics.addCustomChart(new SimplePie("language", () -> {
+         metrics.addCustomChart(new SimplePie("config_language", () -> {
             return Configuration.getString("config.yml", "language", "en");
          }));
 

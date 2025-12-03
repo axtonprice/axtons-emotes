@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="750" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/banner.png" alt="Axton's Emotes">
+    <img width="750" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/banner.png" alt="Axton's Emotes">
 </p>
 
 <p align="center">
@@ -24,143 +24,203 @@
 </p>
 
 # Axton's Emotes
-> A lightweight social emotes plugin for Bukkit/Spigot/Paper 1.21.
+> A light-weight, configurable chat emotes plugin for 1.20+ Spigot/Paper servers.
 
-Available in English, Spanish, French, Italian, and Russian.
-
+Available in 10+ languages, including Spanish, French, Italian, German.. See the full list [here](https://github.com/axtonprice/axtons-emotes/wiki/Languages).
 <p align="center">
-    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/promo1.png" alt="Promo Image 1">
-    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/promo2.png" alt="Promo Image 2">
+    <img width="250" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo1.png" alt="Promo Image 1">
+    <img width="250" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo2.png" alt="Promo Image 2">
 </p>
 
 <br>
-<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/installation_text.png" alt="Installation">
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/installation_text.png" alt="Installation">
 
-1. **Download**: Get the latest `.jar` from the [Releases](https://github.com/axtonprice/axtons-emotes/releases) tab.
-2. **Deploy**: Place the `.jar` in your server's `/plugins` folder.
+### Installing the plugin
+
+1. **Download**: Get the latest `.jar` from the [Releases](https://github.com/axtonprice/axtons-emotes/releases) tab, or from [Modrinth](https://modrinth.com/plugin/axtonsemotes).
+2. **Deploy**: Place the `.jar` in your server's `plugins/` folder.
 3. **Restart**: Restart your server. PaperMC is recommended for optimal performance.
-4. **Configure**: Modify the `config.yml` to your liking, then reload the plugin with `/ae reload`.
+4. **Configure**: Modify `config.yml` to your liking, then reload the plugin with `/ae reload`.
+5. **Verify**: Check you are running the latest version by using `/ae version`.
 
-> **Note:** Java 21 or higher is required to run this plugin.
+> **Note:** Java 17 or higher is required to run this plugin. Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki/installation) for more details on installation requirements.
+
 
 <br>
-<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/features_text.png" alt="Features">
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/screenshots_text.png" alt="Screenshots">
 
-### Emotes
+### Ingame Examples
 
-Interact with other players using these emotes. Permissions for these commands are granted by default unless the command is disabled.
+<p align="center">
+    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example1.gif" alt="Command example">
+    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example2.gif" alt="Command example">
+    <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example3.gif" alt="Command example">
+</p>
 
-| Command                                 | Description                                 |
-|-----------------------------------------|---------------------------------------------|
-| `/dapup <player>`<br>`/dap <player>`    | Dap-up another player in a friendly manner. |
-| `/highfive <player>`<br>`/hf <player>`  | High-five another player energetically.     |
-| `/hug <player>`<br>`/cuddle <player>`   | Hug another player warmly.                  |
-| `/kiss <player>`<br>`/smooch <player>`  | Kiss another player affectionately.         |
-| `/poke <player>`                        | Poke another player playfully.              |
-| `/stomp <player>`                       | Stomp on another player's foot forcefully.  |
-| `/slap <player>`                        | Slap another player sharply.                |
-| `/stab <player>`<br>`/shank <player>`   | Stab another player aggressively.           |
-| `/stare <player>`                       | Stare at another player intently.           |
-| `/thank <player>`<br>`/ty <player>`     | Thank another player sincerely.             |
-| `/applaud <player>`<br>`/clap <player>` | Applaud another player enthusiastically.    |
+<br>
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/features_text.png" alt="Features">
 
-### Expressions
+### Emote Types
 
-Express yourself to all players on the server. Permissions for these commands are granted by default unless the command is disabled.
+#### ✨ Shared Emotes  
+Interact with other players with targeted emotes that involve another user.
 
-| Command           | Description                             |
-|-------------------|-----------------------------------------|
-| `/wave`           | Wave hello to everyone cheerfully.      |
-| `/cry`<br>`/sulk` | Express your sadness to everyone openly.|
+#### 😊 Expression Emotes  
+Express yourself to the entire server - these emotes are broadcast to everyone and do not target a player.
 
-### Jumpscares
+---
 
-Scare yourself in unique ways. Permissions for these commands are granted by default unless the command is disabled. Soon™ players will be able to jumpscare each other (toggleable).
+### 🧩 Examples of built-in emotes
+| Shared Emotes              | Expression Emotes |
+|----------------------------|-------------------|
+| `/e hug <player>`          | `/e cry`          |
+| `/e poke <player>`         | `/e laugh`        |
+| `/e highfive <player>`     | `/e wave`         |
+| `/e kiss <player>`         | `/e gasp`         |
+| `/e slap <player>`         | `/e shrug`        |
+| `/e stare <player>`        | `/e facepalm`     |
+| `/e thank <player>`        | `/e cheer`        |
+| `/e applaud <player>`      | `/e bow`          |
 
-| Command                         | Description                                             |
-|---------------------------------|---------------------------------------------------------|
-| `/bogscare`<br>`/bog`           | Perform a jumpscare on yourself with a bog effect.      |
-| `/guardianscare`<br>`/guardian` | Perform a jumpscare on yourself with a guardian effect. |
+---
 
-### Miscellaneous
+Permissions for all emotes are granted by default unless an emote is disabled or the user is explicitly denied permission to all emotes with `axtonsemotes.emotes.use`.
 
-Additional commands and features:
+<br>
+<img width="540" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/commands_perms_text.png" alt="Commands & Features">
+
+### Commands & Permissions
+
+List of commands and associated permission nodes.
+
+> Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki/Commands) for more details on commands & permission nodes.
 
 | Command                             | Description                                                | Permission Node                       |
 |-------------------------------------|------------------------------------------------------------|---------------------------------------|
-| `/emotes`<br>`/ae emotes`           | List all emotes available to the player.                   | *Granted by default, unless disabled* |
-| `/expressions`<br>`/ae expressions` | List all expressions available to the player.              | *Granted by default, unless disabled* |
-| `/jumpscares`<br>`/ae jumpscares`   | List all jumpscares available to the player.               | *Granted by default, unless disabled* |
-| `/ae reload`                        | Reload the plugin configuration.                           | `axtonsemotes.reload`<br>Default: op  |
-| `/ae version`                       | Check the plugin's current version and the latest release. | `axtonsemotes.version`<br>Default: op |
-|                                     | Notify administrator of plugin updates on join.            | `axtonsemotes.updatenotify`<br>Default: op            |
+| `/emote`, `/e`                          | Execute an emote command                   | `axtonsemotes.emotes.use` *Granted by default* |
+| `/emotes`                           | List all emotes available to the player.                   | `axtonsemotes.emotes.list` *Granted by default* |
+| `/toggleemotes`                           | Toggles shared emotes individually, disallowing shared emote commands to be used on or by that player.                   | `axtonsemotes.emotes.selftoggle` *Granted by default* |
+| `/ae reload`                        | Reload the plugin configuration.                           | `axtonsemotes.admin.version`<br>Default: op  |
+| `/ae version`                       | Check the plugin's current version and the latest release. | `axtonsemotes.admin.reload`<br>Default: op |
+| `/ae toggledebug`                   | Toggles debug mode and will show detailed logs of command plugin executions. | `axtonsemotes.admin.toggledebug`<br>Default: op |
+| `/ae togglemetrics`                   | Toggles BStats anonymous metrics tracking. | `axtonsemotes.admin.togglemetrics`<br>Default: op |
+| `/ae resetlang`                   | Resets language configuration files to the plugin defaults. | `axtonsemotes.admin.resetlang`<br>Default: op |
+| `/ae help`                   | Provides link to the plugin documentation. | `axtonsemotes.admin.help`<br>Default: op |
+|                                     | Notify administrator of plugin updates when they join.            | `axtonsemotes.admin.updatenotify`<br>Default: op |
+|                                     | Allows players to use `/emotes`, even if the feature is disabled in the config.            | `axtonsemotes.admin.list-override`<br>Default: op  |
 
 <br>
-<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/configuration_text.png" alt="Configuration">
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/configuration_text.png" alt="Configuration">
 
-To customize the plugin, edit the `config.yml` file:
+### Configuration
+
+To configure the plugin, edit the `config.yml` file in the `AxtonsEmotes` plugin folder.
+
+After updating the configuration, reload it with `/ae reload` (requires the `axtonsemotes.admin.reload` permission).
+
+> Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki/Configuration) for more details on the plugin configuration files.
 
 ```yml
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Global Configuration
-# Configure global plugin settings and features:
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-# Choose the language for the plugin. To create a custom language, copy and modify the 'en.yml'
-# file. Supported languages include: 'en' (English), 'fr' (Français/French), 'es' (Español/Spanish), 
-# 'it' (Italiano/Italian), 'ru' (Русский/Russian).
+# >> Language
+# Sets the language used for in-game plugin messages.
+# For a full list of available languages, please refer to https://github.com/axtonprice/axtons-emotes/wiki/Languages
 language: en
 
-# Allows players to use shared emote commands on themselves.
+# >> Self-Executions
+# Allows players to execute emote commands on themselves.
+# Default: true
 allow-self-executions: false
 
-# Allows players to view a list of all emotes, expressions, and jumpscares available, based on 
-# their permissions.
+# >> List Commands
+# Enables the /emotes and /expressions commands to view permitted emotes. When enabled, anyone can list commands.
+# When disabled, only server operators or players with the 'axtonsemotes.admin.list-override' permission can list commands.
+# Default: true
 allow-list-commands: true
 
-# Configure debug mode, which logs detailed information about command executions. This is useful 
+# >> Shared Emotes Toggle
+# Allows players to use /toggleemotes, removing the ability for others to execute shared emotes on them.
+# If both below are enabled, the player must have the 'axtonsemotes.emotes.selftoggle' permission to run the toggle command.
+# Default: true
+allow-self-toggle:
+  enabled: true
+  require-permission: false
+
+# >> Default Effects
+# Specifies the default particle and sound effects if the specified enum constant is invalid (NOT if the effect is set to 'none').
+# Defaults: CRIT, ENTITY_ITEM_PICKUP
+default-effects:
+  particle: "CRIT"
+  sound: "ENTITY_ITEM_PICKUP"
+
+# Configure debug mode, which logs detailed information about command executions. This is useful
 # for troubleshooting but will result in many console messages.
 debug-mode:
-  # Enable or disable debug mode.
+  # Toggles additional console information during startup and command executions.
+  # Default: false
   enabled: false
-  # Specify whether to log debug messages to a file. Ignored if 'enabled' is false.
+
+  # Specify whether to log debug messages to a file. Ignored if 'enabled' above is set to false.
+  # Default: true
   log-to-file: true
-  # Specify the file name for the debug log. Ignored if 'enabled' is false.
-  log-file: 'debug.log'
 
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Plugin Versioning
+  # Specifies the name of the file which debug logs are saved to. Set to none to disable logging to a file.
+  # Default: debug.log
+  file-name: "debug.log"
+
+# >> Plugin Versioning & Updates
 # Configure update checks and notifications:
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+updates:
+  # Automatically checks for plugin updates every 12 hours and on server startup.
+  # Default: true
+  check-for-latest: true
 
-# Enables automatic checking for new plugin updates.
-check-for-latest: true
+  # Notifies players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
+  # Default: true
+  notify-players-on-update: true
 
-# Notifies players with the 'axtonsemotes.updatenotify' permission when a new update is available.
-notify-on-update: true
+# >> Metrics Tracking
+# Enables BStats anonymous metrics tracking. Learn more at https://bstats.org/
+# Default: true
+enable-metrics: true
 ```
-After updating the configuration, reload it with `/ae reload`.
 
-Default configurations for the emote commands are available on the GitHub. For more information, read the [Wiki](https://github.com/axtonprice/axtons-emotes/wiki).
+### Emote Configuration
+Below is an example of how to configure an expression and a shared emote command. Please refer to the [wiki](https://github.com/axtonprice/axtons-emotes/wiki/Configuration) for more information on how to configure emotes.
+```yml
+commands:
+  cry:
+    enabled: true
+    type: "expression"
+    messages:
+      player: "&7You cry yourself in sorrow.." # Sent to the sender player
+      target: "&7&l%player%&r&7 cries in a corner.." # Sent to all players
+    effects:
+      particle: "CRIT" # Only played to the sender player
+      sound: "ENTITY_CAT_HURT" # Only played to the sender player
+
+  hug:
+    enabled: true
+    type: "shared"
+    messages:
+      player: "&cYou hugged &l%target%&r&c!" # Sent to the sender player
+      target: "&c&l%player%&r&c hugged you!" # Sent to the targeted player
+    effects:
+      particle: "HEART" # Played to both players
+      sound: "ENTITY_CAT_PURREOW" # Played to both players
+```
 
 <br>
-<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/credits_text.png">
-
-## Main Author
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/credits_text.png">
 
 ### axtonprice ✨
 
-[![GitHub](https://img.shields.io/badge/Github-%23121011.svg?logo=github&logoColor=white)](https://github.com/axtonprice) |  [![Discord](https://img.shields.io/discord/308323056592486420?logo=discord&%22%20alt=%22Chat%20on%20Discord%22)](https://discord.gg/dP3MuBATGc)
-| [![Github Sponsors](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/axtonprice) | [![Buy Me a Coffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee)](https://buymeacoffee.com/axtonprice)
-)
-
-Donate:
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://buymeacoffee.com/axtonprice)
+[![Sponsor](https://img.shields.io/badge/sponsor-gray?logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/axtonprice) 
+[![Patreon](https://img.shields.io/badge/Patreon-ee6352?logo=patreon&logoColor=black)](https://www.patreon.com/axtonprice/) 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/axtonprice)
 
 <br>
-<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/.github/media/license_text.png">
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/license_text.png">
 
-This project is MIT licensed. View the license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE).
+### GPLv3 License
 
-MIT © axtonprice
+This project is licensed under the GNU General Public License version 3. View the project license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE).

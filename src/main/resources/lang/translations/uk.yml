@@ -1,0 +1,91 @@
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "Запуск"
+      reloaded: "Перезавантажено"
+      loaded: "Завантажено"
+    configuration:
+      start: "Перевірка конфігурації..."
+      error:
+        validating: "Помилка під час перевірки конфігурації"
+        creating_default: "Помилка під час створення конфігурації за замовчуванням"
+        invalid_lang: "Виявлено неправильну мовну конфігурацію, встановлено англійську"
+        no_emotes: "У конфігурації не знайдено жодного емоута"
+    registry:
+      start: "Реєстрація компонентів плагіна..."
+      configs_loaded: "%progress_suffix% %configs_count% конфігурацій!"
+      commands_loaded: "%progress_suffix% %commands_count% команд!"
+      listeners_loaded: "%progress_suffix% %listeners_count% слухачів!"
+    version_check: "Перевірка оновлень плагінів..."
+    bstats:
+      start: "Запуск метрики BStats..."
+      failed: "Не вдалося надіслати дані статистики в BStats!"
+    footer: "%progress_suffix% всі функції за"
+# Configuration system messages
+config:
+  error:
+    saving: "Не вдалося зберегти конфігураційний файл"
+  success:
+    saving: "Конфігураційний файл успішно збережено"
+# Global error messages
+error:
+  permission: "У вас немає дозволу на виконання цієї команди!"
+  invalid_config: "Виявлено неправильну конфігурацію!"
+  player:
+    only: "Цю команду можуть виконувати лише гравці!"
+    self: "Ви не можете виконати цю команду на собі! Можливо, спробуйте з другом?"
+    offline: "Гравця не знайдено або він офлайн!"
+  command:
+    disabled: "Ця команда вимкнена!"
+    execute: "Не вдалося виконати команду!"
+    syntax:
+      sub_command: "Неправильна синтаксична структура! Вкажіть правильну підкоманду!"
+      no_target: "Неправильна синтаксична структура! Необхідно вказати правильного гравця!"
+      emote_shared: "Використання: /emote <назва> [гравець]"
+      emote_expression: "Використання: /emote <назва>"
+  emote:
+    not_found: "Емоут не знайдено або він вимкнений!"
+    misconfigured: "Емоут налаштовано неправильно і не може бути виконаний! Зверніться до адміністратора сервера."
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "Ви вимкнули спільні емоуті. Увімкніть за допомогою &7/toggleemotes"
+    target_toggled: "Цей гравець вимкнув спільні емоуті."
+    enabled: "&aСпільні емоуті увімкнено. &7Гравці можуть виконувати їх з вами."
+    disabled: "&cСпільні емоуті вимкнено. &7Гравці більше не можуть виконувати їх з вами."
+  reload:
+    success: "Конфігурацію успішно перезавантажено! (%exec_time%мс)"
+    emotes_note: "Перегляньте емоуті за допомогою &f/emotes&7 та &f/expressions&7."
+  version:
+    info_latest: "Запущено AxtonsEmotes версії v%current_version%. Остання версія: v%latest_version%."
+    info_outdated: "Ви використовуєте застарілу версію AxtonsEmotes: v%current_version%! Остання версія: v%latest_version%."
+    info_releases: "Натисніть, щоб переглянути релізи."
+    outdated_notify: "Доступна нова версія AxtonsEmotes: v%latest_version%, у вас: v%current_version%."
+  toggledebug:
+    enabled: "Режим налагодження увімкнено."
+    disabled: "Режим налагодження вимкнено."
+  togglemetrics:
+    enabled: "Збір статистики BStats увімкнено."
+    disabled: "Збір статистики BStats вимкнено."
+  resetlang:
+    success: "Мовні файли скинуто до значень за замовчуванням."
+    error: "Не вдалося скинути мовні файли."
+  help: "Натисніть, щоб відкрити GitHub Wiki для довідника команд та конфігурації"
+  list:
+    no_description: "Опис відсутній"
+    titles:
+      emotes: "Спільні емоуті"
+      expressions: "Емоуті-вирази"
+    subtitles:
+      emotes: "&7Спільні емоуті виконуються з іншим гравцем."
+      expressions: "&7Виразні емоуті транслюються всім гравцям."
+    navigation:
+      page: "Сторінка: %current_page% з %total_pages%"
+      listing: "Список"
+      next: "Далі"
+      previous: "Назад"
+      footer: "&7Використовуйте &9/%command_name% %page_number%&r&7 щоб побачити наступну сторінку."
+    notes:
+      emotes: "&7Використовуйте &b/expressions&7 для перегляду списку виразних емоутів."
+      expressions: "&7Використовуйте &b/emotes&7 для перегляду списку спільних емоутів."

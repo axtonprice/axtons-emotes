@@ -1,0 +1,91 @@
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "Starten"
+      reloaded: "Opnieuw geladen"
+      loaded: "Geladen"
+    configuration:
+      start: "Configuratie valideren..."
+      error:
+        validating: "Fout bij het valideren van de configuratie"
+        creating_default: "Fout bij het maken van de standaardconfiguratie"
+        invalid_lang: "Ongeldige taalconfiguratie gedetecteerd, terugvallen op Engels"
+        no_emotes: "Geen emotes gevonden in de configuratie"
+    registry:
+      start: "Plugincomponenten registreren..."
+      configs_loaded: "%progress_suffix% %configs_count% configuratie(s)!"
+      commands_loaded: "%progress_suffix% %commands_count% commando('s)!"
+      listeners_loaded: "%progress_suffix% %listeners_count% luisteraars!"
+    version_check: "Controleren op plug-inupdates..."
+    bstats:
+      start: "BStats-statistieken starten..."
+      failed: "Kon geen analytics naar BStats verzenden!"
+    footer: "%progress_suffix% alle functies in"
+# Configuration system messages
+config:
+  error:
+    saving: "Opslaan van configuratiebestand mislukt"
+  success:
+    saving: "Configuratiebestand succesvol opgeslagen"
+# Global error messages
+error:
+  permission: "Je hebt geen toestemming om dit commando uit te voeren!"
+  invalid_config: "Ongeldige configuratie gedetecteerd!"
+  player:
+    only: "Alleen spelers kunnen dit commando uitvoeren!"
+    self: "Je kunt dit commando niet op jezelf uitvoeren! Probeer het met een vriend?"
+    offline: "Speler niet gevonden of offline!"
+  command:
+    disabled: "Dit commando is uitgeschakeld!"
+    execute: "Uitvoeren van commando mislukt!"
+    syntax:
+      sub_command: "Ongeldige syntax! Geef een geldig subcommando op!"
+      no_target: "Ongeldige syntax! Je moet een geldige speler opgeven!"
+      emote_shared: "Gebruik: /emote <emotenaam> [speler]"
+      emote_expression: "Gebruik: /emote <emotenaam>"
+  emote:
+    not_found: "Emote niet gevonden of uitgeschakeld!"
+    misconfigured: "Deze emote is verkeerd geconfigureerd en kan niet worden uitgevoerd! Neem contact op met de serverbeheerder."
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "Je hebt gedeelde emotes uitgeschakeld. Activeer opnieuw met &7/toggleemotes"
+    target_toggled: "Deze speler heeft gedeelde emotes uitgeschakeld."
+    enabled: "&aGedeelde emotes zijn ingeschakeld. &7Spelers kunnen nu gedeelde emotes met je uitvoeren."
+    disabled: "&cGedeelde emotes zijn uitgeschakeld. &7Spelers kunnen geen gedeelde emotes meer met je uitvoeren."
+  reload:
+    success: "Configuraties succesvol herladen! (%exec_time%ms)"
+    emotes_note: "Bekijk geconfigureerde emotes met &f/emotes&7, en &f/expressions&7."
+  version:
+    info_latest: "Draaiende AxtonsEmotes versie v%current_version%. De nieuwste versie is v%latest_version%."
+    info_outdated: "Je draait een verouderde versie van AxtonsEmotes: v%current_version%! De nieuwste versie is v%latest_version%."
+    info_releases: "Klik om releases te bekijken."
+    outdated_notify: "Er is een nieuwere versie van AxtonsEmotes beschikbaar: v%latest_version%, jij gebruikt: v%current_version%."
+  toggledebug:
+    enabled: "Debugmodus ingeschakeld."
+    disabled: "Debugmodus uitgeschakeld."
+  togglemetrics:
+    enabled: "BStats-statistiektracking ingeschakeld."
+    disabled: "BStats-statistiektracking uitgeschakeld."
+  resetlang:
+    success: "Taalbestanden zijn teruggezet naar standaardinstellingen."
+    error: "Terugzetten van taalbestanden mislukt."
+  help: "Klik om de GitHub-wiki te bekijken voor commando- en configuratiegidsen"
+  list:
+    no_description: "Geen beschrijving beschikbaar"
+    titles:
+      emotes: "Gedeelde Emotes"
+      expressions: "Expressies"
+    subtitles:
+      emotes: "&7Gedeelde emotes worden uitgevoerd met een andere speler."
+      expressions: "&7Expressie-emotes worden naar alle spelers verzonden."
+    navigation:
+      page: "Pagina: %current_page% van %total_pages%"
+      listing: "Lijst"
+      next: "Volgende"
+      previous: "Vorige"
+      footer: "&7Gebruik &9/%command_name% %page_number%&r&7 om de volgende pagina te bekijken."
+    notes:
+      emotes: "&7Gebruik &b/expressions&7 om een lijst van expressie-emotes te bekijken."
+      expressions: "&7Gebruik &b/emotes&7 om een lijst van gedeelde emotes te bekijken."

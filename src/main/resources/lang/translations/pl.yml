@@ -1,0 +1,91 @@
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "Uruchamianie"
+      reloaded: "Przeładowano"
+      loaded: "Załadowano"
+    configuration:
+      start: "Sprawdzanie konfiguracji..."
+      error:
+        validating: "Błąd podczas sprawdzania konfiguracji"
+        creating_default: "Błąd podczas tworzenia domyślnej konfiguracji"
+        invalid_lang: "Wykryto nieprawidłową konfigurację języka — ustawiono angielski jako domyślny"
+        no_emotes: "Nie znaleziono emotki w konfiguracji"
+    registry:
+      start: "Rejestrowanie komponentów pluginu..."
+      configs_loaded: "%progress_suffix% załadowano %configs_count% konfiguracji!"
+      commands_loaded: "%progress_suffix% załadowano %commands_count% komend!"
+      listeners_loaded: "%progress_suffix% załadowano %listeners_count% listener'ów!"
+    version_check: "Sprawdzanie dostępności aktualizacji wtyczek..."
+    bstats:
+      start: "Uruchamianie metryk BStats..."
+      failed: "Nie udało się wysłać danych do BStats!"
+    footer: "%progress_suffix% wszystkie funkcje aktywne"
+# Configuration system messages
+config:
+  error:
+    saving: "Nie udało się zapisać pliku konfiguracji"
+  success:
+    saving: "Pomyślnie zapisano plik konfiguracji"
+# Global error messages
+error:
+  permission: "Nie masz uprawnień do wykonania tej komendy!"
+  invalid_config: "Wykryto nieprawidłową konfigurację!"
+  player:
+    only: "Tę komendę mogą wykonać tylko gracze!"
+    self: "Nie możesz wykonać tej komendy na sobie! Spróbuj użyć jej z innym graczem?"
+    offline: "Nie znaleziono gracza lub jest offline!"
+  command:
+    disabled: "Ta komenda jest wyłączona!"
+    execute: "Nie udało się wykonać komendy!"
+    syntax:
+      sub_command: "Nieprawidłowa składnia! Podaj prawidłową podkomende!"
+      no_target: "Nieprawidłowa składnia! Musisz podać prawidłowego gracza!"
+      emote_shared: "Użycie: /emote <nazwa_emotki> [gracz]"
+      emote_expression: "Użycie: /emote <nazwa_emotki>"
+  emote:
+    not_found: "Emotka nie znaleziona lub wyłączona!"
+    misconfigured: "Emotka jest błędnie skonfigurowana i nie może zostać wykorzystana! Skontaktuj się z administratorem serwera."
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "Wyłączyłeś emotki współdzielone. Możesz je włączyć komendą &7/toggleemotes"
+    target_toggled: "Ten gracz ma wyłączone emotki współdzielone."
+    enabled: "&aEmotki współdzielone zostały włączone. &7Gracze mogą teraz wykonywać je razem z tobą."
+    disabled: "&cEmotki współdzielone zostały wyłączone. &7Gracze nie mogą już wykonywać ich razem z tobą."
+  reload:
+    success: "Konfiguracja została przeładowana! (%exec_time%ms)"
+    emotes_note: "Zobacz dostępne emotki komendami &f/emotes&7 oraz &f/expressions&7."
+  version:
+    info_latest: "AxtonsEmotes wersja v%current_version%. Najnowsza dostępna wersja: v%latest_version%."
+    info_outdated: "Używasz przestarzałej wersji AxtonsEmotes: v%current_version%! Najnowsza: v%latest_version%."
+    info_releases: "Kliknij, aby zobaczyć listę wydań."
+    outdated_notify: "Dostępna jest nowsza wersja AxtonsEmotes: v%latest_version%, twoja wersja: v%current_version%."
+  toggledebug:
+    enabled: "Tryb debugowania włączony."
+    disabled: "Tryb debugowania wyłączony."
+  togglemetrics:
+    enabled: "Śledzenie metryk BStats włączone."
+    disabled: "Śledzenie metryk BStats wyłączone."
+  resetlang:
+    success: "Pliki językowe zostały przywrócone do domyślnych."
+    error: "Nie udało się przywrócić plików językowych."
+  help: "Kliknij, aby otworzyć wiki na GitHub'ie z instrukcjami oraz poradnikami konfiguracji"
+  list:
+    no_description: "Brak opisu"
+    titles:
+      emotes: "Emotki współdzielone"
+      expressions: "Emotki ekspresyjne"
+    subtitles:
+      emotes: "&7Emotki współdzielone są wykonywane z innym graczem."
+      expressions: "&7Emotki ekspresyjne są widoczne dla wszystkich graczy."
+    navigation:
+      page: "Strona: %current_page% z %total_pages%"
+      listing: "Wyświetla"
+      next: "Następna"
+      previous: "Poprzednia"
+      footer: "&7Użyj &9/%command_name% %page_number%&r&7, aby przejść do następnej strony."
+    notes:
+      emotes: "&7Użyj &b/expressions&7, aby zobaczyć listę emotek ekspresyjnych."
+      expressions: "&7Użyj &b/emotes&7, aby zobaczyć listę emotek współdzielonych."

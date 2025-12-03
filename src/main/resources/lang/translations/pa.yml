@@ -1,0 +1,91 @@
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "ਸ਼ੁਰੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+      reloaded: "ਦੁਬਾਰਾ ਲੋਡ ਕੀਤਾ"
+      loaded: "ਲੋਡ ਕੀਤਾ"
+    configuration:
+      start: "ਕੰਫਿਗਰੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
+      error:
+        validating: "ਕੰਫਿਗਰੇਸ਼ਨ ਦੀ ਜਾਂਚ ਵਿੱਚ ਗਲਤੀ"
+        creating_default: "ਡਿਫਾਲਟ ਕੰਫਿਗਰੇਸ਼ਨ ਬਣਾਉਣ ਵਿੱਚ ਗਲਤੀ"
+        invalid_lang: "ਗਲਤ ਭਾਸ਼ਾ ਕੰਫਿਗਰੇਸ਼ਨ ਪਾਈ ਗਈ ਹੈ, ਅੰਗ੍ਰੇਜ਼ੀ ਤੇ ਵਾਪਸ ਜਾ ਰਹੇ ਹਾਂ"
+        no_emotes: "ਕੰਫਿਗਰੇਸ਼ਨ ਵਿੱਚ ਕੋਈ ਇਮੋਟ ਨਹੀਂ ਮਿਲੇ"
+    registry:
+      start: "ਪਲੱਗਇਨ ਕੰਪੋਨੈਂਟ ਰਜਿਸਟਰ ਕਰ ਰਹੇ ਹਾਂ..."
+      configs_loaded: "%progress_suffix% %configs_count% ਕੰਫਿਗਰੇਸ਼ਨ!"
+      commands_loaded: "%progress_suffix% %commands_count% ਕਮਾਂਡ!"
+      listeners_loaded: "%progress_suffix% %listeners_count% ਲਿਸ਼ਨਰ!"
+    version_check: "ਪਲੱਗਇਨ ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
+    bstats:
+      start: "BStats ਮੈਟ੍ਰਿਕਸ ਸ਼ੁਰੂ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ..."
+      failed: "BStats ਨੂੰ ਡਾਟਾ ਭੇਜਣ ਵਿੱਚ ਅਸਫਲ!"
+    footer: "%progress_suffix% ਸਾਰੀਆਂ ਫੀਚਰਾਂ"
+# Configuration system messages
+config:
+  error:
+    saving: "ਕੰਫਿਗਰੇਸ਼ਨ ਫਾਈਲ ਸੇਵ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
+  success:
+    saving: "ਕੰਫਿਗਰੇਸ਼ਨ ਫਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਸੇਵ ਕੀਤੀ ਗਈ"
+# Global error messages
+error:
+  permission: "ਤੁਹਾਨੂੰ ਇਹ ਕਮਾਂਡ ਚਲਾਉਣ ਦੀ ਅਨੁਮਤੀ ਨਹੀਂ ਹੈ!"
+  invalid_config: "ਗਲਤ ਕੰਫਿਗਰੇਸ਼ਨ ਮਿਲੀ!"
+  player:
+    only: "ਕੇਵਲ ਖਿਡਾਰੀ ਇਹ ਕਮਾਂਡ ਚਲਾ ਸਕਦੇ ਹਨ!"
+    self: "ਤੁਸੀਂ ਇਸ ਕਮਾਂਡ ਨੂੰ ਆਪਣੇ ਉੱਪਰ ਨਹੀਂ ਚਲਾ ਸਕਦੇ! ਸ਼ਾਇਦ ਕਿਸੇ ਦੋਸਤ ਨਾਲ ਕੋਸ਼ਿਸ਼ ਕਰੋ?"
+    offline: "ਖਿਡਾਰੀ ਨਹੀਂ ਮਿਲਿਆ ਜਾਂ ਆਫਲਾਈਨ ਹੈ!"
+  command:
+    disabled: "ਇਹ ਕਮਾਂਡ ਅਣਸਰਗਰਖਤ ਹੈ!"
+    execute: "ਕਮਾਂਡ ਚਲਾਉਣ ਵਿੱਚ ਅਸਫਲ!"
+    syntax:
+      sub_command: "ਗਲਤ ਸਿੰਟੈਕਸ! ਕਿਰਪਾ ਕਰਕੇ ਸਹੀ ਸਬ-ਕਮਾਂਡ ਦੱਸੋ!"
+      no_target: "ਗਲਤ ਸਿੰਟੈਕਸ! ਤੁਹਾਨੂੰ ਇੱਕ ਸਹੀ ਖਿਡਾਰੀ ਦੱਸਣਾ ਲਾਜ਼ਮੀ ਹੈ!"
+      emote_shared: "ਵਰਤੋਂ: /emote <emotename> [player]"
+      emote_expression: "ਵਰਤੋਂ: /emote <emotename>"
+  emote:
+    not_found: "ਇਮੋਟ ਨਹੀਂ ਮਿਲਿਆ ਜਾਂ ਅਣਸਰਗਰਖਤ ਹੈ!"
+    misconfigured: "ਇਮੋਟ ਗਲਤ ਤਰੀਕੇ ਨਾਲ ਕਨਫਿਗਰ ਹੈ ਅਤੇ ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ! ਕਿਰਪਾ ਕਰਕੇ ਸਰਵਰ ਐਡਮਿਨ ਨਾਲ ਸੰਪਰਕ ਕਰੋ."
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "ਤੁਸੀਂ ਸ਼ੇਅਰਡ ਇਮੋਟ ਅਣਸਰਗਰਖਤ ਕਰ ਦਿੱਤੇ ਹਨ. &7/toggleemotes ਨਾਲ ਮੁੜ ਚਾਲੂ ਕਰੋ"
+    target_toggled: "ਇਸ ਯੂਜ਼ਰ ਨੇ ਸ਼ੇਅਰਡ ਇਮੋਟ ਅਣਸਰਗਰਖਤ ਕਰ ਦਿੱਤੇ ਹਨ."
+    enabled: "&aਸ਼ੇਅਰਡ ਇਮੋਟ ਚਾਲੂ ਕਰ ਦਿੱਤੇ. &7ਹੁਣ ਖਿਡਾਰੀ ਤੁਹਾਡੇ ਨਾਲ ਸ਼ੇਅਰਡ ਇਮੋਟ ਕਰ ਸਕਦੇ ਹਨ."
+    disabled: "&cਸ਼ੇਅਰਡ ਇਮੋਟ ਅਣਸਰਗਰਖਤ ਕਰ ਦਿੱਤੇ. &7ਹੁਣ ਖਿਡਾਰੀ ਇਹ ਤੁਹਾਡੇ ਨਾਲ ਨਹੀਂ ਕਰ ਸਕਦੇ."
+  reload:
+    success: "ਕੰਫਿਗਰੇਸ਼ਨ ਮੁੜ ਲੋਡ ਕੀਤੇ! (%exec_time%ms)"
+    emotes_note: "&f/emotes&7 ਅਤੇ &f/expressions&7 ਨਾਲ ਕੰਫਿਗਰੇਸ਼ਨ ਕੀਤੇ ਇਮੋਟ ਵੇਖੋ."
+  version:
+    info_latest: "AxtonsEmotes ਵਰਜਨ v%current_version% ਚੱਲ ਰਿਹਾ ਹੈ. ਤਾਜ਼ਾ ਵਰਜਨ: v%latest_version%."
+    info_outdated: "ਤੁਸੀਂ ਪੁਰਾਣਾ ਵਰਜਨ ਵਰਤ ਰਹੇ ਹੋ: v%current_version%! ਤਾਜ਼ਾ ਵਰਜਨ ਹੈ: v%latest_version%."
+    info_releases: "ਰੀਲીઝ ਵੇਖਣ ਲਈ ਕਲਿਕ ਕਰੋ."
+    outdated_notify: "AxtonsEmotes ਦਾ ਨਵਾਂ ਵਰਜਨ ਉਪਲਬਧ ਹੈ: v%latest_version%, ਤੁਸੀਂ ਚਲਾ ਰਹੇ ਹੋ: v%current_version%."
+  toggledebug:
+    enabled: "ਡਿਬੱਗ ਮੋਡ ਚਾਲੂ ਕੀਤਾ ਗਿਆ."
+    disabled: "ਡਿਬੱਗ ਮੋਡ ਅਣਸਰਗਰਖਤ ਕੀਤਾ ਗਿਆ."
+  togglemetrics:
+    enabled: "BStats ਮੈਟ੍ਰਿਕਸ ਟ੍ਰੈਕਿੰਗ ਚਾਲੂ ਕੀਤੀ."
+    disabled: "BStats ਮੈਟ੍ਰਿਕਸ ਟ੍ਰੈਕਿੰਗ ਅਣਸਰਗਰਖਤ ਕੀਤੀ."
+  resetlang:
+    success: "ਭਾਸ਼ਾ ਫਾਈਲਾਂ ਡਿਫਾਲਟ ਤੇ ਰੀਸੈਟ ਕੀਤੀਆਂ ਗਈਆਂ."
+    error: "ਭਾਸ਼ਾ ਫਾਈਲਾਂ ਰੀਸੈਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ."
+  help: "ਕਮਾਂਡ ਅਤੇ ਕੰਫਿਗਰੇਸ਼ਨ ਗਾਈਡ ਲਈ GitHub wiki ਵੇਖਣ ਲਈ ਕਲਿਕ ਕਰੋ"
+  list:
+    no_description: "ਕੋਈ ਵਰਣਨ ਉਪਲਬਧ ਨਹੀਂ"
+    titles:
+      emotes: "ਸ਼ੇਅਰਡ ਇਮੋਟ"
+      expressions: "ਇਕਸਪ੍ਰੈਸ਼ਨ"
+    subtitles:
+      emotes: "&7ਸ਼ੇਅਰਡ ਇਮੋਟ ਕਿਸੇ ਹੋਰ ਖਿਡਾਰੀ ਨਾਲ ਕੀਤੇ ਜਾਂਦੇ ਹਨ."
+      expressions: "&7ਇਕਸਪ੍ਰੈਸ਼ਨ ਸਾਰੇ ਖਿਡਾਰੀਆਂ ਨੂੰ ਭੇਜੇ ਜਾਂਦੇ ਹਨ."
+    navigation:
+      page: "ਪੇਜ: %current_page% ਤੋਂ %total_pages%"
+      listing: "ਲਿਸਟ"
+      next: "ਅੱਗੇ"
+      previous: "ਪਿੱਛੇ"
+      footer: "&7ਅਗਲਾ ਪੇਜ ਦੇਖਣ ਲਈ &9/%command_name% %page_number%&r&7 ਵਰਤੋ."
+    notes:
+      emotes: "&7ਇਕਸਪ੍ਰੈਸ਼ਨ ਦੀ ਲਿਸਟ ਦੇਖਣ ਲਈ &b/expressions&7 ਵਰਤੋ."
+      expressions: "&7ਸ਼ੇਅਰਡ ਇਮੋਟ ਦੀ ਲਿਸਟ ਦੇਖਣ ਲਈ &b/emotes&7 ਵਰਤੋ."

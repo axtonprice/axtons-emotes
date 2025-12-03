@@ -1,31 +1,94 @@
-message_error_player_permission: "&4Error: &cYou don't have permission to execute this command!"
-message_error_player_only: "&4Error: &cOnly players can execute this command!"
-message_error_player_self: "&4Error: &cYou can't execute that command on yourself!"
-message_error_player_offline: "&4Error: &cPlayer not found or is offline!"
-message_error_command_disabled: "&4Error: &cThat command is disabled!"
-message_error_command_failed: "&4Error: &cFailed to execute command!"
-message_error_command_syntax:
-  sub-command: "&4Error: &cInvalid syntax! Please specify a valid sub-command!"
-  player: "&4Error: &cInvalid syntax! You must specify a valid player!"
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "Starting"
+      reloaded: "Reloaded"
+      loaded: "Loaded"
+    configuration:
+      start: "Validating configuration..."
+      error:
+        validating: "Error validating configuration"
+        creating_default: "Error creating default configuration"
+        invalid_lang: "Invalid language configuration detected, defaulting to English"
+        no_emotes: "No emotes found in configuration"
+    registry:
+      start: "Registering plugin components..."
+      configs_loaded: "%progress_suffix% %configs_count% configuration(s)!"
+      commands_loaded: "%progress_suffix% %commands_count% command(s)!"
+      listeners_loaded: "%progress_suffix% %listeners_count% listener(s)!"
+    version_check: "Checking for plugin updates..."
+    bstats:
+      start: "Starting BStats metrics..."
+      failed: "Could not send analytics to BStats!"
+    footer: "%progress_suffix% all features in"
 
-message_context_plugin_startup_configs_count: "%progress_suffix% %configs_count% configuration(s)!"
-message_context_plugin_startup_commands_count: "%progress_suffix% %commands_count% commands(s)!"
-message_context_plugin_startup_listeners_count: "%progress_suffix% %listeners_count% listeners(s)!"
-message_context_plugin_startup_footer: "%progress_suffix% all features in"
-message_context_plugin_startup_progress_suffix:
-  starting: "Starting"
-  reloaded: "Reloaded"
-  loaded: "Loaded"
+# Configuration system messages
+config:
+  error:
+    saving: "Failed to save configuration file"
+  success:
+    saving: "Successfully saved configuration file"
 
-message_context_command_reload: "&aConfigurations reloaded! (%exec_time%ms)"
-message_context_command_version:
-  command: "&aYou are running version %current_version%, the latest version is %latest_version%. Update at %repository_url%"
-  up-to-date-notify: "AxtonsEmotes v%current_version% is up to date!"
-  outdated-notify: "AxtonsEmotes v%current_version% is outdated! Download v%latest_version% from %source_url%"
+# Global error messages
+error:
+  permission: "You don't have permission to execute this command!"
+  invalid_config: "Invalid configuration detected!"
+  player:
+    only: "Only players can execute this command!"
+    self: "You can't execute that command on yourself! Maybe try with a friend?"
+    offline: "Player not found or is offline!"
+  command:
+    disabled: "That command is disabled!"
+    execute: "Failed to execute command!"
+    syntax:
+      sub_command: "Invalid syntax! Please specify a valid sub-command!"
+      no_target: "Invalid syntax! You must specify a valid player!"
+      emote_shared: "Usage: /emote <emotename> [player]"
+      emote_expression: "Usage: /emote <emotename>"
+  emote:
+    not_found: "Emote not found or is disabled!"
+    misconfigured: "Emote is misconfigured and cannot be executed! Please contact the server administrator."
 
-message_context_command_no_description: "No description available"
-message_context_command_emotes_title: "Shared Emotes"
-message_context_command_expressions_title: "Expressions"
-message_context_command_jumpscares_title: "Jumpscares"
-message_context_command_list_page_button_next: "Next"
-message_context_command_list_page_button_previous: "Previous"
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "You have disabled shared emotes. Enable with &7/toggleemotes"
+    target_toggled: "This user has disabled shared emotes."
+    enabled: "&aShared emotes have been enabled. &7Players can now perform shared emotes with you."
+    disabled: "&cShared emotes have been disabled. &7Players can no longer perform shared emotes with you."
+  reload:
+    success: "Configurations reloaded successfully! (%exec_time%ms)"
+    emotes_note: "View configured emotes with &f/emotes&7, and &f/expressions&7."
+  version:
+    info_latest: "Running AxtonsEmotes version v%current_version%. The latest version is v%latest_version%."
+    info_outdated: "You are running an outdated version of AxtonsEmotes: v%current_version%! The latest version is v%latest_version%."
+    info_releases: "Click to view releases."
+    outdated_notify: "There is a newer version of AxtonsEmotes available: v%latest_version%, you're on: v%current_version%."
+  toggledebug:
+    enabled: "Debug mode enabled."
+    disabled: "Debug mode disabled."
+  togglemetrics:
+    enabled: "BStats metrics tracking enabled."
+    disabled: "BStats metrics tracking disabled."
+  resetlang:
+    success: "Language files have been reset to defaults."
+    error: "Failed to reset language files."
+  help: "Click to view the GitHub wiki for command usage and configuration guides"
+  list:
+    no_description: "No description available"
+    titles:
+      emotes: "Shared Emotes"
+      expressions: "Expressions"
+    subtitles:
+      emotes: "&7Shared emotes are performed with another player."
+      expressions: "&7Expression emotes are broadcasted to all players."
+    navigation:
+      page: "Page: %current_page% of %total_pages%"
+      listing: "Listing"
+      next: "Next"
+      previous: "Previous"
+      footer: "&7Use &9/%command_name% %page_number%&r&7 to see the next page."
+    notes:
+      emotes: "&7Use &b/expressions&7 to view a list of expression emotes."
+      expressions: "&7Use &b/emotes&7 to view a list of shared emotes."

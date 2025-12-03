@@ -1,0 +1,91 @@
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "启动中"
+      reloaded: "已重载"
+      loaded: "已加载"
+    configuration:
+      start: "验证配置中..."
+      error:
+        validating: "验证配置时发生错误"
+        creating_default: "创建默认配置时发生错误"
+        invalid_lang: "检测到无效的语言配置，已恢复为英语"
+        no_emotes: "配置中未找到任何表情动作"
+    registry:
+      start: "注册插件组件中..."
+      configs_loaded: "%progress_suffix% %configs_count% 个配置文件！"
+      commands_loaded: "%progress_suffix% %commands_count% 个指令！"
+      listeners_loaded: "%progress_suffix% %listeners_count% 个监听器！"
+    version_check: "正在检查插件更新……"
+    bstats:
+      start: "启动 BStats 统计..."
+      failed: "无法向 BStats 发送统计数据！"
+    footer: "%progress_suffix% 所有功能完成"
+# Configuration system messages
+config:
+  error:
+    saving: "保存配置文件失败"
+  success:
+    saving: "成功保存配置文件"
+# Global error messages
+error:
+  permission: "你没有权限执行此指令！"
+  invalid_config: "检测到无效的配置！"
+  player:
+    only: "只有玩家才能执行此指令！"
+    self: "你不能对自己执行该命令！也许找个人一起试试？"
+    offline: "未找到玩家或玩家离线！"
+  command:
+    disabled: "该指令已被禁用！"
+    execute: "执行指令失败！"
+    syntax:
+      sub_command: "语法错误！请输入有效的子命令！"
+      no_target: "语法错误！你必须指定一个有效的玩家！"
+      emote_shared: "用法: /emote <表情动作名> [玩家]"
+      emote_expression: "用法: /emote <表情动作名>"
+  emote:
+    not_found: "未找到表情动作或该动作已被禁用！"
+    misconfigured: "该表情配置错误，无法执行！请联系服务器管理员。"
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "你已关闭共享表情动作。可使用 &7/toggleemotes&r 重新启用"
+    target_toggled: "该玩家已关闭共享表情。"
+    enabled: "&a共享表情动作已启用。&7其他玩家可以与你互动使用表情。"
+    disabled: "&c共享表情动作已禁用。&7其他玩家无法再对你执行共享表情。"
+  reload:
+    success: "配置文件重载成功！ (%exec_time%ms)"
+    emotes_note: "使用 &f/emotes&7 和 &f/expressions&7 查看可用表情。"
+  version:
+    info_latest: "当前运行 AxtonsEmotes v%current_version%。最新版本是 v%latest_version%。"
+    info_outdated: "你正在运行旧版本的 AxtonsEmotes：v%current_version%！最新版本是 v%latest_version%。"
+    info_releases: "点击查看发布版本。"
+    outdated_notify: "AxtonsEmotes 有新版本可用：v%latest_version%，你正在使用：v%current_version%。"
+  toggledebug:
+    enabled: "调试模式已启用。"
+    disabled: "调试模式已禁用。"
+  togglemetrics:
+    enabled: "BStats 统计已启用。"
+    disabled: "BStats 统计已禁用。"
+  resetlang:
+    success: "语言文件已恢复为默认设置。"
+    error: "语言文件恢复失败。"
+  help: "点击查看 GitHub Wiki 获取指令与配置指南"
+  list:
+    no_description: "无可用描述"
+    titles:
+      emotes: "共享表情"
+      expressions: "表情动作"
+    subtitles:
+      emotes: "&7共享表情需要另一个玩家参与。"
+      expressions: "&7表情动作会向所有玩家广播。"
+    navigation:
+      page: "页数: %current_page% / %total_pages%"
+      listing: "列表"
+      next: "下一页"
+      previous: "上一页"
+      footer: "&7使用 &9/%command_name% %page_number%&r&7 查看下一页。"
+    notes:
+      emotes: "&7使用 &b/expressions&7 查看表情动作列表。"
+      expressions: "&7使用 &b/emotes&7 查看共享表情列表。"

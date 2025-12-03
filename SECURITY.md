@@ -2,15 +2,8 @@
 
 ## Supported Versions
 
-We address security patches only for the supported versions listed below. Requests for unsupported versions will not be considered.
-
-| Version     | Supported          |
-| ----------- | ------------------ |
-| >= v1.4.0       | :white_check_mark: |
-| < v1.4.0 | :x:            |
+We provide security updates only for the latest versions of this project. Issues reported in older releases will not be addressed, as those versions are no longer maintained.
 
 ## Reporting Vulnerabilities
 
-If you discover a vulnerability or security issue, please report it by creating a new issue in the [Issues](https://github.com/your-repo/issues) tab of this repository. 
-
-Alternatively, you can reach out to us via Discord. Join our server using the link found in the Credits section of `README.md`.
+If you discover a security vulnerability, please report it by creating a new issue in the [Issues](https://github.com/axtonprice/axtons-emotes/issues) section of this repository. Use the "Bug report" template to ensure we receive all the necessary information to investigate and resolve the issue.

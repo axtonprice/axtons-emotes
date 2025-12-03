@@ -4,6 +4,8 @@ import com.arizonsoftware.axtonsemotes.AxtonsEmotes;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.LoaderOptions;
+import org.yaml.snakeyaml.constructor.SafeConstructor;
 
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -12,9 +14,11 @@ import net.md_5.bungee.api.ChatColor;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.Map;
 
@@ -252,22 +256,38 @@ public class Versioning {
       String url = "https://raw.githubusercontent.com/axtonprice/axtons-emotes/main/src/main/resources/config.yml";
       HttpURLConnection http = (HttpURLConnection) URI.create(url).toURL().openConnection();
       http.setRequestMethod("GET");
+      http.setConnectTimeout(5_000); // 5s connect
+      http.setReadTimeout(5_000); // 5s read
+
+      int status = http.getResponseCode();
+      if (status != HttpURLConnection.HTTP_OK) {
+         // not available / bad response
+         return null;
+      }
 
       StringBuilder output = new StringBuilder();
-      try (BufferedReader br = new BufferedReader(new InputStreamReader(http.getInputStream()))) {
+      try (InputStream in = http.getInputStream();
+            InputStreamReader isr = new InputStreamReader(in, StandardCharsets.UTF_8);
+            BufferedReader br = new BufferedReader(isr)) {
          String line;
          while ((line = br.readLine()) != null) {
-            output.append(line).append("\n");
+            output.append(line).append('\n');
          }
       }
 
-      Yaml yaml = new Yaml();
+      // Use LoaderOptions + SafeConstructor to avoid arbitrary object deserialization
+      LoaderOptions options = new LoaderOptions();
+
+      SafeConstructor constructor = new SafeConstructor(options);
+      Yaml yaml = new Yaml(constructor);
+
       Object result = yaml.load(output.toString());
-
-      if (!(result instanceof Map<?, ?> map))
+      if (!(result instanceof Map<?, ?> rawMap)) {
          return null;
+      }
 
-      Object versionObj = map.get("config-version");
+      Object versionObj = rawMap.get("config-version");
       return versionObj instanceof String ? (String) versionObj : null;
    }
+
 }

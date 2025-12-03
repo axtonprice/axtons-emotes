@@ -12,6 +12,9 @@ plugin:
         creating_default: "ਡਿਫਾਲਟ ਕੰਫਿਗਰੇਸ਼ਨ ਬਣਾਉਣ ਵਿੱਚ ਗਲਤੀ"
         invalid_lang: "ਗਲਤ ਭਾਸ਼ਾ ਕੰਫਿਗਰੇਸ਼ਨ ਪਾਈ ਗਈ ਹੈ, ਅੰਗ੍ਰੇਜ਼ੀ ਤੇ ਵਾਪਸ ਜਾ ਰਹੇ ਹਾਂ"
         no_emotes: "ਕੰਫਿਗਰੇਸ਼ਨ ਵਿੱਚ ਕੋਈ ਇਮੋਟ ਨਹੀਂ ਮਿਲੇ"
+      migration:
+        migrate: "Config version is outdated! Migrating configuration"
+        reset: "Config version is too old (1.3.0). Resetting to plugin defaults..."
     registry:
       start: "ਪਲੱਗਇਨ ਕੰਪੋਨੈਂਟ ਰਜਿਸਟਰ ਕਰ ਰਹੇ ਹਾਂ..."
       configs_loaded: "%progress_suffix% %configs_count% ਕੰਫਿਗਰੇਸ਼ਨ!"
@@ -47,6 +50,8 @@ error:
   emote:
     not_found: "ਇਮੋਟ ਨਹੀਂ ਮਿਲਿਆ ਜਾਂ ਅਣਸਰਗਰਖਤ ਹੈ!"
     misconfigured: "ਇਮੋਟ ਗਲਤ ਤਰੀਕੇ ਨਾਲ ਕਨਫਿਗਰ ਹੈ ਅਤੇ ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ! ਕਿਰਪਾ ਕਰਕੇ ਸਰਵਰ ਐਡਮਿਨ ਨਾਲ ਸੰਪਰਕ ਕਰੋ."
+    radius: "You are too far away from that player! Move closer and try again."
+    cooldown: "You must wait %duration% seconds before performing another emote!"
 # Command-specific messages
 command:
   emote_toggle:
@@ -71,6 +76,9 @@ command:
   resetlang:
     success: "ਭਾਸ਼ਾ ਫਾਈਲਾਂ ਡਿਫਾਲਟ ਤੇ ਰੀਸੈਟ ਕੀਤੀਆਂ ਗਈਆਂ."
     error: "ਭਾਸ਼ਾ ਫਾਈਲਾਂ ਰੀਸੈਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ."
+  resetemotes:
+    success: "Emotes configuration have been reset to defaults."
+    error: "Failed to reset emotes.yml configuration file."
   help: "ਕਮਾਂਡ ਅਤੇ ਕੰਫਿਗਰੇਸ਼ਨ ਗਾਈਡ ਲਈ GitHub wiki ਵੇਖਣ ਲਈ ਕਲਿਕ ਕਰੋ"
   list:
     no_description: "ਕੋਈ ਵਰਣਨ ਉਪਲਬਧ ਨਹੀਂ"

@@ -214,6 +214,7 @@ commands:
 
 ### axtonprice ✨
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/52ed85f9479f4fe6bbbc9f97ad1d13f1)](https://app.codacy.com/gh/axtonprice/axtons-emotes?utm_source=github.com&utm_medium=referral&utm_content=axtonprice/axtons-emotes&utm_campaign=Badge_Grade)
 [![Sponsor](https://img.shields.io/badge/sponsor-gray?logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/axtonprice) 
 [![Patreon](https://img.shields.io/badge/Patreon-ee6352?logo=patreon&logoColor=black)](https://www.patreon.com/axtonprice/) 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/axtonprice)

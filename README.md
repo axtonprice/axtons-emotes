@@ -16,7 +16,7 @@
         <img src="https://img.shields.io/curseforge/dt/1086817?logo=CurseForge&label=CurseForge" alt="CurseForge Downloads">
     </a>
     <a href="https://www.spigotmc.org/resources/axtons-emotes.119499/">
-        <img alt="Spigot Version" src="https://img.shields.io/spiget/downloads/119499?logo=SpigotMC&label=Spigot">
+        <img src="https://img.shields.io/spiget/downloads/119499?logo=SpigotMC&label=Spigot" alt="Spigot Version">
     </a>
     <a href="https://discord.gg/dP3MuBATGc">
         <img src="https://img.shields.io/discord/308323056592486420?logo=discord&logoColor=white" alt="Discord Chat">
@@ -105,9 +105,12 @@ List of commands and associated permission nodes.
 | `/ae toggledebug`                   | Toggles debug mode and will show detailed logs of command plugin executions. | `axtonsemotes.admin.toggledebug`<br>Default: op |
 | `/ae togglemetrics`                   | Toggles BStats anonymous metrics tracking. | `axtonsemotes.admin.togglemetrics`<br>Default: op |
 | `/ae resetlang`                   | Resets language configuration files to the plugin defaults. | `axtonsemotes.admin.resetlang`<br>Default: op |
+| `/ae resetemotes`                   | Resets emote.yml configuration to the plugin defaults. | `axtonsemotes.admin.resetemotes`<br>Default: op |
 | `/ae help`                   | Provides link to the plugin documentation. | `axtonsemotes.admin.help`<br>Default: op |
 |                                     | Notify administrator of plugin updates when they join.            | `axtonsemotes.admin.updatenotify`<br>Default: op |
 |                                     | Allows players to use `/emotes`, even if the feature is disabled in the config.            | `axtonsemotes.admin.list-override`<br>Default: op  |
+|                                     | Allows players to bypass the minimum block distance configured for shared emotes.            | `axtonsemotes.admin.bypassradius`<br>Default: op  |
+|                                     | Allows players to bypass the configured cooldown time for emote executions.            | `axtonsemotes.admin.bypasscooldown`<br>Default: op  |
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/configuration_text.png" alt="Configuration">
@@ -140,10 +143,29 @@ allow-list-commands: true
 # >> Shared Emotes Toggle
 # Allows players to use /toggleemotes, removing the ability for others to execute shared emotes on them.
 # If both below are enabled, the player must have the 'axtonsemotes.emotes.selftoggle' permission to run the toggle command.
-# Default: true
 allow-self-toggle:
+  # Default: true
   enabled: true
+  # Default: false
   require-permission: false
+
+# >> Shared Emote Radius
+# Sets the minimum distance (in blocks) required between the sender and target player to execute shared emotes.
+# Players with axtonsemotes.admin.bypassradius permission can bypass the configured radius limit below.
+emote-radius:
+  # Default: true
+  enabled: true
+  # Default: 5
+  distance: 5
+
+# >> Emote Cooldown
+# Sets a cooldown period (in seconds) between emote executions per player.
+# Players with axtonsemotes.admin.bypasscooldown permission can bypass the configured cooldown below.
+emote-cooldown:
+  # Default: true
+  enabled: true
+  # Default: 3 (seconds)
+  duration-seconds: 3
 
 # >> Default Effects
 # Specifies the default particle and sound effects if the specified enum constant is invalid (NOT if the effect is set to 'none').

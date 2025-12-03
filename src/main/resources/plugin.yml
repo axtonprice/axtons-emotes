@@ -33,6 +33,10 @@ permissions:
     default: true
   axtonsemotes.emotes.selftoggle:
     default: true
+  axtonsemotes.admin.bypassradius:
+    default: op
+  axtonsemotes.admin.bypasscooldown:
+    default: op
   axtonsemotes.admin.list-override:
     default: op
   axtonsemotes.admin.version:
@@ -46,6 +50,8 @@ permissions:
   axtonsemotes.admin.togglemetrics:
     default: op
   axtonsemotes.admin.resetlang:
+    default: op
+  axtonsemotes.admin.resetemotes:
     default: op
   axtonsemotes.admin.help:
     default: op

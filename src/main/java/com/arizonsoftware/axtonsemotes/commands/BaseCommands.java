@@ -11,9 +11,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class BaseCommands implements TabExecutor {
-   private final UtilityCommands AECommands = new UtilityCommands();
+    private final UtilityCommands AECommands = new UtilityCommands();
 
-   /**
+    /**
     * Handle incoming commands and route subcommands to {@code UtilityCommands}.
     *
     * @param sender the sender who executed the command
@@ -22,52 +22,56 @@ public class BaseCommands implements TabExecutor {
     * @param args the command arguments; the first argument (if present) is treated as the subcommand
     * @return {@code true} if a known subcommand was handled, {@code false} otherwise
     */
-   @Override
-   public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label,
-         @NotNull String[] args) {
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label,
+            @NotNull String[] args) {
 
-      // Validate presence of subcommand
-      if (args.length == 0) {
-         sender.sendMessage(MessageHandler.parseError("error.command.syntax.sub_command"));
-         return false;
-      }
-
-      // Extract subcommand
-      String subcommand = args[0].toLowerCase();
-
-      // Route to appropriate subcommand handler
-      switch (subcommand) {
-         case "toggledebug":
-            this.AECommands.toggleConfig("debug-mode.enabled", subcommand, sender);
-            return true;
-
-         case "togglemetrics":
-            this.AECommands.toggleConfig("enable-metrics", subcommand, sender);
-            return true;
-
-         case "reload":
-            this.AECommands.reloadConfig(sender);
-            return true;
-
-         case "version":
-            this.AECommands.pluginVersion(subcommand, sender);
-            return true;
-
-         case "resetlang":
-            this.AECommands.resetLangFiles(sender);
-            return true;
-
-         case "help":
-            this.AECommands.helpCommand(sender);
-            return true;
-
-         default:
+        // Validate presence of subcommand
+        if (args.length == 0) {
             sender.sendMessage(MessageHandler.parseError("error.command.syntax.sub_command"));
             return false;
-      }
-   }
+        }
 
-   /**
+        // Extract subcommand
+        String subcommand = args[0].toLowerCase();
+
+        // Route to appropriate subcommand handler
+        switch (subcommand) {
+            case "toggledebug":
+                this.AECommands.toggleConfig("debug-mode.enabled", subcommand, sender);
+                return true;
+
+            case "togglemetrics":
+                this.AECommands.toggleConfig("enable-metrics", subcommand, sender);
+                return true;
+
+            case "reload":
+                this.AECommands.reloadConfig(sender);
+                return true;
+
+            case "version":
+                this.AECommands.pluginVersion(subcommand, sender);
+                return true;
+
+            case "resetlang":
+                this.AECommands.resetLangFiles(sender);
+                return true;
+
+            case "resetemotes":
+                this.AECommands.resetEmoteConfig(sender);
+                return true;
+
+            case "help":
+                this.AECommands.helpCommand(sender);
+                return true;
+
+            default:
+                sender.sendMessage(MessageHandler.parseError("error.command.syntax.sub_command"));
+                return false;
+        }
+    }
+
+    /**
     * Provide tab completions for the command. Only completes the first argument in this implementation.
     *
     * @param sender the sender requesting completions
@@ -76,37 +80,39 @@ public class BaseCommands implements TabExecutor {
     * @param args the current arguments typed by the sender; last element is used as the completion prefix
     * @return a list of completion candidates when applicable, or {@code null} when none
     */
-   @Override
-   @Nullable
-   public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label,
-         @NotNull String[] args) {
+    @Override
+    @Nullable
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label,
+            @NotNull String[] args) {
 
-      // Only complete the first argument
-      if (args.length != 1)
-         return null;
+        // Only complete the first argument
+        if (args.length != 1)
+            return null;
 
-      // Define possible subcommands and their required permissions
-      String[] commands = {
-            "toggledebug",
-            "togglemetrics",
-            "reload",
-            "version",
-            "resetlang",
-            "help"
-      };
-      String[] permissions = {
-            "axtonsemotes.admin.toggledebug",
-            "axtonsemotes.admin.togglemetrics",
-            "axtonsemotes.admin.reload",
-            "axtonsemotes.admin.version",
-            "axtonsemotes.admin.resetlang",
-            "axtonsemotes.admin.help"
-      };
+        // Define possible subcommands and their required permissions
+        String[] commands = {
+                "toggledebug",
+                "togglemetrics",
+                "reload",
+                "version",
+                "resetlang",
+                "resetemotes",
+                "help"
+        };
+        String[] permissions = {
+                "axtonsemotes.admin.toggledebug",
+                "axtonsemotes.admin.togglemetrics",
+                "axtonsemotes.admin.reload",
+                "axtonsemotes.admin.version",
+                "axtonsemotes.admin.resetlang",
+                "axtonsemotes.admin.resetemotes",
+                "axtonsemotes.admin.help"
+        };
 
-      return this.getTabCompletions(sender, args, commands, permissions);
-   }
+        return this.getTabCompletions(sender, args, commands, permissions);
+    }
 
-   /**
+    /**
     * Compute tab-completion candidates filtered by permission and prefix.
     *
     * @param sender the sender requesting completions
@@ -115,20 +121,20 @@ public class BaseCommands implements TabExecutor {
     * @param permissions an array of permissions corresponding to {@code commands}; same ordering is required
     * @return a list of matching commands the sender has permission to use
     */
-   private List<String> getTabCompletions(CommandSender sender, String[] args, String[] commands,
-         String[] permissions) {
+    private List<String> getTabCompletions(CommandSender sender, String[] args, String[] commands,
+            String[] permissions) {
 
-      // Filter commands by sender permissions
-      List<String> availableCommands = Arrays.stream(commands)
-            .filter((commandStr) -> sender.hasPermission(permissions[Arrays.asList(commands).indexOf(commandStr)]))
-            .collect(Collectors.toList());
+        // Filter commands by sender permissions
+        List<String> availableCommands = Arrays.stream(commands)
+                .filter((commandStr) -> sender.hasPermission(permissions[Arrays.asList(commands).indexOf(commandStr)]))
+                .collect(Collectors.toList());
 
-      // Match available commands against the last argument prefix
-      String lastArg = args[args.length - 1].toLowerCase();
+        // Match available commands against the last argument prefix
+        String lastArg = args[args.length - 1].toLowerCase();
 
-      // Filter available commands by prefix matching
-      return availableCommands.stream()
-            .filter((cmd) -> cmd.startsWith(lastArg))
-            .collect(Collectors.toList());
-   }
+        // Filter available commands by prefix matching
+        return availableCommands.stream()
+                .filter((cmd) -> cmd.startsWith(lastArg))
+                .collect(Collectors.toList());
+    }
 }

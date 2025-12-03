@@ -12,6 +12,9 @@ plugin:
         creating_default: "Error creating default configuration"
         invalid_lang: "Invalid language configuration detected, defaulting to English"
         no_emotes: "No emotes found in configuration"
+      migration:
+        migrate: "Config version is outdated! Migrating configuration"
+        reset: "Config version is too old (1.3.0). Resetting to plugin defaults..."
     registry:
       start: "Registering plugin components..."
       configs_loaded: "%progress_suffix% %configs_count% configuration(s)!"
@@ -49,14 +52,16 @@ error:
   emote:
     not_found: "Emote not found or is disabled!"
     misconfigured: "Emote is misconfigured and cannot be executed! Please contact the server administrator."
+    radius: "You are too far away from that player! Move closer and try again."
+    cooldown: "You must wait %duration% seconds before performing another emote!"
 
 # Command-specific messages
 command:
   emote_toggle:
     sender_toggled: "You have disabled shared emotes. Enable with &7/toggleemotes"
     target_toggled: "This user has disabled shared emotes."
-    enabled: "&aShared emotes have been enabled. &7Players can now perform shared emotes with you."
-    disabled: "&cShared emotes have been disabled. &7Players can no longer perform shared emotes with you."
+    enabled: "&aShared emotes have been enabled. Players can now perform shared emotes with you."
+    disabled: "&cShared emotes have been disabled. Players can no longer perform shared emotes with you."
   reload:
     success: "Configurations reloaded successfully! (%exec_time%ms)"
     emotes_note: "View configured emotes with &f/emotes&7, and &f/expressions&7."
@@ -74,6 +79,9 @@ command:
   resetlang:
     success: "Language files have been reset to defaults."
     error: "Failed to reset language files."
+  resetemotes:
+    success: "Emotes configuration have been reset to defaults."
+    error: "Failed to reset emotes.yml configuration file."
   help: "Click to view the GitHub wiki for command usage and configuration guides"
   list:
     no_description: "No description available"

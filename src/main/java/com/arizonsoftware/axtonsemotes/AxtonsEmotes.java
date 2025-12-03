@@ -13,13 +13,10 @@ import com.arizonsoftware.axtonsemotes.utils.Configuration;
 import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
 import com.arizonsoftware.axtonsemotes.utils.Metrics;
-import com.arizonsoftware.axtonsemotes.utils.Metrics.DrilldownPie;
 import com.arizonsoftware.axtonsemotes.utils.Metrics.SimplePie;
 import com.arizonsoftware.axtonsemotes.utils.Registry;
 import com.arizonsoftware.axtonsemotes.utils.Versioning;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

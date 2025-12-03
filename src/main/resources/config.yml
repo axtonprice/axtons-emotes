@@ -26,10 +26,29 @@ allow-list-commands: true
 # >> Shared Emotes Toggle
 # Allows players to use /toggleemotes, removing the ability for others to execute shared emotes on them.
 # If both below are enabled, the player must have the 'axtonsemotes.emotes.selftoggle' permission to run the toggle command.
-# Default: true
 allow-self-toggle:
+  # Default: true
   enabled: true
+  # Default: false
   require-permission: false
+
+# >> Shared Emote Radius
+# Sets the minimum distance (in blocks) required between the sender and target player to execute shared emotes.
+# Players with axtonsemotes.admin.bypassradius permission can bypass the configured radius limit below.
+emote-radius:
+  # Default: true
+  enabled: true
+  # Default: 15
+  distance: 15
+
+# >> Emote Cooldown
+# Sets a cooldown period (in seconds) between emote executions per player.
+# Players with axtonsemotes.admin.bypasscooldown permission can bypass the configured cooldown below.
+emote-cooldown:
+  # Default: true
+  enabled: true
+  # Default: 3
+  duration-seconds: 3
 
 # >> Default Effects
 # Specifies the default particle and sound effects if the specified enum constant is invalid (NOT if the effect is set to 'none').
@@ -71,4 +90,4 @@ enable-metrics: true
 
 # The current version of the plugin.
 # >> MODIFYING THIS MAY RESET YOUR CONFIG! <<
-config-version: 1.5.0
+config-version: 1.5.1

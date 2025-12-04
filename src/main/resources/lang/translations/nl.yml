@@ -13,8 +13,8 @@ plugin:
         invalid_lang: "Ongeldige taalconfiguratie gedetecteerd, terugvallen op Engels"
         no_emotes: "Geen emotes gevonden in de configuratie"
       migration:
-        migrate: "Config version is outdated! Migrating configuration"
-        reset: "Config version is too old (1.3.0). Resetting to plugin defaults..."
+        migrate: "Configuratieversie is verouderd! Configuratie migreren"
+        reset: "Configuratieversie is te oud (1.3.0). Plugin wordt teruggezet naar standaardinstellingen..."
     registry:
       start: "Plugincomponenten registreren..."
       configs_loaded: "%progress_suffix% %configs_count% configuratie(s)!"
@@ -50,8 +50,8 @@ error:
   emote:
     not_found: "Emote niet gevonden of uitgeschakeld!"
     misconfigured: "Deze emote is verkeerd geconfigureerd en kan niet worden uitgevoerd! Neem contact op met de serverbeheerder."
-    radius: "You are too far away from that player! Move closer and try again."
-    cooldown: "You must wait %duration% seconds before performing another emote!"
+    radius: "Je bent te ver weg van die speler! Ga dichterbij staan ​​en probeer het opnieuw."
+    cooldown: "Je moet %duration% seconden wachten voordat je een andere emote kunt uitvoeren!"
 # Command-specific messages
 command:
   emote_toggle:
@@ -77,8 +77,8 @@ command:
     success: "Taalbestanden zijn teruggezet naar standaardinstellingen."
     error: "Terugzetten van taalbestanden mislukt."
   resetemotes:
-    success: "Emotes configuration have been reset to defaults."
-    error: "Failed to reset emotes.yml configuration file."
+    success: "De emotesconfiguratie is teruggezet naar de standaardinstellingen."
+    error: "Het emotes.yml configuratiebestand kon niet worden gereset."
   help: "Klik om de GitHub-wiki te bekijken voor commando- en configuratiegidsen"
   list:
     no_description: "Geen beschrijving beschikbaar"

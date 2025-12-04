@@ -13,8 +13,8 @@ plugin:
         invalid_lang: "Ogiltig språkfil upptäcktes, återgår till engelska"
         no_emotes: "Inga emoticons hittades i konfigurationen"
       migration:
-        migrate: "Config version is outdated! Migrating configuration"
-        reset: "Config version is too old (1.3.0). Resetting to plugin defaults..."
+        migrate: "Konfigurationsversionen är föråldrad! Migrerar konfigurationen"
+        reset: "Konfigurationsversionen är för gammal (1.3.0). Återställer plugin-standardinställningarna."
     registry:
       start: "Registrerar plugin-komponenter..."
       configs_loaded: "%progress_suffix% %configs_count% konfiguration(er)!"
@@ -50,8 +50,8 @@ error:
   emote:
     not_found: "Emote hittades inte eller är avaktiverad!"
     misconfigured: "Emoten är felkonfigurerad och kan inte köras! Kontakta serveradministratören."
-    radius: "You are too far away from that player! Move closer and try again."
-    cooldown: "You must wait %duration% seconds before performing another emote!"
+    radius: "Du är för långt ifrån den spelaren! Flytta dig närmare och försök igen."
+    cooldown: "Du måste vänta %duration% sekunder innan du utför en ny emote!"
 # Command-specific messages
 command:
   emote_toggle:
@@ -77,8 +77,8 @@ command:
     success: "Språkfiler återställda till standard."
     error: "Misslyckades med att återställa språkfiler."
   resetemotes:
-    success: "Emotes configuration have been reset to defaults."
-    error: "Failed to reset emotes.yml configuration file."
+    success: "Emotes-konfigurationen har återställts till standardinställningarna."
+    error: "Misslyckades med att återställa konfigurationsfilen för emotes.yml."
   help: "Klicka för att visa GitHub-wikin för kommandon och konfigurationsguider"
   list:
     no_description: "Ingen beskrivning tillgänglig"

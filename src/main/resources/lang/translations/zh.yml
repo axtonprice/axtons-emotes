@@ -12,6 +12,9 @@ plugin:
         creating_default: "创建默认配置时发生错误"
         invalid_lang: "检测到无效的语言配置，已恢复为英语"
         no_emotes: "配置中未找到任何表情动作"
+      migration:
+        migrate: "配置版本已过时！正在迁移配置"
+        reset: "配置版本过旧 (1.3.0). 正在重置为插件默认设置..."
     registry:
       start: "注册插件组件中..."
       configs_loaded: "%progress_suffix% %configs_count% 个配置文件！"
@@ -47,6 +50,8 @@ error:
   emote:
     not_found: "未找到表情动作或该动作已被禁用！"
     misconfigured: "该表情配置错误，无法执行！请联系服务器管理员。"
+    radius: "你离那个玩家太远了！靠近一点再试一次。"
+    cooldown: "您必须等待 %duration% 秒才能执行另一个表情！"
 # Command-specific messages
 command:
   emote_toggle:
@@ -71,6 +76,9 @@ command:
   resetlang:
     success: "语言文件已恢复为默认设置。"
     error: "语言文件恢复失败。"
+  resetemotes:
+    success: "表情配置已重置为默认值。"
+    error: "无法重置emotes.yml配置文件。"
   help: "点击查看 GitHub Wiki 获取指令与配置指南"
   list:
     no_description: "无可用描述"

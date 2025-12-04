@@ -12,6 +12,9 @@ plugin:
         creating_default: "Fehler beim Erstellen der Standardkonfiguration"
         invalid_lang: "Ungültige Sprachkonfiguration erkannt, Standardwert Englisch wird verwendet"
         no_emotes: "Keine Emotes in der Konfiguration gefunden"
+      migration:
+        migrate: "Die Konfigurationsversion ist veraltet! Konfiguration wird migriert"
+        reset: "Die Konfigurationsversion ist zu alt (1.3.0). Es werden die Standardeinstellungen des Plugins wiederhergestellt."
     registry:
       start: "Plugin-Komponenten werden registriert..."
       configs_loaded: "%progress_suffix% %configs_count% Konfiguration(en)!"
@@ -47,6 +50,8 @@ error:
   emote:
     not_found: "Emote nicht gefunden oder deaktiviert!"
     misconfigured: "Emote ist falsch konfiguriert und kann nicht ausgeführt werden! Bitte kontaktiere den Serveradministrator."
+    radius: "Du bist zu weit von dem Spieler entfernt! Geh näher heran und versuche es erneut."
+    cooldown: "Du musst %duration% Sekunden warten, bevor du eine weitere Emote ausführen kannst!"
 # Command-specific messages
 command:
   emote_toggle:
@@ -71,6 +76,9 @@ command:
   resetlang:
     success: "Sprachdateien wurden auf Standardwerte zurückgesetzt."
     error: "Zurücksetzen der Sprachdateien fehlgeschlagen."
+  resetemotes:
+    success: "Die Emote-Konfiguration wurde auf die Standardeinstellungen zurückgesetzt."
+    error: "Fehler beim Zurücksetzen der Konfigurationsdatei emotes.yml."
   help: "Klicke, um das GitHub-Wiki für Befehlsnutzung und Konfigurationsanleitungen zu öffnen"
   list:
     no_description: "Keine Beschreibung verfügbar"

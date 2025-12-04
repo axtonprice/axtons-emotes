@@ -1,8 +1,11 @@
 # Custom overrides
-.vscode/
-.idea/
-.github/docs
-.github/media/Thumbs.db
+/bin
+/.vscode
+/.idea
+/.github/docs
+/.github/wiki
+/.github/media/dev
+/.github/media/Thumbs.db
 TODO.md
 
 # From https://github.com/github/gitignore/blob/master/Gradle.gitignore

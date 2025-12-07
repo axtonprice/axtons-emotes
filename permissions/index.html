@@ -59,6 +59,12 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Permissions</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#user-permissions">User Permissions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#admin-permissions">Admin Permissions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pluginyml">plugin.yml</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -87,7 +93,95 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="permissions">Permissions</h1>
-<p>Below is the full list of permission nodes as defined in <code>plugin.yml</code>:</p>
+<p>The following permissions can be used to allow access to plugin commands.</p>
+<h4 id="user-permissions">User Permissions</h4>
+<ul>
+<li>
+<p><strong>axtonsemotes.emotes.*</strong>
+  Allows access to all emote-based user commands.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.emotes.use</strong> <em>(default: true)</em><br />
+  Allows players to execute emote commands.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.emotes.list</strong> <em>(default: true)</em><br />
+  Allows players to list permitted emote commands. 
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.emotes.selftoggle</strong> <em>(default: true)</em><br />
+  Allows players to self-toggle shared emotes.
+<br><br></p>
+</li>
+</ul>
+<h4 id="admin-permissions">Admin Permissions</h4>
+<ul>
+<li>
+<p><strong>axtonsemotes.admin.*</strong> 
+  Allows to access to all administrative commands.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.bypassradius</strong> <em>(default: op)</em><br />
+  Allows players to bypass emote radius restrictions.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.bypasscooldown</strong> <em>(default: op)</em><br />
+  Allows players to bypass emote cooldown restrictions.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.list-override</strong> <em>(default: op)</em><br />
+  Allows players to list emotes, even when feature is disabled.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.version</strong> <em>(default: op)</em><br />
+  Allows players to check the plugin version.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.reload</strong> <em>(default: op)</em><br />
+  Allows players to reload the plugin configuration files.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.updatenotify</strong> <em>(default: op)</em><br />
+  Allows players to receive notifications when they join if the plugin is out of date.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.toggledebug</strong> <em>(default: op)</em><br />
+  Allows players to toggle debugging mode.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.togglemetrics</strong> <em>(default: op)</em><br />
+  Allows players to toggle bStats anonymous metrics tracking.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.resetlang</strong> <em>(default: op)</em><br />
+  Allows players to reset all language files to plugin defaults.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.resetemotes</strong> <em>(default: op)</em><br />
+  Allows players to reset <code>emotes.yml</code> file to plugin defaults.
+<br><br></p>
+</li>
+<li>
+<p><strong>axtonsemotes.admin.help</strong> <em>(default: op)</em><br />
+  Allows players to access the admin help command.
+<br><br></p>
+</li>
+</ul>
+<h4 id="pluginyml">plugin.yml</h4>
+<p>Below displays the raw plugin permissions as specified in <code>plugin.yml</code>.</p>
 <pre><code class="language-yml">permissions:
   axtonsemotes.emotes.use:
     default: true

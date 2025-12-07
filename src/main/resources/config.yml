@@ -79,7 +79,7 @@ updates:
   # Default: true
   check-for-latest: true
 
-  # Notifies players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
+  # Notifies operators and players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
   # Default: true
   notify-players-on-update: true
 
@@ -89,5 +89,5 @@ updates:
 enable-metrics: true
 
 # The current version of the plugin.
-# >> MODIFYING THIS MAY RESET YOUR CONFIG! <<
-config-version: 1.5.1
+# >> Do not modify this! <<
+config-version: 1.5.2

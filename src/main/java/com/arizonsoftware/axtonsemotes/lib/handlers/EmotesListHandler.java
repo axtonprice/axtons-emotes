@@ -15,12 +15,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 
-public class CommandListHandler {
+public class EmotesListHandler {
 
    // Number of commands/emotes displayed per page in the paginated list. 
    private static final int COMMANDS_PER_PAGE = 6;
 
-   private CommandListHandler() {
+   private EmotesListHandler() {
       throw new UnsupportedOperationException("Utility class");
    }
 

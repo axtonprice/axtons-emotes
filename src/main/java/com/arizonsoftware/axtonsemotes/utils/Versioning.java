@@ -217,14 +217,12 @@ public class Versioning {
         String[] subjects = { "current_version", "latest_version" };
         String[] replacements = { installedVersion, latestSourceVersion };
 
-        // Fetch message text
-        String repoURL = AxtonsEmotes.getInstance().getDescription().getWebsite();
-        String messageText = MessageHandler.parseInfoReplace("command.version.outdated_notify", subjects, replacements);
-
         // Build base message
+        String messageText = MessageHandler.parseInfoReplace("command.version.outdated_notify", subjects, replacements);
         TextComponent message = new TextComponent(messageText + " ");
 
         // Build clickable link
+        String repoURL = AxtonsEmotes.getInstance().getDescription().getWebsite() + "/releases";
         TextComponent link = new TextComponent(ChatColor.AQUA + "" + ChatColor.UNDERLINE +
                 MessageHandler.get("command.version.info_releases"));
         link.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, repoURL));

@@ -13,8 +13,8 @@ commands:
     description: Main plugin utility commands.
     aliases: [axtonsemotes]
   emotes:
-    description: View a list of available emotes.
-    aliases: [gestures, listemotes]
+    description: View a list of available shared emotes.
+    aliases: [listemotes]
   expressions:
     description: View a list of available expressions.
     aliases: [reactions, listexpressions]

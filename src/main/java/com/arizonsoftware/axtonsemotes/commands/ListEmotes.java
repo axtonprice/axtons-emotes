@@ -1,6 +1,6 @@
 package com.arizonsoftware.axtonsemotes.commands;
 
-import com.arizonsoftware.axtonsemotes.lib.handlers.CommandListHandler;
+import com.arizonsoftware.axtonsemotes.lib.handlers.EmotesListHandler;
 import com.arizonsoftware.axtonsemotes.utils.Configuration;
 import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
@@ -105,7 +105,7 @@ public class ListEmotes implements CommandExecutor {
       }
 
       // Retrieve emotes list
-      List<String[]> emotesList = CommandListHandler.getEmotesList(this.emoteType, sender);
+      List<String[]> emotesList = EmotesListHandler.getEmotesList(this.emoteType, sender);
 
       // Debug logging
       logContext = this.getClass().getSimpleName() + "/"
@@ -131,10 +131,10 @@ public class ListEmotes implements CommandExecutor {
 
       // Send paginated message
       if (sender instanceof Player player) {
-         CommandListHandler.sendPaginatedMessage(pageCount, player.getName(), sender, emotesList, title, subTitle,
+          EmotesListHandler.sendPaginatedMessage(pageCount, player.getName(), sender, emotesList, title, subTitle,
                this.thisLabel, note);
       } else {
-         CommandListHandler.sendPaginatedMessage(pageCount, "Console", sender, emotesList, title, subTitle,
+          EmotesListHandler.sendPaginatedMessage(pageCount, "Console", sender, emotesList, title, subTitle,
                this.thisLabel, note);
       }
 

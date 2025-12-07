@@ -9,6 +9,10 @@
     <a href="https://app.codacy.com/gh/axtonprice/axtons-emotes/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade">
         <img src="https://app.codacy.com/project/badge/Grade/09d0abf7deae4a0ea1c5b871eab45464" alt="Codacy Grade">
     </a>
+    <a href="https://discord.gg/dP3MuBATGc">
+        <img src="https://img.shields.io/discord/308323056592486420?logo=discord&logoColor=white" alt="Discord Chat">
+    </a>
+    <br>
     <a href="https://modrinth.com/plugin/axtonsemotes">
         <img src="https://img.shields.io/modrinth/dt/axtonsemotes?logo=Modrinth&label=Modrinth" alt="Modrinth Downloads">
     </a>
@@ -18,8 +22,8 @@
     <a href="https://www.spigotmc.org/resources/axtons-emotes.119499/">
         <img src="https://img.shields.io/spiget/downloads/119499?logo=SpigotMC&label=Spigot" alt="Spigot Version">
     </a>
-    <a href="https://discord.gg/dP3MuBATGc">
-        <img src="https://img.shields.io/discord/308323056592486420?logo=discord&logoColor=white" alt="Discord Chat">
+        <a href="https://builtbybit.com/resources/axtons-emotes.84984/">
+        <img src="https://img.shields.io/badge/BuiltByBit-0?logo=builtbybit&labelColor=white&color=2D87C3" alt="BuiltByBit">
     </a>
 </p>
 
@@ -44,7 +48,6 @@ Available in 10+ languages, including Spanish, French, Italian, German.. See the
 5. **Verify**: Check you are running the latest version by using `/ae version`.
 
 > **Note:** Java 17 or higher is required to run this plugin. Please refer to [the wiki](https://github.com/axtonprice/axtons-emotes/wiki/installation) for more details on installation requirements.
-
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/screenshots_text.png" alt="Screenshots">

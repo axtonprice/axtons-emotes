@@ -10,8 +10,8 @@
 # Emote configuration structure:
 #
 # emotename:
-#   enabled: <true/false>            # Enable or disable this emote.
-#   type: <shared/expression>        # Shared emotes target another player, expressions are self-execution only.
+#   enabled: <true/false>          # Enable or disable this emote.
+#   type: <shared/expression>      # Shared emotes target another player, expressions are self-execution only.
 #   messages:
 #     player: <string/none>        # Message sent to the player running the command. Set to 'none' for no message.
 #     target: <string/none>        # Message sent to the target player (or all players for expression emotes) Set to 'none' for no message.

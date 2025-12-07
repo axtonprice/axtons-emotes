@@ -1,4 +1,3 @@
-# https://crowdin.com/project/axtons-emotes
 files:
   - source: /src/main/resources/lang/en.yml
     translation: /src/main/resources/lang/translations/%two_letters_code%.yml

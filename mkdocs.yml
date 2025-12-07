@@ -1,4 +1,5 @@
 site_name: Axton's Emotes
+site_url: https://emotes.axtonprice.xyz/
 repo_url: https://github.com/axtonprice/axtons-emotes
 theme: readthedocs
 extra_css:

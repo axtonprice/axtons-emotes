@@ -21,4 +21,4 @@ Language codes source: [docs.cloud.google.com/translate/docs/languages](https://
 
 ## Contributing
 
-It is expected that some translations will not be accurate! If you know of any inaccuracies, please [open a new docs issue here](https://github.com/axtonprice/axtons-emotes/issues/new?template=enhancement.md&title=[Docs]%20Inaccurate%20language&labels=documentation).
+It is expected that some translations will not be accurate! If you know of any inaccuracies, please [create a new issue here](https://github.com/axtonprice/axtons-emotes/issues/new?template=enhancement.md&title=[Docs]%20Inaccurate%20language&labels=documentation).

@@ -1,5 +1,60 @@
 # Plugin Configuration
-See below the default configuration values for the plugin.
+See below the default configuration for the plugin's `config.yml`.
+
+#### Configuration Values
+
+- **language** *(default: en)*  
+  Sets the language used for in-game plugin messages. For a full list of available languages, please refer to the [Language List](https://github.com/axtonprice/axtons-emotes/wiki/Languages).
+<br><br>
+
+- **allow-self-executions** *(default: false)*  
+  Allows players to execute emote commands on themselves.
+<br><br>
+
+- **allow-list-commands** *(default: true)*  
+  Enables the `/emotes` and `/expressions` commands to view permitted emotes. When enabled, anyone can list commands. When disabled, only server operators or players with the `axtonsemotes.admin.list-override` permission can list commands.
+<br><br>
+
+- **allow-self-toggle.enabled** *(default: true)*  
+  Allows players to use `/toggleemotes`, removing the ability for others to execute shared emotes on them.
+<br><br>
+
+- **allow-self-toggle.require-permission** *(default: false)*  
+  If enabled, the player must have the `axtonsemotes.emotes.selftoggle` permission to run the `/toggleemotes` command.
+<br><br>
+
+- **default-effects.particle** *(default: `CRIT`)*  
+  The default particle used if the specified particle for an emote does not exist.
+<br><br>
+
+- **default-effects.sound** *(default: `ENTITY_ITEM_PICKUP`)*  
+  The default particle used if the specified particle for an emote does not exist.
+<br><br>
+
+- **debug-mode.enabled** *(default: false)*  
+  Toggles debug mode, which logs detailed information about command executions. This is useful
+  for troubleshooting but will result in many console messages.
+<br><br>
+
+- **debug-mode.log-to-file** *(default: true)*  
+  Specify whether to log debug messages to a file. Ignored if `debug-mode.enabled` is set to false.
+<br><br>
+
+- **debug-mode.file-name** *(default: `debug.log`)*  
+  Specifies the name of the file which debug logs are saved to.
+<br><br>
+
+- **updates.check-for-latest** *(default: true)*  
+  Automatically checks for plugin updates every 12 hours and on server startup.
+<br><br>
+
+- **updates.notify-players-on-update** *(default: true)*  
+  Notifies operators and players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
+<br><br>
+
+- **enable-metrics** *(default: true)*  
+  Enables BStats anonymous metrics tracking. Learn more at https://bstats.org/
+<br><br>
 
 ```yml
 # >> Language
@@ -9,8 +64,8 @@ language: en
 
 # >> Self-Executions
 # Allows players to execute emote commands on themselves.
-# Default: true
-allow-self-executions: true
+# Default: false
+allow-self-executions: false
 
 # >> List Commands
 # Enables the /emotes and /expressions commands to view permitted emotes. When enabled, anyone can list commands.
@@ -21,32 +76,38 @@ allow-list-commands: true
 # >> Shared Emotes Toggle
 # Allows players to use /toggleemotes, removing the ability for others to execute shared emotes on them.
 # If both below are enabled, the player must have the 'axtonsemotes.emotes.selftoggle' permission to run the toggle command.
-# Default: true
 allow-self-toggle:
-  enabled: true
-  require-permission: false
+  enabled: true # true
+  require-permission: false # false
+
+# >> Shared Emote Radius
+# Sets the minimum distance (in blocks) required between the sender and target player to execute shared emotes.
+# Players with axtonsemotes.admin.bypassradius permission can bypass the configured radius limit below.
+emote-radius:
+  enabled: true # true
+  distance: 15 # 15
+
+# >> Emote Cooldown
+# Sets a cooldown period (in seconds) between emote executions per player.
+# Players with axtonsemotes.admin.bypasscooldown permission can bypass the configured cooldown below.
+emote-cooldown:
+  enabled: true # true
+  duration-seconds: 3 # 3
 
 # >> Default Effects
 # Specifies the default particle and sound effects if the specified enum constant is invalid (NOT if the effect is set to 'none').
 # Defaults: CRIT, ENTITY_ITEM_PICKUP
 default-effects:
-  particle: CRIT
-  sound: ENTITY_ITEM_PICKUP
+  particle: "CRIT"
+  sound: "ENTITY_ITEM_PICKUP"
 
+# >> Debug Mode
 # Configure debug mode, which logs detailed information about command executions. This is useful
 # for troubleshooting but will result in many console messages.
 debug-mode:
-  # Toggles additional console information during startup and command executions.
-  # Default: false
-  enabled: true
-  
-  # Specify whether to log debug messages to a file. Ignored if 'enabled' above is set to false.
-  # Default: true
-  log-to-file: true
-  
-  # Specifies the name of the file which debug logs are saved to. Set to none to disable logging to a file.
-  # Default: debug.log
-  file-name: debug.log
+  enabled: false # false
+  log-to-file: true # true
+  file-name: "debug.log" # debug.log
 
 # >> Plugin Versioning & Updates
 # Configure update checks and notifications:
@@ -54,20 +115,20 @@ updates:
   # Automatically checks for plugin updates every 12 hours and on server startup.
   # Default: true
   check-for-latest: true
-  
-  # Notifies players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
+
+  # Notifies operators and players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
   # Default: true
   notify-players-on-update: true
 
 # >> Metrics Tracking
 # Enables BStats anonymous metrics tracking. Learn more at https://bstats.org/
 # Default: true
-enable-metrics: false
+enable-metrics: true
 ```
 
-> ⚠️ **Warning:** Do not modify the `config-version` property in your config.yml! Doing so will cause the plugin to reset your configuration file to the defaults, purging any changes you have made.
+> ⚠️ **Warning:** Do not modify the `config-version` property in your config.yml! Doing so may cause the plugin to reset your configuration file to the default values, purging any changes you have made.
 
-## Emote Configuration
+#### Emote Configuration
 
 Below is an example of a correctly structured emote command.
 
@@ -95,12 +156,12 @@ commands:
 
 ---
 
-## Sound & Particle Effects
+#### Sound & Particle Effects
 
 Both `particle` and `sound` fields must correspond to valid Bukkit **enum constants**:
 
 * **Particle examples:** `CAMPFIRE_SIGNAL_SMOKE`, `COPPER_FIRE_FLAME`, `HEART`, `NONE`
-* **Sound examples:** `BLOCK_ANCIENT_DEBRIS_FALL`, `BLOCK_ANVIL_BREAK`, `ENTITY_CAT_PURR`, `ENTITY_CAT_HURT`
+* **Sound examples:** `BLOCK_ANCIENT_DEBRIS_FALL`, `BLOCK_ANVIL_BREAK`, `ENTITY_CAT_PURR`
 
 Invalid particle/sound enums will default to the specified values in `config.yml`:
 

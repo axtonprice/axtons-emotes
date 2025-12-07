@@ -5,19 +5,27 @@
          <lastmod>2025-12-07</lastmod>
     </url>
     <url>
-         <loc>https://emotes.axtonprice.xyz/commands/</loc>
+         <loc>https://emotes.axtonprice.xyz/installation/</loc>
          <lastmod>2025-12-07</lastmod>
     </url>
     <url>
-         <loc>https://emotes.axtonprice.xyz/configuration/</loc>
+         <loc>https://emotes.axtonprice.xyz/configuration/configuration/</loc>
          <lastmod>2025-12-07</lastmod>
     </url>
     <url>
-         <loc>https://emotes.axtonprice.xyz/languages/</loc>
+         <loc>https://emotes.axtonprice.xyz/configuration/languages/</loc>
          <lastmod>2025-12-07</lastmod>
     </url>
     <url>
-         <loc>https://emotes.axtonprice.xyz/permissions/</loc>
+         <loc>https://emotes.axtonprice.xyz/configuration/migration/</loc>
+         <lastmod>2025-12-07</lastmod>
+    </url>
+    <url>
+         <loc>https://emotes.axtonprice.xyz/customisation/commands/</loc>
+         <lastmod>2025-12-07</lastmod>
+    </url>
+    <url>
+         <loc>https://emotes.axtonprice.xyz/customisation/permissions/</loc>
          <lastmod>2025-12-07</lastmod>
     </url>
 </urlset>

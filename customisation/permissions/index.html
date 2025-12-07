@@ -3,23 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://emotes.axtonprice.xyz/permissions/" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://emotes.axtonprice.xyz/customisation/permissions/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Permissions - Axton's Emotes</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../../css/styles.css" rel="stylesheet" />
     
       <script>
         // Current page data
         var mkdocs_page_name = "Permissions";
-        var mkdocs_page_input_path = "permissions.md";
-        var mkdocs_page_url = "/permissions/";
+        var mkdocs_page_input_path = "customisation\\permissions.md";
+        var mkdocs_page_url = "/customisation/permissions/";
       </script>
     
     <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+      <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -31,9 +31,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Axton's Emotes
+          <a href="../.." class="icon icon-home"> Axton's Emotes
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -41,23 +41,27 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Installation</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Introduction</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../commands/">Commands</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
                 </li>
               </ul>
+              <p class="caption"><span class="caption-text">Configuration</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Plugin Configuration</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration/">Plugin Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../configuration/languages/">Languages</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../configuration/migration/">Migration</a>
+                  </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../languages/">Languages</a>
-                </li>
-              </ul>
+              <p class="caption"><span class="caption-text">Customisation</span></p>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Permissions</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/">Commands</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Permissions</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#user-permissions">User Permissions</a>
     </li>
@@ -66,7 +70,7 @@
     <li class="toctree-l2"><a class="reference internal" href="#pluginyml">plugin.yml</a>
     </li>
     </ul>
-                </li>
+                  </li>
               </ul>
       </div>
     </div>
@@ -75,16 +79,17 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Axton's Emotes</a>
+          <a href="../..">Axton's Emotes</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Customisation</li>
       <li class="breadcrumb-item active">Permissions</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/axtonprice/axtons-emotes/edit/master/docs/permissions.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/axtonprice/axtons-emotes/edit/master/docs/customisation/permissions.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -97,7 +102,7 @@
 <h4 id="user-permissions">User Permissions</h4>
 <ul>
 <li>
-<p><strong>axtonsemotes.emotes.*</strong>
+<p><strong>axtonsemotes.emotes.*</strong> <br>
   Allows access to all emote-based user commands.
 <br><br></p>
 </li>
@@ -120,7 +125,7 @@
 <h4 id="admin-permissions">Admin Permissions</h4>
 <ul>
 <li>
-<p><strong>axtonsemotes.admin.*</strong> 
+<p><strong>axtonsemotes.admin.*</strong> <br>
   Allows to access to all administrative commands.
 <br><br></p>
 </li>
@@ -216,7 +221,7 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../languages/" class="btn btn-neutral float-left" title="Languages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../commands/" class="btn btn-neutral float-left" title="Commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -243,16 +248,16 @@
         </span>
     
     
-      <span><a href="../languages/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../commands/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
   </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);

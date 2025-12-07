@@ -5,11 +5,11 @@
 # > /_/  |_/_/|_|\__/\____/_/ /_/ /____/  /_____/_/ /_/ /_/\____/\__/\___/____/
 # >
 # >> Axton's Emotes | Configuration
-# For more information, visit: https://github.com/axtonprice/axtons-emotes/wiki
+# For more information, visit: https://emotes.axtonprice.xyz/
 
 # >> Language
 # Sets the language used for in-game plugin messages.
-# For a full list of available languages, please refer to https://github.com/axtonprice/axtons-emotes/wiki/Languages
+# For a full list of available languages, please refer to https://emotes.axtonprice.xyz/languages/
 language: en
 
 # >> Self-Executions

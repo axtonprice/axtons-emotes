@@ -1,30 +1,34 @@
-# Installation
+<img width="550" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/banner.png" alt="Axton's Emotes">
 
-1. **Download**: Get the latest `.jar` from the one of the sources listed below.
-2. **Deploy**: Place the `.jar` in your server's `plugins/` folder.
-3. **Restart**: Restart your server. PaperMC is recommended for optimal performance.
-4. **Configure**: Modify `config.yml` to your liking, then reload the plugin with `/ae reload`.
-5. **Verify**: Check you are running the latest version by using `/ae version`.
+<a href="https://github.com/axtonprice/axtons-emotes/releases">
+    <img src="https://img.shields.io/github/release/axtonprice/axtons-emotes?include_prereleases=&sort=semver&color=blue&label=latest&logo=GitHub" alt="Latest Release">
+</a>
+<a href="https://app.codacy.com/gh/axtonprice/axtons-emotes/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade">
+    <img src="https://app.codacy.com/project/badge/Grade/09d0abf7deae4a0ea1c5b871eab45464" alt="Codacy Grade">
+</a>
+<a href="https://discord.gg/dP3MuBATGc">
+    <img src="https://img.shields.io/discord/308323056592486420?logo=discord&logoColor=white" alt="Discord Chat">
+</a>
 
-> **Note:** Java 17 or higher is required to run this plugin.
+# Introduction
 
-## Download Sources
+View the project repository at [github.com/axtonprice/axtons-emotes](https://github.com/axtonprice/axtons-emotes).
 
-🔗 **[Click to download from GitHub](https://github.com/axtonprice/axtonsemotes/releases)**
+## Getting Started
 
-[![GitHub](https://img.shields.io/github/release/axtonprice/axtons-emotes?label=GitHub&logo=GitHub&style=for-the-badge)](https://github.com/axtonprice/axtons-emotes/releases)
+Please visit one of the following links for more information.
 
-🔗 **[Click to download from Modrinth](https://modrinth.com/plugin/axtonsemotes)**
+[**AxtonsEmotes Installation**](/installation/)  
+A guide on installing the plugin on your server, including various download sources.
 
-[![Modrinth](https://img.shields.io/modrinth/dt/axtonsemotes?logo=Modrinth&label=Modrinth&style=for-the-badge)](https://modrinth.com/plugin/axtonsemotes)
+[**AxtonsEmotes Configuration**](/configuration/)  
+A guide on the default plugin configuration, including explanations of each config value.
 
-🔗 **[Click to download from SpigotMC](https://www.spigotmc.org/resources/axtons-emotes.119499/)**
+[**AxtonsEmotes Commands**](/commands/)  
+A list of all commands that can be used within the plugin.
 
-[![SpigotMC](https://img.shields.io/spiget/downloads/119499?logo=SpigotMC&label=SpigotMC&style=for-the-badge)](https://www.spigotmc.org/resources/axtons-emotes.119499/)
+[**AxtonsEmotes Permissions**](/permissions/)  
+A list of all permission nodes that can be used within the plugin.
 
-🔗 **[Click to download from CurseForge](https://www.curseforge.com/minecraft/bukkit-plugins/axtons-emotes)**
-
-[![CurseForge](https://img.shields.io/curseforge/dt/1086817?logo=CurseForge&label=CurseForge&style=for-the-badge)](https://www.curseforge.com/minecraft/bukkit-plugins/axtons-emotes)
-
-## Compatibility
-The plugin has been tested on all versions from 1.20 up to the latest version of Minecraft (currently 1.21.10). Please [create a new issue](https://github.com/axtonprice/axtons-emotes/issues) if you discover new versions to break functionality of the plugin.
+[**AxtonsEmotes Language Codes**](/languages/)  
+A list of supported language codes for use within the config file.

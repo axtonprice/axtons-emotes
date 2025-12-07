@@ -4,7 +4,7 @@ The following permissions can be used to allow access to plugin commands.
 
 #### User Permissions
 
-- **axtonsemotes.emotes.\***
+- **axtonsemotes.emotes.\*** <br>
   Allows access to all emote-based user commands.
 <br><br>
 
@@ -22,7 +22,7 @@ The following permissions can be used to allow access to plugin commands.
 
 #### Admin Permissions
 
-- **axtonsemotes.admin.\*** 
+- **axtonsemotes.admin.\*** <br>
   Allows to access to all administrative commands.
 <br><br>
 

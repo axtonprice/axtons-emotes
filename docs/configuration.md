@@ -56,6 +56,8 @@ See below the default configuration for the plugin's `config.yml`.
   Enables BStats anonymous metrics tracking. Learn more at https://bstats.org/
 <br><br>
 
+#### Default Configuration
+
 ```yml
 # >> Language
 # Sets the language used for in-game plugin messages.

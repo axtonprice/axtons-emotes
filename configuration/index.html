@@ -96,9 +96,72 @@
 <p>See below the default configuration for the plugin's <code>config.yml</code>.</p>
 <h4 id="configuration-values">Configuration Values</h4>
 <ul>
-<li><strong>language</strong> <em>(default: en)</em><br />
+<li>
+<p><strong>language</strong> <em>(default: en)</em><br />
   Sets the language used for in-game plugin messages. For a full list of available languages, please refer to the <a href="https://github.com/axtonprice/axtons-emotes/wiki/Languages">Language List</a>.
-<br><br></li>
+<br><br></p>
+</li>
+<li>
+<p><strong>allow-self-executions</strong> <em>(default: false)</em><br />
+  Allows players to execute emote commands on themselves.
+<br><br></p>
+</li>
+<li>
+<p><strong>allow-list-commands</strong> <em>(default: true)</em><br />
+  Enables the <code>/emotes</code> and <code>/expressions</code> commands to view permitted emotes. When enabled, anyone can list commands. When disabled, only server operators or players with the <code>axtonsemotes.admin.list-override</code> permission can list commands.
+<br><br></p>
+</li>
+<li>
+<p><strong>allow-self-toggle.enabled</strong> <em>(default: true)</em><br />
+  Allows players to use <code>/toggleemotes</code>, removing the ability for others to execute shared emotes on them.
+<br><br></p>
+</li>
+<li>
+<p><strong>allow-self-toggle.require-permission</strong> <em>(default: false)</em><br />
+  If enabled, the player must have the <code>axtonsemotes.emotes.selftoggle</code> permission to run the <code>/toggleemotes</code> command.
+<br><br></p>
+</li>
+<li>
+<p><strong>default-effects.particle</strong> <em>(default: <code>CRIT</code>)</em><br />
+  The default particle used if the specified particle for an emote does not exist.
+<br><br></p>
+</li>
+<li>
+<p><strong>default-effects.sound</strong> <em>(default: <code>ENTITY_ITEM_PICKUP</code>)</em><br />
+  The default particle used if the specified particle for an emote does not exist.
+<br><br></p>
+</li>
+<li>
+<p><strong>debug-mode.enabled</strong> <em>(default: false)</em><br />
+  Toggles debug mode, which logs detailed information about command executions. This is useful
+  for troubleshooting but will result in many console messages.
+<br><br></p>
+</li>
+<li>
+<p><strong>debug-mode.log-to-file</strong> <em>(default: true)</em><br />
+  Specify whether to log debug messages to a file. Ignored if <code>debug-mode.enabled</code> is set to false.
+<br><br></p>
+</li>
+<li>
+<p><strong>debug-mode.file-name</strong> <em>(default: <code>debug.log</code>)</em><br />
+  Specifies the name of the file which debug logs are saved to.
+<br><br></p>
+</li>
+<li>
+<p><strong>updates.check-for-latest</strong> <em>(default: true)</em><br />
+  Automatically checks for plugin updates every 12 hours and on server startup.
+<br><br></p>
+</li>
+<li>
+<p><strong>updates.notify-players-on-update</strong> <em>(default: true)</em><br />
+  Notifies operators and players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
+<br><br></p>
+</li>
+<li>
+<p><strong>enable-metrics</strong> <em>(default: true)</em><br />
+  Enables BStats anonymous metrics tracking. Learn more at https://bstats.org/
+<br><br></p>
+</li>
 </ul>
 <pre><code class="language-yml"># &gt;&gt; Language
 # Sets the language used for in-game plugin messages.
@@ -107,8 +170,8 @@ language: en
 
 # &gt;&gt; Self-Executions
 # Allows players to execute emote commands on themselves.
-# Default: true
-allow-self-executions: true
+# Default: false
+allow-self-executions: false
 
 # &gt;&gt; List Commands
 # Enables the /emotes and /expressions commands to view permitted emotes. When enabled, anyone can list commands.
@@ -119,32 +182,38 @@ allow-list-commands: true
 # &gt;&gt; Shared Emotes Toggle
 # Allows players to use /toggleemotes, removing the ability for others to execute shared emotes on them.
 # If both below are enabled, the player must have the 'axtonsemotes.emotes.selftoggle' permission to run the toggle command.
-# Default: true
 allow-self-toggle:
-  enabled: true
-  require-permission: false
+  enabled: true # true
+  require-permission: false # false
+
+# &gt;&gt; Shared Emote Radius
+# Sets the minimum distance (in blocks) required between the sender and target player to execute shared emotes.
+# Players with axtonsemotes.admin.bypassradius permission can bypass the configured radius limit below.
+emote-radius:
+  enabled: true # true
+  distance: 15 # 15
+
+# &gt;&gt; Emote Cooldown
+# Sets a cooldown period (in seconds) between emote executions per player.
+# Players with axtonsemotes.admin.bypasscooldown permission can bypass the configured cooldown below.
+emote-cooldown:
+  enabled: true # true
+  duration-seconds: 3 # 3
 
 # &gt;&gt; Default Effects
 # Specifies the default particle and sound effects if the specified enum constant is invalid (NOT if the effect is set to 'none').
 # Defaults: CRIT, ENTITY_ITEM_PICKUP
 default-effects:
-  particle: CRIT
-  sound: ENTITY_ITEM_PICKUP
+  particle: &quot;CRIT&quot;
+  sound: &quot;ENTITY_ITEM_PICKUP&quot;
 
+# &gt;&gt; Debug Mode
 # Configure debug mode, which logs detailed information about command executions. This is useful
 # for troubleshooting but will result in many console messages.
 debug-mode:
-  # Toggles additional console information during startup and command executions.
-  # Default: false
-  enabled: true
-
-  # Specify whether to log debug messages to a file. Ignored if 'enabled' above is set to false.
-  # Default: true
-  log-to-file: true
-
-  # Specifies the name of the file which debug logs are saved to. Set to none to disable logging to a file.
-  # Default: debug.log
-  file-name: debug.log
+  enabled: false # false
+  log-to-file: true # true
+  file-name: &quot;debug.log&quot; # debug.log
 
 # &gt;&gt; Plugin Versioning &amp; Updates
 # Configure update checks and notifications:
@@ -153,14 +222,14 @@ updates:
   # Default: true
   check-for-latest: true
 
-  # Notifies players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
+  # Notifies operators and players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
   # Default: true
   notify-players-on-update: true
 
 # &gt;&gt; Metrics Tracking
 # Enables BStats anonymous metrics tracking. Learn more at https://bstats.org/
 # Default: true
-enable-metrics: false
+enable-metrics: true
 </code></pre>
 <blockquote>
 <p>⚠️ <strong>Warning:</strong> Do not modify the <code>config-version</code> property in your config.yml! Doing so may cause the plugin to reset your configuration file to the default values, purging any changes you have made.</p>

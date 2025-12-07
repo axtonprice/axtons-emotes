@@ -22,15 +22,14 @@
     <a href="https://builtbybit.com/resources/axtons-emotes.84984/">
     <img src="https://img.shields.io/badge/BuiltByBit-0?logo=builtbybit&labelColor=white&color=2D87C3" alt="BuiltByBit">
 </a>
-<br><br>
+<br>
 
 # Axton's Emotes
 > A light-weight, configurable chat emotes plugin for 1.20+ Spigot/Paper servers.
 
 Available in 10+ languages, including Spanish, French, Italian, German.. See the full list [here](https://emotes.axtonprice.xyz/languages/).
 
-<img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo1.png" alt="Promo Image 1">
-<img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo2.png" alt="Promo Image 2">
+<img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo1.png" alt="Promo Image 1"> <img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo2.png" alt="Promo Image 2">
 
 <br>
 
@@ -50,9 +49,7 @@ Available in 10+ languages, including Spanish, French, Italian, German.. See the
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/screenshots_text.png" alt="Screenshots">
 
 ### Ingame Examples
-<img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example1.gif" alt="Command example">
-<img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example2.gif" alt="Command example">
-<img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example3.gif" alt="Command example">
+<img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example1.gif" alt="Command example"> <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example2.gif" alt="Command example"> <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example3.gif" alt="Command example">
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/features_text.png" alt="Features">

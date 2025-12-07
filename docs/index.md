@@ -16,7 +16,7 @@ View the project repository at [github.com/axtonprice/axtons-emotes](https://git
 
 ## Getting Started
 
-Please visit one of the following links for more information.
+Use the following links for shortcuts to plugin configuration and installation guides.
 
 [**AxtonsEmotes Installation**](/installation/)  
 A guide on installing the plugin on your server, including various download sources.

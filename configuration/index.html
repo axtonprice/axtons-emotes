@@ -242,26 +242,66 @@ enable-metrics: true
 <p>⚠️ <strong>Warning:</strong> Do not modify the <code>config-version</code> property in your config.yml! Doing so may cause the plugin to reset your configuration file to the default values, purging any changes you have made.</p>
 </blockquote>
 <h4 id="emote-configuration">Emote Configuration</h4>
-<p>Below is an example of a correctly structured emote command.</p>
-<pre><code class="language-yml">commands:
-  cry:
-    enabled: true
-    type: &quot;expression&quot;
-    messages:
-      player: &quot;&amp;7You cry yourself in sorrow...&quot;
-      target: &quot;&amp;7&amp;l%player%&amp;r&amp;7 cries in a corner...&quot;
-    effects:
-      particle: &quot;NONE&quot;
-      sound: &quot;ENTITY_CAT_HURT&quot;
+<p>Below is an example of correctly structured emote commands in <code>emotes.yml</code>.</p>
+<pre><code class="language-yml">expressions:
+    cry:
+        enabled: true
+        messages:
+          sender: &quot;&amp;7You cry yourself in sorrow...&quot;
+          global: &quot;&amp;7&amp;l%player%&amp;r&amp;7 cries in a corner...&quot;
+        effects:
+          particle: &quot;NONE&quot;
+          sound: &quot;ENTITY_CAT_HURT&quot;
+shared-emotes:
+    applaud:
+        enabled: true
+        messages:
+            player: &quot;&amp;eYou applauded &amp;l%target%&amp;r&amp;e!&quot;
+            target: &quot;&amp;e&amp;l%player%&amp;r &amp;eapplauded you!&quot;
+        effects:
+            particle: &quot;NONE&quot;
+            sound: &quot;ENTITY_VILLAGER_CELEBRATE&quot;
 </code></pre>
 <p><strong>Explanation:</strong></p>
 <ul>
-<li><code>enabled</code>: <code>true</code> or <code>false</code> – whether the emote is active.</li>
-<li><code>type</code>: <code>expression</code>, or <code>shared</code>. Expression emotes are displayed to the whole server, shared emotes are between two players.</li>
-<li><code>messages.player</code>: Message shown to the player executing the emote.</li>
-<li><code>messages.target</code>: Message shown to targeted player, or all players if it's an expression emote.</li>
-<li><code>effects.particle</code>: Particle effect to play (use a valid <code>Particle</code> enum) for both players (only played to the sender if it's an expression emote)</li>
-<li><code>effects.sound</code>: Sound effect to play (use a valid <code>Sound</code> enum) for both players (only played to the sender if it's an expression emote)</li>
+<li>
+<p><strong>Top-level sections</strong></p>
+</li>
+<li>
+<p><code>expressions</code>: Emotes broadcasted to all players.</p>
+</li>
+<li>
+<p><code>shared-emotes</code>: Emotes executed between two players (sender and target).</p>
+</li>
+<li>
+<p><strong>enabled</strong>: <code>true</code> or <code>false</code> – whether the emote is active.</p>
+</li>
+<li>
+<p><strong>messages</strong></p>
+</li>
+<li>
+<p>For <strong>expressions</strong>:</p>
+<ul>
+<li><code>sender</code>: Message shown to the player executing the emote.</li>
+<li><code>global</code>: Message broadcasted to all other players.</li>
+<li>
+<p>For <strong>shared-emotes</strong>:</p>
+</li>
+<li>
+<p><code>player</code>: Message shown to the player executing the emote.</p>
+</li>
+<li><code>target</code>: Message shown to the target player.</li>
+</ul>
+</li>
+<li>
+<p><strong>effects</strong></p>
+</li>
+<li>
+<p><code>particle</code>: Particle effect to play (valid <code>Particle</code> enum).</p>
+</li>
+<li><code>sound</code>: Sound effect to play (valid <code>Sound</code> enum).</li>
+<li><strong>Expression emotes</strong>: Effects are only executed on the sender.</li>
+<li><strong>Shared emotes</strong>: Effects are played for both sender and target.</li>
 </ul>
 <hr />
 <h4 id="sound-particle-effects">Sound &amp; Particle Effects</h4>

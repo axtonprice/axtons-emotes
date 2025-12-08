@@ -132,29 +132,55 @@ enable-metrics: true
 
 #### Emote Configuration
 
-Below is an example of a correctly structured emote command.
+Below is an example of correctly structured emote commands in `emotes.yml`.
 
 ```yml
-commands:
-  cry:
-    enabled: true
-    type: "expression"
-    messages:
-      player: "&7You cry yourself in sorrow..."
-      target: "&7&l%player%&r&7 cries in a corner..."
-    effects:
-      particle: "NONE"
-      sound: "ENTITY_CAT_HURT"
+expressions:
+    cry:
+        enabled: true
+        messages:
+          sender: "&7You cry yourself in sorrow..."
+          global: "&7&l%player%&r&7 cries in a corner..."
+        effects:
+          particle: "NONE"
+          sound: "ENTITY_CAT_HURT"
+shared-emotes:
+    applaud:
+        enabled: true
+        messages:
+            player: "&eYou applauded &l%target%&r&e!"
+            target: "&e&l%player%&r &eapplauded you!"
+        effects:
+            particle: "NONE"
+            sound: "ENTITY_VILLAGER_CELEBRATE"
 ```
 
 **Explanation:**
 
-* `enabled`: `true` or `false` – whether the emote is active.
-* `type`: `expression`, or `shared`. Expression emotes are displayed to the whole server, shared emotes are between two players.
-* `messages.player`: Message shown to the player executing the emote.
-* `messages.target`: Message shown to targeted player, or all players if it's an expression emote.
-* `effects.particle`: Particle effect to play (use a valid `Particle` enum) for both players (only played to the sender if it's an expression emote)
-* `effects.sound`: Sound effect to play (use a valid `Sound` enum) for both players (only played to the sender if it's an expression emote)
+* **Top-level sections**
+
+  * `expressions`: Emotes broadcasted to all players.
+  * `shared-emotes`: Emotes executed between two players (sender and target).
+
+* **enabled**: `true` or `false` – whether the emote is active.
+
+* **messages**
+
+  * For **expressions**:
+
+    * `sender`: Message shown to the player executing the emote.
+    * `global`: Message broadcasted to all other players.
+  * For **shared-emotes**:
+
+    * `player`: Message shown to the player executing the emote.
+    * `target`: Message shown to the target player.
+
+* **effects**
+
+  * `particle`: Particle effect to play (valid `Particle` enum).
+  * `sound`: Sound effect to play (valid `Sound` enum).
+  * **Expression emotes**: Effects are only executed on the sender.
+  * **Shared emotes**: Effects are played for both sender and target.
 
 ---
 

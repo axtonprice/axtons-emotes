@@ -13,13 +13,11 @@ import net.md_5.bungee.api.ChatColor;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.util.Map;
 
 /**
@@ -30,7 +28,6 @@ public class Versioning {
     // Version fields
     public static String installedVersion = AxtonsEmotes.getInstance().getDescription().getVersion();
     public static String latestSourceVersion = getLatestSourceVersion();
-    private static final String CONFIG_FILE_NAME = Configuration.CONFIG_FILE_NAME;
 
     private Versioning() {
         throw new IllegalStateException("Utility class");
@@ -42,72 +39,41 @@ public class Versioning {
     */
     public static void checkForUpdates() {
 
-        // Check if config.yml exists
-        File configFile = new File(AxtonsEmotes.getInstance().getDataFolder(), CONFIG_FILE_NAME);
+        File dataFolder = AxtonsEmotes.getInstance().getDataFolder();
+        File configFile = new File(dataFolder, "config.yml");
+
+        // Ensure config.yml exists
         if (!configFile.exists()) {
-            Configuration.saveDefaultConfigFile(CONFIG_FILE_NAME, false);
+            Configuration.saveDefaultConfigFile("config.yml", false);
         }
 
-        // Skip update check if disabled in config
-        if (!Configuration.getBoolean(CONFIG_FILE_NAME, "updates.check-for-latest", true)) {
-            return;
-        }
-
-        // Debug logging
-        Debugging.log(Versioning.class.getSimpleName(), MessageHandler.get("plugin.startup.version_check"));
-
-        // Log warning if outdated
-        if (isOlder(installedVersion, latestSourceVersion)) {
-            String[] subjects = { "current_version", "latest_version" };
-            String[] replacements = { installedVersion, latestSourceVersion };
-            Debugging.raw("warning",
-                    MessageHandler.format(MessageHandler.get("command.version.outdated_notify"), subjects,
-                            replacements));
-        }
-
-        // Disable plugin if installedVersion cannot be verified
+        // Disable plugin if installed version cannot be determined
         if (installedVersion == null) {
             Debugging.raw("severe", "Unable to verify plugin version, plugin will shutdown.");
             Bukkit.getPluginManager().disablePlugin(AxtonsEmotes.getInstance());
             return;
         }
 
-        // Fetch configured version
-        String configuredVersion = Configuration.getString(CONFIG_FILE_NAME, "config-version", "0.0.0");
+        // Check for migrations
+        Migration.checkForMigrations();
 
-        // Reset config if version too old
-        if (configuredVersion.equals("1.3.0")) {
-            Debugging.raw("warning", MessageHandler.get("plugin.startup.configuration.migration.reset"));
-
-            // Delete existing config file
-            if (configFile.exists()) {
-                try {
-                    Files.delete(configFile.toPath());
-                    Debugging.log(
-                            Versioning.class.getSimpleName() + "/"
-                                    + Thread.currentThread().getStackTrace()[1].getMethodName(),
-                            "Deleted configuration file: " + configFile);
-                } catch (IOException e) {
-                    Debugging.logError("Failed to delete configuration file: " + configFile, e);
-                }
-            }
-
-            // Save default config and reload
-            Configuration.saveDefaultConfigFile(CONFIG_FILE_NAME, true);
-            Configuration.reloadConfig(CONFIG_FILE_NAME);
-
+        // Skip update check if disabled in config
+        if (!Configuration.getBoolean("config.yml", "updates.check-for-latest", true)) {
             return;
         }
 
-        // Perform migration if installed version differs from config version
-        if (!installedVersion.equals(configuredVersion)) {
-            Debugging.raw("warning",
-                    MessageHandler.get("plugin.startup.configuration.migration.migrate") + " (" + configuredVersion + " → "
-                            + installedVersion + ")...");
-            Migration.migrateToLatest();
-        }
+        // Log version check start
+        Debugging.log(Versioning.class.getSimpleName(), MessageHandler.get("plugin.startup.version_check"));
 
+        // Warn if version is outdated, even after migration
+        if (isOlder(installedVersion, latestSourceVersion)) {
+            Debugging.raw("warning", MessageHandler.format(
+                    MessageHandler.get("command.version.outdated_notify"),
+                    new String[] { "current_version", "latest_version" },
+                    new String[] { installedVersion, latestSourceVersion }));
+        }
     }
+
 
     /**
     * Determines whether the installed version is the latest compared to the source.
@@ -202,7 +168,7 @@ public class Versioning {
     public static void notifyPlayer(Player player) {
 
         // Check notification settings
-        if (!Configuration.getBoolean(CONFIG_FILE_NAME, "updates.notify-players-on-update", true))
+        if (!Configuration.getBoolean("config.yml", "updates.notify-players-on-update", true))
             return;
 
         // Check if player has permission to receive update notifications

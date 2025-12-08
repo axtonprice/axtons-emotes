@@ -13,146 +13,177 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class Validation {
 
-   private static final String ERROR_COMMAND_DISABLED = "error.command.disabled";
-   private static final String ERROR_PLAYER_ONLY = "error.player.only";
-   private static final String ERROR_PLAYER_SELF = "error.player.self";
-   private static final String ERROR_SYNTAX_PLAYER = "error.command.syntax.no_target";
-   private static final String ERROR_PLAYER_OFFLINE = "error.player.offline";
+    private static final String ERROR_COMMAND_DISABLED = "error.command.disabled";
+    private static final String ERROR_PLAYER_ONLY = "error.player.only";
+    private static final String ERROR_PLAYER_SELF = "error.player.self";
+    private static final String ERROR_SYNTAX_PLAYER = "error.command.syntax.no_target";
+    private static final String ERROR_PLAYER_OFFLINE = "error.player.offline";
 
-   private Validation() {
-      throw new IllegalStateException("Utility class");
-   }
+    private Validation() {
+        throw new IllegalStateException("Utility class");
+    }
 
-   /**
+    /**
     * Validates that an emote configuration is complete and correct.
     *
     * @param emoteName The name of the emote to validate.
     * @return true if the emote configuration exists and contains all required fields; false otherwise.
     */
-   public static boolean validateEmoteConfig(String emoteName) {
+    public static boolean validateEmoteConfig(String emoteName) {
+        // Load emotes.yml
+        YamlConfiguration config = Configuration.getConfig("emotes.yml");
+        if (config == null)
+            return false;
 
-      // Load emotes.yml data
-      YamlConfiguration config = Configuration.getConfig("emotes.yml");
-      String basePath = "commands." + emoteName;
-      ConfigurationSection section = config.getConfigurationSection(basePath);
+        // Determine which section this emote belongs to
+        String basePath;
+        if (config.isSet("expressions." + emoteName)) {
+            basePath = "expressions." + emoteName;
+        } else if (config.isSet("shared-emotes." + emoteName)) {
+            basePath = "shared-emotes." + emoteName;
+        } else {
+            return false; // Emote not found
+        }
 
-      // Check if section exists
-      if (section == null)
-         return false;
+        ConfigurationSection section = config.getConfigurationSection(basePath);
+        if (section == null)
+            return false;
 
-      // Check basic fields
-      if (!section.contains("enabled"))
-         return false;
-      if (!section.contains("type"))
-         return false;
+        // Required fields
+        if (!section.contains("enabled"))
+            return false;
 
-      // Validate emote type
-      String emoteType = Configuration.getString("emotes.yml", basePath + ".type");
-      if (emoteType == null)
-         return false;
-      if (!emoteType.equalsIgnoreCase("shared") && !emoteType.equalsIgnoreCase("expression"))
-         return false;
+        String type = config.getString(basePath + ".type");
+        if (type == null) {
+            // If type is missing in expressions, we can infer it
+            type = basePath.startsWith("expressions.") ? "expression" : "shared";
+        } else if (!type.equalsIgnoreCase("shared") && !type.equalsIgnoreCase("expression")) {
+            return false;
+        }
 
-      // Check required fields
-      if (!section.contains("messages.player"))
-         return false;
-      if (!section.contains("messages.target"))
-         return false;
-      if (!section.contains("effects.particle"))
-         return false;
-      if (!section.contains("effects.sound"))
-         return false;
+        // Check required fields
+        if (!section.contains("messages.sender"))
+            return false;
+        if (!section.contains("messages.global") && !section.contains("messages.target"))
+            return false;
+        if (!section.contains("effects.particle"))
+            return false;
+        if (!section.contains("effects.sound"))
+            return false;
 
-      // All checks passed
-      return true;
-   }
+        // All validations passed
+        return true;
+    }
 
-   /**
+    /**
     * Checks if a command is enabled in the configuration.
     *
     * @param command The command to check.
     * @param sender The sender attempting to execute the command.
     * @return true if the command is enabled; false otherwise.
     */
-   public static boolean checkIsEnabled(@NotNull Command command, @NotNull CommandSender sender) {
-      boolean isEnabled = Configuration.getBoolean("emotes.yml", "commands." + command.getLabel() + ".enabled");
-      if (!isEnabled) {
-         Debugging.log(
-               Validation.class.getSimpleName(),
-               "Command attempt failed: Disabled command '" + command.getLabel() + "' by " + sender.getName());
-         sender.sendMessage(MessageHandler.parseError(ERROR_COMMAND_DISABLED));
-         return false;
-      }
-      return true;
-   }
+    public static boolean checkIsEnabled(@NotNull Command command, @NotNull CommandSender sender) {
+        String commandLabel = command.getLabel();
+        YamlConfiguration config = Configuration.getConfig("emotes.yml");
+        if (config == null) {
+            Debugging.log(Validation.class.getSimpleName(),
+                    "Failed to load emotes.yml when checking command: " + commandLabel);
+            return false;
+        }
 
-   /**
+        // Determine which section the emote belongs to
+        String basePath;
+        if (config.isSet("expressions." + commandLabel)) {
+            basePath = "expressions." + commandLabel;
+        } else if (config.isSet("shared-emotes." + commandLabel)) {
+            basePath = "shared-emotes." + commandLabel;
+        } else {
+            Debugging.log(Validation.class.getSimpleName(),
+                    "Command attempt failed: Unknown emote '" + commandLabel + "' by " + sender.getName());
+            sender.sendMessage(MessageHandler.parseError("That emote does not exist."));
+            return false;
+        }
+
+        boolean isEnabled = config.getBoolean(basePath + ".enabled", false);
+        if (!isEnabled) {
+            Debugging.log(Validation.class.getSimpleName(),
+                    "Command attempt failed: Disabled emote '" + commandLabel + "' by " + sender.getName());
+            sender.sendMessage(MessageHandler.parseError(ERROR_COMMAND_DISABLED));
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
     * Checks if the sender of a command is a player.
     *
     * @param sender The command sender to check.
     * @return true if the sender is a player; false otherwise.
     */
-   public static boolean checkIsSenderPlayer(@NotNull CommandSender sender) {
-      if (!(sender instanceof Player)) {
-         Debugging.log(
-               Validation.class.getSimpleName(),
-               "Command attempt failed: Non-player '" + sender.getName() + "' tried to execute player-only command");
-         sender.sendMessage(MessageHandler.parseError(ERROR_PLAYER_ONLY));
-         return false;
-      }
-      return true;
-   }
+    public static boolean checkIsSenderPlayer(@NotNull CommandSender sender) {
+        if (!(sender instanceof Player)) {
+            Debugging.log(
+                    Validation.class.getSimpleName(),
+                    "Command attempt failed: Non-player '" + sender.getName()
+                            + "' tried to execute player-only command");
+            sender.sendMessage(MessageHandler.parseError(ERROR_PLAYER_ONLY));
+            return false;
+        }
+        return true;
+    }
 
-   /**
+    /**
     * Checks whether a command is being executed on oneself when self-execution is disallowed.
     *
     * @param sender The sender executing the command.
     * @param args The command arguments.
     * @return true if self-execution is allowed; false if disallowed.
     */
-   public static boolean checkSelfExecution(@NotNull CommandSender sender, @NotNull String[] args) {
-      if (args[0].equals(sender.getName()) && !Configuration.getBoolean("config.yml", "allow-self-executions")) {
-         Debugging.log(
-               Validation.class.getSimpleName(),
-                     "Command attempt failed: Self-execution not allowed for " + sender.getName());
-         sender.sendMessage(MessageHandler.parseError(ERROR_PLAYER_SELF));
-         return false;
-      }
-      return true;
-   }
+    public static boolean checkSelfExecution(@NotNull CommandSender sender, @NotNull String[] args) {
+        if (args[0].equals(sender.getName()) && !Configuration.getBoolean("config.yml", "allow-self-executions")) {
+            Debugging.log(
+                    Validation.class.getSimpleName(),
+                    "Command attempt failed: Self-execution not allowed for " + sender.getName());
+            sender.sendMessage(MessageHandler.parseError(ERROR_PLAYER_SELF));
+            return false;
+        }
+        return true;
+    }
 
-   /**
+    /**
     * Checks that at least one argument was provided for a command.
     *
     * @param sender The command sender.
     * @param args The command arguments.
     * @return true if arguments are present; false otherwise.
     */
-   public static boolean checkArguments(@NotNull CommandSender sender, String[] args) {
-      if (args.length == 0) {
-         Debugging.log(
-               Validation.class.getSimpleName(),
-               "Command attempt failed: No arguments provided by " + sender.getName());
-         sender.sendMessage(MessageHandler.parseError(ERROR_SYNTAX_PLAYER));
-         return false;
-      }
-      return true;
-   }
+    public static boolean checkArguments(@NotNull CommandSender sender, String[] args) {
+        if (args.length == 0) {
+            Debugging.log(
+                    Validation.class.getSimpleName(),
+                    "Command attempt failed: No arguments provided by " + sender.getName());
+            sender.sendMessage(MessageHandler.parseError(ERROR_SYNTAX_PLAYER));
+            return false;
+        }
+        return true;
+    }
 
-   /**
+    /**
     * Checks whether a target player specified in the command arguments is online.
     *
     * @param sender The command sender.
     * @param args The command arguments (first argument is assumed to be the target player's name).
     * @return true if the target player is online; false otherwise.
     */
-   public static boolean checkIsTargetOnline(@NotNull CommandSender sender, @NotNull String[] args) {
-      if (Bukkit.getPlayer(args[0]) == null) {
-         Debugging.log(Validation.class.getSimpleName(),
-                     "Command attempt failed: Target player '" + args[0] + "' is offline, requested by " + sender.getName());
-         sender.sendMessage(MessageHandler.parseError(ERROR_PLAYER_OFFLINE));
-         return false;
-      }
-      return true;
-   }
+    public static boolean checkIsTargetOnline(@NotNull CommandSender sender, @NotNull String[] args) {
+        if (Bukkit.getPlayer(args[0]) == null) {
+            Debugging.log(Validation.class.getSimpleName(),
+                    "Command attempt failed: Target player '" + args[0] + "' is offline, requested by "
+                            + sender.getName());
+            sender.sendMessage(MessageHandler.parseError(ERROR_PLAYER_OFFLINE));
+            return false;
+        }
+        return true;
+    }
 }

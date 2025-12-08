@@ -54,6 +54,12 @@ Available in 10+ languages, including Spanish, French, Italian, German.. See the
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/features_text.png" alt="Features">
 
+### Features
+
+#### 🎲 **Easy emote configuration** - Easily create custom emotes or simply use the premade emotes.
+#### 💫 **Configurable emote radius** - Specify a distance players must be from each other to execute shared emotes.
+#### ⏱️ **Configurable emote cooldown** - Prevent players from spamming emotes with cooldowns.
+
 ### Emote Types
 
 #### ✨ Shared Emotes  
@@ -65,14 +71,14 @@ Express yourself to the entire server - these emotes are broadcast to everyone a
 ---
 
 ### 🧩 Examples of built-in emotes
-| Shared Emotes              | Expression Emotes |
-|----------------------------|-------------------|
-| `/e hug <player>`          | `/e cry`          |
-| `/e poke <player>`         | `/e laugh`        |
-| `/e highfive <player>`     | `/e wave`         |
-| `/e kiss <player>`         | `/e gasp`         |
-| `/e slap <player>`         | `/e shrug`        |
-| `/e stare <player>`        | `/e facepalm`     |
+| Shared Emotes | Expression Emotes |
+| --- | --- |
+| `/e hug <player>`        | `/e cry`        |
+| `/e poke <player>`       | `/e laugh`      |
+| `/e highfive <player>`   | `/e wave`       |
+| `/e kiss <player>`       | `/e gasp`       |
+| `/e slap <player>`       | `/e shrug`      |
+| `/e stare <player>`      | `/e facepalm`   |
 
 ---
 
@@ -94,13 +100,9 @@ Permissions for all emotes are granted by default unless an emote is disabled or
 
 > View the [Configuration Guide](https://emotes.axtonprice.xyz/configuration/)
 
-### Emote Configuration
-
 > View the [Emote Configuration Guide](https://emotes.axtonprice.xyz/configuration/#emote-configuration)
 
-### Languages
-
-> View the list of [supported languages](https://emotes.axtonprice.xyz/languages/)
+> View the [Supported Languages](https://emotes.axtonprice.xyz/languages/)
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/credits_text.png">

@@ -5,7 +5,7 @@
 # > /_/  |_/_/|_|\__/\____/_/ /_/ /____/  /_____/_/ /_/ /_/\____/\__/\___/____/
 # >
 # >> Axton's Emotes | Configuration
-# For more information, visit: https://emotes.axtonprice.xyz/
+# For more information, visit: https://emotes.axtonprice.xyz/configuration/
 
 # >> Language
 # Sets the language used for in-game plugin messages.
@@ -44,6 +44,12 @@ emote-cooldown:
   enabled: true # true
   duration-seconds: 3 # 3
 
+# >> Actionbar Messages
+# Toggles sending emote messages as actionbar titles instead of chat messages.
+use-actionbar:
+  shared-emotes: false # false
+  expressions: false # false
+
 # >> Default Effects
 # Specifies the default particle and sound effects if the specified enum constant is invalid (NOT if the effect is set to 'none').
 # Defaults: CRIT, ENTITY_ITEM_PICKUP
@@ -77,4 +83,4 @@ enable-metrics: true
 
 # The current version of the plugin.
 # >> Do NOT modify this! <<
-config-version: 1.5.2
+config-version: 1.6.0

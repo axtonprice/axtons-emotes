@@ -1,124 +1,103 @@
-#     ___         __             _          ______                __
-#    /   |  _  __/ /_____  ____ ( )_____   / ____/___ ___  ____  / /____  _____
-#   / /| | | |/_/ __/ __ \/ __ \|// ___/  / __/ / __ `__ \/ __ \/ __/ _ \/ ___/
-#  / ___ |_>  </ /_/ /_/ / / / / (__  )  / /___/ / / / / / /_/ / /_/  __(__  )
-# /_/  |_/_/|_|\__/\____/_/ /_/ /____/  /_____/_/ /_/ /_/\____/\__/\___/____/
-#
-# Axton's Emotes | Configuration
-# Docs: https://emotes.axtonprice.xyz//
-#
-# Emote configuration structure:
-#
-# emotename:
-#   enabled: <true/false>          # Enable or disable this emote.
-#   type: <shared/expression>      # Shared emotes target another player, expressions are self-execution only.
-#   messages:
-#     player: <string/none>        # Message sent to the player running the command. Set to 'none' for no message.
-#     target: <string/none>        # Message sent to the target player (or all players for expression emotes) Set to 'none' for no message.
-#   effects:
-#     particle: <string/none>      # Particle effect enum constant. Set to 'none' for no particle effect.
-#     sound: <string/none>         # Sound effect enum constant. Set to 'none' for no sound effect.
-#
-commands:
-  # > Expressions
-  # Expressive emotes that show a message to all online players
+# >     ___         __             _          ______                __
+# >    /   |  _  __/ /_____  ____ ( )_____   / ____/___ ___  ____  / /____  _____
+# >   / /| | | |/_/ __/ __ \/ __ \|// ___/  / __/ / __ `__ \/ __ \/ __/ _ \/ ___/
+# >  / ___ |_>  </ /_/ /_/ / / / / (__  )  / /___/ / / / / / /_/ / /_/  __(__  )
+# > /_/  |_/_/|_|\__/\____/_/ /_/ /____/  /_____/_/ /_/ /_/\____/\__/\___/____/
+# >
+# >> Axton's Emotes | Configuration
+# For more information, visit: https://emotes.axtonprice.xyz/configuration/
+
+# >> Expressions
+# Expressive emotes that show a message to all online players
+expressions:
   cry:
     enabled: true
-    type: "expression"
     messages:
-      player: "&7You cry yourself in sorrow.."
-      target: "&7&l%player%&r&7 cries in a corner.."
+      sender: "&7You cry yourself in sorrow.."
+      global: "&7&l%player%&r&7 cries in a corner.."
     effects:
       particle: "none"
       sound: "ENTITY_CAT_HURT"
 
   wave:
     enabled: true
-    type: "expression"
     messages:
-      player: "&bYou wave to everyone!"
-      target: "&b&l%player%&r&b waves to everyone!"
+      sender: "&bYou wave to everyone!"
+      global: "&b&l%player%&r&b waves to everyone!"
     effects:
       particle: "none"
       sound: "ENTITY_VILLAGER_CELEBRATE"
 
   laugh:
     enabled: true
-    type: "expression"
     messages:
-      player: "&eYou burst into laughter!"
-      target: "&e&l%player%&r&e bursts into laughter!"
+      sender: "&eYou burst into laughter!"
+      global: "&e&l%player%&r&e bursts into laughter!"
     effects:
       particle: "HAPPY_VILLAGER"
       sound: "ENTITY_VILLAGER_CELEBRATE"
 
   shrug:
     enabled: true
-    type: "expression"
     messages:
-      player: "&7You shrug nonchalantly."
-      target: "&7&l%player%&r&7 shrugs."
+      sender: "&7You shrug nonchalantly."
+      global: "&7&l%player%&r&7 shrugs."
     effects:
       particle: "none"
       sound: "ENTITY_PLAYER_BREATH"
 
   facepalm:
     enabled: true
-    type: "expression"
     messages:
-      player: "&cYou facepalm."
-      target: "&c&l%player%&r&c facepalms."
+      sender: "&cYou facepalm."
+      global: "&c&l%player%&r&c facepalms."
     effects:
       particle: "ANGRY_VILLAGER"
       sound: "BLOCK_NOTE_BLOCK_BASS"
 
   cheer:
     enabled: true
-    type: "expression"
     messages:
-      player: "&aYou cheer loudly!"
-      target: "&a&l%player%&r&a cheers!"
+      sender: "&aYou cheer loudly!"
+      global: "&a&l%player%&r&a cheers!"
     effects:
       particle: "none"
       sound: "ENTITY_PLAYER_LEVELUP"
 
   clap:
     enabled: true
-    type: "expression"
     messages:
-      player: "&aYou clap your hands!"
-      target: "&a&l%player%&r&a applauds!"
+      sender: "&aYou clap your hands!"
+      global: "&a&l%player%&r&a applauds!"
     effects:
       particle: "none"
       sound: "ENTITY_PLAYER_LEVELUP"
 
   gasp:
     enabled: true
-    type: "expression"
     messages:
-      player: "&eYou gasp in surprise!"
-      target: "&e&l%player%&r&e gasps!"
+      sender: "&eYou gasp in surprise!"
+      global: "&e&l%player%&r&e gasps!"
     effects:
       particle: "none"
       sound: "ENTITY_CAT_HISS"
 
   bow:
     enabled: true
-    type: "expression"
     messages:
-      player: "&6You bow politely."
-      target: "&6&l%player%&r&6 bows."
+      sender: "&6You bow politely."
+      global: "&6&l%player%&r&6 bows."
     effects:
       particle: "none"
       sound: "none"
 
-  # > Shared emotes
-  # Can be executed on other players, allowing for interactions.
+# >> Shared emotes
+# Can be executed on other players, allowing for interactions.
+shared-emotes:
   applaud:
     enabled: true
-    type: "shared"
     messages:
-      player: "&eYou applauded &l%target%&r&e!"
+      sender: "&eYou applauded &l%target%&r&e!"
       target: "&e&l%player%&r &eapplauded you!"
     effects:
       particle: "none"
@@ -126,9 +105,8 @@ commands:
 
   hug:
     enabled: true
-    type: "shared"
     messages:
-      player: "&cYou hugged &l%target%&r&c!"
+      sender: "&cYou hugged &l%target%&r&c!"
       target: "&c&l%player%&r&c hugged you!"
     effects:
       particle: "HEART"
@@ -136,9 +114,8 @@ commands:
 
   dapup:
     enabled: true
-    type: "shared"
     messages:
-      player: "&bYou dap up &l%target%&r&b!"
+      sender: "&bYou dap up &l%target%&r&b!"
       target: "&b&l%player%&r &bdapped you up!"
     effects:
       particle: "CRIT"
@@ -146,9 +123,8 @@ commands:
 
   kiss:
     enabled: true
-    type: "shared"
     messages:
-      player: "&cYou kissed &l%target%&r&c!"
+      sender: "&cYou kissed &l%target%&r&c!"
       target: "&c&l%player%&r &ckissed you!"
     effects:
       particle: "HEART"
@@ -156,9 +132,8 @@ commands:
 
   poke:
     enabled: true
-    type: "shared"
     messages:
-      player: "&eYou poked &l%target%&r&e!"
+      sender: "&eYou poked &l%target%&r&e!"
       target: "&e&l%player%&r &epoked you!"
     effects:
       particle: "CRIT"
@@ -166,9 +141,8 @@ commands:
 
   slap:
     enabled: true
-    type: "shared"
     messages:
-      player: "&cYou slapped &l%target%&r&c!"
+      sender: "&cYou slapped &l%target%&r&c!"
       target: "&c&l%player%&r &cslapped you!"
     effects:
       particle: "CRIT"
@@ -176,9 +150,8 @@ commands:
 
   stab:
     enabled: true
-    type: "shared"
     messages:
-      player: "&cYou stabbed &l%target%&r&c!"
+      sender: "&cYou stabbed &l%target%&r&c!"
       target: "&c&l%player%&r &cstabbed you!"
     effects:
       particle: "ANGRY_VILLAGER"
@@ -186,9 +159,8 @@ commands:
 
   stare:
     enabled: true
-    type: "shared"
     messages:
-      player: "&7You stare at &l%target%&r&7!"
+      sender: "&7You stare at &l%target%&r&7!"
       target: "&7&l%player%&r &7stares at you!"
     effects:
       particle: "ANGRY_VILLAGER"
@@ -196,9 +168,8 @@ commands:
 
   stomp:
     enabled: true
-    type: "shared"
     messages:
-      player: "&cYou stomp &l%target%&r&c's foot!"
+      sender: "&cYou stomp &l%target%&r&c's foot!"
       target: "&c&l%player%&r &cstomps your foot!"
     effects:
       particle: "CRIT"
@@ -206,9 +177,8 @@ commands:
 
   thank:
     enabled: true
-    type: "shared"
     messages:
-      player: "&dYou thanked &l%target%&r&d!"
+      sender: "&dYou thanked &l%target%&r&d!"
       target: "&d&l%player%&r &dthanked you!"
     effects:
       particle: "EGG_CRACK"
@@ -216,9 +186,8 @@ commands:
 
   boop:
     enabled: true
-    type: "shared"
     messages:
-      player: "&dYou booped &l%target%&r&d on the nose!"
+      sender: "&dYou booped &l%target%&r&d on the nose!"
       target: "&d&l%player%&r &dbooped you on the nose!"
     effects:
       particle: "SNOWFLAKE"
@@ -226,9 +195,8 @@ commands:
 
   tickle:
     enabled: true
-    type: "shared"
     messages:
-      player: "&eYou tickled &l%target%&r&e!"
+      sender: "&eYou tickled &l%target%&r&e!"
       target: "&e&l%player%&r &etickled you!"
     effects:
       particle: "CRIT_MAGIC"

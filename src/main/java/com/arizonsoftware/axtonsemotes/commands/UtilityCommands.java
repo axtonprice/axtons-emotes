@@ -257,9 +257,6 @@ public class UtilityCommands {
         // Build base message
         TextComponent message = new TextComponent(MessageHandler.parseSuccess("command.help"));
 
-        // Apply italics formatting
-        message.setItalic(true);
-
         // Set click event to open URL
         message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url));
 

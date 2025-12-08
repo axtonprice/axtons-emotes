@@ -6,6 +6,10 @@ import com.arizonsoftware.axtonsemotes.utils.Debugging;
 import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
 import com.arizonsoftware.axtonsemotes.utils.PlayerData;
 import com.arizonsoftware.axtonsemotes.utils.Validation;
+
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -38,8 +42,14 @@ public class EmoteHandler extends FXHandler {
         EmoteHandler emote = new EmoteHandler();
         emote.create(command, sender);
 
-        // Fetch and log emote type
-        String emoteType = Configuration.getString("emotes.yml", "commands." + command.getLabel() + ".type");
+        // Determine emote type
+        String emoteType = "";
+        if (!Configuration.getConfigSectionKeys("emotes.yml", "shared-emotes." + command.getLabel()).isEmpty()) {
+            emoteType = "shared";
+        } else if (!Configuration.getConfigSectionKeys("emotes.yml", "expressions." + command.getLabel()).isEmpty()) {
+            emoteType = "expression";
+        }
+
         String logContext = EmoteHandler.class.getSimpleName() + "/"
                 + Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -50,28 +60,41 @@ public class EmoteHandler extends FXHandler {
                         + sender.getName());
 
         // Fetch messages and effects from configuration
-        String playerMessage = Configuration.getString("emotes.yml",
-                "commands." + command.getLabel() + ".messages.player");
-        String targetMessage = Configuration.getString("emotes.yml",
-                "commands." + command.getLabel() + ".messages.target");
-        String configParticle = Configuration.getString("emotes.yml",
-                "commands." + command.getLabel() + ".effects.particle");
-        String configSound = Configuration.getString("emotes.yml",
-                "commands." + command.getLabel() + ".effects.sound");
+        String senderMessage, targetMessage;
+
+        if ("expression".equals(emoteType)) {
+            senderMessage = Configuration.getString("emotes.yml",
+                    "expressions." + command.getLabel() + ".messages.sender");
+            targetMessage = Configuration.getString("emotes.yml",
+                    "expressions." + command.getLabel() + ".messages.global");
+        } else { // shared
+            senderMessage = Configuration.getString("emotes.yml",
+                    "shared-emotes." + command.getLabel() + ".messages.sender");
+            targetMessage = Configuration.getString("emotes.yml",
+                    "shared-emotes." + command.getLabel() + ".messages.target");
+        }
 
         // Parse effects with defaults
+        String configParticle = Configuration.getString("emotes.yml",
+                (emoteType.equals("expression") ? "expressions." : "shared-emotes.") + command.getLabel()
+                        + ".effects.particle");
+
+        String configSound = Configuration.getString("emotes.yml",
+                (emoteType.equals("expression") ? "expressions." : "shared-emotes.") + command.getLabel()
+                        + ".effects.sound");
+
         Particle fxParticle = FXHandler.convertParticle(configParticle, command.getLabel());
         Sound fxSound = FXHandler.convertSound(configSound, command.getLabel());
 
         // Debug logging
         Debugging.log(logContext, "Fetched FX data :: particle: " + fxParticle + ", sound: " + fxSound);
         Debugging.log(logContext,
-                "Fetched message data :: playerMessage: '" + playerMessage + "', secondaryMessage: '"
+                "Fetched message data :: senderMessage: '" + senderMessage + "', secondaryMessage: '"
                         + targetMessage + "'");
 
         // Add emote properties and execute
         emote.setEmoteType(emoteType);
-        emote.setResponses(playerMessage, targetMessage);
+        emote.setResponses(senderMessage, targetMessage);
         emote.setFX(fxParticle, fxSound);
         emote.execute(args, command);
 
@@ -159,13 +182,24 @@ public class EmoteHandler extends FXHandler {
 
         // Send messages to player
         if (!playerResponse.equals("none")) {
-            player.sendMessage(MessageHandler.parseColor(playerResponse.replace("%target%", target.getName())));
+            if (Configuration.getBoolean("config.yml", "use-actionbar.shared-emotes")) {
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+                        MessageHandler.parseColor(playerResponse.replace("%target%", target.getName()))));
+            } else {
+                player.sendMessage(MessageHandler.parseColor(playerResponse.replace("%target%", target.getName())));
+            }
         }
 
         // Send message to target if different from player
         if (!player.equals(target)) {
             if (!targetResponse.equals("none")) {
-                target.sendMessage(MessageHandler.parseColor(targetResponse.replace("%player%", player.getName())));
+                if (Configuration.getBoolean("config.yml", "use-actionbar.shared-emotes")) {
+                    target.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+                            MessageHandler.parseColor(targetResponse.replace("%player%", player.getName()))));
+                } else {
+                    target.sendMessage(
+                            MessageHandler.parseColor(targetResponse.replace("%player%", player.getName())));
+                }
             }
         }
 
@@ -202,16 +236,27 @@ public class EmoteHandler extends FXHandler {
 
         // Send message to executing player
         if (!playerResponse.equals("none")) {
-            player.sendMessage(MessageHandler.parseColor(playerResponse));
+            if (Configuration.getBoolean("config.yml", "use-actionbar.expressions")) {
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+                        MessageHandler.parseColor(playerResponse.replace("%player%", player.getName()))));
+            } else {
+                player.sendMessage(MessageHandler.parseColor(playerResponse));
+            }
         }
 
         // Broadcast to all other players
         if (!targetResponse.equals("none")) {
             for (Player onlinePlayer : Bukkit.getServer().getOnlinePlayers()) {
                 if (!onlinePlayer.equals(player)) {
-                    onlinePlayer
-                            .sendMessage(
-                                    MessageHandler.parseColor(targetResponse.replace("%player%", player.getName())));
+                    if (Configuration.getBoolean("config.yml", "use-actionbar.expressions")) {
+                        onlinePlayer.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+                                MessageHandler.parseColor(targetResponse.replace("%player%", player.getName()))));
+                    } else {
+                        onlinePlayer
+                                .sendMessage(
+                                        MessageHandler
+                                                .parseColor(targetResponse.replace("%player%", player.getName())));
+                    }
                 }
             }
         }

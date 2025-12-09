@@ -13,11 +13,11 @@ plugin:
         invalid_lang: "Ogiltig språkfil upptäcktes, återgår till engelska"
         no_emotes: "Inga emoticons hittades i konfigurationen"
     migration:
-      migrate: "Config version is outdated! Migrating configuration..."
-      reset: "Configuration version is unsupported for migration! Resetting to plugin defaults..."
-      partial: "Config version is outdated! Migrating config.yml and resetting legacy files..."
-      deleting_file: "Deleting legacy file:"
-      deleting_file_failed: "Failed to delete file:"
+      migrate: "Konfigurationsversionen är föråldrad! Migrerar konfigurationen..."
+      reset: "Konfigurationsversionen stöds inte för migrering! Återställer till pluginets standardvärden..."
+      partial: "Konfigurationsversionen är föråldrad! Migrerar config.yml och återställer gamla filer..."
+      deleting_file: "Tar bort gammal fil:"
+      deleting_file_failed: "Kunde inte ta bort filen:"
     registry:
       start: "Registrerar plugin-komponenter..."
       configs_loaded: "%progress_suffix% %configs_count% konfiguration(er)!"

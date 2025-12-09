@@ -13,11 +13,11 @@ plugin:
         invalid_lang: "Обнаружена некорректная языковая конфигурация, используется английский"
         no_emotes: "Эмоты в конфигурации не найдены"
     migration:
-      migrate: "Config version is outdated! Migrating configuration..."
-      reset: "Configuration version is unsupported for migration! Resetting to plugin defaults..."
-      partial: "Config version is outdated! Migrating config.yml and resetting legacy files..."
-      deleting_file: "Deleting legacy file:"
-      deleting_file_failed: "Failed to delete file:"
+      migrate: "Версия конфигурации устарела! Выполняется миграция конфигурации..."
+      reset: "Версия конфигурации не поддерживается для миграции! Восстановление настроек плагина по умолчанию..."
+      partial: "Версия конфигурации устарела! Миграция config.yml и сброс устаревших файлов..."
+      deleting_file: "Удаление устаревшего файла:"
+      deleting_file_failed: "Не удалось удалить файл:"
     registry:
       start: "Регистрация компонентов плагина..."
       configs_loaded: "%progress_suffix% загружено %configs_count% конфигураций!"

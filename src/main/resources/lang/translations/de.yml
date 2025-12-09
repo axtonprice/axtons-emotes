@@ -13,7 +13,7 @@ plugin:
         invalid_lang: "Ungültige Sprachkonfiguration erkannt, Standardwert Englisch wird verwendet"
         no_emotes: "Keine Emotes in der Konfiguration gefunden"
     migration:
-      migrate: "Config version is outdated! Migrating configuration..."
+      migrate: "Die Konfigurationsversion ist veraltet! Konfiguration wird migriert..."
       reset: "Configuration version is unsupported for migration! Resetting to plugin defaults..."
       partial: "Config version is outdated! Migrating config.yml and resetting legacy files..."
       deleting_file: "Deleting legacy file:"

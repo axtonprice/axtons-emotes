@@ -13,11 +13,11 @@ plugin:
         invalid_lang: "Ongeldige taalconfiguratie gedetecteerd, terugvallen op Engels"
         no_emotes: "Geen emotes gevonden in de configuratie"
     migration:
-      migrate: "Config version is outdated! Migrating configuration..."
-      reset: "Configuration version is unsupported for migration! Resetting to plugin defaults..."
-      partial: "Config version is outdated! Migrating config.yml and resetting legacy files..."
-      deleting_file: "Deleting legacy file:"
-      deleting_file_failed: "Failed to delete file:"
+      migrate: "Configuratieversie is verouderd! Configuratie migreren..."
+      reset: "Configuratieversie wordt niet ondersteund voor migratie! Plugin wordt teruggezet naar standaardinstellingen..."
+      partial: "Configuratieversie is verouderd! Migreer config.yml en reset oude bestanden..."
+      deleting_file: "Oud bestand verwijderen:"
+      deleting_file_failed: "Het verwijderen van het bestand is mislukt:"
     registry:
       start: "Plugincomponenten registreren..."
       configs_loaded: "%progress_suffix% %configs_count% configuratie(s)!"

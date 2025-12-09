@@ -13,11 +13,11 @@ plugin:
         invalid_lang: "检测到无效的语言配置，已恢复为英语"
         no_emotes: "配置中未找到任何表情动作"
     migration:
-      migrate: "Config version is outdated! Migrating configuration..."
-      reset: "Configuration version is unsupported for migration! Resetting to plugin defaults..."
-      partial: "Config version is outdated! Migrating config.yml and resetting legacy files..."
-      deleting_file: "Deleting legacy file:"
-      deleting_file_failed: "Failed to delete file:"
+      migrate: "配置版本已过期！正在迁移配置..."
+      reset: "迁移不支持当前配置版本！正在重置为插件默认设置..."
+      partial: "配置版本已过期！正在迁移 config.yml 文件并重置旧版文件……"
+      deleting_file: "删除旧文件："
+      deleting_file_failed: "文件删除失败:"
     registry:
       start: "注册插件组件中..."
       configs_loaded: "%progress_suffix% %configs_count% 个配置文件！"

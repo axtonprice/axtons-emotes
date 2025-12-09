@@ -13,11 +13,11 @@ plugin:
         invalid_lang: "Wykryto nieprawidłową konfigurację języka — ustawiono angielski jako domyślny"
         no_emotes: "Nie znaleziono emotki w konfiguracji"
     migration:
-      migrate: "Config version is outdated! Migrating configuration..."
-      reset: "Configuration version is unsupported for migration! Resetting to plugin defaults..."
-      partial: "Config version is outdated! Migrating config.yml and resetting legacy files..."
-      deleting_file: "Deleting legacy file:"
-      deleting_file_failed: "Failed to delete file:"
+      migrate: "Wersja konfiguracji jest nieaktualna! Trwa migracja konfiguracji..."
+      reset: "Wersja konfiguracji nie jest obsługiwana do migracji! Przywracanie domyślnych ustawień wtyczki..."
+      partial: "Wersja konfiguracji jest nieaktualna! Migracja config.yml i resetowanie starych plików..."
+      deleting_file: "Usuwanie starego pliku:"
+      deleting_file_failed: "Nie udało się usunąć pliku:"
     registry:
       start: "Rejestrowanie komponentów pluginu..."
       configs_loaded: "%progress_suffix% załadowano %configs_count% konfiguracji!"

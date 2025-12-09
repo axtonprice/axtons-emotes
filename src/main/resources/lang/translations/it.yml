@@ -14,10 +14,10 @@ plugin:
         no_emotes: "Nessuna emote trovata nella configurazione"
     migration:
       migrate: "Die Konfigurationsversion ist veraltet! Konfiguration wird migriert..."
-      reset: "Configuration version is unsupported for migration! Resetting to plugin defaults..."
-      partial: "Config version is outdated! Migrating config.yml and resetting legacy files..."
-      deleting_file: "Deleting legacy file:"
-      deleting_file_failed: "Failed to delete file:"
+      reset: "La versione di configurazione non è supportata per la migrazione! Ripristino delle impostazioni predefinite del plugin..."
+      partial: "La versione di configurazione è obsoleta! Migrazione di config.yml e reimpostazione dei file legacy..."
+      deleting_file: "Eliminazione del file legacy:"
+      deleting_file_failed: "Impossibile eliminare il file:"
     registry:
       start: "Registrazione dei componenti del plugin..."
       configs_loaded: "%progress_suffix% %configs_count% configurazione(i) caricata(e)!"

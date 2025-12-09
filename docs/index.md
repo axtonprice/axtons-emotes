@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/discord/308323056592486420?logo=discord&logoColor=white" alt="Discord Chat">
 </a>
 
-# Introduction
+# AxtonsEmotes v1.6
 
 View the project repository at [github.com/axtonprice/axtons-emotes](https://github.com/axtonprice/axtons-emotes).
 

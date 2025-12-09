@@ -32,10 +32,33 @@ Available in 10+ languages, including Spanish, French, Italian, German.. See the
 <img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo1.png" alt="Promo Image 1"> <img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo2.png" alt="Promo Image 2">
 
 <br>
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/features_text.png" alt="Features">
 
+## Features
+
+- 🎲 **Easy emote configuration** (Easily create custom emotes or simply use the premade emotes).
+
+- 🗝️ **Simple permissions** (User and admin permissions are easy to setup with permission managers such as LuckPerms).
+
+- 🗝️ **Simple permissions** (User and admin permissions are easy to setup with permission managers such as LuckPerms).
+
+- 💫 **Configurable emote radius** (Specify a distance players must be from each other to execute shared emotes).
+
+- ⏱️ **Configurable emote cooldown** (Prevent players from spamming emotes with cooldowns).
+
+<br>
+<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/screenshots_text.png" alt="Screenshots">
+
+## Ingame Examples
+
+<img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example1.gif" alt="Command example"> <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example2.gif" alt="Command example"> <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example3.gif" alt="Command example">
+
+Permissions for all emotes are granted by default unless an emote is disabled or the user is explicitly denied permission to all emotes with `axtonsemotes.emotes.use`.
+
+<br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/installation_text.png" alt="Installation">
 
-### Installing the plugin
+## Installing the plugin
 
 1. **Download**: Get the latest `.jar` from the [Releases](https://github.com/axtonprice/axtons-emotes/releases) tab, or from [Modrinth](https://modrinth.com/plugin/axtonsemotes).
 2. **Deploy**: Place the `.jar` in your server's `plugins/` folder.
@@ -46,48 +69,9 @@ Available in 10+ languages, including Spanish, French, Italian, German.. See the
 > **Note:** Java 17 or higher is required to run this plugin. Please refer to [the wiki](https://emotes.axtonprice.xyz/installation/) for more details on installation.
 
 <br>
-<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/screenshots_text.png" alt="Screenshots">
-
-### Ingame Examples
-<img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example1.gif" alt="Command example"> <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example2.gif" alt="Command example"> <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example3.gif" alt="Command example">
-
-<br>
-<img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/features_text.png" alt="Features">
-
-### Features
-
-#### 🎲 **Easy emote configuration** - Easily create custom emotes or simply use the premade emotes.
-#### 💫 **Configurable emote radius** - Specify a distance players must be from each other to execute shared emotes.
-#### ⏱️ **Configurable emote cooldown** - Prevent players from spamming emotes with cooldowns.
-
-### Emote Types
-
-#### ✨ Shared Emotes  
-Interact with other players with targeted emotes that involve another user.
-
-#### 😊 Expression Emotes  
-Express yourself to the entire server - these emotes are broadcast to everyone and do not target a player.
-
----
-
-### 🧩 Examples of built-in emotes
-| Shared Emotes | Expression Emotes |
-| --- | --- |
-| `/e hug <player>`        | `/e cry`        |
-| `/e poke <player>`       | `/e laugh`      |
-| `/e highfive <player>`   | `/e wave`       |
-| `/e kiss <player>`       | `/e gasp`       |
-| `/e slap <player>`       | `/e shrug`      |
-| `/e stare <player>`      | `/e facepalm`   |
-
----
-
-Permissions for all emotes are granted by default unless an emote is disabled or the user is explicitly denied permission to all emotes with `axtonsemotes.emotes.use`.
-
-<br>
 <img width="540" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/commands_perms_text.png" alt="Commands & Features">
 
-### Commands & Permissions
+## Commands & Permissions
 
 > View the [Commands Guide](https://emotes.axtonprice.xyz/commands/)
 
@@ -96,7 +80,7 @@ Permissions for all emotes are granted by default unless an emote is disabled or
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/configuration_text.png" alt="Configuration">
 
-### Configuration
+## Configuration
 
 > View the [Configuration Guide](https://emotes.axtonprice.xyz/configuration/)
 
@@ -107,7 +91,7 @@ Permissions for all emotes are granted by default unless an emote is disabled or
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/credits_text.png">
 
-### axtonprice ✨
+## axtonprice ✨
 
 [![Sponsor](https://img.shields.io/badge/sponsor-gray?logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/axtonprice) 
 [![Patreon](https://img.shields.io/badge/Patreon-ee6352?logo=patreon&logoColor=black)](https://www.patreon.com/axtonprice/) 
@@ -116,6 +100,6 @@ Permissions for all emotes are granted by default unless an emote is disabled or
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/license_text.png">
 
-### GPLv3 License
+## GPLv3 License
 
 This project is licensed under the GNU General Public License version 3. View the project license [here](https://github.com/axtonprice/axtons-emotes/blob/main/LICENSE).

@@ -16,6 +16,7 @@ The plugin supports over 10 languages. Below is a complete list of supported tra
 | Chinese Simplified   | zh    | zh.yml  |
 | Russian              | ru    | ru.yml  |
 | Ukrainian            | uk    | uk.yml  |
+| Czech                | cs    | cs.yml  |
 
 Language codes source: [docs.cloud.google.com/translate/docs/languages](https://docs.cloud.google.com/translate/docs/languages)
 

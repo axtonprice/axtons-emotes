@@ -117,7 +117,7 @@ public final class Migration {
     }
 
     /**
-     * Migrates emotes.yml from pre-1.6.0 structure to new v1.6.0 structure.
+     * Migrates emotes.yml from pre-v1.6.0 structure to new v1.6.0 structure.
      * 
      * @return {@code true} if migration was successful or not needed; {@code false} if migration failed.
      */

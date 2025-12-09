@@ -1,6 +1,5 @@
 package com.arizonsoftware.axtonsemotes.commands;
 
-import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

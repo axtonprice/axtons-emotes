@@ -13,11 +13,11 @@ plugin:
         invalid_lang: "ਗਲਤ ਭਾਸ਼ਾ ਕੰਫਿਗਰੇਸ਼ਨ ਪਾਈ ਗਈ ਹੈ, ਅੰਗ੍ਰੇਜ਼ੀ ਤੇ ਵਾਪਸ ਜਾ ਰਹੇ ਹਾਂ"
         no_emotes: "ਕੰਫਿਗਰੇਸ਼ਨ ਵਿੱਚ ਕੋਈ ਇਮੋਟ ਨਹੀਂ ਮਿਲੇ"
     migration:
-      migrate: "Config version is outdated! Migrating configuration..."
-      reset: "Configuration version is unsupported for migration! Resetting to plugin defaults..."
-      partial: "Config version is outdated! Migrating config.yml and resetting legacy files..."
-      deleting_file: "Deleting legacy file:"
-      deleting_file_failed: "Failed to delete file:"
+      migrate: "ਕੰਫ਼ਿਗ ਵਰਜਨ ਪੁਰਾਣਾ ਹੈ! ਕਨਫਿਗਰੇਸ਼ਨ ਮਾਈਗ੍ਰੇਟ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
+      reset: "ਕਨਫਿਗ ਵਰਜਨ ਮਾਈਗ੍ਰੇਸ਼ਨ ਲਈ ਸਮਰਥਿਤ ਨਹੀਂ! ਪਲੱਗਇਨ ਡਿਫਾਲਟ ਤੇ ਰੀਸੈਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+      partial: "ਕੰਫ਼ਿਗ ਵਰਜਨ ਪੁਰਾਣਾ ਹੈ! config.yml ਮਾਈਗ੍ਰੇਟ ਅਤੇ ਪੁਰਾਣੀਆਂ ਫਾਈਲਾਂ ਰੀਸੈਟ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ..."
+      deleting_file: "ਪੁਰਾਣੀ ਫ਼ਾਈਲ ਮਿਟਾਈ ਜਾ ਰਹੀ ਹੈ:"
+      deleting_file_failed: "ਫ਼ਾਈਲ ਮਿਟਾਉਣ ਵਿੱਚ ਅਸਫਲ:"
     registry:
       start: "ਪਲੱਗਇਨ ਕੰਪੋਨੈਂਟ ਰਜਿਸਟਰ ਕਰ ਰਹੇ ਹਾਂ..."
       configs_loaded: "%progress_suffix% %configs_count% ਕੰਫਿਗਰੇਸ਼ਨ!"

@@ -12,9 +12,12 @@ plugin:
         creating_default: "Error al crear la configuración predeterminada"
         invalid_lang: "Se detectó un idioma no válido en la configuración, se usará inglés por defecto"
         no_emotes: "No se encontraron emotes en la configuración"
-      migration:
-        migrate: "¡La versión de configuración está desactualizada! Migrando configuración"
-        reset: "La versión de configuración es demasiado antigua (1.3.0). Restableciendo la configuración predeterminada del complemento..."
+    migration:
+      migrate: "La versión de la configuración está desactualizada! Migrando la configuración..."
+      reset: "La versión de la configuración no es compatible para migración! Restableciendo a los valores predeterminados del plugin..."
+      partial: "La versión de la configuración está desactualizada! Migrando config.yml y restableciendo archivos heredados..."
+      deleting_file: "Eliminando archivo heredado:"
+      deleting_file_failed: "No se pudo eliminar el archivo:"
     registry:
       start: "Registrando componentes del plugin..."
       configs_loaded: "%progress_suffix% ¡%configs_count% configuración(es) cargada(s)!"

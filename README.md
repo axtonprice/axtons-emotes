@@ -30,7 +30,7 @@
 # Axton's Emotes
 > A light-weight, configurable chat emotes plugin for 1.20+ Spigot/Paper servers.
 
-Available in 12+ languages, including Spanish, French, Italian, German.. See the full list [on the wiki](https://emotes.axtonprice.xyz/languages/).
+Available in 12+ languages, including Spanish, French, Italian, German.. See the full list [on the wiki](https://emotes.axtonprice.xyz/resources/languages/).
 
 <img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo1.png" alt="Promo Image 1"> <img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo2.png" alt="Promo Image 2">
 
@@ -67,16 +67,16 @@ Permissions for all emotes are granted by default unless an emote is disabled or
 4. **Configure**: Modify `config.yml` to your liking, then reload the plugin with `/ae reload`.
 5. **Verify**: Check you are running the latest version by using `/ae version`.
 
-> **Note:** Java 17 or higher is required to run this plugin. Please refer to [the wiki](https://emotes.axtonprice.xyz/installation/) for more details on installation.
+> **Note:** Java 17 or higher is required to run this plugin. Please refer to [the wiki](https://emotes.axtonprice.xyz/resources/installation/) for more details on installation.
 
 <br>
 <img width="540" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/commands_perms_text.png" alt="Commands & Features">
 
 ## Commands & Permissions
 
-> View the [Commands Guide](https://emotes.axtonprice.xyz/commands/)
+> View the [Commands Guide](https://emotes.axtonprice.xyz/configuration/commands/)
 
-> View the [Permissions Guide](https://emotes.axtonprice.xyz/permissions/)
+> View the [Permissions Guide](https://emotes.axtonprice.xyz/configuration/permissions/)
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/configuration_text.png" alt="Configuration">
@@ -87,7 +87,7 @@ Permissions for all emotes are granted by default unless an emote is disabled or
 
 > View the [Emote Configuration Guide](https://emotes.axtonprice.xyz/configuration/#emote-configuration)
 
-> View the [Supported Languages](https://emotes.axtonprice.xyz/languages/)
+> View the [Supported Languages](https://emotes.axtonprice.xyz/resources/languages/)
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/credits_text.png">

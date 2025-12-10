@@ -9,7 +9,7 @@
 
 # >> Language
 # Sets the language used for in-game plugin messages.
-# For a full list of available languages, please refer to https://emotes.axtonprice.xyz/languages/
+# For a full list of available languages, please refer to https://emotes.axtonprice.xyz/resources/languages/
 language: en
 
 # >> Self-Executions

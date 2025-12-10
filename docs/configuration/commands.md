@@ -29,10 +29,10 @@ Allows players to execute emote commands.
 
 **Usage**
 ```
-/emote <emote> <player>
+/emote <emote> [player]
 ```
 
-> The `player` parameter is ignored for expression emotes.
+> The `player` parameter is not required for expression emotes.
 
 **Parameters**
 

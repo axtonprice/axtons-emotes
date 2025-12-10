@@ -4,7 +4,7 @@ See below the default configuration for the plugin's `config.yml`.
 #### Configuration Values
 
 - **language** *(default: en)*  
-  Sets the language used for in-game plugin messages. For a full list of available languages, please refer to the [Language List](https://emotes.axtonprice.xyz/languages/).
+  Sets the language used for in-game plugin messages. For a full list of available languages, please refer to the [Language List](https://emotes.axtonprice.xyz/resources/languages/).
 <br><br>
 
 - **allow-self-executions** *(default: false)*  
@@ -61,7 +61,7 @@ See below the default configuration for the plugin's `config.yml`.
 ```yml
 # >> Language
 # Sets the language used for in-game plugin messages.
-# For a full list of available languages, please refer to https://emotes.axtonprice.xyz/languages/
+# For a full list of available languages, please refer to https://emotes.axtonprice.xyz/resources/languages/
 language: en
 
 # >> Self-Executions

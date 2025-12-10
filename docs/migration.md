@@ -16,11 +16,11 @@ The table below summarises which versions support migration to the latest releas
 
 | Base Version | `config.yml` | `emotes.yml` |
 | ------------ | ------------ | ------------ |
-| 1.3.0        | ❌           | ❌          |
-| 1.4.0        | ✅           | ❌          |
-| 1.5.0       | ✅            | ✅          |
-| 1.5.1       | ✅            | ✅          |
-| 1.6.0+       | ✅            | ✅          |
+| 1.3.0        | ❌          | ❌          |
+| 1.4.0        | ✅          | ❌          |
+| 1.5.0        | ✅          | ✅          |
+| 1.5.1        | ✅          | ✅          |
+| 1.6.0+       | ✅          | ✅          |
 
 ❌ indicates that migration is not supported for that file and upgrading will reset it to defaults.
 <br>

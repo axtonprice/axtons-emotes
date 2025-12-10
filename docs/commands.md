@@ -6,10 +6,10 @@ Below is an overview of plugin commands, as well as a list of command details.
 
 | Command | Description | Aliases |
 | --- | --- | --- |
-| `/emote`,               | Execute emote command.         | `/e` |
-| `/emotes`,              | List emote commands.           | `/listemotes` |
-| `/expressions`,         | List emote commands.           | `/listexpressions`, `/reactions` |
-| `/toggleemotes`,        | Toggle shared emotes.          | `/emotestoggle` |
+| `/emote`               | Execute emote command.         | `/e` |
+| `/emotes`              | List emote commands.           | `/listemotes` |
+| `/expressions`         | List emote commands.           | `/listexpressions`, `/reactions` |
+| `/toggleemotes`        | Toggle shared emotes.          | `/emotestoggle` |
 | `/ae`, `/axtonsemotes`  | Main plugin utility commands   |  |
 | `/ae reload`            | Reload plugin config.          |  |
 | `/ae version`           | Check for plugin updates.      |  |
@@ -19,8 +19,6 @@ Below is an overview of plugin commands, as well as a list of command details.
 | `/ae resetemotes`       | Resets emote.yml file.         |  |
 | `/ae help`              | Provides link to wiki.         |  |
 
-> **Note:** Commands marked as *Operator* require the user to have the corresponding permission node, or be a server operator (`op`). Commands marked as *Granted by default* are available to all players.
-
 ## Command Details
 Detailed list of commands including parameters and aliases.
 
@@ -29,14 +27,14 @@ Detailed list of commands including parameters and aliases.
 #### /emote
 Allows players to execute emote commands.
 
-#### Usage
+**Usage**
 ```
 /emote <emote> <player>
 ```
 
 > The `player` parameter is ignored for expression emotes.
 
-#### Parameters
+**Parameters**
 
 | Parameter | Description |
 | --- | --- |

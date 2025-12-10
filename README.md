@@ -19,8 +19,11 @@
 <a href="https://www.spigotmc.org/resources/axtons-emotes.119499/">
     <img src="https://img.shields.io/spiget/downloads/119499?logo=SpigotMC&label=Spigot" alt="Spigot Version">
 </a>
-    <a href="https://builtbybit.com/resources/axtons-emotes.84984/">
+<a href="https://builtbybit.com/resources/axtons-emotes.84984/">
     <img src="https://img.shields.io/badge/BuiltByBit-0?logo=builtbybit&labelColor=white&color=2D87C3" alt="BuiltByBit">
+</a>
+<a href="https://hangar.papermc.io/axtonprice/AxtonsEmotes">
+    <img src="https://img.shields.io/badge/Paper%20Hangar-1?color=2f4476&logo=" alt="PaperMC Hangar">
 </a>
 <br>
 

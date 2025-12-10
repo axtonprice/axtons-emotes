@@ -18,20 +18,20 @@ View the project repository at [github.com/axtonprice/axtons-emotes](https://git
 
 Use the following links for shortcuts to plugin configuration and installation guides.
 
-[**Resources / Installation**](/resources/installation/)  
+[**Resources / Plugin Installation**](/resources/installation/)  
 A guide on installing the plugin on your server, including various download sources.
 
-[**Configuration / Custom Config**](/configuration/)  
+[**Configuration / Config & Emotes**](/configuration/)  
 A guide on configuring the plugin and creating emotes, including details on config values.
 
-[**Configuration / Commands**](/configuration/commands/)  
+[**Configuration / Plugin Commands**](/configuration/commands/)  
 A list of all commands that can be used within the plugin.
 
 [**Configuration / Permissions**](/configuration/permissions/)  
 A list of all permission nodes that can be used within the plugin.
 
-[**Resources / Languages**](/resources/languages/)  
+[**Resources / Supported Languages**](/resources/languages/)  
 A list of supported language codes for use within the config file.
 
-[**Resources / Migration**](/resources/migration/)  
-A list of supported language codes for use within the config file.
+[**Resources / Config Migration**](/resources/migration/)  
+A guide on how the migration system works including the supported versions.

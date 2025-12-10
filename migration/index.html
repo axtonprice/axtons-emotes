@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://emotes.axtonprice.xyz/installation/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://emotes.axtonprice.xyz/migration/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Installation - Axton's Emotes</title>
+    <title>Migration - Axton's Emotes</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,9 +13,9 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Installation";
-        var mkdocs_page_input_path = "installation.md";
-        var mkdocs_page_url = "/installation/";
+        var mkdocs_page_name = "Migration";
+        var mkdocs_page_input_path = "migration.md";
+        var mkdocs_page_url = "/migration/";
       </script>
     
     <!--[if lt IE 9]>
@@ -52,22 +52,22 @@
                 <li class="toctree-l1"><a class="reference internal" href="../configuration/">Plugin Configuration</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#download-sources">Download Sources</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#compatibility">Compatibility</a>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                 </li>
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../languages/">Languages</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../migration/">Migration</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Migration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#emote-migration">Emote Migration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#supported-versions">Supported Versions</a>
+    </li>
+    </ul>
                 </li>
               </ul>
               <ul>
@@ -88,9 +88,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Installation</li>
+      <li class="breadcrumb-item active">Migration</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/axtonprice/axtons-emotes/edit/master/docs/installation.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/axtonprice/axtons-emotes/edit/master/docs/migration.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -98,41 +98,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="installation">Installation</h1>
-<ol>
-<li><strong>Download</strong>: Get the latest <code>.jar</code> from the one of the sources listed below.</li>
-<li><strong>Deploy</strong>: Place the <code>.jar</code> in your server's <code>plugins/</code> folder.</li>
-<li><strong>Restart</strong>: Restart your server. PaperMC is recommended for optimal performance.</li>
-<li><strong>Configure</strong>: Modify <code>config.yml</code> to your liking, then reload the plugin with <code>/ae reload</code>.</li>
-<li><strong>Verify</strong>: Check you are running the latest version by using <code>/ae version</code>.</li>
-</ol>
-<blockquote>
-<p><strong>Note:</strong> Java 17 or higher is required to run this plugin.</p>
-</blockquote>
-<h2 id="download-sources">Download Sources</h2>
-<p>🔗 <strong><a href="https://github.com/axtonprice/axtonsemotes/releases">Click to download from GitHub</a></strong>
+                <h1 id="migration">Migration</h1>
+<p>The plugin will <strong>automatically</strong> migrate configuration files when it detects they are outdated. It checks the installed plugin version against the <code>config-version</code> value in <code>config.yml</code>, and if the installed version is higher, a migration is triggered.</p>
+<p>During migration, the plugin preserves all user-defined values. Updated configuration structures from newer versions are applied, but existing user-set keys are kept. Any missing keys are added with their default values, and any obsolete keys are removed.</p>
+<h3 id="emote-migration">Emote Migration</h3>
+<p>Emote migration works similarly. For versions <strong>1.5.0 and below</strong>, <code>emotes.yml</code> (or legacy <code>commands.yml</code> for v1.4.0) cannot be migrated and will always be reset to its default state (legacy files will be removed and replaced). </p>
+<p>Versions <strong>1.5.0 and 1.5.1</strong> will be migrated to the new emote structure, and versions <strong>1.6.0 and above</strong> follow the same migration behaviour as <code>config.yml</code>, updating structural changes while preserving user values.</p>
+<h3 id="supported-versions">Supported Versions</h3>
+<p>The table below summarises which versions support migration to the latest release:</p>
+<table>
+<thead>
+<tr>
+<th>Base Version</th>
+<th><code>config.yml</code></th>
+<th><code>emotes.yml</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.3.0</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>1.4.0</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>1.5.0</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.5.1</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.6.0+</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>❌ indicates that migration is not supported for that file and upgrading will reset it to defaults.
 <br>
-<a href="https://github.com/axtonprice/axtons-emotes/releases"><img alt="GitHub" src="https://img.shields.io/github/release/axtonprice/axtons-emotes?label=GitHub&amp;logo=GitHub&amp;style=for-the-badge" /></a></p>
-<p>🔗 <strong><a href="https://modrinth.com/plugin/axtonsemotes">Click to download from Modrinth</a></strong>
-<br>
-<a href="https://modrinth.com/plugin/axtonsemotes"><img alt="Modrinth" src="https://img.shields.io/modrinth/dt/axtonsemotes?logo=Modrinth&amp;label=Modrinth&amp;style=for-the-badge" /></a></p>
-<p>🔗 <strong><a href="https://www.spigotmc.org/resources/axtons-emotes.119499/">Click to download from SpigotMC</a></strong>
-<br>
-<a href="https://www.spigotmc.org/resources/axtons-emotes.119499/"><img alt="SpigotMC" src="https://img.shields.io/spiget/downloads/119499?logo=SpigotMC&amp;label=SpigotMC&amp;style=for-the-badge" /></a></p>
-<p>🔗 <strong><a href="https://www.curseforge.com/minecraft/bukkit-plugins/axtons-emotes">Click to download from CurseForge</a></strong>
-<br>
-<a href="https://www.curseforge.com/minecraft/bukkit-plugins/axtons-emotes"><img alt="CurseForge" src="https://img.shields.io/curseforge/dt/1086817?logo=CurseForge&amp;label=CurseForge&amp;style=for-the-badge" /></a></p>
-<p>🔗 <strong><a href="https://builtbybit.com/resources/axtons-emotes.84984/">Click to purchase from BuiltByBit</a></strong>
-<br>
-<a href="https://builtbybit.com/resources/axtons-emotes.84984/"><img alt="BuiltByBit" src="https://img.shields.io/badge/BuiltByBit-0?logo=builtbybit&amp;logoColor=white&amp;labelColor=gray&amp;color=2D87C3&amp;style=for-the-badge" /></a></p>
-<h2 id="compatibility">Compatibility</h2>
-<p>The plugin has been tested on all versions from 1.20 up to the latest version of Minecraft (currently 1.21.10). Please <a href="https://github.com/axtonprice/axtons-emotes/issues">create a new issue</a> if you discover new versions to break functionality of the plugin.</p>
+✅ indicates that migration is supported and the file will be upgraded automatically.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../configuration/" class="btn btn-neutral float-left" title="Plugin Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../languages/" class="btn btn-neutral float-right" title="Languages">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../languages/" class="btn btn-neutral float-left" title="Languages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../permissions/" class="btn btn-neutral float-right" title="Permissions">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -159,10 +177,10 @@
         </span>
     
     
-      <span><a href="../configuration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../languages/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../languages/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../permissions/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -30,7 +30,7 @@
 # Axton's Emotes
 > A light-weight, configurable chat emotes plugin for 1.20+ Spigot/Paper servers.
 
-Available in 10+ languages, including Spanish, French, Italian, German.. See the full list [here](https://emotes.axtonprice.xyz/languages/).
+Available in 12+ languages, including Spanish, French, Italian, German.. See the full list [on the wiki](https://emotes.axtonprice.xyz/languages/).
 
 <img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo1.png" alt="Promo Image 1"> <img width="200" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/promo2.png" alt="Promo Image 2">
 
@@ -39,13 +39,13 @@ Available in 10+ languages, including Spanish, French, Italian, German.. See the
 
 ## Features
 
-- 🎲 **Easy emote configuration** (Easily create custom emotes or simply use the premade emotes).
+- 🎲 **Easy emote configuration** *(Easily create custom emotes or simply use the premade emotes).*
 
-- 🗝️ **Simple permissions** (User and admin permissions are designed to be simple).
+- 🗝️ **Simple permissions** *(User and admin permissions are designed to be simple).*
 
-- 💫 **Configurable emote radius** (Distance players must be from each other for shared emotes).
+- 💫 **Configurable emote radius** *(Distance players must be from each other for shared emotes).*
 
-- ⏱️ **Configurable emote cooldown** (Prevent players from spamming emotes with cooldowns).
+- ⏱️ **Configurable emote cooldown** *(Prevent players from spamming emotes with cooldowns).*
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/screenshots_text.png" alt="Screenshots">

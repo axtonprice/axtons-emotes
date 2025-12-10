@@ -41,11 +41,9 @@ Available in 10+ languages, including Spanish, French, Italian, German.. See the
 
 - 🎲 **Easy emote configuration** (Easily create custom emotes or simply use the premade emotes).
 
-- 🗝️ **Simple permissions** (User and admin permissions are easy to setup with permission managers such as LuckPerms).
+- 🗝️ **Simple permissions** (User and admin permissions are designed to be simple).
 
-- 🗝️ **Simple permissions** (User and admin permissions are easy to setup with permission managers such as LuckPerms).
-
-- 💫 **Configurable emote radius** (Specify a distance players must be from each other to execute shared emotes).
+- 💫 **Configurable emote radius** (Distance players must be from each other for shared emotes).
 
 - ⏱️ **Configurable emote cooldown** (Prevent players from spamming emotes with cooldowns).
 

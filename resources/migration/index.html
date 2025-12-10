@@ -61,8 +61,6 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Migration</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#emote-migration">Emote Migration</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#supported-versions">Supported Versions</a>
     </li>
     </ul>
@@ -96,7 +94,6 @@
                 <h1 id="migration">Migration</h1>
 <p>The plugin will <strong>automatically</strong> migrate configuration files when it detects they are outdated. It checks the installed plugin version against the <code>config-version</code> value in <code>config.yml</code>, and if the installed version is higher, a migration is triggered.</p>
 <p>During migration, the plugin preserves all user-defined values. Updated configuration structures from newer versions are applied, but existing user-set keys are kept. Any missing keys are added with their default values, and any obsolete keys are removed.</p>
-<h3 id="emote-migration">Emote Migration</h3>
 <p>Emote migration works similarly. For versions <strong>1.5.0 and below</strong>, <code>emotes.yml</code> (or legacy <code>commands.yml</code> for v1.4.0) cannot be migrated and will always be reset to its default state (legacy files will be removed and replaced). </p>
 <p>Versions <strong>1.5.0 and 1.5.1</strong> will be migrated to the new emote structure, and versions <strong>1.6.0 and above</strong> follow the same migration behaviour as <code>config.yml</code>, updating structural changes while preserving user values.</p>
 <h3 id="supported-versions">Supported Versions</h3>
@@ -104,7 +101,7 @@
 <table>
 <thead>
 <tr>
-<th>Base Version</th>
+<th>Version</th>
 <th><code>config.yml</code></th>
 <th><code>emotes.yml</code></th>
 </tr>

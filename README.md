@@ -39,18 +39,20 @@ Available in 12+ languages, including Spanish, French, Italian, German.. See the
 
 ## Features
 
-- 🎲 **Easy emote configuration** *(Easily create custom emotes or simply use the premade emotes).*
+- 🎮 **Drag-and-drop play** *(Plugin does not require configuration changes to begin using).*
 
-- 🗝️ **Simple permissions** *(User and admin permissions are designed to be simple).*
+- 🎲 **Easy emote configuration** *(Easily create custom emotes, or simply use the premade emotes).*
 
-- 💫 **Configurable emote radius** *(Distance players must be from each other for shared emotes).*
+- 🗝️ **Simple permissions** *(Plugin permissions are designed to be easy to configure).*
 
-- ⏱️ **Configurable emote cooldown** *(Prevent players from spamming emotes with cooldowns).*
+- 💫 **Configurable emote radius** *(Minimum distance players must be from each other for shared emotes).*
+
+- ⏱️ **Configurable emote cooldown** *(Prevent players from spamming emotes commands).*
 
 <br>
 <img width="350" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/screenshots_text.png" alt="Screenshots">
 
-## Ingame Examples
+## Ingame Screenshots
 
 <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example1.gif" alt="Command example"> <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example2.gif" alt="Command example"> <img width="300" src="https://raw.githubusercontent.com/axtonprice/axtons-emotes/refs/heads/main/.github/media/cmd_example3.gif" alt="Command example">
 

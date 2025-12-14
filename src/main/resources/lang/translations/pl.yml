@@ -12,9 +12,12 @@ plugin:
         creating_default: "Błąd podczas tworzenia domyślnej konfiguracji"
         invalid_lang: "Wykryto nieprawidłową konfigurację języka — ustawiono angielski jako domyślny"
         no_emotes: "Nie znaleziono emotki w konfiguracji"
-      migration:
-        migrate: "Wersja konfiguracji jest nieaktualna! Migracja konfiguracji"
-        reset: "Wersja konfiguracji jest za stara (1.3.0). Przywracam ustawienia domyślne wtyczki..."
+    migration:
+      migrate: "Wersja konfiguracji jest nieaktualna! Trwa migracja konfiguracji..."
+      reset: "Wersja konfiguracji nie jest obsługiwana do migracji! Przywracanie domyślnych ustawień wtyczki..."
+      partial: "Wersja konfiguracji jest nieaktualna! Migracja config.yml i resetowanie starych plików..."
+      deleting_file: "Usuwanie starego pliku:"
+      deleting_file_failed: "Nie udało się usunąć pliku:"
     registry:
       start: "Rejestrowanie komponentów pluginu..."
       configs_loaded: "%progress_suffix% załadowano %configs_count% konfiguracji!"

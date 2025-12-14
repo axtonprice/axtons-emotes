@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 
 public class ToggleSharedEmotes implements CommandExecutor {
 
-   /**
+    /**
     * Executes the shared emote toggle command.
     *
     * Checks whether the sender is a player, verifies configuration settings,
@@ -25,47 +25,47 @@ public class ToggleSharedEmotes implements CommandExecutor {
     * @param args The arguments passed to the command (not used here).
     * @return false if the command executed normally; true if it was blocked due to configuration or permissions.
     */
-   @Override
-   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-      // Check if sender is a player
-      if (!Validation.checkIsSenderPlayer(sender))
-         return false;
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        // Check if sender is a player
+        if (!Validation.checkIsSenderPlayer(sender))
+            return false;
 
-      // Cast sender to Player
-      Player player = (Player) sender;
+        // Cast sender to Player
+        Player player = (Player) sender;
 
-      // Check if self-toggle is allowed in config
-      if (!Configuration.getBoolean("config.yml", "allow-self-toggle.enabled")) {
-         sender.sendMessage(MessageHandler.parseError("error.command.disabled"));
-         return true;
-      }
+        // Check if self-toggle is allowed in config
+        if (!Configuration.getBoolean("config.yml", "allow-self-toggle.enabled")) {
+            sender.sendMessage(MessageHandler.parseError("error.command.disabled"));
+            return true;
+        }
 
-      // Check if permission is required and if the sender lacks it
-      if (Configuration.getBoolean("config.yml", "allow-self-toggle.require-permission") &&
-            !sender.hasPermission("axtonsemotes.emotes.selftoggle")) {
-         sender.sendMessage(MessageHandler.parseError("error.command.permission"));
-         return true;
-      }
+        // Check if permission is required and if the sender lacks it
+        if (Configuration.getBoolean("config.yml", "allow-self-toggle.require-permission") &&
+                !sender.hasPermission("axtonsemotes.emotes.selftoggle")) {
+            sender.sendMessage(MessageHandler.parseError("error.command.permission"));
+            return true;
+        }
 
-      // Retrieve current setting
-      Boolean currentSetting = PlayerData.retrievePlayerSetting("toggleemotes", player, Boolean.class);
-      Boolean newSetting = (currentSetting != null && !currentSetting) ? Boolean.TRUE : Boolean.FALSE;
+        // Retrieve current setting
+        Boolean currentSetting = PlayerData.retrievePlayerSetting("toggleemotes", player, Boolean.class);
+        Boolean newSetting = (currentSetting != null && !currentSetting) ? Boolean.TRUE : Boolean.FALSE;
 
-      // Update player setting
-      PlayerData.storePlayerSetting("toggleemotes", player, newSetting);
+        // Update player setting
+        PlayerData.storePlayerSetting("toggleemotes", player, newSetting);
 
-      // Send feedback message
-      if (newSetting) {
-         player.sendMessage(MessageHandler.parseInfo("command.emote_toggle.enabled"));
-      } else {
-         player.sendMessage(MessageHandler.parseInfo("command.emote_toggle.disabled"));
-      }
+        // Send feedback message
+        if (newSetting) {
+            player.sendMessage(MessageHandler.parseInfo("command.emote_toggle.enabled"));
+        } else {
+            player.sendMessage(MessageHandler.parseInfo("command.emote_toggle.disabled"));
+        }
 
-      // Log the change
-      String logContext = this.getClass().getSimpleName() + "/"
-            + Thread.currentThread().getStackTrace()[1].getMethodName();
-      Debugging.log(logContext, player.getName() + " set shared emotes to: " + newSetting);
+        // Log the change
+        String logContext = this.getClass().getSimpleName() + "/"
+                + Thread.currentThread().getStackTrace()[1].getMethodName();
+        Debugging.log(logContext, player.getName() + " set shared emotes to: " + newSetting);
 
-      return false;
-   }
+        return false;
+    }
 }

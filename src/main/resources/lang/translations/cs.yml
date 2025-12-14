@@ -1,0 +1,102 @@
+# Plugin startup and lifecycle messages
+plugin:
+  startup:
+    progress_suffix:
+      starting: "Spouštění"
+      reloaded: "Znovu načteno"
+      loaded: "Načteno"
+    configuration:
+      start: "Kontroluji konfiguraci..."
+      error:
+        validating: "Chyba při ověřování konfigurace"
+        creating_default: "Chyba při vytváření výchozí konfigurace"
+        invalid_lang: "Zjištěna neplatná jazyková konfigurace, používám výchozí angličtinu"
+        no_emotes: "V konfiguraci nebyly nalezeny žádné emoty"
+    migration:
+      migrate: "Verze konfigurace je zastaralá! Probíhá migrace..."
+      reset: "Verze konfigurace není podporována! Obnovuji výchozí nastavení pluginu..."
+      partial: "Verze konfigurace je zastaralá! Migruji config.yml a resetuji staré soubory..."
+      deleting_file: "Mazání starého souboru:"
+      deleting_file_failed: "Nepodařilo se smazat soubor:"
+    registry:
+      start: "Registrování komponent pluginu..."
+      configs_loaded: "%progress_suffix% %configs_count% konfigurací!"
+      commands_loaded: "%progress_suffix% %commands_count% příkazů!"
+      listeners_loaded: "%progress_suffix% %listeners_count% listenerů!"
+    version_check: "Kontroluji dostupné aktualizace pluginu..."
+    bstats:
+      start: "Spouštím BStats statistiky..."
+      failed: "Nepodařilo se odeslat statistiky do BStats!"
+    footer: "%progress_suffix% všechny funkce"
+# Configuration system messages
+config:
+  error:
+    saving: "Nepodařilo se uložit konfigurační soubor"
+  success:
+    saving: "Konfigurace byla úspěšně uložena"
+# Global error messages
+error:
+  permission: "Nemáš oprávnění použít tento příkaz!"
+  invalid_config: "Byla zjištěna neplatná konfigurace!"
+  player:
+    only: "Tento příkaz může použít pouze hráč!"
+    self: "Tento příkaz nemůžeš použít sám na sebe! Zkus to s kamarádem."
+    offline: "Hráč nebyl nalezen nebo je offline!"
+  command:
+    disabled: "Tento příkaz je vypnutý!"
+    execute: "Nepodařilo se provést příkaz!"
+    syntax:
+      sub_command: "Neplatná syntaxe! Zadej platný pod-příkaz!"
+      no_target: "Neplatná syntaxe! Musíš zadat platného hráče!"
+      emote_shared: "Použití: /emote <nazev> [hráč]"
+      emote_expression: "Použití: /emote <nazev>"
+  emote:
+    not_found: "Emote nebyl nalezen nebo je vypnutý!"
+    misconfigured: "Emote je špatně nakonfigurovaný a nelze jej provést! Kontaktuj administrátora serveru."
+    radius: "Jsi příliš daleko od tohoto hráče! Přibliž se a zkus to znovu."
+    cooldown: "Musíš počkat %duration% sekund před dalším emotem!"
+# Command-specific messages
+command:
+  emote_toggle:
+    sender_toggled: "Zakázal jsi sdílené emoty. Zapnout je můžeš pomocí &7/toggleemotes"
+    target_toggled: "Tento hráč má vypnuté sdílené emoty."
+    enabled: "&aSdílené emoty byly povoleny. Hráči mohou provádět sdílené emoty s tebou."
+    disabled: "&cSdílené emoty byly zakázány. Hráči již s tebou nemohou provádět sdílené emoty."
+  reload:
+    success: "Konfigurace úspěšně znovu načteny! (%exec_time%ms)"
+    emotes_note: "Zobrazení dostupných emotů: &f/emotes&7 a &f/expressions&7."
+  version:
+    info_latest: "Běžíš na AxtonsEmotes verzi v%current_version%. Nejnovější verze je v%latest_version%."
+    info_outdated: "Používáš zastaralou verzi AxtonsEmotes: v%current_version%! Nejnovější verze je v%latest_version%."
+    info_releases: "Klikni pro zobrazení verzí."
+    outdated_notify: "Je dostupná novější verze AxtonsEmotes: v%latest_version%, tvoje verze: v%current_version%."
+  toggledebug:
+    enabled: "Debug mód zapnut."
+    disabled: "Debug mód vypnut."
+  togglemetrics:
+    enabled: "Sběr statistik BStats byl povolen."
+    disabled: "Sběr statistik BStats byl zakázán."
+  resetlang:
+    success: "Jazykové soubory byly resetovány na výchozí."
+    error: "Nepodařilo se resetovat jazykové soubory."
+  resetemotes:
+    success: "Konfigurace emotů byla resetována na výchozí."
+    error: "Nepodařilo se resetovat konfigurační soubor emotes.yml."
+  help: "Klikni pro otevření GitHub wiki s příručkami a konfigurací"
+  list:
+    no_description: "Bez popisu"
+    titles:
+      emotes: "Sdílené Emoty"
+      expressions: "Výrazy"
+    subtitles:
+      emotes: "&7Sdílené emoty se provádí s jiným hráčem."
+      expressions: "&7Výrazové emoty se zobrazují všem hráčům."
+    navigation:
+      page: "Stránka: %current_page% z %total_pages%"
+      listing: "Seznam"
+      next: "Další"
+      previous: "Předchozí"
+      footer: "&7Použij &9/%command_name% %page_number%&r&7 pro zobrazení další stránky."
+    notes:
+      emotes: "&7Použij &b/expressions&7 pro seznam výrazových emotů."
+      expressions: "&7Použij &b/emotes&7 pro seznam sdílených emotů."

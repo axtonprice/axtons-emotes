@@ -1,6 +1,5 @@
 package com.arizonsoftware.axtonsemotes.commands;
 
-import com.arizonsoftware.axtonsemotes.utils.MessageHandler;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,7 +27,7 @@ public class BaseCommands implements TabExecutor {
 
         // Validate presence of subcommand
         if (args.length == 0) {
-            sender.sendMessage(MessageHandler.parseError("error.command.syntax.sub_command"));
+            this.AECommands.helpCommand(sender);
             return false;
         }
 
@@ -40,33 +39,26 @@ public class BaseCommands implements TabExecutor {
             case "toggledebug":
                 this.AECommands.toggleConfig("debug-mode.enabled", subcommand, sender);
                 return true;
-
             case "togglemetrics":
                 this.AECommands.toggleConfig("enable-metrics", subcommand, sender);
                 return true;
-
             case "reload":
                 this.AECommands.reloadConfig(sender);
                 return true;
-
             case "version":
                 this.AECommands.pluginVersion(subcommand, sender);
                 return true;
-
             case "resetlang":
                 this.AECommands.resetLangFiles(sender);
                 return true;
-
             case "resetemotes":
                 this.AECommands.resetEmoteConfig(sender);
                 return true;
-
             case "help":
                 this.AECommands.helpCommand(sender);
                 return true;
-
             default:
-                sender.sendMessage(MessageHandler.parseError("error.command.syntax.sub_command"));
+                this.AECommands.helpCommand(sender);
                 return false;
         }
     }
@@ -91,18 +83,18 @@ public class BaseCommands implements TabExecutor {
 
         // Define possible subcommands and their required permissions
         String[] commands = {
+                "reload",
                 "toggledebug",
                 "togglemetrics",
-                "reload",
                 "version",
                 "resetlang",
                 "resetemotes",
                 "help"
         };
         String[] permissions = {
+                "axtonsemotes.admin.reload",
                 "axtonsemotes.admin.toggledebug",
                 "axtonsemotes.admin.togglemetrics",
-                "axtonsemotes.admin.reload",
                 "axtonsemotes.admin.version",
                 "axtonsemotes.admin.resetlang",
                 "axtonsemotes.admin.resetemotes",

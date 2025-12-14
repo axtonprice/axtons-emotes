@@ -12,9 +12,12 @@ plugin:
         creating_default: "Erreur lors de la création de la configuration par défaut"
         invalid_lang: "Configuration de langue invalide détectée, utilisation de l'anglais par défaut"
         no_emotes: "Aucun émote trouvé dans la configuration"
-      migration:
-        migrate: "La version de configuration est obsolète ! Migration de la configuration en cours"
-        reset: "La version de configuration est trop ancienne (1.3.0). Réinitialisation aux paramètres par défaut du plugin…"
+    migration:
+      migrate: "La version de la configuration est obsolète! Migration de la configuration en cours…"
+      reset: "Cette version de configuration n'est pas prise en charge pour la migration! Réinitialisation aux paramètres par défaut du plugin…"
+      partial: "La version de configuration est obsolète! Migration du fichier config.yml et réinitialisation des fichiers hérités…"
+      deleting_file: "Suppression du fichier hérité:"
+      deleting_file_failed: "Échec de la suppression du fichier:"
     registry:
       start: "Enregistrement des composants du plugin..."
       configs_loaded: "%progress_suffix% %configs_count% configuration(s) chargée(s) !"

@@ -3,10 +3,10 @@
 /.vscode
 /.idea
 /.github/docs
-/.github/wiki
 /.github/media/dev
 /.github/media/Thumbs.db
 TODO.md
+/site
 
 # From https://github.com/github/gitignore/blob/master/Gradle.gitignore
 .gradle

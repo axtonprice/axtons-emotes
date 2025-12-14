@@ -5,16 +5,16 @@
 # > /_/  |_/_/|_|\__/\____/_/ /_/ /____/  /_____/_/ /_/ /_/\____/\__/\___/____/
 # >
 # >> Axton's Emotes | Configuration
-# For more information, visit: https://github.com/axtonprice/axtons-emotes/wiki
+# For more information, visit: https://emotes.axtonprice.xyz/configuration/
 
 # >> Language
 # Sets the language used for in-game plugin messages.
-# For a full list of available languages, please refer to https://github.com/axtonprice/axtons-emotes/wiki/Languages
+# For a full list of available languages, please refer to https://emotes.axtonprice.xyz/resources/languages/
 language: en
 
 # >> Self-Executions
 # Allows players to execute emote commands on themselves.
-# Default: true
+# Default: false
 allow-self-executions: false
 
 # >> List Commands
@@ -27,28 +27,28 @@ allow-list-commands: true
 # Allows players to use /toggleemotes, removing the ability for others to execute shared emotes on them.
 # If both below are enabled, the player must have the 'axtonsemotes.emotes.selftoggle' permission to run the toggle command.
 allow-self-toggle:
-  # Default: true
-  enabled: true
-  # Default: false
-  require-permission: false
+  enabled: true # true
+  require-permission: false # false
 
 # >> Shared Emote Radius
 # Sets the minimum distance (in blocks) required between the sender and target player to execute shared emotes.
 # Players with axtonsemotes.admin.bypassradius permission can bypass the configured radius limit below.
 emote-radius:
-  # Default: true
-  enabled: true
-  # Default: 15
-  distance: 15
+  enabled: true # true
+  distance: 15 # 15
 
 # >> Emote Cooldown
 # Sets a cooldown period (in seconds) between emote executions per player.
 # Players with axtonsemotes.admin.bypasscooldown permission can bypass the configured cooldown below.
 emote-cooldown:
-  # Default: true
-  enabled: true
-  # Default: 3
-  duration-seconds: 3
+  enabled: true # true
+  duration-seconds: 3 # 3
+
+# >> Actionbar Messages
+# Toggles sending emote messages as actionbar titles instead of chat messages.
+use-actionbar:
+  shared-emotes: false # false
+  expressions: false # false
 
 # >> Default Effects
 # Specifies the default particle and sound effects if the specified enum constant is invalid (NOT if the effect is set to 'none').
@@ -57,20 +57,13 @@ default-effects:
   particle: "CRIT"
   sound: "ENTITY_ITEM_PICKUP"
 
+# >> Debug Mode
 # Configure debug mode, which logs detailed information about command executions. This is useful
 # for troubleshooting but will result in many console messages.
 debug-mode:
-  # Toggles additional console information during startup and command executions.
-  # Default: false
-  enabled: false
-
-  # Specify whether to log debug messages to a file. Ignored if 'enabled' above is set to false.
-  # Default: true
-  log-to-file: true
-
-  # Specifies the name of the file which debug logs are saved to. Set to none to disable logging to a file.
-  # Default: debug.log
-  file-name: "debug.log"
+  enabled: false # false
+  log-to-file: true # true
+  file-name: "debug.log" # debug.log
 
 # >> Plugin Versioning & Updates
 # Configure update checks and notifications:
@@ -79,7 +72,7 @@ updates:
   # Default: true
   check-for-latest: true
 
-  # Notifies players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
+  # Notifies operators and players with the axtonsemotes.admin.updatenotify permission when a newer version is available.
   # Default: true
   notify-players-on-update: true
 
@@ -89,5 +82,5 @@ updates:
 enable-metrics: true
 
 # The current version of the plugin.
-# >> MODIFYING THIS MAY RESET YOUR CONFIG! <<
-config-version: 1.5.1
+# >> Do NOT modify this! <<
+config-version: 1.6.0

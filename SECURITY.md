@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-We provide security updates only for the latest versions of this project. Issues reported in older releases will not be addressed, as those versions are no longer maintained.
+We will provide security updates **only** for the latest versions of this project. Older versions are not maintained, and any issues raised for older releases will not be addressed.
 
 ## Reporting Vulnerabilities
 
